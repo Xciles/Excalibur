@@ -14,6 +14,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Excalibur.Shared\Excalibur.Shared.projitems*{680f063e-b861-42c7-9e43-ecdda37a6113}*SharedItemsImports = 13
+		Excalibur.Shared\Excalibur.Shared.projitems*{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

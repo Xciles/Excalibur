@@ -9,5 +9,29 @@
     <Import_RootNamespace>Excalibur.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)README.md">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Business\BaseBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\IBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\BaseObjectMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\IObjectMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\ObjectMapperRegistrar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Observable\ObservableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IBaseService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Storage\StorageServiceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Storage\Providers\IObjectStorageProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Storage\IStorageService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Storage\Providers\ObjectAsFileStorageProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Storage\StorageDomain.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Presentation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Storage\Providers\" />
   </ItemGroup>
 </Project>
