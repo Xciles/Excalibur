@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\BaseObjectMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\IObjectMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\ObjectMapperRegistrar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Observable\ObservableObjectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Observable\ObservableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\BasePresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentation.cs" />

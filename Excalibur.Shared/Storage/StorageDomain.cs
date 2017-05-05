@@ -29,6 +29,9 @@
             set { _id = value; }
         }
 
+        // Todo add == operator
+        // Todo add Equals operator
+
         /// <summary>
         /// This method will provide a check to see if the database object is a new object or an existing
         /// object.
@@ -40,7 +43,5 @@
         {
             return Id == null || Id.Equals(default(TId));
         }
-
-
     }
 }

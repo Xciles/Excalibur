@@ -38,6 +38,8 @@ namespace Excalibur.Shared.Business
 
             PublishListUpdated();
         }
+
+        public abstract Task UpdateFromServiceAsync();
     }
 
 
@@ -46,11 +48,11 @@ namespace Excalibur.Shared.Business
     {
     }
 
-    public abstract class BaseSingleBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>
+    public abstract class BaseSingleBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, ISingleBusiness<TDomain>
         where TDomain : StorageDomain<TId>, new()
         where TService : class, IServiceBase<TDomain>
     {
-        public virtual async Task UpdateFromServiceAsync()
+        public override async Task UpdateFromServiceAsync()
         {
             var result = await Service.SyncDataAsync().ConfigureAwait(false) ?? new TDomain();
 
@@ -65,7 +67,7 @@ namespace Excalibur.Shared.Business
             return list.FirstOrDefault();
         }
 
-        protected async Task DeleteAsync()
+        public async Task DeleteAsync()
         {
             var itemToDelete = await GetAsync().ConfigureAwait(false);
 
@@ -84,7 +86,7 @@ namespace Excalibur.Shared.Business
     {
     }
 
-    public abstract class BaseListBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>
+    public abstract class BaseListBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, IListBusiness<TId, TDomain>
         where TDomain : StorageDomain<TId>, new()
         where TService : class, IServiceBase<IList<TDomain>>
     {
@@ -98,7 +100,7 @@ namespace Excalibur.Shared.Business
             return await Storage.Get(id).ConfigureAwait(false);
         }
 
-        public virtual async Task UpdateFromServiceAsync()
+        public override async Task UpdateFromServiceAsync()
         {
             var result = await Service.SyncDataAsync().ConfigureAwait(false) ?? new List<TDomain>();
 
@@ -112,7 +114,7 @@ namespace Excalibur.Shared.Business
             await Storage.StoreRange(objectsToStore).ConfigureAwait(false);
         }
 
-        protected async Task DeleteItemAsync(TId id)
+        public async Task DeleteItemAsync(TId id)
         {
             await Storage.Delete(id).ConfigureAwait(false);
 
