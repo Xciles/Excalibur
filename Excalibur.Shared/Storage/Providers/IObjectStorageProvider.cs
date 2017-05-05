@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Dynamic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Excalibur.Shared.Storage.Providers
 {
-    public interface IObjectStorageProvider<T, TId> where T : StorageDomain<TId>
+    public interface IObjectStorageProvider<in TId, T> where T : StorageDomain<TId>
     {
         Task StoreRange(IList<T> objectsToStore);
         Task<IList<T>> GetRange(); // todo: change to take skip, returning all for now

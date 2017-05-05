@@ -16,14 +16,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Business\BaseBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\EDomainState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\IBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\ExObservableCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\IObservableCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\ISortedObservableCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\SafeEnumerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\ExSortedObservableCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MessageBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\BaseObjectMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\IObjectMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\ObjectMapperRegistrar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Observable\ObservableBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IBaseService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\BasePresentation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IServiceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ServiceBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage\StorageServiceBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage\Providers\IObjectStorageProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage\IStorageService.cs" />
@@ -31,7 +41,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Storage\StorageDomain.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Presentation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Storage\Providers\" />
   </ItemGroup>
 </Project>

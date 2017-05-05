@@ -64,6 +64,9 @@
     <Reference Include="System.ComponentModel.TypeConverter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.TypeConverter.4.3.0\lib\netstandard1.0\System.ComponentModel.TypeConverter.dll</HintPath>
     </Reference>
+    <Reference Include="XLabs.IOC, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XLabs.IoC.2.3.0-pre05\lib\portable-net45+win8+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\XLabs.IOC.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

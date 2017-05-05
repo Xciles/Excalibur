@@ -1,5 +1,10 @@
 ﻿namespace Excalibur.Shared.Storage
 {
+    public abstract class StorageDomain : StorageDomain<int>
+    {
+        
+    }
+
     /// <summary>
     /// This class can be used for database objects used by projects. The class
     /// will provide a default property for the identifier and other supporting methods.

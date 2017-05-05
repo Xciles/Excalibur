@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Excalibur.Shared.Storage.Providers
 {
-    public class ObjectAsFileStorageProvider<T, TId> : IObjectStorageProvider<T, TId>
+    public class ObjectAsFileStorageProvider<TId, T> : IObjectStorageProvider<TId, T>
         where T : StorageDomain<TId>
     {
         private const string DataFolder = "data";
