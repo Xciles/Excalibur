@@ -6,6 +6,7 @@ using Excalibur.Shared.Storage;
 using Excalibur.Shared.Storage.Providers;
 using PubSub;
 using XLabs.Ioc;
+using Excalibur.Utils;
 
 namespace Excalibur.Shared.Business
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using XLabs.Ioc;
 
 namespace Excalibur.Shared.Storage.Providers
 {
@@ -14,9 +15,9 @@ namespace Excalibur.Shared.Storage.Providers
 
         private readonly IStorageService _storageService;
 
-        public ObjectAsFileStorageProvider(IStorageService storageService)
+        public ObjectAsFileStorageProvider()
         {
-            _storageService = storageService;
+            _storageService = Resolver.Resolve<IStorageService>();
         }
 
         public async Task StoreRange(IList<T> objectsToStore)

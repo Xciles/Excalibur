@@ -3,61 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
+using Excalibur.Shared.Comparers;
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Storage;
-using MvvmCross.Platform.Core;
 using PubSub;
 using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
-    public abstract class BPresentation<TId, TDomain, TSelectedObservable> : ObservableObjectBase, IPresentation<TId, TSelectedObservable>
-        where TDomain : StorageDomain<TId>
-        where TSelectedObservable : ObservableBase<TId>, new()
-    {
-        private TSelectedObservable _selectedObservable = new TSelectedObservable();
-        protected IObjectMapper<TDomain, TSelectedObservable> DomainSelectedMapper { get; set; }
-        private bool _isLoading = true;
-
-        protected BPresentation()
-        {
-            DomainSelectedMapper = Resolver.Resolve<IObjectMapper<TDomain, TSelectedObservable>>();
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this object is loading.
-        /// </summary>
-        /// <value>
-        /// true if this object is loading, false if not.
-        /// </value>
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set { SetProperty(ref _isLoading, value); }
-        }
-
-        public TSelectedObservable SelectedObservable
-        {
-            get { return _selectedObservable; }
-            set { SetProperty(ref _selectedObservable, value); }
-        }
-
-        public virtual void Initialize()
-        {
-        }
-    }
-
-    public abstract class BasePresentation<TId, TDomain, TObservable, TSelectedObservable> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentation<TId, TObservable, TSelectedObservable>
+    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentationSorted<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
+        where TComparer : BaseComparer<TObservable>, new()
     {
-        private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
+        private ISortedObservableCollection<TObservable> _observables = new ExSortedObservableCollection<TObservable>(new TComparer());
         protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
         protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
 
-        protected BasePresentation()
+        protected BaseSortedPresentation()
         {
             // retrieve mappers
             this.Subscribe<IList<TDomain>>(ListUpdatedHandler);
@@ -67,14 +32,9 @@ namespace Excalibur.Shared.Presentation
             ObservableSelectedMapper = Resolver.Resolve<IObjectMapper<TObservable, TSelectedObservable>>();
         }
 
-        public IObservableCollection<TObservable> Observables
-        {
-            get { return _observables; }
-            set { SetProperty(ref _observables, value); }
-        }
 
-        protected virtual void ListUpdatedHandler(IList<TDomain> objects)
-        {
+        private void ListUpdatedHandler(IList<TDomain> objects)
+        {            
             // Might need to add new threads and main thread requests.
             IsLoading = true;
 
@@ -121,6 +81,12 @@ namespace Excalibur.Shared.Presentation
             DomainSelectedMapper.UpdateDestination(domain, SelectedObservable);
         }
 
+        public ISortedObservableCollection<TObservable> Observables
+        {
+            get { return _observables; }
+            set { SetProperty(ref _observables, value); }
+        }
+
         protected virtual bool ObservablesContainsId(TId id)
         {
             return Observables.FirstOrDefault(x => x.Id.Equals(id)) != null;
@@ -149,25 +115,6 @@ namespace Excalibur.Shared.Presentation
             }
             catch (Exception e)
             {
-            }
-        }
-
-        ~BasePresentation()
-        {
-            this.Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected void Dispose(bool isDisposing)
-        {
-            if (isDisposing)
-            {
-                this.Unsubscribe<TDomain>();
             }
         }
     }

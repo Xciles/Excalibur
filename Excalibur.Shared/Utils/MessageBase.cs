@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Shared
+﻿namespace Excalibur.Utils
 {
     public class MessageBase<T>
     {
