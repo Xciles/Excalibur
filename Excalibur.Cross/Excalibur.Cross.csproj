@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="ExApp.cs" />
     <Compile Include="Converters\IntToInvertedVisibilityConverter.cs" />
     <Compile Include="Converters\IntToVisibilityConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
@@ -42,7 +42,7 @@
     <Compile Include="Language\ExTextProvider.cs" />
     <Compile Include="Language\ExTextProviderBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage\MvxStorageService.cs" />
+    <Compile Include="Storage\ExStorageService.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>

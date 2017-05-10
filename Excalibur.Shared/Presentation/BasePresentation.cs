@@ -48,7 +48,7 @@ namespace Excalibur.Shared.Presentation
         }
     }
 
-    public abstract class BasePresentation<TId, TDomain, TObservable, TSelectedObservable> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentation<TId, TObservable, TSelectedObservable>
+    public class BasePresentation<TId, TDomain, TObservable, TSelectedObservable> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentation<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
