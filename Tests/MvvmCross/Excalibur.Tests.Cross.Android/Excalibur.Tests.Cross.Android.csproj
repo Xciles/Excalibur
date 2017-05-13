@@ -143,6 +143,10 @@
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj">
+      <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
+      <Name>Excalibur.Cross</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Excalibur.Tests.Cross.Core\Excalibur.Tests.Cross.Core.csproj">
       <Project>{db1bbfcc-a5ec-4aa1-a677-2c528357b2b9}</Project>
       <Name>Excalibur.Tests.Cross</Name>

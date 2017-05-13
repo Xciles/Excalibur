@@ -18,8 +18,6 @@ namespace Excalibur.Tests.Cross.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
             
-            Initialize();
-
             RegisterAppStart<ViewModels.Core.FirstViewModel>();
         }
 
