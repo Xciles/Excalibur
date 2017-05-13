@@ -35,6 +35,7 @@
     <Compile Include="Domain\MyTestDomain.cs" />
     <Compile Include="Observable\MyTestObservable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MyTestService.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
