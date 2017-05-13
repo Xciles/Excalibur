@@ -20,9 +20,9 @@ namespace Excalibur.Cross
         {
             // Register services
             RegisterExcaliburInternal();
-            RegisterDependencies();
-
             Resolver.SetResolver(Container.GetResolver());
+
+            RegisterDependencies();
 
             base.Initialize();
         }

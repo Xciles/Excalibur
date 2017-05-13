@@ -57,7 +57,7 @@ namespace Excalibur.Shared.Presentation
         protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
         protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
 
-        protected BasePresentation()
+        public BasePresentation()
         {
             // retrieve mappers
             this.Subscribe<IList<TDomain>>(ListUpdatedHandler);
