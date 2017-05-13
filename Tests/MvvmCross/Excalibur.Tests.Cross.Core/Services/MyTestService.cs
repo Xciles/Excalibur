@@ -10,7 +10,11 @@ namespace Excalibur.Tests.Cross.Core.Services
     {
         public async Task<IList<MyTestDomain>> SyncDataAsync()
         {
-            return await Task.FromResult(new List<MyTestDomain>());
+            return await Task.FromResult(new List<MyTestDomain>
+            {
+                new MyTestDomain{ Id = 1, Description = "Test item 1", Name = "Test 1" },
+                new MyTestDomain{ Id = 2, Description = "Test item 2", Name = "Test 2" },
+            });
         }
     }
 }

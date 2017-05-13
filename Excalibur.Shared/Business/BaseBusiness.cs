@@ -44,12 +44,12 @@ namespace Excalibur.Shared.Business
     }
 
 
-    public abstract class BaseSingleBusiness<TId, TDomain> : BaseSingleBusiness<TId, TDomain, IServiceBase<TDomain>>
+    public class BaseSingleBusiness<TId, TDomain> : BaseSingleBusiness<TId, TDomain, IServiceBase<TDomain>>
         where TDomain : StorageDomain<TId>, new()
     {
     }
 
-    public abstract class BaseSingleBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, ISingleBusiness<TDomain>
+    public class BaseSingleBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, ISingleBusiness<TDomain>
         where TDomain : StorageDomain<TId>, new()
         where TService : class, IServiceBase<TDomain>
     {
@@ -82,12 +82,12 @@ namespace Excalibur.Shared.Business
     }
 
 
-    public abstract class BaseListBusiness<TId, TDomain> : BaseListBusiness<TId, TDomain, IServiceBase<IList<TDomain>>> 
+    public class BaseListBusiness<TId, TDomain> : BaseListBusiness<TId, TDomain, IServiceBase<IList<TDomain>>> 
         where TDomain : StorageDomain<TId>, new()
     {
     }
 
-    public abstract class BaseListBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, IListBusiness<TId, TDomain>
+    public class BaseListBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, IListBusiness<TId, TDomain>
         where TDomain : StorageDomain<TId>, new()
         where TService : class, IServiceBase<IList<TDomain>>
     {

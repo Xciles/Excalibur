@@ -6,6 +6,7 @@ using Excalibur.Shared.Collections;
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Storage;
+using Excalibur.Utils;
 using MvvmCross.Platform.Core;
 using PubSub;
 using XLabs.Ioc;
@@ -60,8 +61,8 @@ namespace Excalibur.Shared.Presentation
         public BasePresentation()
         {
             // retrieve mappers
-            this.Subscribe<IList<TDomain>>(ListUpdatedHandler);
-            this.Subscribe<TDomain>(ItemUpdatedHandler);
+            this.Subscribe<MessageBase<IList<TDomain>>>(ListUpdatedHandler);
+            this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainObservableMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
             ObservableSelectedMapper = Resolver.Resolve<IObjectMapper<TObservable, TSelectedObservable>>();
@@ -73,10 +74,12 @@ namespace Excalibur.Shared.Presentation
             set { SetProperty(ref _observables, value); }
         }
 
-        protected virtual void ListUpdatedHandler(IList<TDomain> objects)
+        protected virtual async void ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
         {
             // Might need to add new threads and main thread requests.
             IsLoading = true;
+
+            var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
 
             foreach (var observable in Observables.Reverse())
             {
@@ -108,17 +111,17 @@ namespace Excalibur.Shared.Presentation
             IsLoading = false;
         }
 
-        private void ItemUpdatedHandler(TDomain domain)
+        private void ItemUpdatedHandler(MessageBase<TDomain> messageBase)
         {
             // Update item in the list
-            var itemInList = Observables.FirstOrDefault(x => x.Id.Equals(domain.Id));
+            var itemInList = Observables.FirstOrDefault(x => x.Id.Equals(messageBase.Object.Id));
             if (itemInList != null)
             {
-                DomainObservableMapper.UpdateDestination(domain, itemInList);
+                DomainObservableMapper.UpdateDestination(messageBase.Object, itemInList);
             }
 
             // Update the selected item
-            DomainSelectedMapper.UpdateDestination(domain, SelectedObservable);
+            DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
         }
 
         protected virtual bool ObservablesContainsId(TId id)
