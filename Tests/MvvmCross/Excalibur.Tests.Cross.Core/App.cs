@@ -17,7 +17,9 @@ namespace Excalibur.Tests.Cross.Core
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
-            
+
+            base.Initialize();
+
             RegisterAppStart<ViewModels.Core.FirstViewModel>();
         }
 

@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="Excalibur.Tests.Cross.Uwp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Excalibur.Tests.Cross.Uwp"
+    RequestedTheme="Light">
+
+</Application>
