@@ -1,4 +1,4 @@
-﻿<views:MvxWindowsPage x:Class="Excalibur.Tests.Cross.Uwp.Views.FirstView"
+﻿<views:MvxWindowsPage x:Class="Excalibur.Tests.Cross.Uwp.Views.MyTestView"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:local="using:Excalibur.Tests.Cross.Uwp.Views"
@@ -11,8 +11,6 @@
         <StackPanel>
             <TextBox Text="{Binding Hello, Mode=TwoWay}" />
             <TextBlock Text="{Binding Hello}" />
-            <Button Command="{Binding GoMyTestViewCommand}"
-                    Content="Go" />
         </StackPanel>
     </Grid>
 </views:MvxWindowsPage>

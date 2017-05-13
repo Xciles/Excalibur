@@ -9,6 +9,7 @@ using Excalibur.Tests.Cross.Core.Observable;
 using Excalibur.Tests.Cross.Core.Services;
 using MvvmCross.Platform.IoC;
 using System.Collections.Generic;
+using Excalibur.Tests.Cross.Core.ViewModels;
 
 namespace Excalibur.Tests.Cross.Core
 {
@@ -23,7 +24,7 @@ namespace Excalibur.Tests.Cross.Core
 
             base.Initialize();
 
-            RegisterAppStart<ViewModels.Core.FirstViewModel>();
+            RegisterAppStart<FirstViewModel>();
         }
 
         public override void RegisterDependencies()

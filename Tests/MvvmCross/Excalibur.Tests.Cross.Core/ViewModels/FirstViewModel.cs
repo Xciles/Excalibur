@@ -1,6 +1,6 @@
 using MvvmCross.Core.ViewModels;
 
-namespace Excalibur.Tests.Cross.ViewModels.Core
+namespace Excalibur.Tests.Cross.Core.ViewModels
 {
     public class FirstViewModel 
         : MvxViewModel
@@ -10,6 +10,11 @@ namespace Excalibur.Tests.Cross.ViewModels.Core
         { 
             get { return _hello; }
             set { SetProperty (ref _hello, value); }
+        }
+
+        public MvxCommand GoMyTestViewCommand
+        {
+            get { return new MvxCommand(() => ShowViewModel<MyTestViewModel>()); }
         }
     }
 }
