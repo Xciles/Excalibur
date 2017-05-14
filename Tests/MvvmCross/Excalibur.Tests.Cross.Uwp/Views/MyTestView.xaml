@@ -11,6 +11,20 @@
         <StackPanel>
             <TextBox Text="{Binding Hello, Mode=TwoWay}" />
             <TextBlock Text="{Binding Hello}" />
+
+            <ListBox Name="listBox"
+                     ItemsSource="{Binding Observables}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="24"
+                                       Text="{Binding Name}"
+                                       Margin="5,3,3,0"
+                                       TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </Grid>
 </views:MvxWindowsPage>

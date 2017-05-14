@@ -32,6 +32,7 @@ namespace Excalibur.Tests.Cross.Core
             Container.Register<IObjectStorageProvider<int, MyTestDomain>, ObjectAsFileStorageProvider<int, MyTestDomain>>();
 
             Container.Register<IObjectMapper<MyTestDomain, MyTestObservable>, BaseObjectMapper<MyTestDomain, MyTestObservable>>();
+            Container.Register<IObjectMapper<MyTestObservable, MyTestObservable>, BaseObjectMapper<MyTestObservable, MyTestObservable>>();
 
             Container.Register<IListBusiness<int, MyTestDomain>, BaseListBusiness<int, MyTestDomain>>();
 
