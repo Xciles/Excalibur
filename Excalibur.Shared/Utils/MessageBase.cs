@@ -1,4 +1,6 @@
-﻿namespace Excalibur.Utils
+﻿using Excalibur.Shared.Business;
+
+namespace Excalibur.Utils
 {
     public class MessageBase<T>
     {
@@ -8,5 +10,6 @@
         }
 
         public T Object { get; set; }
+        public EDomainState State { get; set; }
     }
 }

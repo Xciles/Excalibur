@@ -15,10 +15,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Business\BaseBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\BaseListBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\BaseSingleBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\BusinessBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\EDomainState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\IBusiness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\IExMainThreadDispatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\IListBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\ISingleBusiness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\ExObservableCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\IObservableCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\ISortedObservableCollection.cs" />
@@ -27,6 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Comparers\BaseComparer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\BPresentation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentationSorted.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\MessageBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\BaseObjectMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\IObjectMapper.cs" />

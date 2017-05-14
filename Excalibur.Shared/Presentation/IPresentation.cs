@@ -20,13 +20,4 @@ namespace Excalibur.Shared.Presentation
 
         void SetSelectedObservable(TId observableId);
     }
-
-    public interface IPresentationSorted<TId, TObservable, TSelectedObservable> : IPresentation<TId, TSelectedObservable>
-        where TObservable : ObservableBase<TId>, new()
-        where TSelectedObservable : ObservableBase<TId>, new()
-    {
-        ISortedObservableCollection<TObservable> Observables { get; set; }
-
-        void SetSelectedObservable(TId observableId);
-    }
 }

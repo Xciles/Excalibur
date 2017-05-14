@@ -7,11 +7,14 @@ using Excalibur.Shared.Comparers;
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Storage;
+using Excalibur.Utils;
 using PubSub;
 using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
+    // Todo change to BasePresentation and implement some methods differently...
+
     public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentationSorted<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
@@ -25,25 +28,42 @@ namespace Excalibur.Shared.Presentation
         protected BaseSortedPresentation()
         {
             // retrieve mappers
-            this.Subscribe<IList<TDomain>>(ListUpdatedHandler);
-            this.Subscribe<TDomain>(ItemUpdatedHandler);
+            this.Subscribe<MessageBase<IList<TDomain>>>(ListUpdatedHandler);
+            this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainObservableMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
             ObservableSelectedMapper = Resolver.Resolve<IObjectMapper<TObservable, TSelectedObservable>>();
         }
 
-
-        private void ListUpdatedHandler(IList<TDomain> objects)
-        {            
+        protected virtual async void ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
+        {
             // Might need to add new threads and main thread requests.
             IsLoading = true;
 
+            var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
+
+            var deleteIds = 0;
+            try
+            {
+                deleteIds = Observables.Select(x => x.Id).Except(objects.Select(x => x.Id)).Count();
+            }
+            catch (Exception)
+            {
+            }
+
+            var count = objects.Count + deleteIds;
+            VerifyAndResetCountdown(count);
+
+            var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
+
             foreach (var observable in Observables.Reverse())
             {
-                if (!objects.Select(x => x.Id).Contains(observable.Id))
+                TObservable tmpObservable = observable;
+                dispatcher.InvokeOnMainThread(() =>
                 {
-                    Observables.Remove(observable);
-                }
+                    Observables.Remove(tmpObservable);
+                    SignalCde();
+                });
             }
 
             foreach (var domainObject in objects)
@@ -52,11 +72,16 @@ namespace Excalibur.Shared.Presentation
                 {
                     var observable = Observables.First(x => x.Id.Equals(domainObject.Id));
                     DomainObservableMapper.UpdateDestination(domainObject, observable);
+                    SignalCde();
                 }
                 else
                 {
                     var observable = DomainObservableMapper.Map(domainObject);
-                    Observables.Add(observable);
+                    dispatcher.InvokeOnMainThread(() =>
+                    {
+                        Observables.InsertItem(observable);
+                        SignalCde();
+                    });
                 }
             }
 
@@ -68,17 +93,20 @@ namespace Excalibur.Shared.Presentation
             IsLoading = false;
         }
 
-        private void ItemUpdatedHandler(TDomain domain)
+        protected virtual void ItemUpdatedHandler(MessageBase<TDomain> messageBase)
         {
             // Update item in the list
-            var itemInList = Observables.FirstOrDefault(x => x.Id.Equals(domain.Id));
+            var itemInList = Observables.FirstOrDefault(x => x.Id.Equals(messageBase.Object.Id));
             if (itemInList != null)
             {
-                DomainObservableMapper.UpdateDestination(domain, itemInList);
+                DomainObservableMapper.UpdateDestination(messageBase.Object, itemInList);
             }
 
-            // Update the selected item
-            DomainSelectedMapper.UpdateDestination(domain, SelectedObservable);
+            // Update the selected item only if updated and is selected
+            if (SelectedObservable.Id.Equals(messageBase.Object.Id) && messageBase.State == EDomainState.Updated)
+            {
+                DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
+            }
         }
 
         public ISortedObservableCollection<TObservable> Observables
