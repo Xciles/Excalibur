@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
+using Excalibur.Cross.Business;
 using Excalibur.Cross.Storage;
+using Excalibur.Shared.Business;
 using Excalibur.Shared.Storage;
 using Excalibur.Shared.Storage.Providers;
 using MvvmCross.Core.ViewModels;
@@ -38,6 +40,7 @@ namespace Excalibur.Cross
         private void RegisterExcaliburInternal()
         {
             Container.Register<IStorageService, ExStorageService>();
+            Container.Register<IExMainThreadDispatcher, ExMainThreadDispatcher>();
 
             // Register business based on domain entities
             // Register Services based on domain entities

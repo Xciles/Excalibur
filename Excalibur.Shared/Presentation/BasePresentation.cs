@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
 using Excalibur.Shared.ObjectConverter;
@@ -20,6 +21,7 @@ namespace Excalibur.Shared.Presentation
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         protected IObjectMapper<TDomain, TSelectedObservable> DomainSelectedMapper { get; set; }
         private bool _isLoading = true;
+        protected CountdownEvent Cde { get; private set; }
 
         protected BPresentation()
         {
@@ -46,6 +48,30 @@ namespace Excalibur.Shared.Presentation
 
         public virtual void Initialize()
         {
+        }
+
+        protected virtual void VerifyAndResetCountdown(int count)
+        {
+            if ((Cde != null && Cde.IsSet))
+            {
+                Cde.Reset(count);
+            }
+            else
+            {
+                Cde = new CountdownEvent(count);
+            }
+        }
+
+        protected void SignalCde()
+        {
+            try
+            {
+                Cde.Signal();
+            }
+            catch (InvalidOperationException)
+            {
+                // todo Add trace logging
+            }
         }
     }
 
@@ -81,11 +107,30 @@ namespace Excalibur.Shared.Presentation
 
             var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
 
+            var deleteIds = 0;
+            try
+            {
+                deleteIds = Observables.Select(x => x.Id).Except(objects.Select(x => x.Id)).Count();
+            }
+            catch (Exception)
+            {
+            }
+
+            var count = objects.Count + deleteIds;
+            VerifyAndResetCountdown(count);
+
+            var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
+
             foreach (var observable in Observables.Reverse())
             {
                 if (!objects.Select(x => x.Id).Contains(observable.Id))
                 {
-                    Observables.Remove(observable);
+                    TObservable tmpObservable = observable;
+                    dispatcher.InvokeOnMainThread(() =>
+                    {
+                        Observables.Remove(tmpObservable);
+                        SignalCde();
+                    });
                 }
             }
 
@@ -94,12 +139,21 @@ namespace Excalibur.Shared.Presentation
                 if (ObservablesContainsId(domainObject.Id))
                 {
                     var observable = Observables.First(x => x.Id.Equals(domainObject.Id));
-                    DomainObservableMapper.UpdateDestination(domainObject, observable);
+
+                    dispatcher.InvokeOnMainThread(() =>
+                    {
+                        DomainObservableMapper.UpdateDestination(domainObject, observable);
+                        SignalCde();
+                    });
                 }
                 else
                 {
-                    var observable = DomainObservableMapper.Map(domainObject);
-                    Observables.Add(observable);
+                    dispatcher.InvokeOnMainThread(() =>
+                    {
+                        var observable = DomainObservableMapper.Map(domainObject);
+                        Observables.Add(observable);
+                        SignalCde();
+                    });
                 }
             }
 

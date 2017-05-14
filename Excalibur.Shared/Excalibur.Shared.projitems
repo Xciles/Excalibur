@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Business\BaseBusiness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\EDomainState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\IBusiness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Business\IExMainThreadDispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\ExObservableCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\IObservableCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\ISortedObservableCollection.cs" />

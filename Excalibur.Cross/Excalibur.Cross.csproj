@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Business\ExMainThreadDispatcher.cs" />
     <Compile Include="ExApp.cs" />
     <Compile Include="Converters\IntToInvertedVisibilityConverter.cs" />
     <Compile Include="Converters\IntToVisibilityConverter.cs" />
