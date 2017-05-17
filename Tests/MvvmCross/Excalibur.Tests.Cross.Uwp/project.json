@@ -2,6 +2,7 @@
   "dependencies": {
     "AutoMapper": "6.0.2",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0",
     "MvvmCross": "4.4.0",
     "MvvmCross.Core": "4.4.0",
     "MvvmCross.Plugin.File": "4.4.0",

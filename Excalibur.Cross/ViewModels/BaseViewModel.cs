@@ -41,9 +41,10 @@ namespace Excalibur.Cross.ViewModels
         }
     }
 
-    public abstract class ListViewModel<TId, TObservable, TSelectedObservable> : BaseViewModel
+    public abstract class ListViewModel<TId, TObservable, TSelectedObservable, TDetailViewModel> : BaseViewModel
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
+        where TDetailViewModel : IMvxViewModel
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
@@ -73,6 +74,19 @@ namespace Excalibur.Cross.ViewModels
         {
             get { return _selectedObservable; }
             set { SetProperty(ref _selectedObservable, value); }
+        }
+
+        public virtual ICommand GoToDetailCommand
+        {
+            get
+            {
+                return new MvxCommand<TObservable>((selected) =>
+                {
+                    var presentation = Resolver.Resolve<IPresentation<TId, TObservable, TSelectedObservable>>();
+                    presentation.SetSelectedObservable(selected.Id);
+                    ShowViewModel<TDetailViewModel>();
+                });
+            }
         }
     }
 

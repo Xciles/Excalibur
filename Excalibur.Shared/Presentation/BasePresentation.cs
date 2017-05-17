@@ -81,9 +81,9 @@ namespace Excalibur.Shared.Presentation
                 }
                 else
                 {
+                    var observable = DomainObservableMapper.Map(domainObject);
                     dispatcher.InvokeOnMainThread(() =>
                     {
-                        var observable = DomainObservableMapper.Map(domainObject);
                         Observables.Add(observable);
                         SignalCde();
                     });

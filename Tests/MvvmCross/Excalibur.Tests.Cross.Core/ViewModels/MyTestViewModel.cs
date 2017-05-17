@@ -6,7 +6,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
-    public class MyTestViewModel : ListViewModel<int, MyTestObservable, MyTestObservable>
+    public class MyTestViewModel : ListViewModel<int, MyTestObservable, MyTestObservable, MyTestDetailViewModel>
     {
         public MyTestViewModel()
         {
