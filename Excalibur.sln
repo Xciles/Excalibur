@@ -11,17 +11,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Forms", "Excalibu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Common", "Excalibur.Common\Excalibur.Common.csproj", "{DCC7B30E-1D2F-4F2F-BBF8-04CE6EF9C0D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F67211A5-9725-4D99-AA46-E7AFEE908394}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{F67211A5-9725-4D99-AA46-E7AFEE908394}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{8AF372D1-9B9F-4B8E-9887-3DB6B7D0D0B3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvvmCross", "MvvmCross", "{8AF372D1-9B9F-4B8E-9887-3DB6B7D0D0B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Android", "Tests\MvvmCross\Excalibur.Tests.Cross.Android\Excalibur.Tests.Cross.Android.csproj", "{59762E99-5F53-402D-8FCF-26D4305C3BD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Android", "Examples\MvvmCross\Excalibur.Tests.Cross.Android\Excalibur.Tests.Cross.Android.csproj", "{59762E99-5F53-402D-8FCF-26D4305C3BD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.iOS", "Tests\MvvmCross\Excalibur.Tests.Cross.iOS\Excalibur.Tests.Cross.iOS.csproj", "{26B95D89-96E1-4091-9F7D-489EF4DB8349}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.iOS", "Examples\MvvmCross\Excalibur.Tests.Cross.iOS\Excalibur.Tests.Cross.iOS.csproj", "{26B95D89-96E1-4091-9F7D-489EF4DB8349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Core", "Tests\MvvmCross\Excalibur.Tests.Cross.Core\Excalibur.Tests.Cross.Core.csproj", "{DB1BBFCC-A5EC-4AA1-A677-2C528357B2B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Core", "Examples\MvvmCross\Excalibur.Tests.Cross.Core\Excalibur.Tests.Cross.Core.csproj", "{DB1BBFCC-A5EC-4AA1-A677-2C528357B2B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Uwp", "Tests\MvvmCross\Excalibur.Tests.Cross.Uwp\Excalibur.Tests.Cross.Uwp.csproj", "{6E4AAAC8-1C17-49A7-8652-689AD9F272C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Uwp", "Examples\MvvmCross\Excalibur.Tests.Cross.Uwp\Excalibur.Tests.Cross.Uwp.csproj", "{6E4AAAC8-1C17-49A7-8652-689AD9F272C8}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
