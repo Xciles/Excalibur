@@ -33,6 +33,12 @@ namespace Excalibur.Shared.Business
             PublishListUpdated();
         }
 
+        public override async Task PublishFromStorageAsync()
+        {
+            // todo Add initial range when loading from storage
+            PublishListUpdated();
+        }
+
         protected async Task StoreItemsAsync(IList<TDomain> objectsToStore)
         {
             await Storage.StoreRange(objectsToStore).ConfigureAwait(false);

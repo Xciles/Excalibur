@@ -23,6 +23,11 @@ namespace Excalibur.Shared.Business
             PublishUpdated(result);
         }
 
+        public override async Task PublishFromStorageAsync()
+        {
+            PublishUpdated(await GetAsync());
+        }
+
         public virtual async Task<TDomain> GetAsync()
         {
             var list = await Storage.GetRange().ConfigureAwait(false);

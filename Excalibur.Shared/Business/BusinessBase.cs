@@ -40,6 +40,7 @@ namespace Excalibur.Shared.Business
         }
 
         public abstract Task UpdateFromServiceAsync();
+        public abstract Task PublishFromStorageAsync();
     }
 
     // Examples
