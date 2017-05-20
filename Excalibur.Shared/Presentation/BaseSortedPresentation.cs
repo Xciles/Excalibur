@@ -141,8 +141,9 @@ namespace Excalibur.Shared.Presentation
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
+                // todo logging
             }
         }
     }
