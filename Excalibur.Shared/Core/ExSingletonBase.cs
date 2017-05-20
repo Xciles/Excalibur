@@ -1,5 +1,4 @@
 ﻿using System;
-using MvvmCross.Platform.Core;
 
 namespace Excalibur.Shared.Core
 {
@@ -25,7 +24,8 @@ namespace Excalibur.Shared.Core
         {
             if (isDisposing)
             {
-                Instance.DisposeIfDisposable();
+                var instanceAsDisposable = Instance as IDisposable;
+                instanceAsDisposable?.Dispose();
             }
         }
         
