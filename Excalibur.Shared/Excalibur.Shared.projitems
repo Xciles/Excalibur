@@ -9,12 +9,6 @@
     <Import_RootNamespace>Excalibur.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)README.md">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Business\BaseListBusiness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\BaseSingleBusiness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Business\BusinessBase.cs" />
