@@ -42,7 +42,7 @@ namespace Excalibur.Shared.Storage.Providers
         public async Task<T> Get(TId id)
         {
             // todo: Seek actual id from disk instead of searching the list
-            var items = await GetRange();
+            var items = await GetRange().ConfigureAwait(false);
             return items.FirstOrDefault(x => x.Id.Equals(id));
         }
 
@@ -50,7 +50,7 @@ namespace Excalibur.Shared.Storage.Providers
         {
             // todo: Seek actual id from disk instead of searching the list
             // todo: Actual add/update at correct index and move the bytes
-            var items = await GetRange();
+            var items = await GetRange().ConfigureAwait(false);
             var item = items.FirstOrDefault(x => x.Id.Equals(objectToStore.Id));
 
             if (item != null)
@@ -62,7 +62,7 @@ namespace Excalibur.Shared.Storage.Providers
                 items.Add(objectToStore);
             }
 
-            await StoreRange(items);
+            await StoreRange(items).ConfigureAwait(false);
 
             return true;
         }
@@ -71,13 +71,13 @@ namespace Excalibur.Shared.Storage.Providers
         {
             // todo: Seek actual id from disk instead of searching the list
             // todo: Actual delete at correct index and moving the bytes
-            var items = await GetRange();
+            var items = await GetRange().ConfigureAwait(false);
             var item = items.FirstOrDefault(x => x.Id.Equals(id));
 
             if (item != null)
             {
                 items.Remove(item);
-                await StoreRange(items);
+                await StoreRange(items).ConfigureAwait(false);
                 return true;
             }
             return false;

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Excalibur.Shared.Services;
 using Excalibur.Shared.Storage;
 using Excalibur.Shared.Storage.Providers;
 using PubSub;
@@ -41,62 +40,5 @@ namespace Excalibur.Shared.Business
 
         public abstract Task UpdateFromServiceAsync();
         public abstract Task PublishFromStorageAsync();
-    }
-
-    // Examples
-
-    public class Participant : BaseListBusiness<int, ParticipantDomain, IServiceBase<IList<ParticipantDomain>>>
-    {
-
-    }
-
-
-    public class ParticipantDomain : StorageDomain
-    {
-
-    }
-
-    public class Friend : BaseListBusiness<int, FriendDomain, IFriendService>
-    {
-
-    }
-
-
-    public class FriendDomain : StorageDomain
-    {
-
-    }
-
-    public interface IFriendService : IServiceBase<IList<FriendDomain>>
-    {
-
-    }
-
-    public class Bla : IObjectStorageProvider<int, FriendDomain>
-    {
-        public Task StoreRange(IList<FriendDomain> objectsToStore)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<IList<FriendDomain>> GetRange()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<FriendDomain> Get(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> AddOrUpdate(FriendDomain objectToStore)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

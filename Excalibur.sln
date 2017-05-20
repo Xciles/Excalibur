@@ -23,6 +23,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Core"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Uwp", "Examples\MvvmCross\Excalibur.Tests.Cross.Uwp\Excalibur.Tests.Cross.Uwp.csproj", "{6E4AAAC8-1C17-49A7-8652-689AD9F272C8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{1B1FD36B-3763-4926-83CE-48690505E909}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Excalibur.Shared\Excalibur.Shared.projitems*{680f063e-b861-42c7-9e43-ecdda37a6113}*SharedItemsImports = 13

@@ -25,7 +25,7 @@ namespace Excalibur.Shared.Business
 
         public override async Task PublishFromStorageAsync()
         {
-            PublishUpdated(await GetAsync());
+            PublishUpdated(await GetAsync().ConfigureAwait(false));
         }
 
         public virtual async Task<TDomain> GetAsync()
