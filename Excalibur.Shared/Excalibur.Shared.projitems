@@ -23,6 +23,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Collections\SafeEnumerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\ExSortedObservableCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Comparers\BaseComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\ConfigurationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration\IConfigurationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonCache.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\BPresentation.cs" />

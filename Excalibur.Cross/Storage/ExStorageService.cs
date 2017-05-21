@@ -52,16 +52,20 @@ namespace Excalibur.Cross.Storage
 
         public void DeleteFile(string folder, string fullName)
         {
-            var filestore = Mvx.Resolve<IMvxFileStore>();
-
             try
             {
-                filestore.DeleteFile(filestore.PathCombine(folder, fullName));
+                _fileStore.DeleteFile(_fileStore.PathCombine(folder, fullName));
             }
             catch (Exception ex)
             {
                 Mvx.Resolve<IMvxTrace>().Trace(MvxTraceLevel.Error, "ExStorageService.DeleteFile", ex.Message + " - " + ex.StackTrace);
             }
+        }
+
+        public bool Exists(string folder, string fullName)
+        {
+            var fullPath = _fileStore.PathCombine(folder, fullName);
+            return _fileStore.Exists(fullPath);
         }
 
         private string FileChecks(string folder, string fileFullName)

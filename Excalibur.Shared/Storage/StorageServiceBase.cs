@@ -9,5 +9,6 @@ namespace Excalibur.Shared.Storage
         public abstract Task<string> ReadAsTextAsync(string folder, string fullName);
         public abstract Task<byte[]> ReadAsBinaryAsync(string folder, string fullName);
         public abstract void DeleteFile(string folder, string fullName);
+        public abstract bool Exists(string folder, string fullName);
     }
 }
