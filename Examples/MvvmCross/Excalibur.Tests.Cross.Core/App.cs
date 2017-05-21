@@ -29,6 +29,7 @@ namespace Excalibur.Tests.Cross.Core
 
         public override void RegisterDependencies()
         {
+            // TestObservable
             Container.Register<IObjectStorageProvider<int, MyTestDomain>, ObjectAsFileStorageProvider<int, MyTestDomain>>();
 
             Container.Register<IObjectMapper<MyTestDomain, MyTestObservable>, BaseObjectMapper<MyTestDomain, MyTestObservable>>();
@@ -39,6 +40,18 @@ namespace Excalibur.Tests.Cross.Core
             Container.Register<IServiceBase<IList<MyTestDomain>>, MyTestService>();
 
             Container.RegisterSingle<IPresentation<int, MyTestObservable, MyTestObservable>, BasePresentation<int, MyTestDomain, MyTestObservable, MyTestObservable>>();
+
+            // User
+            Container.Register<IObjectStorageProvider<int, Domain.User>, ObjectAsFileStorageProvider<int, Domain.User>>();
+
+            Container.Register<IObjectMapper<Domain.User, Observable.User>, BaseObjectMapper<Domain.User, Observable.User>>();
+            Container.Register<IObjectMapper<Observable.User, Observable.User>, BaseObjectMapper<Observable.User, Observable.User>>();
+
+            Container.Register<IListBusiness<int, Domain.User>, BaseListBusiness<int, Domain.User>>();
+
+            Container.Register<IServiceBase<IList<Domain.User>>, UserService>();
+
+            Container.RegisterSingle<IPresentation<int, Observable.User, Observable.User>, BasePresentation<int, Domain.User, Observable.User, Observable.User>>();
         }
     }
 }

@@ -16,5 +16,10 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get { return new MvxCommand(() => ShowViewModel<MyTestViewModel>()); }
         }
+
+        public MvxCommand GoUserViewCommand
+        {
+            get { return new MvxCommand(() => ShowViewModel<UserViewModel>()); }
+        }
     }
 }

@@ -13,6 +13,8 @@
             <TextBlock Text="{Binding Hello}" />
             <Button Command="{Binding GoMyTestViewCommand}"
                     Content="Go" />
+            <Button Command="{Binding GoUserViewCommand}"
+                    Content="Go Users" />
         </StackPanel>
     </Grid>
 </views:MvxWindowsPage>
