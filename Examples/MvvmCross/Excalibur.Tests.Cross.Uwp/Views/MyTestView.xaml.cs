@@ -1,9 +1,4 @@
-﻿
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
-using Windows.UI.Xaml.Input;
-using MvvmCross.WindowsUWP.Views;
+﻿using MvvmCross.WindowsUWP.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
 {
@@ -15,11 +10,6 @@ namespace Excalibur.Tests.Cross.Uwp.Views
         public MyTestView()
         {
             this.InitializeComponent();
-        }
-
-        private void ListBox_OnTapped(object sender, TappedRoutedEventArgs e)
-        {
-            
         }
     }
 }

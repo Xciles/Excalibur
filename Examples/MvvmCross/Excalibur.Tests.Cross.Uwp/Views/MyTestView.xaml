@@ -11,9 +11,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <TextBox Text="{Binding Hello, Mode=TwoWay}" />
-            <TextBlock Text="{Binding Hello}" />
-
             <ListBox ItemsSource="{Binding Observables}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -24,13 +21,6 @@
                                                               CommandParameter="{Binding}" />
                                 </core:EventTriggerBehavior>
                             </interactivity:Interaction.Behaviors>
-
-                            <!--<interactivity:Interaction.Triggers>
-                                <EventTrigger EventName="Tap">
-                                    <commandbinding:MvxEventToCommand Command="{Binding Path=DataContext.CustomerSelectedCommand, ElementName=CustomerListBox}"
-                                                                      CommandParameter="{Binding}" />
-                                </EventTrigger>
-                            </interactivity:Interaction.Triggers>-->
 
                             <TextBlock FontSize="24"
                                        Text="{Binding Name}"

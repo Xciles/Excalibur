@@ -22,13 +22,6 @@
                                 </core:EventTriggerBehavior>
                             </interactivity:Interaction.Behaviors>
 
-                            <!--<interactivity:Interaction.Triggers>
-                                <EventTrigger EventName="Tap">
-                                    <commandbinding:MvxEventToCommand Command="{Binding Path=DataContext.CustomerSelectedCommand, ElementName=CustomerListBox}"
-                                                                      CommandParameter="{Binding}" />
-                                </EventTrigger>
-                            </interactivity:Interaction.Triggers>-->
-
                             <TextBlock FontSize="24"
                                        Text="{Binding Name}"
                                        Margin="5,3,3,0"
