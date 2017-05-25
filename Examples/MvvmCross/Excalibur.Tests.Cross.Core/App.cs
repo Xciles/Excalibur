@@ -10,6 +10,8 @@ using Excalibur.Tests.Cross.Core.Services;
 using MvvmCross.Platform.IoC;
 using System.Collections.Generic;
 using Excalibur.Tests.Cross.Core.ViewModels;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 
 namespace Excalibur.Tests.Cross.Core
 {
@@ -24,7 +26,10 @@ namespace Excalibur.Tests.Cross.Core
 
             base.Initialize();
 
-            RegisterAppStart<FirstViewModel>();
+            Mvx.ConstructAndRegisterSingleton<IMvxAppStart, AppStart>();
+            var appStart = Mvx.Resolve<IMvxAppStart>();
+
+            RegisterAppStart(appStart);
         }
 
         public override void RegisterDependencies()
