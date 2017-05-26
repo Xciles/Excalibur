@@ -19,5 +19,6 @@ namespace Excalibur.Shared.Presentation
         IObservableCollection<TObservable> Observables { get; set; }
 
         void SetSelectedObservable(TId observableId);
+        TObservable GetObservable(TId observableId);
     }
 }

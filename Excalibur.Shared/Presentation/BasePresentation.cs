@@ -146,6 +146,15 @@ namespace Excalibur.Shared.Presentation
             }
         }
 
+        public virtual TObservable GetObservable(TId observableId)
+        {
+            if (Observables.Any() && ObservablesContainsId(observableId))
+            {
+                return Observables.First(x => x.Id.Equals(observableId));
+            }
+            return default(TObservable);
+        }
+
         ~BasePresentation()
         {
             this.Dispose(false);
