@@ -33,9 +33,12 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="AppStart.cs" />
+    <Compile Include="Domain\Todo.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="Observable\Todo.cs" />
     <Compile Include="Observable\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TodoService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
