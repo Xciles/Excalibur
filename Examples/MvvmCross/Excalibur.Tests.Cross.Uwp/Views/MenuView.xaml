@@ -13,7 +13,7 @@
                       x:DataType="controls:NavMenuItem">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="48" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <FontIcon x:Name="Glyph"

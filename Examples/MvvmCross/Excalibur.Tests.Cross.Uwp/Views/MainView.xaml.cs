@@ -39,6 +39,18 @@ namespace Excalibur.Tests.Cross.Uwp.Views
             }
         }
 
+        public bool CanGoBack()
+        {
+            var frame = PageContent;
+            return frame.CanGoBack;
+        }
+
+        public void GoBack()
+        {
+            var frame = PageContent;
+            frame.GoBack();
+        }
+
 
         #region SplitView
 

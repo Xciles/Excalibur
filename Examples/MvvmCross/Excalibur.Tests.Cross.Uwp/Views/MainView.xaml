@@ -53,7 +53,7 @@
 
         <SplitView x:Name="RootSplitView"
                    DisplayMode="Inline"
-                   OpenPaneLength="120"
+                   OpenPaneLength="140"
                    PaneClosed="RootSplitView_PaneClosed"
                    IsTabStop="False">
 

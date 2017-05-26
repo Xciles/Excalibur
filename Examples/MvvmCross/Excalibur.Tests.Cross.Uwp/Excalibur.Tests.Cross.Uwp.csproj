@@ -116,14 +116,8 @@
     <Compile Include="Views\UserDetailView.xaml.cs">
       <DependentUpon>UserDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyTestDetailView.xaml.cs">
-      <DependentUpon>MyTestDetailView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyTestView.xaml.cs">
-      <DependentUpon>MyTestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
@@ -179,15 +173,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MyTestDetailView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\UserView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\MyTestView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

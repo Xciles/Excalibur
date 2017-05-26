@@ -33,20 +33,15 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="AppStart.cs" />
-    <Compile Include="Domain\MyTestDomain.cs" />
     <Compile Include="Domain\User.cs" />
-    <Compile Include="Observable\MyTestObservable.cs" />
     <Compile Include="Observable\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\MyTestService.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
-    <Compile Include="ViewModels\MyTestDetailViewModel.cs" />
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
-    <Compile Include="ViewModels\MyTestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">

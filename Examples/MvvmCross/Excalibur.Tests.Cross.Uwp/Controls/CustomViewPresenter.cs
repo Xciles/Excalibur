@@ -6,13 +6,12 @@ namespace Excalibur.Tests.Cross.Uwp.Controls
 {
     public class CustomViewPresenter : MvxWindowsMultiRegionViewPresenter
     {
-        IMvxWindowsFrame _rootFrame;
+        private readonly IMvxWindowsFrame _rootFrame;
 
         public CustomViewPresenter(IMvxWindowsFrame rootFrame)
             : base(rootFrame)
         {
             _rootFrame = rootFrame;
-
         }
 
         public override void ChangePresentation(MvxPresentationHint hint)
