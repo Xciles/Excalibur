@@ -15,6 +15,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                 });
             }
         }
+
         public IMvxCommand ShowUsersCommand
         {
             get
@@ -22,6 +23,17 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                 return new MvxCommand(() =>
                 {
                     ShowViewModel<UserViewModel>();
+                });
+            }
+        }
+
+        public IMvxCommand ShowTodosCommand
+        {
+            get
+            {
+                return new MvxCommand(() =>
+                {
+                    ShowViewModel<TodoViewModel>();
                 });
             }
         }

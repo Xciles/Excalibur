@@ -43,7 +43,9 @@
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\TodoDetailViewModel.cs" />
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
+    <Compile Include="ViewModels\TodoViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

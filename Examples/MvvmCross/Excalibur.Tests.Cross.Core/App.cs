@@ -41,6 +41,18 @@ namespace Excalibur.Tests.Cross.Core
             Container.Register<IServiceBase<IList<Domain.User>>, UserService>();
 
             Container.RegisterSingle<IPresentation<int, Observable.User, Observable.User>, BasePresentation<int, Domain.User, Observable.User, Observable.User>>();
+
+            // Todo
+            Container.Register<IObjectStorageProvider<int, Domain.Todo>, ObjectAsFileStorageProvider<int, Domain.Todo>>();
+
+            Container.Register<IObjectMapper<Domain.Todo, Observable.Todo>, BaseObjectMapper<Domain.Todo, Observable.Todo>>();
+            Container.Register<IObjectMapper<Observable.Todo, Observable.Todo>, BaseObjectMapper<Observable.Todo, Observable.Todo>>();
+
+            Container.Register<IListBusiness<int, Domain.Todo>, BaseListBusiness<int, Domain.Todo>>();
+
+            Container.Register<IServiceBase<IList<Domain.Todo>>, TodoService>();
+
+            Container.RegisterSingle<IPresentation<int, Observable.Todo, Observable.Todo>, BasePresentation<int, Domain.Todo, Observable.Todo, Observable.Todo>>();
         }
     }
 }

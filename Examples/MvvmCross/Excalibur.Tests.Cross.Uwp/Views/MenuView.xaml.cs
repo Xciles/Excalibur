@@ -43,6 +43,12 @@ namespace Excalibur.Tests.Cross.Uwp.Views
                         Symbol = Symbol.AlignCenter,
                         Label = "Users",
                         Command = ViewModel.ShowUsersCommand
+                    },
+                    new NavMenuItem
+                    {
+                        Symbol = Symbol.Filter,
+                        Label = "Todos",
+                        Command = ViewModel.ShowTodosCommand
                     }
                 });
         }
