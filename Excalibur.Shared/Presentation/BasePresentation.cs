@@ -152,6 +152,13 @@ namespace Excalibur.Shared.Presentation
             {
                 return Observables.First(x => x.Id.Equals(observableId));
             }
+
+            var result = Resolver.Resolve<IListBusiness<TId, TDomain>>().GetByIdAsync(observableId).Result; // Todo make method async?
+            if (result != null)
+            {
+                return DomainObservableMapper.Map(result);
+            }
+
             return default(TObservable);
         }
 
