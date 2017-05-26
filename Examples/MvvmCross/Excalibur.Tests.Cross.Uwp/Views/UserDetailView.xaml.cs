@@ -6,11 +6,11 @@ namespace Excalibur.Tests.Cross.Uwp.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
 	[MvxRegion("PageContent")]
-    public sealed partial class UserView
+    public sealed partial class UserDetailView 
     {
-        public UserView()
+        public UserDetailView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
