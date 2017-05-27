@@ -17,7 +17,7 @@ namespace Excalibur.Tests.Cross.Core.Services
         public Task<bool> ValidateAsync()
         {
             var state = Resolver.Resolve<IApplicationState>();
-            if (string.IsNullOrWhiteSpace(state.Email))
+            if (!string.IsNullOrWhiteSpace(state.Email))
             {
                 return Task.FromResult(true);
             }
