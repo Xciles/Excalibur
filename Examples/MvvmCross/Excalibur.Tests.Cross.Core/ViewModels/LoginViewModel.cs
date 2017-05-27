@@ -1,5 +1,8 @@
-﻿using Excalibur.Cross.ViewModels;
+﻿using System;
+using System.Threading.Tasks;
+using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
+using MvvmCross.Core.ViewModels;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -14,8 +17,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             _loginService = loginService;
 
-            Email = "TestUser";
-            Password = "YouCantSeeMe";
+            Email = "myemail@10hourmail.com";
+            Password = "VerySecret";
             IsLoading = false;
         }
 
@@ -37,6 +40,25 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             set { SetProperty(ref _isLoading, value); }
         }
 
-
+        public IMvxAsyncCommand LoginCommand
+        {
+            get
+            {
+                return new MvxAsyncCommand(async () =>
+                {
+                    IsLoading = true;
+                    if (await _loginService.LoginAsync(Email, Password))
+                    {
+                        // Todo init sync things
+                        ShowViewModel<MainViewModel>();
+                    }
+                    else
+                    {
+                        // Todo alert dialog
+                        IsLoading = false;
+                    }
+                }, () => !IsLoading);
+            }
+        }
     }
 }

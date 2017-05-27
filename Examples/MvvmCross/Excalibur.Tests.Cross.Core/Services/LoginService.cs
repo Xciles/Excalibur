@@ -7,11 +7,13 @@ namespace Excalibur.Tests.Cross.Core.Services
 {
     public class LoginService : ILoginService
     {
-        public async Task LoginAsync(string email, string password)
+        public async Task<bool> LoginAsync(string email, string password)
         {
             var state = Resolver.Resolve<IApplicationState>();
             state.Email = email;
             await state.SaveAsync();
+
+            return true;
         }
 
         public Task<bool> ValidateAsync()
