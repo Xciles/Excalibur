@@ -8,12 +8,10 @@ namespace Excalibur.Shared.Configuration
 {
     public class ConfigurationManager : IConfigurationManager
     {
-        private readonly string _configName;
         private readonly IStorageService _storageService;
 
-        public ConfigurationManager(string configName)
+        public ConfigurationManager()
         {
-            _configName = configName;
             _storageService = Resolver.Resolve<IStorageService>();
         }
 
@@ -21,7 +19,7 @@ namespace Excalibur.Shared.Configuration
         {
             var result = new TConfigObject();
 
-            var configAsString = await _storageService.ReadAsTextAsync("", _configName).ConfigureAwait(false);
+            var configAsString = await _storageService.ReadAsTextAsync("", $"{nameof(TConfigObject)}.json").ConfigureAwait(false);
             if (!String.IsNullOrWhiteSpace(configAsString))
             {
                 result = JsonConvert.DeserializeObject<TConfigObject>(configAsString);
@@ -34,12 +32,12 @@ namespace Excalibur.Shared.Configuration
         {
             var configAsString = JsonConvert.SerializeObject(configObject);
 
-            if (_storageService.Exists("", _configName))
+            if (_storageService.Exists("", $"{nameof(TConfigObject)}.json"))
             {
-                _storageService.DeleteFile("", _configName);
+                _storageService.DeleteFile("", $"{nameof(TConfigObject)}.json");
             }
 
-            await _storageService.StoreAsync("", _configName, configAsString).ConfigureAwait(false);
+            await _storageService.StoreAsync("", $"{nameof(TConfigObject)}.json", configAsString).ConfigureAwait(false);
 
             return true;
         }
