@@ -6,8 +6,11 @@ using Excalibur.Shared.Storage.Providers;
 using Excalibur.Tests.Cross.Core.Services;
 using MvvmCross.Platform.IoC;
 using System.Collections.Generic;
+using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
+using Excalibur.Tests.Cross.Core.Configuration;
+using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core
 {
@@ -22,6 +25,9 @@ namespace Excalibur.Tests.Cross.Core
 
             base.Initialize();
 
+            var state = Resolver.Resolve<IApplicationState>();
+            state.InitAndLoadAsync().GetAwaiter().GetResult();
+
             Mvx.ConstructAndRegisterSingleton<IMvxAppStart, AppStart>();
             var appStart = Mvx.Resolve<IMvxAppStart>();
 
@@ -30,6 +36,9 @@ namespace Excalibur.Tests.Cross.Core
 
         public override void RegisterDependencies()
         {
+            // Application Things
+            Container.RegisterSingle<IApplicationState, ApplicationState>();
+
             // User
             Container.Register<IObjectStorageProvider<int, Domain.User>, ObjectAsFileStorageProvider<int, Domain.User>>();
 

@@ -3,7 +3,7 @@ using Excalibur.Tests.Cross.Core.Configuration;
 
 namespace Excalibur.Tests.Cross.Core.Services.Interfaces
 {
-    public class StateService : BaseState<Config>, IStateService
+    public interface IApplicationState : IBaseState<Config>
     {
     }
 }
