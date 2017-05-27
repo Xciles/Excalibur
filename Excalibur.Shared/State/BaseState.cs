@@ -4,7 +4,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.State
 {
-    public abstract class BaseState<TConfig> 
+    public abstract class BaseState<TConfig> : IBaseState<TConfig>
         where TConfig : new()
     {
         protected IConfigurationManager ConfigurationManager { get; set; }
@@ -16,7 +16,7 @@ namespace Excalibur.Shared.State
 
         protected TConfig Config { get; set; } = new TConfig();
 
-        protected virtual async Task InitAndLoadAsync()
+        public virtual async Task InitAndLoadAsync()
         {
             Config = await ConfigurationManager.LoadAsync<TConfig>().ConfigureAwait(false);
 
@@ -29,7 +29,7 @@ namespace Excalibur.Shared.State
             // Like default images
         }
 
-        protected virtual async Task SaveAsync()
+        public virtual async Task SaveAsync()
         {
             await ConfigurationManager.SaveAsync(Config).ConfigureAwait(false);
         }

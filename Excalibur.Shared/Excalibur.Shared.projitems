@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\BPresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentationSorted.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)State\BaseState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)State\IBaseState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\MessageBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\BaseObjectMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\IObjectMapper.cs" />
