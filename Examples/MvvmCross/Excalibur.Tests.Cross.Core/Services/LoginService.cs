@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
+using Excalibur.Tests.Cross.Core.State;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.Services
