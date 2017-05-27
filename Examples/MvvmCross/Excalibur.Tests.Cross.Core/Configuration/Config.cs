@@ -2,5 +2,6 @@
 {
     public class Config
     {
+        public string Email { get; set; }
     }
 }

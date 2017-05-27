@@ -5,5 +5,10 @@ namespace Excalibur.Tests.Cross.Core.Services.Interfaces
 {
     public class ApplicationState : BaseState<Config>, IApplicationState
     {
+        public string Email
+        {
+            get { return Config.Email; }
+            set { Config.Email = value; }
+        }
     }
 }
