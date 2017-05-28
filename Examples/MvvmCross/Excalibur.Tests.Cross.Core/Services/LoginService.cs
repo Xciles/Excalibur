@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Excalibur.Tests.Cross.Core.Business.Interfaces;
+using Excalibur.Tests.Cross.Core.Domain;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Cross.Core.State;
+using Xciles.Uncommon.Net;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.Services
@@ -12,6 +16,15 @@ namespace Excalibur.Tests.Cross.Core.Services
             var state = Resolver.Resolve<IApplicationState>();
             state.Email = email;
             await state.SaveAsync();
+
+            // simulate user logging in and retrieving
+            // Usually we get some kind of profile returned, simulating this
+            var rand = new Random();
+
+            var result = await UncommonRequestHelper.ProcessGetRequestAsync<LoggedInUser>($"https://jsonplaceholder.typicode.com/users/{rand.Next(10)}");
+
+            var loggedInUserBusiness = Resolver.Resolve<ILoggedInUser>();
+            await loggedInUserBusiness.Store(result.Result);
 
             return true;
         }

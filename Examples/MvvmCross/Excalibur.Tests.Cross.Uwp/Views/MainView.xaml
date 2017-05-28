@@ -49,8 +49,6 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
-
         <SplitView x:Name="RootSplitView"
                    DisplayMode="Inline"
                    OpenPaneLength="140"
