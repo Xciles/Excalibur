@@ -41,6 +41,8 @@
     <Compile Include="Observable\LoggedInUser.cs" />
     <Compile Include="Observable\Todo.cs" />
     <Compile Include="Observable\User.cs" />
+    <Compile Include="Presentation\Interfaces\ITodo.cs" />
+    <Compile Include="Presentation\Todo.cs" />
     <Compile Include="Presentation\LoggedInUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\Config.cs" />

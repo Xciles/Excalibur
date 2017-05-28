@@ -8,9 +8,10 @@ using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
-    public abstract class ListViewModel<TId, TObservable, TSelectedObservable, TDetailViewModel> : BaseViewModel
+    public abstract class ListViewModel<TId, TObservable, TSelectedObservable, TPresentation, TDetailViewModel> : BaseViewModel
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
+        where TPresentation : class, IPresentation<TId, TObservable, TSelectedObservable>
         where TDetailViewModel : IMvxViewModel
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
@@ -19,7 +20,7 @@ namespace Excalibur.Cross.ViewModels
 
         protected ListViewModel()
         {
-            var presentation = Resolver.Resolve<IPresentation<TId, TObservable, TSelectedObservable>>();
+            var presentation = Resolver.Resolve<TPresentation>();
             Observables = presentation.Observables;
             SelectedObservable = presentation.SelectedObservable;
             IsLoading = presentation.IsLoading;
@@ -49,7 +50,7 @@ namespace Excalibur.Cross.ViewModels
             {
                 return new MvxCommand<TObservable>((selected) =>
                 {
-                    var presentation = Resolver.Resolve<IPresentation<TId, TObservable, TSelectedObservable>>();
+                    var presentation = Resolver.Resolve<TPresentation>();
                     presentation.SetSelectedObservable(selected.Id);
                     ShowViewModel<TDetailViewModel>();
                 });

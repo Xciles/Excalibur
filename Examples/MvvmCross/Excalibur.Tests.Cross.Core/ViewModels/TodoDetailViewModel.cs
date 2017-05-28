@@ -1,10 +1,11 @@
 using Excalibur.Cross.ViewModels;
 using Excalibur.Shared.Presentation;
+using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
-    public class TodoDetailViewModel : DetailViewModel<int, Observable.Todo, Observable.Todo>
+    public class TodoDetailViewModel : DetailViewModel<int, Observable.Todo, Observable.Todo, ITodo>
     {
         private Observable.User _userObservable = new Observable.User();
 

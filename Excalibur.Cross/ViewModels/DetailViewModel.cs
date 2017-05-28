@@ -4,15 +4,16 @@ using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
-    public abstract class DetailViewModel<TId, TObservable, TSelectedObservable> : BaseViewModel
+    public abstract class DetailViewModel<TId, TObservable, TSelectedObservable, TPresentation> : BaseViewModel
         where TObservable : ObservableBase<TId>, new()
+        where TPresentation : class, IPresentation<TId, TObservable, TSelectedObservable>
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
 
         protected DetailViewModel()
         {
-            var presentation = Resolver.Resolve<IPresentation<TId, TObservable, TSelectedObservable>>();
+            var presentation = Resolver.Resolve<TPresentation>();
             SelectedObservable = presentation.SelectedObservable;
         }
 

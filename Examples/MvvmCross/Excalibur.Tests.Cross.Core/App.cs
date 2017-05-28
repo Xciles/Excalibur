@@ -74,7 +74,7 @@ namespace Excalibur.Tests.Cross.Core
 
             Container.Register<IServiceBase<IList<Domain.Todo>>, TodoService>();
 
-            Container.RegisterSingle<IPresentation<int, Observable.Todo, Observable.Todo>, BasePresentation<int, Domain.Todo, Observable.Todo, Observable.Todo>>();
+            Container.RegisterSingle<Presentation.Interfaces.ITodo, Presentation.Todo>();
         }
     }
 }
