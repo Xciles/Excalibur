@@ -41,6 +41,18 @@ namespace Excalibur.Tests.Cross.Core
             Container.RegisterSingle<IApplicationState, ApplicationState>();
 
             // User
+            Container.Register<IObjectStorageProvider<int, Domain.LoggedInUser>, ObjectAsFileStorageProvider<int, Domain.LoggedInUser>>();
+
+            Container.Register<IObjectMapper<Domain.LoggedInUser, Observable.LoggedInUser>, BaseObjectMapper<Domain.LoggedInUser, Observable.LoggedInUser>>();
+            Container.Register<IObjectMapper<Observable.LoggedInUser, Observable.LoggedInUser>, BaseObjectMapper<Observable.LoggedInUser, Observable.LoggedInUser>>();
+
+            Container.Register<Business.Interfaces.ILoggedInUser, Business.LoggedInUser>();
+
+            Container.Register<IServiceBase<Domain.LoggedInUser>, LoggedInUserService>();
+
+            Container.RegisterSingle<IPresentation<int, Observable.LoggedInUser>, BaseSinglePresentation<int, Domain.LoggedInUser, Observable.LoggedInUser>>();
+
+            // User
             Container.Register<IObjectStorageProvider<int, Domain.User>, ObjectAsFileStorageProvider<int, Domain.User>>();
 
             Container.Register<IObjectMapper<Domain.User, Observable.User>, BaseObjectMapper<Domain.User, Observable.User>>();

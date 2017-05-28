@@ -29,14 +29,19 @@ namespace Excalibur.Tests.Cross.Core.Services
             return true;
         }
 
-        public Task<bool> ValidateAsync()
+        public async Task<bool> ValidateAsync()
         {
             var state = Resolver.Resolve<IApplicationState>();
             if (!string.IsNullOrWhiteSpace(state.Email))
             {
-                return Task.FromResult(true);
+                // we load the current user from storage, usually we reauth and sync current user
+
+                var loggedInUserBusiness = Resolver.Resolve<ILoggedInUser>();
+                await loggedInUserBusiness.PublishFromStorageAsync();
+
+                return true;
             }
-            return Task.FromResult(false);
+            return false;
         }
     }
 }
