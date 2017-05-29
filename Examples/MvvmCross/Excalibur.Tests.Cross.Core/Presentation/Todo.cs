@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
 using Excalibur.Shared.Presentation;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
@@ -21,11 +22,12 @@ namespace Excalibur.Tests.Cross.Core.Presentation
             var userPresentation = Resolver.Resolve<IPresentation<int, Observable.LoggedInUser>>();
             if (!userPresentation.SelectedObservable.IsTransient())
             {
-                CurrentUserTodoObservables.Clear();
+                var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
+                dispatcher.InvokeOnMainThread(() => { CurrentUserTodoObservables.Clear(); });
                 var todosFromUser = Observables.Where(x => x.UserId.Equals(userPresentation.SelectedObservable.Id)).Take(5);
                 foreach (var todo in todosFromUser)
                 {
-                    CurrentUserTodoObservables.Add(todo);
+                    dispatcher.InvokeOnMainThread(() => { CurrentUserTodoObservables.Add(todo); });
                 }
             }
         }
