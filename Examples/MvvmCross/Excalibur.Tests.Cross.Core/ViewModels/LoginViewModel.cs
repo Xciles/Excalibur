@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Excalibur.Cross.ViewModels;
+using Excalibur.Shared.Business;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using MvvmCross.Core.ViewModels;
+using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -50,6 +52,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                     if (await _loginService.LoginAsync(Email, Password))
                     {
                         // Todo init sync things
+                        Resolver.Resolve<ISyncService>().FullSyncAsync().ConfigureAwait(false);
+
                         ShowViewModel<MainViewModel>();
                     }
                     else

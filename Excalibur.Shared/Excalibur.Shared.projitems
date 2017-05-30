@@ -48,9 +48,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Storage\IStorageService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage\Providers\ObjectAsFileStorageProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage\StorageDomain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
     <Folder Include="$(MSBuildThisFileDirectory)Storage\Providers\" />
   </ItemGroup>
 </Project>

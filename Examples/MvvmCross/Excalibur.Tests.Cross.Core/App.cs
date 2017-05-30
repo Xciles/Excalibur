@@ -39,6 +39,7 @@ namespace Excalibur.Tests.Cross.Core
         {
             // Application Things
             Container.RegisterSingle<IApplicationState, ApplicationState>();
+            Container.RegisterSingle<ISyncService, SyncService>();
 
             // User
             Container.Register<IObjectStorageProvider<int, Domain.LoggedInUser>, ObjectAsFileStorageProvider<int, Domain.LoggedInUser>>();
@@ -50,7 +51,7 @@ namespace Excalibur.Tests.Cross.Core
 
             Container.Register<IServiceBase<Domain.LoggedInUser>, LoggedInUserService>();
 
-            Container.RegisterSingle<IPresentation<int, Observable.LoggedInUser>, BaseSinglePresentation<int, Domain.LoggedInUser, Observable.LoggedInUser>>();
+            Container.RegisterSingle<ISinglePresentation<int, Observable.LoggedInUser>, BaseSinglePresentation<int, Domain.LoggedInUser, Observable.LoggedInUser>>();
 
             // User
             Container.Register<IObjectStorageProvider<int, Domain.User>, ObjectAsFileStorageProvider<int, Domain.User>>();

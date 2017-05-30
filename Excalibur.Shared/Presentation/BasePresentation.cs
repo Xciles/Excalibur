@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
 using Excalibur.Shared.ObjectConverter;
@@ -24,7 +25,7 @@ namespace Excalibur.Shared.Presentation
         public BasePresentation()
         {
             // retrieve mappers
-            this.Subscribe<MessageBase<IList<TDomain>>>(ListUpdatedHandler);
+            this.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message); });
             this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainObservableMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
@@ -37,7 +38,8 @@ namespace Excalibur.Shared.Presentation
             set { SetProperty(ref _observables, value); }
         }
 
-        protected virtual async void ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
+        // Todo double check the Task change.
+        protected virtual async Task ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
         {
             // todo Might need to add Task.Run/Startnews arround the dispatcher threads
             IsLoading = true;

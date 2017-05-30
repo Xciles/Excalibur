@@ -101,6 +101,7 @@
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="Controls\CustomViewPresenter.cs" />
+    <Compile Include="Controls\TestDataTemplateSelector.cs" />
     <Compile Include="Controls\MvxPanelPopToRootPresentationHint.cs" />
     <Compile Include="Controls\NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +116,9 @@
     </Compile>
     <Compile Include="Views\TodoDetailView.xaml.cs">
       <DependentUpon>TodoDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrentUserView.xaml.cs">
+      <DependentUpon>CurrentUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserDetailView.xaml.cs">
       <DependentUpon>UserDetailView.xaml</DependentUpon>
@@ -180,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TodoDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CurrentUserView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

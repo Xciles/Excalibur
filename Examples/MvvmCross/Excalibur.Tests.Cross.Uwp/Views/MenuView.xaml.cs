@@ -29,14 +29,18 @@ namespace Excalibur.Tests.Cross.Uwp.Views
         {
             base.OnNavigatedTo(e);
 
-            NavMenuList.ItemsSource = new List<NavMenuItem>(
-                new[]
+            NavMenuList.ItemsSource = new List<MenuItemBase>(
+                new MenuItemBase[]
                 {
+                    new CurrentUserMenuItem
+                    {
+                        Command = ViewModel.ShowCurrentUserCommand
+                    },
                     new NavMenuItem
                     {
                         Symbol = Symbol.Home,
                         Label = "Dashboard",
-                        Command = ViewModel.ShowDashboardCommand
+                        Command = ViewModel.PopToRootCommand
                     },
                     new NavMenuItem
                     {
@@ -49,7 +53,7 @@ namespace Excalibur.Tests.Cross.Uwp.Views
                         Symbol = Symbol.Filter,
                         Label = "Todos",
                         Command = ViewModel.ShowTodosCommand
-                    }
+                    },
                 });
         }
 
@@ -60,7 +64,7 @@ namespace Excalibur.Tests.Cross.Uwp.Views
         /// <param name="listViewItem"></param>
         private void NavMenuList_ItemInvoked(object sender, ListViewItem listViewItem)
         {
-            var item = (NavMenuItem)((NavMenuListView)sender).ItemFromContainer(listViewItem);
+            var item = (MenuItemBase)((NavMenuListView)sender).ItemFromContainer(listViewItem);
             item?.Command?.Execute(item.Parameters);
         }
 

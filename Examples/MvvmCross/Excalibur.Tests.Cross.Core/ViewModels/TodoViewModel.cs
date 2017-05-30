@@ -9,7 +9,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public TodoViewModel()
         {
-            Resolver.Resolve<IListBusiness<int, Domain.Todo>>().UpdateFromServiceAsync();
+            Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
         }
     }
 }

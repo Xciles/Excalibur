@@ -9,7 +9,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public UserViewModel()
         {
-            Resolver.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
+            Resolver.Resolve<IListBusiness<int, Domain.User>>().PublishFromStorageAsync();
         }
     }
 }

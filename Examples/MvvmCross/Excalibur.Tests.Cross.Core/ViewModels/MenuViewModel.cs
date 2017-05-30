@@ -1,17 +1,21 @@
-﻿using Excalibur.Cross.ViewModels;
+﻿using System.Windows.Input;
+using Excalibur.Cross.ViewModels;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
-        public IMvxCommand ShowDashboardCommand
+        private MvxPresentationHint popToRootHint = Mvx.Resolve<MvxPresentationHint>();
+
+        public IMvxCommand PopToRootCommand
         {
             get
             {
                 return new MvxCommand(() =>
                 {
-                    ShowViewModel<DashboardViewModel>();
+                    ChangePresentation(popToRootHint);
                 });
             }
         }
@@ -34,6 +38,17 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                 return new MvxCommand(() =>
                 {
                     ShowViewModel<TodoViewModel>();
+                });
+            }
+        }
+
+        public IMvxCommand ShowCurrentUserCommand
+        {
+            get
+            {
+                return new MvxCommand(() =>
+                {
+                    ShowViewModel<CurrentUserViewModel>();
                 });
             }
         }

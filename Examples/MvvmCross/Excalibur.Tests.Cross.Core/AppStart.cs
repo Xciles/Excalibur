@@ -1,6 +1,7 @@
 ﻿using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
+using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core
 {
@@ -19,6 +20,8 @@ namespace Excalibur.Tests.Cross.Core
             if (await _loginService.ValidateAsync())
             {
                 // todo init sync and loading of data
+                Resolver.Resolve<ISyncService>().PartialSyncAsync().ConfigureAwait(false);
+
                 ShowViewModel<MainViewModel>();
             }
             else

@@ -5,7 +5,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
-    public class TodoDetailViewModel : DetailViewModel<int, Observable.Todo, Observable.Todo, ITodo>
+    public class TodoDetailViewModel : DetailViewModel<int, Observable.Todo, ITodo>
     {
         private Observable.User _userObservable = new Observable.User();
 

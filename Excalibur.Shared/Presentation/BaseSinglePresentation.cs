@@ -8,7 +8,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
-    public class BaseSinglePresentation<TId, TDomain, TObservable> : ObservableObjectBase, IPresentation<TId, TObservable>
+    public class BaseSinglePresentation<TId, TDomain, TObservable> : ObservableObjectBase, ISinglePresentation<TId, TObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
     {

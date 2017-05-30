@@ -9,6 +9,31 @@
 
     <Page.Resources>
 
+        <DataTemplate x:Key="UserMenuItemTemplate"
+                      x:DataType="controls:NavMenuItem">
+            <Grid Height="62">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                       Source="{Binding CurrentUserObservable.Image}"
+                       Margin="5" />
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical" 
+                            VerticalAlignment="Center">
+                    <TextBlock Text="{Binding CurrentUserObservable.Username}"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               TextWrapping="NoWrap" />
+                    <TextBlock Text="{Binding CurrentUserObservable.Name}"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               FontSize="12"
+                               Foreground="Gray"
+                               TextWrapping="NoWrap" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
         <DataTemplate x:Key="NavMenuItemTemplate"
                       x:DataType="controls:NavMenuItem">
             <Grid>
@@ -18,17 +43,22 @@
                 </Grid.ColumnDefinitions>
                 <FontIcon x:Name="Glyph"
                           FontSize="16"
-                          Glyph="{x:Bind SymbolAsChar}"
+                          Glyph="{Binding SymbolAsChar}"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
-                          ToolTipService.ToolTip="{x:Bind Label}" />
+                          ToolTipService.ToolTip="{Binding Label}" />
                 <TextBlock x:Name="Text"
                            Grid.Column="1"
-                           Text="{x:Bind Label}"
+                           Text="{Binding Label}"
                            Style="{StaticResource BodyTextBlockStyle}"
                            TextWrapping="NoWrap" />
             </Grid>
         </DataTemplate>
+
+
+        <controls:TestDataTemplateSelector x:Key="TestDataTemplateSelector"
+                                           DefaultTemplate="{StaticResource NavMenuItemTemplate}"
+                                           UserItemTemplate="{StaticResource UserMenuItemTemplate}" />
 
     </Page.Resources>
 
@@ -39,7 +69,7 @@
                                   Margin="0,52,0,0"
                                   ContainerContentChanging="NavMenuItemContainerContentChanging"
                                   ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                                  ItemTemplate="{StaticResource NavMenuItemTemplate}"
+                                  ItemTemplateSelector="{StaticResource TestDataTemplateSelector}"
                                   ItemInvoked="NavMenuList_ItemInvoked" />
     </Grid>
 </local:BaseView>

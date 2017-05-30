@@ -3,7 +3,7 @@ using Excalibur.Shared.Observable;
 
 namespace Excalibur.Shared.Presentation
 {
-    public interface IPresentation<TId, TSelectedObservable>
+    public interface ISinglePresentation<TId, TSelectedObservable>
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         bool IsLoading { get; set; }
@@ -12,7 +12,7 @@ namespace Excalibur.Shared.Presentation
         void Initialize();
     }
 
-    public interface IPresentation<TId, TObservable, TSelectedObservable> : IPresentation<TId, TSelectedObservable>
+    public interface IPresentation<TId, TObservable, TSelectedObservable> : ISinglePresentation<TId, TSelectedObservable>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
     {

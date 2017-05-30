@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
 using Excalibur.Shared.Presentation;
@@ -13,13 +14,13 @@ namespace Excalibur.Tests.Cross.Core.Presentation
     {
         private IObservableCollection<Observable.Todo> _currentUserTodoObservables = new ExObservableCollection<Observable.Todo>(new List<Observable.Todo>());
 
-        protected override void ListUpdatedHandler(MessageBase<IList<Domain.Todo>> messageBase)
+        protected override async Task ListUpdatedHandler(MessageBase<IList<Domain.Todo>> messageBase)
         {
-            base.ListUpdatedHandler(messageBase);
+            await base.ListUpdatedHandler(messageBase);
 
             Cde.Wait(1000);
 
-            var userPresentation = Resolver.Resolve<IPresentation<int, Observable.LoggedInUser>>();
+            var userPresentation = Resolver.Resolve<ISinglePresentation<int, Observable.LoggedInUser>>();
             if (!userPresentation.SelectedObservable.IsTransient())
             {
                 var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();

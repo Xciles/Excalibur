@@ -7,8 +7,6 @@ namespace Excalibur.Tests.Cross.Core.Observable
         private int _userId;
         private string _title;
         private bool _completed;
-        private string _email;
-        private string _username;
 
         public int UserId
         {

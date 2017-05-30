@@ -3,7 +3,7 @@ using Excalibur.Shared.Observable;
 
 namespace Excalibur.Shared.Presentation
 {
-    public interface IPresentationSorted<TId, TObservable, TSelectedObservable> : IPresentation<TId, TSelectedObservable>
+    public interface IPresentationSorted<TId, TObservable, TSelectedObservable> : ISinglePresentation<TId, TSelectedObservable>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
     {
