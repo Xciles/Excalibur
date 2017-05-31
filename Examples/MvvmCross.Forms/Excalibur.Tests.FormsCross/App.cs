@@ -11,7 +11,7 @@ namespace Excalibur.Tests.FormsCross
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterAppStart<ViewModels.MainViewModel>();
+            RegisterAppStart<ViewModels.FirstViewModel>();
         }
     }
 }

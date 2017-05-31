@@ -140,6 +140,32 @@
       <Name>Excalibur.Tests.FormsCross</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.Uwp">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Binding.Uwp.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Forms">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Forms.Uwp">
+      <HintPath>..\..\..\..\bin\Debug\Mvx\Uwp\MvvmCross.Forms.Uwp.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.Uwp">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Platform.Uwp.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Uwp">
+      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Uwp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
