@@ -1,8 +1,10 @@
 ﻿{
-  "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Xamarin.Forms": "2.3.3.193"
-  },
+    "dependencies": {
+        "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+        "MvvmCross.Forms": "5.0.1",
+        "MvvmCross.StarterPack": "5.0.1",
+        "Xamarin.Forms": "2.3.3.193"
+    },
   "frameworks": {
     "uap10.0": {}
   },

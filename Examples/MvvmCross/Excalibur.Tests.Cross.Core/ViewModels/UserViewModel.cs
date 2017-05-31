@@ -1,3 +1,4 @@
+using System.Linq;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Presentation;
@@ -9,7 +10,10 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public UserViewModel()
         {
-            Resolver.Resolve<IListBusiness<int, Domain.User>>().PublishFromStorageAsync();
+            if (Observables.Any())
+            {
+                Resolver.Resolve<IListBusiness<int, Domain.User>>().PublishFromStorageAsync();
+            }
         }
     }
 }

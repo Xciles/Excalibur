@@ -54,7 +54,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                         // Todo init sync things
                         Resolver.Resolve<ISyncService>().FullSyncAsync().ConfigureAwait(false);
 
-                        ShowViewModel<MainViewModel>();
+                        await NavigationService.Navigate<MainViewModel>();
                     }
                     else
                     {

@@ -50,7 +50,8 @@ namespace Excalibur.Tests.FormsCross.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                var setup = new Setup(rootFrame, e);
+                setup.Initialize();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

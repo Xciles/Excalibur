@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
@@ -21,6 +22,7 @@ namespace Excalibur.Shared.Presentation
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
         protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
         protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
+        private SemaphoreSlim _semaphore = new SemaphoreSlim(1);
 
         public BasePresentation()
         {
@@ -43,6 +45,8 @@ namespace Excalibur.Shared.Presentation
         {
             // todo Might need to add Task.Run/Startnews arround the dispatcher threads
             IsLoading = true;
+
+            await _semaphore.WaitAsync((30 * 1000)); // 30 sec
 
             var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
 
@@ -97,6 +101,11 @@ namespace Excalibur.Shared.Presentation
                 ObservableSelectedMapper.UpdateDestination(Observables.First(), SelectedObservable);
             }
 
+            Task.Factory.StartNew(() =>
+            {
+                Cde.Wait(1000);
+                _semaphore.Release();
+            }).ConfigureAwait(false);
             IsLoading = false;
         }
 

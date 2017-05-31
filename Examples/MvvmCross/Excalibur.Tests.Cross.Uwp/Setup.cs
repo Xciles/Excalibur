@@ -2,8 +2,8 @@
 using Excalibur.Tests.Cross.Uwp.Controls;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
-using MvvmCross.WindowsUWP.Platform;
-using MvvmCross.WindowsUWP.Views;
+using MvvmCross.Uwp.Platform;
+using MvvmCross.Uwp.Views;
 
 namespace Excalibur.Tests.Cross.Uwp
 {

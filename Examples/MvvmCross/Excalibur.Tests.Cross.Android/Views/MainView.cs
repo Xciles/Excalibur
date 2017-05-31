@@ -4,13 +4,13 @@ using MvvmCross.Droid.Views;
 
 namespace Excalibur.Tests.Cross.Droid.Views
 {
-    [Activity(Label = "View for FirstViewModel")]
-    public class FirstView : MvxActivity
+    [Activity(Label = "View for MainViewModel")]
+    public class MainView : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.FirstView);
+            SetContentView(Resource.Layout.MainView);
         }
     }
 }

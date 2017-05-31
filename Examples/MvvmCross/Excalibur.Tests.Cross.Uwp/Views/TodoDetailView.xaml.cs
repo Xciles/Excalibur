@@ -1,4 +1,4 @@
-﻿using MvvmCross.WindowsUWP.Views;
+﻿using MvvmCross.Uwp.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
 {

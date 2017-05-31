@@ -23,6 +23,8 @@ namespace Excalibur.Tests.Cross.Core.Services
 
             var result = await UncommonRequestHelper.ProcessGetRequestAsync<LoggedInUser>($"https://jsonplaceholder.typicode.com/users/{rand.Next(10)}");
 
+            await Task.Delay(1000);
+
             var loggedInUserBusiness = Resolver.Resolve<ILoggedInUser>();
             await loggedInUserBusiness.Store(result.Result);
 

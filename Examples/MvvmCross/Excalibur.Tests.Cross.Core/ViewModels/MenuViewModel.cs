@@ -7,7 +7,11 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
-        private MvxPresentationHint popToRootHint = Mvx.Resolve<MvxPresentationHint>();
+        private readonly MvxPresentationHint _popToRootHint = Mvx.Resolve<MvxPresentationHint>();
+        private IMvxAsyncCommand _showUsersCommand;
+        private IMvxAsyncCommand _showTodosCommand;
+        private IMvxAsyncCommand _showCurrentUserCommand;
+
 
         public IMvxCommand PopToRootCommand
         {
@@ -15,7 +19,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             {
                 return new MvxCommand(() =>
                 {
-                    ChangePresentation(popToRootHint);
+                    ChangePresentation(_popToRootHint);
                 });
             }
         }
@@ -24,10 +28,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() =>
-                {
-                    ShowViewModel<UserViewModel>();
-                });
+                _showUsersCommand = _showUsersCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<UserViewModel>());
+                return _showUsersCommand;
             }
         }
 
@@ -35,10 +37,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() =>
-                {
-                    ShowViewModel<TodoViewModel>();
-                });
+                _showTodosCommand = _showTodosCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<TodoViewModel>());
+                return _showTodosCommand;
             }
         }
 
@@ -46,10 +46,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() =>
-                {
-                    ShowViewModel<CurrentUserViewModel>();
-                });
+                _showCurrentUserCommand = _showCurrentUserCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<CurrentUserViewModel>());
+                return _showCurrentUserCommand;
             }
         }
     }

@@ -35,6 +35,7 @@ namespace Excalibur.Tests.Cross.Core.Services
 
         public async Task PartialSyncAsync()
         {
+            await Task.Delay(5000);
             await FullSyncAsync();
         }
     }

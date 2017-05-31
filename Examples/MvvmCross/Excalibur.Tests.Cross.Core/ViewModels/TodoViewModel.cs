@@ -1,3 +1,4 @@
+using System.Linq;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Shared.Business;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
@@ -9,7 +10,10 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public TodoViewModel()
         {
-            Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+            if (!Observables.Any())
+            {
+                Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+            }
         }
     }
 }

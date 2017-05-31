@@ -1,11 +1,21 @@
-﻿namespace Excalibur.Tests.FormsCross.UWP
+﻿using MvvmCross.Core.ViewModels;
+using MvvmCross.Core.Views;
+using MvvmCross.Forms.Uwp.Presenters;
+using MvvmCross.Platform;
+
+namespace Excalibur.Tests.FormsCross.UWP
 {
     public sealed partial class MainPage
     {
         public MainPage()
         {
             this.InitializeComponent();
-            LoadApplication(new Excalibur.Tests.FormsCross.App());
+
+            var start = Mvx.Resolve<IMvxAppStart>();
+            start.Start();
+
+            var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsUwpPagePresenter;
+            LoadApplication(presenter.MvxFormsApp);
         }
     }
 }

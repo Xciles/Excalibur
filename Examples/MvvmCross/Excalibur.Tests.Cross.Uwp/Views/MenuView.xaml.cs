@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using Excalibur.Tests.Cross.Uwp.Controls;
-using MvvmCross.WindowsUWP.Views;
+using MvvmCross.Uwp.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
 {

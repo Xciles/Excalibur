@@ -1,7 +1,9 @@
 ﻿using System.Windows.Input;
 using Excalibur.Cross.Language;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Localization;
+using MvvmCross.Platform;
 
 namespace Excalibur.Cross.ViewModels
 {
@@ -10,6 +12,8 @@ namespace Excalibur.Cross.ViewModels
     /// </summary>
     public abstract class BaseViewModel : MvxViewModel
     {
+        protected IMvxNavigationService NavigationService { get; } = Mvx.Resolve<IMvxNavigationService>();
+
         public IMvxLanguageBinder TextSource
         {
             get { return new MvxLanguageBinder(ExTextProvider.GeneralNamespace, GetType().Name); }

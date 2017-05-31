@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Shared.Business;
@@ -26,7 +27,10 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             {
                 await Task.Delay(5000);
 
-                await Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+                if (!CurrentUserTodoObservables.Any())
+                {
+                    await Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+                }
             });
         }
 

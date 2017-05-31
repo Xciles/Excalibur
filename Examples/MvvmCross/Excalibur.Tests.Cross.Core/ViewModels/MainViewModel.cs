@@ -1,4 +1,6 @@
 ﻿using Excalibur.Cross.ViewModels;
+using MvvmCross.Core.Navigation;
+using MvvmCross.Platform;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -6,8 +8,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public void ShowMenu()
         {
-            ShowViewModel<DashboardViewModel>();
-            ShowViewModel<MenuViewModel>();
+            Mvx.Resolve<IMvxNavigationService>().Navigate<DashboardViewModel>();
+            Mvx.Resolve<IMvxNavigationService>().Navigate<MenuViewModel>();
         }
     }
 }

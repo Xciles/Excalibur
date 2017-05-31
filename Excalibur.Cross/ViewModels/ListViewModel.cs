@@ -17,6 +17,7 @@ namespace Excalibur.Cross.ViewModels
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
         private bool _isLoading;
+        private IMvxAsyncCommand _goToDetailCommand;
 
         protected ListViewModel()
         {
@@ -44,16 +45,19 @@ namespace Excalibur.Cross.ViewModels
             set { SetProperty(ref _selectedObservable, value); }
         }
 
-        public virtual ICommand GoToDetailCommand
+        public virtual IMvxAsyncCommand GoToDetailCommand
         {
             get
             {
-                return new MvxCommand<TObservable>((selected) =>
+                _goToDetailCommand = _goToDetailCommand ?? new MvxAsyncCommand<TObservable>((selected) =>
                 {
                     var presentation = Resolver.Resolve<TPresentation>();
                     presentation.SetSelectedObservable(selected.Id);
-                    ShowViewModel<TDetailViewModel>();
+
+                    return NavigationService.Navigate<TDetailViewModel>();
                 });
+
+                return _goToDetailCommand;
             }
         }
     }
