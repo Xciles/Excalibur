@@ -24,7 +24,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             }
         }
 
-        public IMvxCommand ShowUsersCommand
+        public IMvxAsyncCommand ShowUsersCommand
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             }
         }
 
-        public IMvxCommand ShowTodosCommand
+        public IMvxAsyncCommand ShowTodosCommand
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             }
         }
 
-        public IMvxCommand ShowCurrentUserCommand
+        public IMvxAsyncCommand ShowCurrentUserCommand
         {
             get
             {

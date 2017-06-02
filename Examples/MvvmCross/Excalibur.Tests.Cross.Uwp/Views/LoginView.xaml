@@ -16,7 +16,8 @@
             <PasswordBox Password="{Binding Password}"
                          PlaceholderText="Password" />
             <Button Content="Login!"
-                    Command="{Binding LoginCommand}" />
+                    Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding LoginCommand.CanExecute}"/>
         </StackPanel>
     </Grid>
 </views1:BaseView>
