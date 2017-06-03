@@ -27,7 +27,7 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
 
             _menuView = view.FindViewById<NavigationView>(Resource.Id.menuView);
             _menuView.SetNavigationItemSelectedListener(this);
-            _menuView.Menu.FindItem(Resource.Id.nav_home).SetChecked(true);
+            _menuView.Menu.FindItem(Resource.Id.nav_dashboard).SetChecked(true);
 
             var headerView = _menuView.GetHeaderView(0);
             headerView.Click += HeaderViewOnClick;
@@ -40,6 +40,7 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
 
         private void HeaderViewOnClick(object sender, EventArgs eventArgs)
         {
+            ((MainActivity)Activity).DrawerLayout.CloseDrawers();
             _previousMenuItem?.SetChecked(false);
 
             ViewModel.ShowCurrentUserCommand.Execute();
@@ -71,8 +72,8 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
 
             switch (itemId)
             {
-                case Resource.Id.nav_home:
-                    ViewModel.PopToRootCommand.Execute();
+                case Resource.Id.nav_dashboard:
+                    ViewModel.ShowDashboardCommand.Execute();
                     break;
                 case Resource.Id.nav_users:
                     ViewModel.ShowUsersCommand.Execute();

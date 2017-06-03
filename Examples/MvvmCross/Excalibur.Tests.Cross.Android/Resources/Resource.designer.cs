@@ -4009,11 +4009,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08001c
 			public const int multiply = 2131230748;
 			
+			// aapt resource value: 0x7f080091
+			public const int nav_dashboard = 2131230865;
+			
 			// aapt resource value: 0x7f080094
 			public const int nav_footer = 2131230868;
-			
-			// aapt resource value: 0x7f080091
-			public const int nav_home = 2131230865;
 			
 			// aapt resource value: 0x7f080090
 			public const int nav_items = 2131230864;

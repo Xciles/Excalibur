@@ -8,6 +8,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     public class MenuViewModel : BaseViewModel
     {
         private readonly MvxPresentationHint _popToRootHint = Mvx.Resolve<MvxPresentationHint>();
+        private IMvxAsyncCommand _showDashboardCommand;
         private IMvxAsyncCommand _showUsersCommand;
         private IMvxAsyncCommand _showTodosCommand;
         private IMvxAsyncCommand _showCurrentUserCommand;
@@ -21,6 +22,15 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                 {
                     ChangePresentation(_popToRootHint);
                 });
+            }
+        }
+
+        public IMvxAsyncCommand ShowDashboardCommand
+        {
+            get
+            {
+                _showDashboardCommand = _showDashboardCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<DashboardViewModel>());
+                return _showDashboardCommand;
             }
         }
 
