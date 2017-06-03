@@ -37,6 +37,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             {
                 return new MvxCommand(async () =>
                 {
+                    // Todo fix IsLoading presentation ref
                     IsLoading = true;
 
                     await Task.Delay(5000);
