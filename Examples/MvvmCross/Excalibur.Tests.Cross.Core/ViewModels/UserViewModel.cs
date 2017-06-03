@@ -37,8 +37,12 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             {
                 return new MvxCommand(async () =>
                 {
+                    IsLoading = true;
+
                     await Task.Delay(5000);
                     await Resolver.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
+
+                    IsLoading = false;
                 });
             }
         }

@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     local:layout_behavior="@string/appbar_scrolling_view_behavior"
-    local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
+    local:MvxBind="Refreshing IsLoading; RefreshCommand ReloadCommand">
     <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
       android:id="@+id/recycler"
       android:scrollbars="vertical"
