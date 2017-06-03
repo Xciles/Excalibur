@@ -21,7 +21,8 @@ namespace Excalibur.Tests.Cross.Core.Services
             // Usually we get some kind of profile returned, simulating this
             var rand = new Random();
 
-            var result = await UncommonRequestHelper.ProcessGetRequestAsync<LoggedInUser>($"https://jsonplaceholder.typicode.com/users/{rand.Next(10)}");
+            var url = $"https://jsonplaceholder.typicode.com/users/{rand.Next(1, 10)}";
+            var result = await UncommonRequestHelper.ProcessGetRequestAsync<LoggedInUser>(url);
 
             await Task.Delay(1000);
 
