@@ -24,7 +24,7 @@ namespace Excalibur.Tests.Cross.Droid.Activities
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.activity_mainview);
+            SetContentView(Resource.Layout.activity_main);
 
             DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 

@@ -18,7 +18,7 @@ namespace Excalibur.Tests.Cross.Droid.Activities
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.activity_loginview);
+            SetContentView(Resource.Layout.activity_login);
         }
     }
 }
