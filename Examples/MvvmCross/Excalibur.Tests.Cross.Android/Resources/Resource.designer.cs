@@ -1492,6 +1492,45 @@ namespace Excalibur.Tests.Cross.Droid
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Styleable.ViewStubCompat_android_id = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Styleable.ViewStubCompat_android_layout = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxBind = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxBind;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxDropDownItemTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxDropDownItemTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxGroupItemTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxGroupItemTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxItemTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxItemTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxLang = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxLang;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxSource = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxSource;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxTemplateSelector = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.MvxTemplateSelector;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.layoutManager = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.layoutManager;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.reverseLayout = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.reverseLayout;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.spanCount = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.spanCount;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.stackFromEnd = global::Excalibur.Tests.Cross.Droid.Resource.Attribute.stackFromEnd;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::Excalibur.Tests.Cross.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::Excalibur.Tests.Cross.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::Excalibur.Tests.Cross.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Id.MvvmCrossTagId = global::Excalibur.Tests.Cross.Droid.Resource.Id.MvvmCrossTagId;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Id.MvxBindingTagUnique = global::Excalibur.Tests.Cross.Droid.Resource.Id.MvxBindingTagUnique;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Id.item_touch_helper_previous_elevation = global::Excalibur.Tests.Cross.Droid.Resource.Id.item_touch_helper_previous_elevation;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxBinding = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxBinding;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxBinding_MvxBind = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxBinding_MvxBind;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxBinding_MvxLang = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxBinding_MvxLang;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxControl = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxControl;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxControl_MvxTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxControl_MvxTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxExpandableListView = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxExpandableListView;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxImageView = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxImageView;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxImageView_MvxSource = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxImageView_MvxSource;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxListView = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxListView;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxListView_MvxItemTemplate = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxRecyclerView = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxRecyclerView;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxRecyclerView_MvxTemplateSelector = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.MvxRecyclerView_MvxTemplateSelector;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_android_descendantFocusability = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView_android_descendantFocusability;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_android_orientation = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView_android_orientation;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_layoutManager = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView_layoutManager;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_reverseLayout = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView_reverseLayout;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_spanCount = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView_spanCount;
+			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_stackFromEnd = global::Excalibur.Tests.Cross.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
 		}
 		
 		public partial class Animation
@@ -1574,26 +1613,29 @@ namespace Excalibur.Tests.Cross.Droid
 		public partial class Attribute
 		{
 			
-			// aapt resource value: 0x7f01013a
-			public const int MvxBind = 2130772282;
-			
-			// aapt resource value: 0x7f01013e
-			public const int MvxDropDownItemTemplate = 2130772286;
+			// aapt resource value: 0x7f01013b
+			public const int MvxBind = 2130772283;
 			
 			// aapt resource value: 0x7f01013f
-			public const int MvxGroupItemTemplate = 2130772287;
-			
-			// aapt resource value: 0x7f01013d
-			public const int MvxItemTemplate = 2130772285;
-			
-			// aapt resource value: 0x7f01013b
-			public const int MvxLang = 2130772283;
+			public const int MvxDropDownItemTemplate = 2130772287;
 			
 			// aapt resource value: 0x7f010140
-			public const int MvxSource = 2130772288;
+			public const int MvxGroupItemTemplate = 2130772288;
+			
+			// aapt resource value: 0x7f01013e
+			public const int MvxItemTemplate = 2130772286;
 			
 			// aapt resource value: 0x7f01013c
-			public const int MvxTemplate = 2130772284;
+			public const int MvxLang = 2130772284;
+			
+			// aapt resource value: 0x7f010141
+			public const int MvxSource = 2130772289;
+			
+			// aapt resource value: 0x7f01013d
+			public const int MvxTemplate = 2130772285;
+			
+			// aapt resource value: 0x7f01013a
+			public const int MvxTemplateSelector = 2130772282;
 			
 			// aapt resource value: 0x7f010045
 			public const int actionBarDivider = 2130772037;
@@ -3739,8 +3781,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080010
 			public const int MvxBindingTagUnique = 2131230736;
 			
-			// aapt resource value: 0x7f080099
-			public const int action0 = 2131230873;
+			// aapt resource value: 0x7f08009b
+			public const int action0 = 2131230875;
 			
 			// aapt resource value: 0x7f080066
 			public const int action_bar = 2131230822;
@@ -3763,17 +3805,17 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080043
 			public const int action_bar_title = 2131230787;
 			
-			// aapt resource value: 0x7f080096
-			public const int action_container = 2131230870;
+			// aapt resource value: 0x7f080098
+			public const int action_container = 2131230872;
 			
 			// aapt resource value: 0x7f080067
 			public const int action_context_bar = 2131230823;
 			
-			// aapt resource value: 0x7f08009d
-			public const int action_divider = 2131230877;
+			// aapt resource value: 0x7f08009f
+			public const int action_divider = 2131230879;
 			
-			// aapt resource value: 0x7f080097
-			public const int action_image = 2131230871;
+			// aapt resource value: 0x7f080099
+			public const int action_image = 2131230873;
 			
 			// aapt resource value: 0x7f080003
 			public const int action_menu_divider = 2131230723;
@@ -3790,11 +3832,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080045
 			public const int action_mode_close_button = 2131230789;
 			
-			// aapt resource value: 0x7f080098
-			public const int action_text = 2131230872;
+			// aapt resource value: 0x7f08009a
+			public const int action_text = 2131230874;
 			
-			// aapt resource value: 0x7f0800a6
-			public const int actions = 2131230886;
+			// aapt resource value: 0x7f0800a8
+			public const int actions = 2131230888;
 			
 			// aapt resource value: 0x7f080046
 			public const int activity_chooser_view_content = 2131230790;
@@ -3811,8 +3853,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080025
 			public const int always = 2131230757;
 			
-			// aapt resource value: 0x7f0800ad
-			public const int appbar = 2131230893;
+			// aapt resource value: 0x7f0800af
+			public const int appbar = 2131230895;
 			
 			// aapt resource value: 0x7f080031
 			public const int auto = 2131230769;
@@ -3826,8 +3868,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08004d
 			public const int buttonPanel = 2131230797;
 			
-			// aapt resource value: 0x7f08009a
-			public const int cancel_action = 2131230874;
+			// aapt resource value: 0x7f08009c
+			public const int cancel_action = 2131230876;
 			
 			// aapt resource value: 0x7f080032
 			public const int center = 2131230770;
@@ -3841,8 +3883,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08005d
 			public const int checkbox = 2131230813;
 			
-			// aapt resource value: 0x7f0800a2
-			public const int chronometer = 2131230882;
+			// aapt resource value: 0x7f0800a4
+			public const int chronometer = 2131230884;
 			
 			// aapt resource value: 0x7f08003b
 			public const int clip_horizontal = 2131230779;
@@ -3901,8 +3943,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080023
 			public const int end = 2131230755;
 			
-			// aapt resource value: 0x7f0800ac
-			public const int end_padder = 2131230892;
+			// aapt resource value: 0x7f0800ae
+			public const int end_padder = 2131230894;
 			
 			// aapt resource value: 0x7f08002c
 			public const int enterAlways = 2131230764;
@@ -3940,8 +3982,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08004b
 			public const int icon = 2131230795;
 			
-			// aapt resource value: 0x7f0800a7
-			public const int icon_group = 2131230887;
+			// aapt resource value: 0x7f0800a9
+			public const int icon_group = 2131230889;
 			
 			// aapt resource value: 0x7f080027
 			public const int ifRoom = 2131230759;
@@ -3955,8 +3997,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08008c
 			public const int image_view_row_icon = 2131230860;
 			
-			// aapt resource value: 0x7f0800a3
-			public const int info = 2131230883;
+			// aapt resource value: 0x7f0800a5
+			public const int info = 2131230885;
 			
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
@@ -3967,11 +4009,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080036
 			public const int left = 2131230774;
 			
-			// aapt resource value: 0x7f0800a8
-			public const int line1 = 2131230888;
-			
 			// aapt resource value: 0x7f0800aa
-			public const int line3 = 2131230890;
+			public const int line1 = 2131230890;
+			
+			// aapt resource value: 0x7f0800ac
+			public const int line3 = 2131230892;
 			
 			// aapt resource value: 0x7f080011
 			public const int listMode = 2131230737;
@@ -3988,11 +4030,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08007a
 			public const int main_frame = 2131230842;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int masked = 2131230896;
+			// aapt resource value: 0x7f0800b2
+			public const int masked = 2131230898;
 			
-			// aapt resource value: 0x7f08009c
-			public const int media_actions = 2131230876;
+			// aapt resource value: 0x7f08009e
+			public const int media_actions = 2131230878;
 			
 			// aapt resource value: 0x7f08008b
 			public const int menuView = 2131230859;
@@ -4009,23 +4051,23 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08001c
 			public const int multiply = 2131230748;
 			
-			// aapt resource value: 0x7f080091
-			public const int nav_dashboard = 2131230865;
-			
-			// aapt resource value: 0x7f080094
-			public const int nav_footer = 2131230868;
-			
-			// aapt resource value: 0x7f080090
-			public const int nav_items = 2131230864;
-			
-			// aapt resource value: 0x7f080095
-			public const int nav_settings = 2131230869;
-			
 			// aapt resource value: 0x7f080093
-			public const int nav_todo = 2131230867;
+			public const int nav_dashboard = 2131230867;
+			
+			// aapt resource value: 0x7f080096
+			public const int nav_footer = 2131230870;
 			
 			// aapt resource value: 0x7f080092
-			public const int nav_users = 2131230866;
+			public const int nav_items = 2131230866;
+			
+			// aapt resource value: 0x7f080097
+			public const int nav_settings = 2131230871;
+			
+			// aapt resource value: 0x7f080095
+			public const int nav_todo = 2131230869;
+			
+			// aapt resource value: 0x7f080094
+			public const int nav_users = 2131230868;
 			
 			// aapt resource value: 0x7f080083
 			public const int navigation_header_container = 2131230851;
@@ -4039,14 +4081,14 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080012
 			public const int normal = 2131230738;
 			
-			// aapt resource value: 0x7f0800a5
-			public const int notification_background = 2131230885;
+			// aapt resource value: 0x7f0800a7
+			public const int notification_background = 2131230887;
 			
-			// aapt resource value: 0x7f08009f
-			public const int notification_main_column = 2131230879;
+			// aapt resource value: 0x7f0800a1
+			public const int notification_main_column = 2131230881;
 			
-			// aapt resource value: 0x7f08009e
-			public const int notification_main_column_container = 2131230878;
+			// aapt resource value: 0x7f0800a0
+			public const int notification_main_column_container = 2131230880;
 			
 			// aapt resource value: 0x7f080039
 			public const int parallax = 2131230777;
@@ -4069,14 +4111,20 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08005f
 			public const int radio = 2131230815;
 			
+			// aapt resource value: 0x7f080091
+			public const int recycler = 2131230865;
+			
+			// aapt resource value: 0x7f080090
+			public const int recycler_refresh = 2131230864;
+			
 			// aapt resource value: 0x7f080037
 			public const int right = 2131230775;
 			
-			// aapt resource value: 0x7f0800a4
-			public const int right_icon = 2131230884;
+			// aapt resource value: 0x7f0800a6
+			public const int right_icon = 2131230886;
 			
-			// aapt resource value: 0x7f0800a0
-			public const int right_side = 2131230880;
+			// aapt resource value: 0x7f0800a2
+			public const int right_side = 2131230882;
 			
 			// aapt resource value: 0x7f08001d
 			public const int screen = 2131230749;
@@ -4171,8 +4219,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080038
 			public const int start = 2131230776;
 			
-			// aapt resource value: 0x7f08009b
-			public const int status_bar_latest_event_content = 2131230875;
+			// aapt resource value: 0x7f08009d
+			public const int status_bar_latest_event_content = 2131230877;
 			
 			// aapt resource value: 0x7f080060
 			public const int submenuarrow = 2131230816;
@@ -4183,11 +4231,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080013
 			public const int tabMode = 2131230739;
 			
-			// aapt resource value: 0x7f0800ab
-			public const int text = 2131230891;
+			// aapt resource value: 0x7f0800ad
+			public const int text = 2131230893;
 			
-			// aapt resource value: 0x7f0800a9
-			public const int text2 = 2131230889;
+			// aapt resource value: 0x7f0800ab
+			public const int text2 = 2131230891;
 			
 			// aapt resource value: 0x7f080054
 			public const int textSpacerNoButtons = 2131230804;
@@ -4210,8 +4258,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08000d
 			public const int textinput_error = 2131230733;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int time = 2131230881;
+			// aapt resource value: 0x7f0800a3
+			public const int time = 2131230883;
 			
 			// aapt resource value: 0x7f08004c
 			public const int title = 2131230796;
@@ -4222,8 +4270,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080059
 			public const int title_template = 2131230809;
 			
-			// aapt resource value: 0x7f0800ae
-			public const int toolbar = 2131230894;
+			// aapt resource value: 0x7f0800b0
+			public const int toolbar = 2131230896;
 			
 			// aapt resource value: 0x7f08002b
 			public const int top = 2131230763;
@@ -4255,8 +4303,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08000e
 			public const int view_offset_helper = 2131230734;
 			
-			// aapt resource value: 0x7f0800af
-			public const int visible = 2131230895;
+			// aapt resource value: 0x7f0800b1
+			public const int visible = 2131230897;
 			
 			// aapt resource value: 0x7f080029
 			public const int withText = 2131230761;
@@ -4519,22 +4567,25 @@ namespace Excalibur.Tests.Cross.Droid
 			public const int notification_template_part_time = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int select_dialog_item_material = 2130903107;
+			public const int recycler_item_user = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int select_dialog_multichoice_material = 2130903108;
+			public const int select_dialog_item_material = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int select_dialog_singlechoice_material = 2130903109;
+			public const int select_dialog_multichoice_material = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int SplashScreen = 2130903110;
+			public const int select_dialog_singlechoice_material = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int support_simple_spinner_dropdown_item = 2130903111;
+			public const int SplashScreen = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int toolbar = 2130903112;
+			public const int support_simple_spinner_dropdown_item = 2130903112;
+			
+			// aapt resource value: 0x7f030049
+			public const int toolbar = 2130903113;
 			
 			static Layout()
 			{
@@ -7129,8 +7180,8 @@ namespace Excalibur.Tests.Cross.Droid
 			public const int MenuView_subMenuArrow = 8;
 			
 			public static int[] MvxBinding = new int[] {
-					2130772282,
-					2130772283};
+					2130772283,
+					2130772284};
 			
 			// aapt resource value: 0
 			public const int MvxBinding_MvxBind = 0;
@@ -7139,32 +7190,38 @@ namespace Excalibur.Tests.Cross.Droid
 			public const int MvxBinding_MvxLang = 1;
 			
 			public static int[] MvxControl = new int[] {
-					2130772284};
+					2130772285};
 			
 			// aapt resource value: 0
 			public const int MvxControl_MvxTemplate = 0;
 			
 			public static int[] MvxExpandableListView = new int[] {
-					2130772287};
+					2130772288};
 			
 			// aapt resource value: 0
 			public const int MvxExpandableListView_MvxGroupItemTemplate = 0;
 			
 			public static int[] MvxImageView = new int[] {
-					2130772288};
+					2130772289};
 			
 			// aapt resource value: 0
 			public const int MvxImageView_MvxSource = 0;
 			
 			public static int[] MvxListView = new int[] {
-					2130772285,
-					2130772286};
+					2130772286,
+					2130772287};
 			
 			// aapt resource value: 1
 			public const int MvxListView_MvxDropDownItemTemplate = 1;
 			
 			// aapt resource value: 0
 			public const int MvxListView_MvxItemTemplate = 0;
+			
+			public static int[] MvxRecyclerView = new int[] {
+					2130772282};
+			
+			// aapt resource value: 0
+			public const int MvxRecyclerView_MvxTemplateSelector = 0;
 			
 			public static int[] NavigationView = new int[] {
 					16842964,

@@ -39,5 +39,7 @@ namespace Excalibur.Tests.Cross.Core.Observable
             get { return _website; }
             set { SetProperty(ref _website, value); }
         }
+
+        public string Image { get { return "http://placekitten.com/202/202"; } }
     }
 }

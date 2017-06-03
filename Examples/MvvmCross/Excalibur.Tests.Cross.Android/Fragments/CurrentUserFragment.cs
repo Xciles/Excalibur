@@ -6,7 +6,7 @@ using MvvmCross.Droid.Shared.Attributes;
 
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {
-    [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame)]
+    [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame, true)]
     [Register("Excalibur.Tests.Cross.Droid.Fragments.CurrentUserFragment")]
     public class CurrentUserFragment : BaseFragment<CurrentUserViewModel>
     {

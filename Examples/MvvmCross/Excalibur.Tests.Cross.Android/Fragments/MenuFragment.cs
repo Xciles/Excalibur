@@ -73,7 +73,7 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
             switch (itemId)
             {
                 case Resource.Id.nav_dashboard:
-                    ViewModel.ShowDashboardCommand.Execute();
+                    ViewModel.PopToRootCommand.Execute();
                     break;
                 case Resource.Id.nav_users:
                     ViewModel.ShowUsersCommand.Execute();
