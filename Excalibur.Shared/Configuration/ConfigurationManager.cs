@@ -19,7 +19,7 @@ namespace Excalibur.Shared.Configuration
         {
             var result = new TConfigObject();
 
-            var configAsString = await _storageService.ReadAsTextAsync("", $"{nameof(TConfigObject)}.json").ConfigureAwait(false);
+            var configAsString = await _storageService.ReadAsTextAsync("", $"{typeof(TConfigObject).Name}.json").ConfigureAwait(false);
             if (!String.IsNullOrWhiteSpace(configAsString))
             {
                 result = JsonConvert.DeserializeObject<TConfigObject>(configAsString);
@@ -31,13 +31,14 @@ namespace Excalibur.Shared.Configuration
         public async Task<bool> SaveAsync<TConfigObject>(TConfigObject configObject) where TConfigObject : new()
         {
             var configAsString = JsonConvert.SerializeObject(configObject);
+            var configName = typeof(TConfigObject).Name;
 
-            if (_storageService.Exists("", $"{nameof(TConfigObject)}.json"))
+            if (_storageService.Exists("", $"{configName}.json"))
             {
-                _storageService.DeleteFile("", $"{nameof(TConfigObject)}.json");
+                _storageService.DeleteFile("", $"{configName}.json");
             }
 
-            await _storageService.StoreAsync("", $"{nameof(TConfigObject)}.json", configAsString).ConfigureAwait(false);
+            await _storageService.StoreAsync("", $"{configName}.json", configAsString).ConfigureAwait(false);
 
             return true;
         }

@@ -22,7 +22,7 @@ namespace Excalibur.Tests.FormsCross.Droid
             var mvxFormsApp = new MvxFormsApplication();
             LoadApplication(mvxFormsApp);
 
-            var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsDroidPagePresenter;
+            var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsDroidMasterDetailPagePresenter;
             presenter.MvxFormsApp = mvxFormsApp;
 
             Mvx.Resolve<IMvxAppStart>().Start();

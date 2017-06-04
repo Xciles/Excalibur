@@ -17,12 +17,12 @@ namespace Excalibur.Tests.FormsCross.Droid
 
         protected override IMvxApplication CreateApp()
         {
-            return new App();
+            return new Excalibur.Tests.FormsCross.App();
         }
 
         protected override IMvxAndroidViewPresenter CreateViewPresenter()
         {
-            var presenter = new MvxFormsDroidPagePresenter();
+            var presenter = new MvxFormsDroidMasterDetailPagePresenter();
             Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
 
             return presenter;

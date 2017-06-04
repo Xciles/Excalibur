@@ -30,7 +30,7 @@ namespace Excalibur.Tests.FormsCross.UWP
             Forms.Init(_launchActivatedEventArgs);
 
             var xamarinFormsApp = new MvxFormsApplication();
-            var presenter = new MvxFormsUwpPagePresenter(rootFrame, xamarinFormsApp);
+            var presenter = new MvxFormsUwpMasterDetailPagePresenter(rootFrame, xamarinFormsApp);
             Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
 
             return presenter;
