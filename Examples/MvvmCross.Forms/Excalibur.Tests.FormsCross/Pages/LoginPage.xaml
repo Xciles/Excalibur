@@ -15,20 +15,6 @@
                     WinPhone="5, 0, 5, 0" />
     </ContentPage.Padding>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Menu1"
-                     Text="About"
-                     ClassId="About"
-                     Order="Primary"
-                     Command="{Binding ShowAboutPageCommand}">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            WinPhone="Toolkit.Content/ApplicationBar.Add.png" />
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
-
-
     <StackLayout Spacing="10"
                  Orientation="Vertical">
         <views:MvxImageView HorizontalOptions="CenterAndExpand"
@@ -59,6 +45,7 @@
                Text="{Binding YourNickname}" />
         <Label FontSize="24"
                Text="{Binding Hello}" />
+        <Button Command="{Binding LoginCommand}" />
     </StackLayout>
 
 </ContentPage>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Excalibur.Tests.FormsCross.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
@@ -16,6 +12,7 @@ namespace Excalibur.Tests.FormsCross
 {
     public class CustomPresenter : MvxViewPresenter
     {
+        private bool _hasNavigatedToLogin = false;
         private Application _mvxFormsApp;
 
         public Application MvxFormsApp
@@ -67,7 +64,7 @@ namespace Excalibur.Tests.FormsCross
         }
 
 
-        
+
         public override void Show(MvxViewModelRequest request)
         {
             if (TryShowPage(request))
@@ -98,20 +95,14 @@ namespace Excalibur.Tests.FormsCross
                 _mvxFormsApp.MainPage = new NavigationPage(page);
                 var loginMainPage = MvxFormsApp.MainPage as NavigationPage;
                 CustomPlatformInitialization(loginMainPage);
+                _hasNavigatedToLogin = true;
                 return true;
             }
 
             if (request.ViewModelType == typeof(MainViewModel))
             {
                 // Reset and use master detail
-                _mvxFormsApp.MainPage = null;
-            }
 
-            var mainPage = _mvxFormsApp.MainPage as MasterDetailPage;
-
-            // Initialize the MasterDetailPage container            
-            if (mainPage == null)
-            {
                 // The ViewModel used should inherit from MvxMasterDetailViewModel, so we can create a new ContentPage for use in the Detail page
                 var masterDetailViewModel = viewModel as MvxMasterDetailViewModel;
                 if (masterDetailViewModel == null)
@@ -138,18 +129,22 @@ namespace Excalibur.Tests.FormsCross
                         RootContentPageActivated();
                 };
 
-                mainPage = new MasterDetailPage
+                var mainPage = new MasterDetailPage
                 {
                     Master = page,
                     Detail = navPage
                 };
 
                 _mvxFormsApp.MainPage = mainPage;
-                CustomPlatformInitialization(mainPage);
+                if (!_hasNavigatedToLogin)
+                {
+                    CustomPlatformInitialization(mainPage);
+                }
             }
             else
             {
                 // Functionality for clearing the navigation stack before pushing to new Page (for example in a menu with multiple options)
+                var mainPage = _mvxFormsApp.MainPage as MasterDetailPage;
                 if (request.PresentationValues != null)
                 {
                     if (request.PresentationValues.ContainsKey("NavigationMode") && request.PresentationValues["NavigationMode"] == "ClearStack")
@@ -192,7 +187,7 @@ namespace Excalibur.Tests.FormsCross
             }
 
         }
-        
+
         private void RootContentPageActivated()
         {
             var mainPage = Application.Current.MainPage as MasterDetailPage;
