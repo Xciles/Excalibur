@@ -56,22 +56,77 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchProfiling>false</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>True</MtouchDebug>
     <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
     <IOSDebuggerPort>10000</IOSDebuggerPort>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MvvmCross.Binding, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Binding.5.0.1\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Binding.5.0.1\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Core.5.0.1\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Core.5.0.1\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS.Support, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.iOS.Support.5.0.1\lib\Xamarin.iOS10\MvvmCross.iOS.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Binding.5.0.1\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Platform.5.0.1\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Platform.5.0.1\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.DownloadCache, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.DownloadCache.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.DownloadCache.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.DownloadCache.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.DownloadCache.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.File, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.File.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.File.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.File.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.File.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Json, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.Json.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.JsonLocalization, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.JsonLocalization.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.JsonLocalization.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.ResourceLoader, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.ResourceLoader.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.ResourceLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.ResourceLoader.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.ResourceLoader.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.ResourceLoader.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Visibility, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.Visibility.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.Visibility.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Visibility.iOS, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.Visibility.5.0.1\lib\Xamarin.iOS10\MvvmCross.Plugins.Visibility.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Excalibur.Tests.MvvmCross\Excalibur.Tests.MvvmCross.csproj">
-      <Name>Excalibur.Tests.MvvmCross</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
@@ -135,16 +190,44 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <InterfaceDefinition Include="Views\MainView.xib" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\JsonLocalizationPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\ResourceLoaderPluginBootstrap.cs" />
+    <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
+    <Compile Include="DebugTrace.cs" />
+    <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Setup.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainView.cs" />
+    <Compile Include="Views\MainView.designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj">
+      <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
+      <Name>Excalibur.Cross</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Excalibur.Tests.Cross.Core\Excalibur.Tests.Cross.Core.csproj">
+      <Project>{db1bbfcc-a5ec-4aa1-a677-2c528357b2b9}</Project>
+      <Name>Excalibur.Tests.Cross.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppDelegate.cs.txt" />
+    <Content Include="ToDo-MvvmCross\_ iOS UI.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
