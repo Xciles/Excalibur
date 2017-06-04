@@ -1,11 +1,16 @@
+using Excalibur.Tests.Cross.Core.ViewModels;
+using Foundation;
 using MvvmCross.Binding.BindingContext;
+using MvvmCross.iOS.Support.XamarinSidebar;
+using MvvmCross.iOS.Support.XamarinSidebar.Attributes;
 using MvvmCross.iOS.Views;
 using MvvmCross.iOS.Views.Presenters.Attributes;
 
 namespace Excalibur.Tests.Cross.iOS.Views
 {
-    [MvxRootPresentation(WrapInNavigationController = true)]
-    public partial class MainView : MvxViewController
+    // todo add more XamarinSiderbar
+    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, true, MvxSplitViewBehaviour.Master)]
+    public partial class MainView : BaseViewController<MainViewModel>
     {
         public MainView() : base("MainView", null)
         {
@@ -15,10 +20,7 @@ namespace Excalibur.Tests.Cross.iOS.Views
         {
             base.ViewDidLoad();
 
-            var set = this.CreateBindingSet<MainView, Core.ViewModels.MainViewModel>();
-            set.Bind(TextField).To(vm => vm.Text);
-            set.Bind(Button).To(vm => vm.ResetTextCommand);
-            set.Apply();
+            ViewModel.ShowMenu();
         }
     }
 }
