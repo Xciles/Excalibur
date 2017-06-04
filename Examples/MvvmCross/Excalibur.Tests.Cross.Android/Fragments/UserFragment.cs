@@ -19,7 +19,7 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
             ShowHamburgerMenu = true;
             var view = base.OnCreateView(inflater, container, savedInstanceState);
 
-            var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler);
+            var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler_user);
             if (recyclerView != null)
             {
                 recyclerView.HasFixedSize = true;
@@ -38,7 +38,7 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
             //                ToastLength.Short).Show();
             //    });
 
-            var swipeToRefresh = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.recycler_refresh);
+            var swipeToRefresh = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.recycler_user_refresh);
             var appBar = Activity.FindViewById<AppBarLayout>(Resource.Id.appbar);
             if (appBar != null)
                 appBar.OffsetChanged += (sender, args) => swipeToRefresh.Enabled = args.VerticalOffset == 0;

@@ -8,13 +8,13 @@
   <include
     layout="@layout/toolbar" />
   <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
-    android:id="@+id/recycler_refresh"
+    android:id="@+id/recycler_user_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     local:layout_behavior="@string/appbar_scrolling_view_behavior"
     local:MvxBind="Refreshing IsLoading; RefreshCommand ReloadCommand">
     <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
-      android:id="@+id/recycler"
+      android:id="@+id/recycler_user"
       android:scrollbars="vertical"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

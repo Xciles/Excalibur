@@ -3781,8 +3781,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080010
 			public const int MvxBindingTagUnique = 2131230736;
 			
-			// aapt resource value: 0x7f08009b
-			public const int action0 = 2131230875;
+			// aapt resource value: 0x7f08009d
+			public const int action0 = 2131230877;
 			
 			// aapt resource value: 0x7f080066
 			public const int action_bar = 2131230822;
@@ -3805,17 +3805,17 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080043
 			public const int action_bar_title = 2131230787;
 			
-			// aapt resource value: 0x7f080098
-			public const int action_container = 2131230872;
+			// aapt resource value: 0x7f08009a
+			public const int action_container = 2131230874;
 			
 			// aapt resource value: 0x7f080067
 			public const int action_context_bar = 2131230823;
 			
-			// aapt resource value: 0x7f08009f
-			public const int action_divider = 2131230879;
+			// aapt resource value: 0x7f0800a1
+			public const int action_divider = 2131230881;
 			
-			// aapt resource value: 0x7f080099
-			public const int action_image = 2131230873;
+			// aapt resource value: 0x7f08009b
+			public const int action_image = 2131230875;
 			
 			// aapt resource value: 0x7f080003
 			public const int action_menu_divider = 2131230723;
@@ -3832,11 +3832,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080045
 			public const int action_mode_close_button = 2131230789;
 			
-			// aapt resource value: 0x7f08009a
-			public const int action_text = 2131230874;
+			// aapt resource value: 0x7f08009c
+			public const int action_text = 2131230876;
 			
-			// aapt resource value: 0x7f0800a8
-			public const int actions = 2131230888;
+			// aapt resource value: 0x7f0800aa
+			public const int actions = 2131230890;
 			
 			// aapt resource value: 0x7f080046
 			public const int activity_chooser_view_content = 2131230790;
@@ -3853,8 +3853,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080025
 			public const int always = 2131230757;
 			
-			// aapt resource value: 0x7f0800af
-			public const int appbar = 2131230895;
+			// aapt resource value: 0x7f0800b1
+			public const int appbar = 2131230897;
 			
 			// aapt resource value: 0x7f080031
 			public const int auto = 2131230769;
@@ -3868,8 +3868,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08004d
 			public const int buttonPanel = 2131230797;
 			
-			// aapt resource value: 0x7f08009c
-			public const int cancel_action = 2131230876;
+			// aapt resource value: 0x7f08009e
+			public const int cancel_action = 2131230878;
 			
 			// aapt resource value: 0x7f080032
 			public const int center = 2131230770;
@@ -3883,8 +3883,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08005d
 			public const int checkbox = 2131230813;
 			
-			// aapt resource value: 0x7f0800a4
-			public const int chronometer = 2131230884;
+			// aapt resource value: 0x7f0800a6
+			public const int chronometer = 2131230886;
 			
 			// aapt resource value: 0x7f08003b
 			public const int clip_horizontal = 2131230779;
@@ -3943,8 +3943,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080023
 			public const int end = 2131230755;
 			
-			// aapt resource value: 0x7f0800ae
-			public const int end_padder = 2131230894;
+			// aapt resource value: 0x7f0800b0
+			public const int end_padder = 2131230896;
 			
 			// aapt resource value: 0x7f08002c
 			public const int enterAlways = 2131230764;
@@ -3982,8 +3982,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08004b
 			public const int icon = 2131230795;
 			
-			// aapt resource value: 0x7f0800a9
-			public const int icon_group = 2131230889;
+			// aapt resource value: 0x7f0800ab
+			public const int icon_group = 2131230891;
 			
 			// aapt resource value: 0x7f080027
 			public const int ifRoom = 2131230759;
@@ -3997,8 +3997,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08008c
 			public const int image_view_row_icon = 2131230860;
 			
-			// aapt resource value: 0x7f0800a5
-			public const int info = 2131230885;
+			// aapt resource value: 0x7f0800a7
+			public const int info = 2131230887;
 			
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
@@ -4009,11 +4009,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080036
 			public const int left = 2131230774;
 			
-			// aapt resource value: 0x7f0800aa
-			public const int line1 = 2131230890;
-			
 			// aapt resource value: 0x7f0800ac
-			public const int line3 = 2131230892;
+			public const int line1 = 2131230892;
+			
+			// aapt resource value: 0x7f0800ae
+			public const int line3 = 2131230894;
 			
 			// aapt resource value: 0x7f080011
 			public const int listMode = 2131230737;
@@ -4030,11 +4030,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08007a
 			public const int main_frame = 2131230842;
 			
-			// aapt resource value: 0x7f0800b2
-			public const int masked = 2131230898;
+			// aapt resource value: 0x7f0800b4
+			public const int masked = 2131230900;
 			
-			// aapt resource value: 0x7f08009e
-			public const int media_actions = 2131230878;
+			// aapt resource value: 0x7f0800a0
+			public const int media_actions = 2131230880;
 			
 			// aapt resource value: 0x7f08008b
 			public const int menuView = 2131230859;
@@ -4051,23 +4051,23 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08001c
 			public const int multiply = 2131230748;
 			
-			// aapt resource value: 0x7f080093
-			public const int nav_dashboard = 2131230867;
-			
-			// aapt resource value: 0x7f080096
-			public const int nav_footer = 2131230870;
-			
-			// aapt resource value: 0x7f080092
-			public const int nav_items = 2131230866;
-			
-			// aapt resource value: 0x7f080097
-			public const int nav_settings = 2131230871;
-			
 			// aapt resource value: 0x7f080095
-			public const int nav_todo = 2131230869;
+			public const int nav_dashboard = 2131230869;
+			
+			// aapt resource value: 0x7f080098
+			public const int nav_footer = 2131230872;
 			
 			// aapt resource value: 0x7f080094
-			public const int nav_users = 2131230868;
+			public const int nav_items = 2131230868;
+			
+			// aapt resource value: 0x7f080099
+			public const int nav_settings = 2131230873;
+			
+			// aapt resource value: 0x7f080097
+			public const int nav_todo = 2131230871;
+			
+			// aapt resource value: 0x7f080096
+			public const int nav_users = 2131230870;
 			
 			// aapt resource value: 0x7f080083
 			public const int navigation_header_container = 2131230851;
@@ -4081,14 +4081,14 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080012
 			public const int normal = 2131230738;
 			
-			// aapt resource value: 0x7f0800a7
-			public const int notification_background = 2131230887;
+			// aapt resource value: 0x7f0800a9
+			public const int notification_background = 2131230889;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int notification_main_column = 2131230881;
+			// aapt resource value: 0x7f0800a3
+			public const int notification_main_column = 2131230883;
 			
-			// aapt resource value: 0x7f0800a0
-			public const int notification_main_column_container = 2131230880;
+			// aapt resource value: 0x7f0800a2
+			public const int notification_main_column_container = 2131230882;
 			
 			// aapt resource value: 0x7f080039
 			public const int parallax = 2131230777;
@@ -4112,19 +4112,25 @@ namespace Excalibur.Tests.Cross.Droid
 			public const int radio = 2131230815;
 			
 			// aapt resource value: 0x7f080091
-			public const int recycler = 2131230865;
+			public const int recycler_todo = 2131230865;
 			
 			// aapt resource value: 0x7f080090
-			public const int recycler_refresh = 2131230864;
+			public const int recycler_todo_refresh = 2131230864;
+			
+			// aapt resource value: 0x7f080093
+			public const int recycler_user = 2131230867;
+			
+			// aapt resource value: 0x7f080092
+			public const int recycler_user_refresh = 2131230866;
 			
 			// aapt resource value: 0x7f080037
 			public const int right = 2131230775;
 			
-			// aapt resource value: 0x7f0800a6
-			public const int right_icon = 2131230886;
+			// aapt resource value: 0x7f0800a8
+			public const int right_icon = 2131230888;
 			
-			// aapt resource value: 0x7f0800a2
-			public const int right_side = 2131230882;
+			// aapt resource value: 0x7f0800a4
+			public const int right_side = 2131230884;
 			
 			// aapt resource value: 0x7f08001d
 			public const int screen = 2131230749;
@@ -4219,8 +4225,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080038
 			public const int start = 2131230776;
 			
-			// aapt resource value: 0x7f08009d
-			public const int status_bar_latest_event_content = 2131230877;
+			// aapt resource value: 0x7f08009f
+			public const int status_bar_latest_event_content = 2131230879;
 			
 			// aapt resource value: 0x7f080060
 			public const int submenuarrow = 2131230816;
@@ -4231,11 +4237,11 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080013
 			public const int tabMode = 2131230739;
 			
-			// aapt resource value: 0x7f0800ad
-			public const int text = 2131230893;
+			// aapt resource value: 0x7f0800af
+			public const int text = 2131230895;
 			
-			// aapt resource value: 0x7f0800ab
-			public const int text2 = 2131230891;
+			// aapt resource value: 0x7f0800ad
+			public const int text2 = 2131230893;
 			
 			// aapt resource value: 0x7f080054
 			public const int textSpacerNoButtons = 2131230804;
@@ -4258,8 +4264,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08000d
 			public const int textinput_error = 2131230733;
 			
-			// aapt resource value: 0x7f0800a3
-			public const int time = 2131230883;
+			// aapt resource value: 0x7f0800a5
+			public const int time = 2131230885;
 			
 			// aapt resource value: 0x7f08004c
 			public const int title = 2131230796;
@@ -4270,8 +4276,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f080059
 			public const int title_template = 2131230809;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int toolbar = 2131230896;
+			// aapt resource value: 0x7f0800b2
+			public const int toolbar = 2131230898;
 			
 			// aapt resource value: 0x7f08002b
 			public const int top = 2131230763;
@@ -4303,8 +4309,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f08000e
 			public const int view_offset_helper = 2131230734;
 			
-			// aapt resource value: 0x7f0800b1
-			public const int visible = 2131230897;
+			// aapt resource value: 0x7f0800b3
+			public const int visible = 2131230899;
 			
 			// aapt resource value: 0x7f080029
 			public const int withText = 2131230761;
@@ -4567,25 +4573,28 @@ namespace Excalibur.Tests.Cross.Droid
 			public const int notification_template_part_time = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int recycler_item_user = 2130903107;
+			public const int recycler_item_todo = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int select_dialog_item_material = 2130903108;
+			public const int recycler_item_user = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int select_dialog_multichoice_material = 2130903109;
+			public const int select_dialog_item_material = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int select_dialog_singlechoice_material = 2130903110;
+			public const int select_dialog_multichoice_material = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int SplashScreen = 2130903111;
+			public const int select_dialog_singlechoice_material = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int support_simple_spinner_dropdown_item = 2130903112;
+			public const int SplashScreen = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int toolbar = 2130903113;
+			public const int support_simple_spinner_dropdown_item = 2130903113;
+			
+			// aapt resource value: 0x7f03004a
+			public const int toolbar = 2130903114;
 			
 			static Layout()
 			{

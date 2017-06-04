@@ -19,18 +19,6 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             }
         }
 
-
-        public virtual ICommand ItemSelected
-        {
-            get
-            {
-                return new MvxCommand<Observable.User>(item =>
-                {
-                    Resolver.Resolve<IPresentation<int, Observable.User, Observable.User>>().SetSelectedObservable(item.Id);
-                });
-            }
-        }
-
         public ICommand ReloadCommand
         {
             get
