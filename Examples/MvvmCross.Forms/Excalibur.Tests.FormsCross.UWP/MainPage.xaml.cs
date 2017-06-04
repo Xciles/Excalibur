@@ -14,7 +14,8 @@ namespace Excalibur.Tests.FormsCross.UWP
             var start = Mvx.Resolve<IMvxAppStart>();
             start.Start();
 
-            var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsUwpMasterDetailPagePresenter;
+            var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsUwpCustomPresenter;
+            //var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsUwpMasterDetailPagePresenter;
             LoadApplication(presenter.MvxFormsApp);
         }
     }

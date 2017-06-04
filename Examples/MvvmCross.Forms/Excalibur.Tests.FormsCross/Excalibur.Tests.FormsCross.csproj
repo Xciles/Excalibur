@@ -40,6 +40,7 @@
     <Compile Include="Business\Interfaces\ILoggedInUser.cs" />
     <Compile Include="Business\LoggedInUser.cs" />
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="CustomPresenter.cs" />
     <Compile Include="Domain\LoggedInUser.cs" />
     <Compile Include="Domain\Todo.cs" />
     <Compile Include="Domain\User.cs" />
@@ -62,7 +63,6 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="State\ApplicationState.cs" />
     <Compile Include="State\IApplicationState.cs" />
-    <Compile Include="ViewModels\BaseMasterDetailViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

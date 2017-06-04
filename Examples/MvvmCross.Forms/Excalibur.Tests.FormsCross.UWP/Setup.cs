@@ -30,10 +30,32 @@ namespace Excalibur.Tests.FormsCross.UWP
             Forms.Init(_launchActivatedEventArgs);
 
             var xamarinFormsApp = new MvxFormsApplication();
-            var presenter = new MvxFormsUwpMasterDetailPagePresenter(rootFrame, xamarinFormsApp);
+            var presenter = new MvxFormsUwpCustomPresenter(rootFrame, xamarinFormsApp);
+            //var presenter = new MvxFormsUwpMasterDetailPagePresenter(rootFrame, xamarinFormsApp);
             Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
 
             return presenter;
+        }
+    }
+
+    public class MvxFormsUwpCustomPresenter : CustomPresenter, IMvxWindowsViewPresenter
+    {
+        private readonly IMvxWindowsFrame _rootFrame;
+
+        public MvxFormsUwpCustomPresenter(IMvxWindowsFrame rootFrame, Application mvxFormsApp)
+            : base(mvxFormsApp)
+        {
+            _rootFrame = rootFrame;
+        }
+
+        protected override void CustomPlatformInitialization(NavigationPage mainPage)
+        {
+            _rootFrame.Navigate(mainPage.GetType(), _rootFrame);
+        }
+
+        protected override void CustomPlatformInitialization(MasterDetailPage mainPage)
+        {
+            _rootFrame.Navigate(mainPage.GetType(), _rootFrame);
         }
     }
 }
