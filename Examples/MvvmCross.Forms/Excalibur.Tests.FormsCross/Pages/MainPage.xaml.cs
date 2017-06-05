@@ -2,7 +2,7 @@
 
 namespace Excalibur.Tests.FormsCross.Pages
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
         public MainPage()
         {

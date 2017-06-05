@@ -2,9 +2,9 @@
 
 namespace Excalibur.Tests.FormsCross.Pages
 {
-    public partial class DashboardPage
+    public partial class CurrentUserPage
     {
-        public DashboardPage()
+        public CurrentUserPage()
         {
             InitializeComponent();
         }
