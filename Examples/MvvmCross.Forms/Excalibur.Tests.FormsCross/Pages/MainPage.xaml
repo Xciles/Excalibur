@@ -1,18 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Class="Excalibur.Tests.FormsCross.Pages.MainPage"
              Title="Main"
              Icon="Hamburger.png"
              Padding="0, 40, 0, 0">
 
-    <ListView ItemsSource="{Binding Menu}"
-              SelectedItem="{Binding SelectedMenu, Mode=TwoWay}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Detail="{Binding Description}"
-                          Text="{Binding Title}"></TextCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <StackLayout VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 Orientation="Vertical"
+                 Spacing="15">
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15"
+                     BackgroundColor="DarkBlue">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ShowCurrentUserCommand}"
+                                      NumberOfTapsRequired="1"/>
+            </StackLayout.GestureRecognizers>
+            
+            <Image HorizontalOptions="StartAndExpand"
+                   Margin="20"
+                   HeightRequest="50"
+                   Source="{Binding CurrentUserObservable.Image}" />
+            <StackLayout VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Orientation="Vertical"
+                         Spacing="15">
+                <Label Text="{Binding CurrentUserObservable.Name}"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+                <Label Text="{Binding CurrentUserObservable.Username}"
+                       HorizontalTextAlignment="Start"
+                       TextColor="AliceBlue" />
+            </StackLayout>
+        </StackLayout>
+
+        <ListView ItemsSource="{Binding Menu}"
+                  SelectedItem="{Binding SelectedMenu, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Description}"
+                              Text="{Binding Title}"></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

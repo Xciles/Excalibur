@@ -1,7 +1,6 @@
 ﻿using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.FormsCross.Services.Interfaces;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Forms.ViewModels;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.FormsCross.ViewModels
@@ -63,16 +62,4 @@ namespace Excalibur.Tests.FormsCross.ViewModels
             }
         }
     }
-
-
-    public class MainViewModel : MvxMasterDetailViewModel<DashboardViewModel>
-    {
-
-    }
-
-    public class DashboardViewModel : BaseViewModel
-    {
-        
-    }
-    
 }
