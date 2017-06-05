@@ -40,7 +40,7 @@ namespace Excalibur.Tests.FormsCross.Services
                 // we load the current user from storage, usually we reauth and sync current user
 
                 var loggedInUserBusiness = Resolver.Resolve<ILoggedInUser>();
-                await loggedInUserBusiness.PublishFromStorageAsync();
+                await loggedInUserBusiness.PublishFromStorageAsync().ConfigureAwait(false);
 
                 return true;
             }

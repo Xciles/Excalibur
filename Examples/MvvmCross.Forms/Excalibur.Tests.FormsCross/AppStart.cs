@@ -19,7 +19,7 @@ namespace Excalibur.Tests.FormsCross
         public void Start(object hint = null)
         {
             // login things
-            if (_loginService.ValidateAsync().Result)
+            if (_loginService.ValidateAsync().GetAwaiter().GetResult())
             {
                 // todo init sync and loading of data
                 Resolver.Resolve<ISyncService>().PartialSyncAsync().ConfigureAwait(false);

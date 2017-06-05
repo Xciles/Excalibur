@@ -4,6 +4,7 @@ using MvvmCross.Droid.Platform;
 using MvvmCross.Droid.Views;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
+using MvvmCross.Forms.Core;
 using MvvmCross.Forms.Droid.Presenters;
 
 namespace Excalibur.Tests.FormsCross.Droid
@@ -22,10 +23,22 @@ namespace Excalibur.Tests.FormsCross.Droid
 
         protected override IMvxAndroidViewPresenter CreateViewPresenter()
         {
-            var presenter = new MvxFormsDroidMasterDetailPagePresenter();
+            var presenter = new MvxFormsDroidCustomPresenter();
             Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
 
             return presenter;
+        }
+    }
+
+    public class MvxFormsDroidCustomPresenter : CustomPresenter, IMvxAndroidViewPresenter
+    {
+        public MvxFormsDroidCustomPresenter()
+        {
+        }
+
+        public MvxFormsDroidCustomPresenter(MvxFormsApplication mvxFormsApp)
+            : base(mvxFormsApp)
+        {
         }
     }
 }
