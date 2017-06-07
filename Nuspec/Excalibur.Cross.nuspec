@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+	<metadata>
+		<id>Excalibur.Cross</id>
+		<version>0.1.0-beta</version>
+		<title>Excalibur.Cross</title>
+		<authors>Excalibur contributors</authors>
+		<owners></owners>
+		<licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+		<projectUrl>https://github.com/Xciles/Excalibur</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Excalibur</description>
+		<tags>xamarin mvvmcross</tags>
+		<releaseNotes>
+0.1.0-beta
+First beta release
+        </releaseNotes>
+		<dependencies>
+		  <group targetFramework=".NETPortable4.5-Profile111" >
+			<dependency id="AutoMapper" version="9.0.1" />
+			<dependency id="MvvmCross" version="2.4.2" />
+			<dependency id="MvvmCross.Binding" version="2.4.2" />
+			<dependency id="MvvmCross.Core" version="2.4.2" />
+			<dependency id="MvvmCross.Platform" version="2.4.2" />
+			<dependency id="MvvmCross.Plugin.File" version="2.4.2" />
+			<dependency id="MvvmCross.Plugin.Json" version="2.4.2" />
+			<dependency id="MvvmCross.Plugin.JsonLocalization" version="2.4.2" />
+			<dependency id="MvvmCross.Plugin.ResourceLoader" version="2.4.2" />
+			<dependency id="MvvmCross.Plugin.Visibility" version="2.4.2" />
+			<dependency id="Newtonsoft.Json" version="2.4.2" />
+			<dependency id="PubSub" version="2.4.2" />
+			<dependency id="XLabs.IoC" version="2.4.2" />
+		  </group>
+		</dependencies>
+	</metadata>
+	<files>	
+    
+		<!-- PCL111 -->
+		<file src="..\Excalibur.Cross\bin\Debug\Excalibur.Cross.dll" target="lib\portable45-net45+win8+wpa81\Excalibur.Cross.dll" />
+		<file src="..\Excalibur.Cross\bin\Debug\Excalibur.Cross.pdb" target="lib\portable45-net45+win8+wpa81\Excalibur.Cross.pdb" />
+
+	</files>
+</package>
