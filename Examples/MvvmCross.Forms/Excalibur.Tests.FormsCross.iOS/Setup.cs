@@ -32,7 +32,36 @@ namespace Excalibur.Tests.FormsCross.iOS
 
             var xamarinFormsApp = new MvxFormsApplication();
 
-            return new MvxFormsIosMasterDetailPagePresenter(Window, xamarinFormsApp);
+            return new MvxFormsIosCustomPresenter(Window, xamarinFormsApp);
+        }
+    }
+    
+    public class MvxFormsIosCustomPresenter : CustomPresenter, IMvxIosViewPresenter
+    {
+        private readonly UIWindow _window;
+
+        public MvxFormsIosCustomPresenter()
+        {
+        }
+
+        public MvxFormsIosCustomPresenter(UIWindow window, MvxFormsApplication mvxFormsApp)
+            : base(mvxFormsApp)
+        {
+            _window = window;
+        }
+
+        public bool PresentModalViewController(UIViewController controller, bool animated)
+        {
+            return false;
+        }
+
+        public void NativeModalViewControllerDisappearedOnItsOwn()
+        {
+        }
+
+        protected override void CustomPlatformInitialization(MasterDetailPage mainPage)
+        {
+            _window.RootViewController = mainPage.CreateViewController();
         }
     }
 }
