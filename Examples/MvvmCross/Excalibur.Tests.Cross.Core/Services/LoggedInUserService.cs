@@ -5,9 +5,9 @@ using Excalibur.Tests.Cross.Core.Domain;
 
 namespace Excalibur.Tests.Cross.Core.Services
 {
-    public class LoggedInUserService : IServiceBase<LoggedInUser>
+    public class LoggedInUserService : ServiceBase<LoggedInUser>
     {
-        public Task<LoggedInUser> SyncDataAsync()
+        public override Task<LoggedInUser> SyncDataAsync()
         {
             throw new NotImplementedException();
         }

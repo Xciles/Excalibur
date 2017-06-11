@@ -6,9 +6,9 @@ using Xciles.Uncommon.Net;
 
 namespace Excalibur.Tests.Cross.Core.Services
 {
-    public class UserService : IServiceBase<IList<User>>
+    public class UserService : ServiceBase<IList<User>>
     {
-        public async Task<IList<User>> SyncDataAsync()
+        public override async Task<IList<User>> SyncDataAsync()
         {
             var result = await UncommonRequestHelper.ProcessGetRequestAsync<IList<User>>("https://jsonplaceholder.typicode.com/users");
 

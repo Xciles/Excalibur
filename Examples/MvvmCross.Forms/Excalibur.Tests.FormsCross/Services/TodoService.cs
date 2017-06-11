@@ -6,9 +6,9 @@ using Xciles.Uncommon.Net;
 
 namespace Excalibur.Tests.FormsCross.Services
 {
-    public class TodoService : IServiceBase<IList<Todo>>
+    public class TodoService : ServiceBase<IList<Todo>>
     {
-        public async Task<IList<Todo>> SyncDataAsync()
+        public override async Task<IList<Todo>> SyncDataAsync()
         {
             var result = await UncommonRequestHelper.ProcessGetRequestAsync<IList<Todo>>("https://jsonplaceholder.typicode.com/todos");
 
