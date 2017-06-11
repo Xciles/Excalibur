@@ -15,7 +15,7 @@ namespace Excalibur.Shared.Presentation
 {
     // Todo change to BasePresentation and implement some methods differently...
 
-    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentationSorted<TId, TObservable, TSelectedObservable>
+    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BPresentation<TId, TDomain, TSelectedObservable>, ISortedPresentation<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()

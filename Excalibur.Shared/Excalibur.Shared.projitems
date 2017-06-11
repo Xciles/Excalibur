@@ -29,7 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Core\ExSingletonCache.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\BaseSinglePresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\BPresentation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentationSorted.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ISortedPresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\ISinglePresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)State\BaseState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)State\IBaseState.cs" />
