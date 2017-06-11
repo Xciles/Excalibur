@@ -2,6 +2,9 @@
 
 namespace Excalibur.Shared.Storage
 {
+    /// <summary>
+    /// Base implementation for the <see cref="IStorageService"/>. 
+    /// </summary>
     public abstract class StorageServiceBase : IStorageService
     {
         public abstract Task<string> StoreAsync(string folder, string fullName, string contentAsString);

@@ -7,6 +7,13 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.Storage.Providers
 {
+    /// <summary>
+    /// Provides a <see cref="IObjectStorageProvider{TId,T}"/> implementation for storing objects as files.
+    /// Basic implementation.
+    /// </summary>
+    /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
+    ///                         etc. </typeparam>
+    /// <typeparam name="T">The type of the object that wants to be stored</typeparam>
     public class ObjectAsFileStorageProvider<TId, T> : IObjectStorageProvider<TId, T>
         where T : StorageDomain<TId>
     {
@@ -15,11 +22,20 @@ namespace Excalibur.Shared.Storage.Providers
 
         private readonly IStorageService _storageService;
 
+        /// <summary>
+        /// Initializes a <see cref="ObjectAsFileStorageProvider{TId,T}"/> resolving a <see cref="IStorageService"/> to store files with
+        /// </summary>
         public ObjectAsFileStorageProvider()
         {
             _storageService = Resolver.Resolve<IStorageService>();
         }
 
+        /// <summary>
+        /// Stores a range of objects to file. 
+        /// The <see cref="objectsToStore"/> will overwrite the current file
+        /// </summary>
+        /// <param name="objectsToStore">The objects to store</param>
+        /// <returns>An await able Task</returns>
         public async Task StoreRange(IList<T> objectsToStore)
         {
             // Delete the file before writing.
@@ -30,6 +46,10 @@ namespace Excalibur.Shared.Storage.Providers
             await _storageService.StoreAsync(DataFolder, String.Format(FileName, typeof(T).Name), objectAsString).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Gets a range of <see cref="T"/> from file storage
+        /// </summary>
+        /// <returns>An await able Task with the range as result</returns>
         public async Task<IList<T>> GetRange()
         {
             var objectAsString = await _storageService.ReadAsTextAsync(DataFolder, String.Format(FileName, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
@@ -39,6 +59,12 @@ namespace Excalibur.Shared.Storage.Providers
             return result;
         }
 
+        /// <summary>
+        /// Get a certain <see cref="T"/> from file storage. 
+        /// This will, at the moment, retrieve all items and then return just the one.
+        /// </summary>
+        /// <param name="id">The id of the object that will be retrieved</param>
+        /// <returns>An await able Task with the requested object as result</returns>
         public async Task<T> Get(TId id)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -46,6 +72,11 @@ namespace Excalibur.Shared.Storage.Providers
             return items.FirstOrDefault(x => x.Id.Equals(id));
         }
 
+        /// <summary>
+        /// Adds or updates an object to file storage
+        /// </summary>
+        /// <param name="objectToStore">The object to store</param>
+        /// <returns>An await able Task with the success as result</returns>
         public async Task<bool> AddOrUpdate(T objectToStore)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -67,6 +98,11 @@ namespace Excalibur.Shared.Storage.Providers
             return true;
         }
 
+        /// <summary>
+        /// Deletes an object with a certain Id
+        /// </summary>
+        /// <param name="id">The id of the object that will be deleted</param>
+        /// <returns>An await able Task with the success as result</returns>
         public async Task<bool> Delete(TId id)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -83,6 +119,10 @@ namespace Excalibur.Shared.Storage.Providers
             return false;
         }
 
+        /// <summary>
+        /// Base <see cref="JsonSerializerSettings"/> setting <see cref="ReferenceLoopHandling"/> to Ignore.
+        /// </summary>
+        /// <returns></returns>
         private static JsonSerializerSettings JsonSerializerSettings()
         {
             return new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
