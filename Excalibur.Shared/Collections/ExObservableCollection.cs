@@ -3,6 +3,10 @@ using System.Collections.ObjectModel;
 
 namespace Excalibur.Shared.Collections
 {
+    /// <summary>
+    /// A base observable collection
+    /// </summary>
+    /// <typeparam name="T">The type used within the collection</typeparam>
     public class ExObservableCollection<T> : ObservableCollection<T>, IObservableCollection<T>
     {
         public ExObservableCollection(IList<T> source)
@@ -15,7 +19,7 @@ namespace Excalibur.Shared.Collections
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            // instead of returning an usafe enumerator,
+            // instead of returning an unsafe enumerator,
             // we wrap it into our thread-safe class
             var enumerator = new SafeEnumerator<T>(_lock);
 

@@ -33,7 +33,7 @@ namespace Excalibur.Shared.Collections
         public void Dispose()
         {
             // .. and exiting lock on Dispose()
-            // This will be called when foreach loop finishes
+            // This will be called when for each loop finishes
             Monitor.Exit(_mLock);
         }
 

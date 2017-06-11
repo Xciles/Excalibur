@@ -3,6 +3,10 @@ using System.Collections.ObjectModel;
 
 namespace Excalibur.Shared.Collections
 {
+    /// <summary>
+    /// A base sorted observable collection
+    /// </summary>
+    /// <typeparam name="T">The type used within the collection</typeparam>
     public class ExSortedObservableCollection<T> : ObservableCollection<T>, ISortedObservableCollection<T>
     {
         private readonly IComparer<T> _comparer;
@@ -20,7 +24,7 @@ namespace Excalibur.Shared.Collections
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            // instead of returning an usafe enumerator,
+            // instead of returning an unsafe enumerator,
             // we wrap it into our thread-safe class
             var enumerator = new SafeEnumerator<T>(_lock);
 
@@ -66,6 +70,7 @@ namespace Excalibur.Shared.Collections
             }
         }
 
+        // Todo, change this to Add?
         public void InsertItem(T item)
         {
             for (var i = 0; i < Count; i++)
