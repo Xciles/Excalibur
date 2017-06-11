@@ -16,12 +16,12 @@ namespace Excalibur.Shared.Business
     {
         public virtual async Task<IList<TDomain>> GetAllAsync()
         {
-            return await Storage.GetRange().ConfigureAwait(false);
+            return await Storage.GetRangeAsync().ConfigureAwait(false);
         }
 
         public virtual async Task<TDomain> GetByIdAsync(TId id)
         {
-            return await Storage.Get(id).ConfigureAwait(false);
+            return await Storage.GetAsync(id).ConfigureAwait(false);
         }
 
         public override async Task UpdateFromServiceAsync()
@@ -41,12 +41,12 @@ namespace Excalibur.Shared.Business
 
         protected async Task StoreItemsAsync(IList<TDomain> objectsToStore)
         {
-            await Storage.StoreRange(objectsToStore).ConfigureAwait(false);
+            await Storage.StoreRangeAsync(objectsToStore).ConfigureAwait(false);
         }
 
         public async Task DeleteItemAsync(TId id)
         {
-            await Storage.Delete(id).ConfigureAwait(false);
+            await Storage.DeleteAsync(id).ConfigureAwait(false);
 
             PublishListUpdated();
         }

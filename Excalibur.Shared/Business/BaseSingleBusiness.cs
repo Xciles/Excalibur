@@ -30,7 +30,7 @@ namespace Excalibur.Shared.Business
 
         public virtual async Task<TDomain> GetAsync()
         {
-            var list = await Storage.GetRange().ConfigureAwait(false);
+            var list = await Storage.GetRangeAsync().ConfigureAwait(false);
             return list.FirstOrDefault();
         }
 
@@ -40,7 +40,7 @@ namespace Excalibur.Shared.Business
 
             if (itemToDelete != null)
             {
-                await Storage.Delete(itemToDelete.Id).ConfigureAwait(false);
+                await Storage.DeleteAsync(itemToDelete.Id).ConfigureAwait(false);
 
                 PublishUpdated(itemToDelete, EDomainState.Deleted);
             }

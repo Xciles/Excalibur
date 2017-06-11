@@ -33,7 +33,7 @@ namespace Excalibur.Shared.Business
 
         protected async Task StoreItemAsync(TDomain objectToStore)
         {
-            await Storage.AddOrUpdate(objectToStore).ConfigureAwait(false);
+            await Storage.AddOrUpdateAsync(objectToStore).ConfigureAwait(false);
 
             PublishListUpdated();
         }

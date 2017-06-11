@@ -16,37 +16,37 @@ namespace Excalibur.Shared.Storage.Providers
         /// </summary>
         /// <param name="objectsToStore">The objects to store</param>
         /// <returns>An await able Task</returns>
-        Task StoreRange(IList<T> objectsToStore);
+        Task StoreRangeAsync(IList<T> objectsToStore);
         /// <summary>
         /// Gets a range of <see cref="T"/> from storage
         /// </summary>
         /// <returns>An await able Task with the range as result</returns>
-        Task<IList<T>> GetRange(); // todo: change to take skip, returning all for now
+        Task<IList<T>> GetRangeAsync(); // todo: change to take skip, returning all for now
 
         /// <summary>
-        /// Get a certain <see cref="T"/>
+        /// GetAsync a certain <see cref="T"/>
         /// </summary>
         /// <param name="id">The id of the object that will be retrieved</param>
         /// <returns>An await able Task with the requested object as result</returns>
-        Task<T> Get(TId id);
+        Task<T> GetAsync(TId id);
         /// <summary>
         /// Adds or updates an object to storage
         /// </summary>
         /// <param name="objectToStore">The object to store</param>
         /// <returns>An await able Task with the success as result</returns>
-        Task<bool> AddOrUpdate(T objectToStore);
+        Task<bool> AddOrUpdateAsync(T objectToStore);
         /// <summary>
         /// Deletes an object with a certain Id
         /// </summary>
         /// <param name="id">The id of the object that will be deleted</param>
         /// <returns>An await able Task with the success as result</returns>
-        Task<bool> Delete(TId id);
+        Task<bool> DeleteAsync(TId id);
 
-        // GetRange
+        // GetRangeAsync
         // SetRange
         // Create
         // Update
         // Read
-        // Delete
+        // DeleteAsync
     }
 }
