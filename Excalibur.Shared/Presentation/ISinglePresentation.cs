@@ -8,6 +8,9 @@ namespace Excalibur.Shared.Presentation
     /// 
     /// Using a presentation sharing of lists and updating views is easier, since mapping and managing will be done in one entity.
     /// 
+    /// This interface is used for <see cref="BaseSinglePresentation{TId,TDomain,TObservable}"/> as well as a sub interface for <see cref="BasePresentation{TId,TDomain,TObservable,TSelectedObservable}"/> 
+    /// and <see cref="BaseSortedPresentation{TId,TDomain,TObservable,TSelectedObservable,TComparer}"/>
+    /// 
     /// Single presentation will manage the one object. 
     /// The selected observable will be used by the List implementation <see cref="IPresentation{TId,TObservable,TSelectedObservable}"/> as the reference
     /// that will be updated when selecting a Observable.
