@@ -148,56 +148,6 @@
       <Name>Excalibur.Tests.FormsCross</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="MvvmCross.Binding">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Binding.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Binding.Uwp">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Binding.Uwp.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Core">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Forms">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Forms.Uwp">
-      <HintPath>..\..\..\..\bin\Debug\Mvx\Uwp\MvvmCross.Forms.Uwp.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Platform">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Platform.Uwp">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Platform.Uwp.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.File">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Plugins.File.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.File.Uwp">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Plugins.File.Uwp.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.Json">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Plugins.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.JsonLocalization">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Plugins.JsonLocalization.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.ResourceLoader">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Plugins.ResourceLoader.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.ResourceLoader.Uwp">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Plugins.ResourceLoader.Uwp.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.Visibility">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Portable\MvvmCross.Plugins.Visibility.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.Visibility.Uwp">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Plugins.Visibility.Uwp.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Uwp">
-      <HintPath>..\..\..\..\MvvmCross-5.0.1\bin\Debug\Mvx\Uwp\MvvmCross.Uwp.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
