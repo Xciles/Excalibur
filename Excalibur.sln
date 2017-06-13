@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Cross", "Excalibur.Cross\Excalibur.Cross.csproj", "{8CD6A3A6-B0F4-442D-B8B3-6A29EDC5BC8E}"
 EndProject
@@ -25,6 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Uwp",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{1B1FD36B-3763-4926-83CE-48690505E909}"
 	ProjectSection(SolutionItems) = preProject
+		Nuspec\Excalibur.Cross.nuspec = Nuspec\Excalibur.Cross.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
