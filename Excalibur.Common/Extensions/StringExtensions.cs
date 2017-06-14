@@ -1,13 +1,22 @@
 ﻿namespace Excalibur.Common.Extensions
 {
+    /// <summary>
+    /// This class contains a few useful extensions on String. 
+    /// </summary>
     public static class StringExtensions
     {
-        public static string Normalize(this string normalizeString)
+        /// <summary>
+        /// Tries to normalize a String. Removing special characters.
+        /// </summary>
+        /// <param name="normalizeString">The string to normalize</param>
+        /// <param name="maxLength">The max length of the string, default 60</param>
+        /// <returns>A normalized string</returns>
+        public static string Normalize(this string normalizeString, int maxLength = 60)
         {
             var norm = normalizeString.Trim();
-            if (norm.Length > 60)
+            if (norm.Length > maxLength)
             {
-                norm = norm.Substring(0, 60);
+                norm = norm.Substring(0, maxLength);
             }
             norm = norm.Replace("&", "");
             norm = norm.Replace("%", "");
