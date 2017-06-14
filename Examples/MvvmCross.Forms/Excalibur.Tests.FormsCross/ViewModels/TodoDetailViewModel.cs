@@ -11,7 +11,7 @@ namespace Excalibur.Tests.FormsCross.ViewModels
 
         public TodoDetailViewModel()
         {
-            var userPresentation = Resolver.Resolve<IPresentation<int, Observable.User, Observable.User>>();
+            var userPresentation = Resolver.Resolve<IListPresentation<int, Observable.User, Observable.User>>();
 
             var user = userPresentation.GetObservable(SelectedObservable.UserId);
             if (user != null)

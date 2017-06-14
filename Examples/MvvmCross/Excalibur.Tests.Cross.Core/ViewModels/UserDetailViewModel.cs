@@ -3,7 +3,7 @@ using Excalibur.Shared.Presentation;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
-    public class UserDetailViewModel : DetailViewModel<int, Observable.User, IPresentation<int, Observable.User, Observable.User>>
+    public class UserDetailViewModel : DetailViewModel<int, Observable.User, IListPresentation<int, Observable.User, Observable.User>>
     {
     }
 }

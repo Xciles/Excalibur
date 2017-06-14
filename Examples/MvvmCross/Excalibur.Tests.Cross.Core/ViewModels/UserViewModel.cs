@@ -9,7 +9,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
-    public class UserViewModel : ListViewModel<int, Observable.User, Observable.User, IPresentation<int, Observable.User, Observable.User>, UserDetailViewModel>
+    public class UserViewModel : ListViewModel<int, Observable.User, Observable.User, IListPresentation<int, Observable.User, Observable.User>, UserDetailViewModel>
     {
         public UserViewModel()
         {

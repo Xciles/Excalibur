@@ -10,7 +10,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Tests.FormsCross.Presentation
 {
-    public class Todo : BasePresentation<int, Domain.Todo, Observable.Todo, Observable.Todo>, ITodo
+    public class Todo : BaseListPresentation<int, Domain.Todo, Observable.Todo, Observable.Todo>, ITodo
     {
         private IObservableCollection<Observable.Todo> _currentUserTodoObservables = new ExObservableCollection<Observable.Todo>(new List<Observable.Todo>());
 
