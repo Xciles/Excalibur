@@ -4,6 +4,9 @@ using MvvmCross.Platform.Converters;
 
 namespace Excalibur.Cross.Converters
 {
+    /// <summary>
+    /// MvvmCross Inverse boolean Converter
+    /// </summary>
     public class InverseBooleanConverter : MvxValueConverter
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)

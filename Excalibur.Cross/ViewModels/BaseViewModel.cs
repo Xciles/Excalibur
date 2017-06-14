@@ -8,28 +8,35 @@ using MvvmCross.Platform;
 namespace Excalibur.Cross.ViewModels
 {
     /// <summary>
-    ///    Defines the BaseViewModel type.
+    /// BaseViewModel implementation that contains the MvvmCross <see cref="IMvxNavigationService"/>, Text bindings and a go back command.
     /// </summary>
     public abstract class BaseViewModel : MvxViewModel
     {
+        /// <summary>
+        /// The MvvmCross NavigationService
+        /// </summary>
         protected IMvxNavigationService NavigationService { get; } = Mvx.Resolve<IMvxNavigationService>();
 
+        /// <summary>
+        /// A TextSource binding for localization
+        /// </summary>
         public IMvxLanguageBinder TextSource
         {
             get { return new MvxLanguageBinder(ExTextProvider.GeneralNamespace, GetType().Name); }
         }
 
+        /// <summary>
+        /// The ShareTextSource binding for localization
+        /// </summary>
         public IMvxLanguageBinder SharedTextSource
         {
             get { return new MvxLanguageBinder(ExTextProvider.GeneralNamespace, ExTextProvider.SharedNamespace); }
         }
-
+        
         /// <summary>
-        /// Gets the almanac go back command.
+        /// A MvvmCross Navigate back command
+        /// This will just call Close(this) to close the current view.
         /// </summary>
-        /// <value>
-        /// The almanac go back command.
-        /// </value>
         public virtual ICommand GoBackCommand
         {
             get

@@ -9,15 +9,33 @@ using XLabs.Ioc;
 
 namespace Excalibur.Cross
 {
+    /// <summary>
+    /// Excalibur based <see cref="MvxApplication"/>. 
+    /// This will initialize internal container, register dependencies and provide some useful methods.
+    /// 
+    /// The App of an application should implement this class.
+    /// </summary>
     public abstract class ExApp : MvxApplication
     {
+        /// <summary>
+        /// The internal container for Excalibur
+        /// </summary>
         protected SimpleContainer Container { get; set; }
 
+        /// <summary>
+        /// Initializes the ExApp and creates a Container
+        /// </summary>
         protected ExApp()
         {
             Container = new SimpleContainer();
         }
 
+        /// <summary>
+        /// The MvxApplication Initialize. 
+        /// This method is used to register default dependencies and register the internal container.
+        /// 
+        /// Please use <see cref="RegisterDependencies"/> to register dependencies that need to be registered for Excalibur
+        /// </summary>
         public override void Initialize()
         {
             // Register services
@@ -29,14 +47,26 @@ namespace Excalibur.Cross
             base.Initialize();
         }
 
+        /// <summary>
+        /// Method that should be used to register dependencies that are required for Excalibur to work. 
+        /// </summary>
         public abstract void RegisterDependencies();
 
+        /// <summary>
+        /// Not sure yet...
+        /// </summary>
+        /// <typeparam name="TId"></typeparam>
+        /// <typeparam name="TDomain"></typeparam>
+        /// <param name="type"></param>
         public void UseObjectProvider<TId, TDomain>(IObjectStorageProvider<TId, TDomain> type)
             where TDomain : StorageDomain<TId>
         {
             Container.Register<IObjectStorageProvider<TId, TDomain>>(type);
         }
 
+        /// <summary>
+        /// Used for registering internal Excalibur dependencies
+        /// </summary>
         private void RegisterExcaliburInternal()
         {
             Container.Register<IStorageService, ExStorageService>();

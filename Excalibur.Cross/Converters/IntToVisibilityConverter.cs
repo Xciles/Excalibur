@@ -4,6 +4,9 @@ using MvvmCross.Plugins.Visibility;
 
 namespace Excalibur.Cross.Converters
 {
+    /// <summary>
+    /// MvvmCross Int to Visibility Converter
+    /// </summary>
     public class IntToVisibilityConverter : MvxBaseVisibilityValueConverter
     {
         protected override MvxVisibility Convert(object value, object parameter, CultureInfo culture)

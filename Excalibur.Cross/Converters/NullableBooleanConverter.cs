@@ -4,6 +4,9 @@ using MvvmCross.Platform.Converters;
 
 namespace Excalibur.Cross.Converters
 {
+    /// <summary>
+    /// MvvmCross nullable boolean Converter
+    /// </summary>
     public class NullableBooleanConverter : MvxValueConverter
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
