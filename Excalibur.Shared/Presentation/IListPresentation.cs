@@ -17,7 +17,7 @@ namespace Excalibur.Shared.Presentation
     ///                         etc. </typeparam>
     /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
-    public interface IPresentation<TId, TObservable, TSelectedObservable> : ISinglePresentation<TId, TSelectedObservable>
+    public interface IListPresentation<TId, TObservable, TSelectedObservable> : ISinglePresentation<TId, TSelectedObservable>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
     {

@@ -17,7 +17,7 @@ namespace Excalibur.Shared.Presentation
     /// This base provides an implementation for Domain objects based on a single object.
     /// 
     /// Single presentation will manage the one object. 
-    /// The selected observable will be used by the List implementation <see cref="IPresentation{TId,TObservable,TSelectedObservable}"/> as the reference
+    /// The selected observable will be used by the List implementation <see cref="IListPresentation{TId,TObservable,TSelectedObservable}"/> as the reference
     /// that will be updated when selecting a Observable.
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,

@@ -39,9 +39,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ObjectConverter\ObjectMapperRegistrar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Observable\ObservableObjectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Observable\ObservableBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Presentation\BasePresentation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\BaseListPresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\BaseSortedPresentation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IPresentation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\IListPresentation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IServiceBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ServiceBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage\StorageServiceBase.cs" />

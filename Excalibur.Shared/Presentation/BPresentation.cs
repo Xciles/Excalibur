@@ -13,11 +13,11 @@ namespace Excalibur.Shared.Presentation
     /// 
     /// Using a presentation sharing of lists and updating views is easier, since mapping and managing will be done in one entity.
     /// 
-    /// This base provides an implementation for the <see cref="BasePresentation{TId,TDomain,TObservable,TSelectedObservable}"/> and <see cref="BaseSortedPresentation{TId,TDomain,TObservable,TSelectedObservable,TComparer}"/>.
+    /// This base provides an implementation for the <see cref="BaseListPresentation{TId,TDomain,TObservable,TSelectedObservable}"/> and <see cref="BaseSortedPresentation{TId,TDomain,TObservable,TSelectedObservable,TComparer}"/>.
     /// The <see cref="BaseSinglePresentation{TId,TDomain,TObservable}"/> will have a different base, this is because of various additions in this class are not needed for just the one object.
     /// 
     /// Single presentation will manage the one object. 
-    /// The selected observable will be used by the List implementation <see cref="IPresentation{TId,TObservable,TSelectedObservable}"/> as the reference
+    /// The selected observable will be used by the List implementation <see cref="IListPresentation{TId,TObservable,TSelectedObservable}"/> as the reference
     /// that will be updated when selecting a Observable.
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,

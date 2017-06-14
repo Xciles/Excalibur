@@ -11,7 +11,7 @@ namespace Excalibur.Cross.ViewModels
     public abstract class ListViewModel<TId, TObservable, TSelectedObservable, TPresentation, TDetailViewModel> : BaseViewModel
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
-        where TPresentation : class, IPresentation<TId, TObservable, TSelectedObservable>
+        where TPresentation : class, IListPresentation<TId, TObservable, TSelectedObservable>
         where TDetailViewModel : IMvxViewModel
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();

@@ -31,7 +31,7 @@ namespace Excalibur.Shared.Presentation
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
-    public class BasePresentation<TId, TDomain, TObservable, TSelectedObservable> : BPresentation<TId, TDomain, TSelectedObservable>, IPresentation<TId, TObservable, TSelectedObservable>
+    public class BaseListPresentation<TId, TDomain, TObservable, TSelectedObservable> : BPresentation<TId, TDomain, TSelectedObservable>, IListPresentation<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
@@ -42,11 +42,11 @@ namespace Excalibur.Shared.Presentation
         private SemaphoreSlim _semaphore = new SemaphoreSlim(1);
 
         /// <summary>
-        /// Initializes a new BasePresentation 
+        /// Initializes a new BaseListPresentation 
         /// This Resolves the Domain to Observable mapper and Observable to Selected Observable mapper.
         /// Also subscribes to both the List and Single item publish message
         /// </summary>
-        public BasePresentation()
+        public BaseListPresentation()
         {
             // retrieve mappers
             this.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message); });
@@ -232,7 +232,7 @@ namespace Excalibur.Shared.Presentation
             return default(TObservable);
         }
 
-        ~BasePresentation()
+        ~BaseListPresentation()
         {
             this.Dispose(false);
         }
