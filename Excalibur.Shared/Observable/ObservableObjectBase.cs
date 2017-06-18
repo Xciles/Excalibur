@@ -9,7 +9,7 @@ namespace Excalibur.Shared.Observable
     /// Base implementation for an object that needs to be an observable. This class implements <see cref="INotifyPropertyChanged"/> and provides <see cref="SetProperty{T}"/> 
     /// for setting and notifying.
     /// </summary>
-    public class ObservableObjectBase : INotifyPropertyChanged
+    public abstract class ObservableObjectBase : INotifyPropertyChanged
     {
         /// <summary>
         /// Sets the property.

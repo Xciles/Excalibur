@@ -3,13 +3,19 @@ using System.Threading.Tasks;
 
 namespace Excalibur.Shared.Storage.Providers
 {
+    public interface IObjectStorageProviderInt<T> : IObjectStorageProvider<int, T>
+        where T : StorageDomainInt
+    {
+    }
+
     /// <summary>
     /// A object storage provider that provides a general data storage interface
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
     /// <typeparam name="T">The type of the object that wants to be stored</typeparam>
-    public interface IObjectStorageProvider<in TId, T> where T : StorageDomain<TId>
+    public interface IObjectStorageProvider<in TId, T> 
+        where T : StorageDomain<TId>
     {
         /// <summary>
         /// Store a range of <see cref="T"/>

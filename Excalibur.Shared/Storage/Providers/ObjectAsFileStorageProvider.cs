@@ -7,6 +7,11 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.Storage.Providers
 {
+    public class ObjectAsFileStorageProviderInt<T> : ObjectAsFileStorageProvider<int, T>
+        where T : StorageDomainInt
+    {
+    }
+
     /// <summary>
     /// Provides a <see cref="IObjectStorageProvider{TId,T}"/> implementation for storing objects as files.
     /// Basic implementation.

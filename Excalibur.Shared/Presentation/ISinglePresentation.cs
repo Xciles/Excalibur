@@ -2,6 +2,11 @@
 
 namespace Excalibur.Shared.Presentation
 {
+    public interface ISinglePresentationInt<TSelectedObservable> : ISinglePresentation<int, TSelectedObservable>
+        where TSelectedObservable : ObservableBaseInt, new()
+    {
+    }
+
     /// <summary>
     /// Presentation will make it possible to use one entity for sharing observable objects. 
     /// Presentation base will map domain objects to observable object which can be passed by reference to view models. 

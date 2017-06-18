@@ -1,12 +1,16 @@
 ﻿namespace Excalibur.Shared.Observable
 {
+    public abstract class ObservableBaseInt : ObservableBase<int>
+    {
+    }
+
     /// <summary>
     /// Base observable that is used for entities that want to be used by Excalibur. 
     /// This base provides a default implementation containing the Id as <see cref="TId"/>.
     /// </summary>    
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
-    public class ObservableBase<TId> : ObservableObjectBase
+    public abstract class ObservableBase<TId> : ObservableObjectBase
     {
         private TId _id = default(TId);
 

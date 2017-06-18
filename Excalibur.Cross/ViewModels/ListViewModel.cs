@@ -7,24 +7,45 @@ using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
-    /// <summary>
-    /// Base ListViewModel implementation
-    /// This will try to resolve the corresponding Presentation that will be used to bind various things
-    /// 
-    /// The base will provide some default methods that can be used for navigation like a <see cref="GoToDetailCommand"/> that will navigation to a detail based
-    /// on a command binding or selection.
-    /// </summary>
-    /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
-    ///                         etc. </typeparam>
-    /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
-    /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
-    /// <typeparam name="TPresentation">The type that should be used to resolve Observables</typeparam>
-    /// <typeparam name="TDetailViewModel">The type that should be used as detail view model</typeparam>
-    public abstract class ListViewModel<TId, TObservable, TSelectedObservable, TPresentation, TDetailViewModel> : BaseViewModel
-        where TObservable : ObservableBase<TId>, new()
-        where TSelectedObservable : ObservableBase<TId>, new()
-        where TPresentation : class, IListPresentation<TId, TObservable, TSelectedObservable>
+    public abstract class ListViewModelInt<TObservable, TPresentation, TDetailViewModel> : ListViewModel<int, TObservable, TObservable, TPresentation, TDetailViewModel>
+        where TObservable : ObservableBaseInt, new()
+        where TPresentation : class, IListPresentationInt<TObservable>
         where TDetailViewModel : IMvxViewModel
+    {
+    }
+    public abstract class ListViewModelInt<TObservable, TSelectedObservable, TPresentation, TDetailViewModel> : ListViewModel<int, TObservable, TSelectedObservable, TPresentation, TDetailViewModel>
+        where TObservable : ObservableBaseInt, new()
+        where TSelectedObservable : ObservableBaseInt, new()
+        where TPresentation : class, IListPresentationInt<TObservable, TSelectedObservable>
+        where TDetailViewModel : IMvxViewModel
+    {
+    }
+
+    public abstract class ListViewModel<TId, TObservable, TPresentation, TDetailViewModel> : ListViewModel<TId, TObservable, TObservable, TPresentation, TDetailViewModel>
+        where TObservable : ObservableBase<TId>, new()
+        where TPresentation : class, IListPresentation<TId, TObservable>
+        where TDetailViewModel : IMvxViewModel
+    {
+    }
+
+    /// <summary>
+        /// Base ListViewModel implementation
+        /// This will try to resolve the corresponding Presentation that will be used to bind various things
+        /// 
+        /// The base will provide some default methods that can be used for navigation like a <see cref="GoToDetailCommand"/> that will navigation to a detail based
+        /// on a command binding or selection.
+        /// </summary>
+        /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
+        ///                         etc. </typeparam>
+        /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
+        /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
+        /// <typeparam name="TPresentation">The type that should be used to resolve Observables</typeparam>
+        /// <typeparam name="TDetailViewModel">The type that should be used as detail view model</typeparam>
+        public abstract class ListViewModel<TId, TObservable, TSelectedObservable, TPresentation, TDetailViewModel> : BaseViewModel
+    where TObservable : ObservableBase<TId>, new()
+    where TSelectedObservable : ObservableBase<TId>, new()
+    where TPresentation : class, IListPresentation<TId, TObservable, TSelectedObservable>
+    where TDetailViewModel : IMvxViewModel
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());

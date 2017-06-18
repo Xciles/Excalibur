@@ -3,6 +3,22 @@ using Excalibur.Shared.Observable;
 
 namespace Excalibur.Shared.Presentation
 {
+    public interface IListPresentationInt<TObservable> : IListPresentationInt<TObservable, TObservable>
+        where TObservable : ObservableBaseInt, new()
+    {
+    }
+
+    public interface IListPresentationInt<TObservable, TSelectedObservable> : IListPresentation<int, TObservable, TSelectedObservable>
+        where TObservable : ObservableBaseInt, new()
+        where TSelectedObservable : ObservableBaseInt, new()
+    {
+    }
+
+    public interface IListPresentation<TId, TObservable> : IListPresentation<TId, TObservable, TObservable>
+        where TObservable : ObservableBase<TId>, new()
+    {
+    }
+
     /// <summary>
     /// Presentation will make it possible to use one entity for sharing observable objects. 
     /// Presentation base will map domain objects to observable object which can be passed by reference to view models. 

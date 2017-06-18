@@ -4,7 +4,7 @@
     /// This class can be used for database objects used by projects. The class
     /// will provide a default property for the identifier and other supporting methods.
     /// </summary>
-    public abstract class StorageDomain : StorageDomain<int>
+    public abstract class StorageDomainInt : StorageDomain<int>
     {
         
     }
@@ -24,7 +24,7 @@
         /// </summary>
         /// <value>
         /// The value should never be set, outside of the classes which implement the
-        /// <see cref="StorageDomain"/>.
+        /// <see cref="StorageDomain{TId}"/>.
         /// </value>
         //[DataMember]
         public TId Id

@@ -3,6 +3,10 @@ using System.Threading.Tasks;
 
 namespace Excalibur.Shared.Business
 {
+    public interface IListBusinessInt<TDomain> : IListBusiness<int, TDomain>
+    {
+    }
+
     /// <summary>
     /// An entity to represent a list of items and with it a list of domain objects.
     /// This should be used when for example managing a list of objects. 

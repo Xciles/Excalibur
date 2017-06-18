@@ -4,6 +4,12 @@ using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
+    public abstract class DetailViewModelInt<TSelectedObservable, TPresentation> : DetailViewModel<int, TSelectedObservable, TPresentation>
+        where TSelectedObservable : ObservableBaseInt, new()
+        where TPresentation : class, ISinglePresentationInt<TSelectedObservable>
+    {
+    }
+
     /// <summary>
     /// Base detail view implementation. 
     /// This will try to bind <see cref="SelectedObservable"/> to the Presentations SelectedObservable.
@@ -15,8 +21,8 @@ namespace Excalibur.Cross.ViewModels
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
     /// <typeparam name="TPresentation">The type that should be used to resolve Observables</typeparam>
     public abstract class DetailViewModel<TId, TSelectedObservable, TPresentation> : BaseViewModel
-        where TSelectedObservable : ObservableBase<TId>, new()
-        where TPresentation : class, ISinglePresentation<TId, TSelectedObservable>
+    where TSelectedObservable : ObservableBase<TId>, new()
+    where TPresentation : class, ISinglePresentation<TId, TSelectedObservable>
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
 

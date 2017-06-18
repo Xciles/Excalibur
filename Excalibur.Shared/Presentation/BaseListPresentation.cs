@@ -14,6 +14,25 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
+    public class BaseListPresentationInt<TDomain, TObservable> : BaseListPresentation<int, TDomain, TObservable, TObservable>, IListPresentationInt<TObservable>
+        where TDomain : StorageDomainInt
+        where TObservable : ObservableBaseInt, new()
+    {
+    }
+
+    public class BaseListPresentationInt<TDomain, TObservable, TSelectedObservable> : BaseListPresentation<int, TDomain, TObservable, TSelectedObservable>, IListPresentationInt<TObservable, TSelectedObservable>
+        where TDomain : StorageDomainInt
+        where TObservable : ObservableBaseInt, new()
+        where TSelectedObservable : ObservableBaseInt, new()
+    {
+    }
+
+    public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>
+        where TDomain : StorageDomain<TId>
+        where TObservable : ObservableBase<TId>, new()
+    {
+    }
+
     /// <summary>
     /// Presentation will make it possible to use one entity for sharing observable objects. 
     /// Presentation base will map domain objects to observable object which can be passed by reference to view models. 
