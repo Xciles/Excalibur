@@ -136,7 +136,7 @@ namespace Excalibur.Tests.FormsCross
                 };
 
                 _mvxFormsApp.MainPage = mainPage;
-                if (!_hasNavigatedToLogin)
+                if (!_hasNavigatedToLogin || Device.RuntimePlatform == Device.iOS)
                 {
                     CustomPlatformInitialization(mainPage);
                 }
