@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -57,6 +56,11 @@ namespace Excalibur.Tests.FormsCross.iOS
 
         public void NativeModalViewControllerDisappearedOnItsOwn()
         {
+        }
+
+        protected override void CustomPlatformInitialization(NavigationPage mainPage)
+        {
+            _window.RootViewController = mainPage.CreateViewController();
         }
 
         protected override void CustomPlatformInitialization(MasterDetailPage mainPage)

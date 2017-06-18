@@ -182,10 +182,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
@@ -195,6 +191,7 @@
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
+    <Compile Include="DebugTrace.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
@@ -221,6 +218,15 @@
       <Project>{2a56bdde-4094-418e-b3ab-988db3bc2854}</Project>
       <Name>Excalibur.Tests.FormsCross</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fallback.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
