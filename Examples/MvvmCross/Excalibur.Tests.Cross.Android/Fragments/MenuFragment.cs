@@ -13,7 +13,6 @@ using MvvmCross.Droid.Support.V4;
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {
     [MvxFragment(typeof(MainViewModel), Resource.Id.menu_frame)]
-    [Register("Excalibur.Tests.Cross.Droid.Fragments.MenuFragment")]
     public class MenuFragment : MvxFragment<MenuViewModel>, NavigationView.IOnNavigationItemSelectedListener
     {
         private NavigationView _menuView;

@@ -10,8 +10,7 @@ namespace Excalibur.Tests.Cross.Droid.Activities
         Label = "Examples",
         Theme = "@style/Theme.Login",
         LaunchMode = LaunchMode.SingleTop,
-        ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize,
-        Name = "Excalibur.Tests.Cross.Android.Activities.LoginActivity"
+        ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize
     )]
     public class LoginActivity : MvxAppCompatActivity<LoginViewModel>
     {

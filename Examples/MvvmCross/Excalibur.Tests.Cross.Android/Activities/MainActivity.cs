@@ -13,8 +13,7 @@ namespace Excalibur.Tests.Cross.Droid.Activities
     [Activity(
         Label = "Main",
         Theme = "@style/Theme",
-        LaunchMode = LaunchMode.SingleTop,
-        Name = "Excalibur.Tests.Cross.Android.Activities.MainActivity"
+        LaunchMode = LaunchMode.SingleTop
     )]
     public class MainActivity : MvxCachingFragmentCompatActivity<MainViewModel>
     {

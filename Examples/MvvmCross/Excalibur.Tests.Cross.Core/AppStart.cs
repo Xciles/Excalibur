@@ -16,19 +16,19 @@ namespace Excalibur.Tests.Cross.Core
             _loginService = loginService;
         }
 
-        public async void Start(object hint = null)
+        public void Start(object hint = null)
         {
             // login things
-            if (await _loginService.ValidateAsync())
+            if (_loginService.ValidateAsync().GetAwaiter().GetResult())
             {
                 // todo init sync and loading of data
                 Resolver.Resolve<ISyncService>().PartialSyncAsync().ConfigureAwait(false);
 
-                await Mvx.Resolve<IMvxNavigationService>().Navigate<MainViewModel>();
+                Mvx.Resolve<IMvxNavigationService>().Navigate<MainViewModel>();
             }
             else
             {
-                await Mvx.Resolve<IMvxNavigationService>().Navigate<LoginViewModel>();
+                Mvx.Resolve<IMvxNavigationService>().Navigate<LoginViewModel>();
             }
         }
     }

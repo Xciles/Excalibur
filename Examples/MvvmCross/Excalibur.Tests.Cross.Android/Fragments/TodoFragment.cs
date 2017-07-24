@@ -11,7 +11,6 @@ using MvvmCross.Droid.Support.V7.RecyclerView;
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {
     [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame, true)]
-    [Register("Excalibur.Tests.Cross.Droid.Fragments.TodoFragment")]
     public class TodoFragment : BaseFragment<TodoViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

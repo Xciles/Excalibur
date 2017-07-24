@@ -7,7 +7,6 @@ using MvvmCross.Droid.Shared.Attributes;
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {
     [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame)]
-    [Register("Excalibur.Tests.Cross.Droid.Fragments.DashboardFragment")]
     public class DashboardFragment : BaseFragment<DashboardViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
