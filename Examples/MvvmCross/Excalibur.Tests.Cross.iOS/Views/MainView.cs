@@ -2,7 +2,6 @@ using Excalibur.Tests.Cross.Core.ViewModels;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Support.XamarinSidebar;
-using MvvmCross.iOS.Support.XamarinSidebar.Attributes;
 using MvvmCross.iOS.Views;
 using MvvmCross.iOS.Views.Presenters.Attributes;
 

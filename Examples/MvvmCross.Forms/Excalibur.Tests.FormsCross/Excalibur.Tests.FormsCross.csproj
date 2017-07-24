@@ -97,29 +97,29 @@
     <Reference Include="ModernHttpClient, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Binding, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Binding.5.0.2\lib\portable-net45+win+wpa81+wp80\MvvmCross.Binding.dll</HintPath>
+    <Reference Include="MvvmCross.Binding, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Binding.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Binding.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Core, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Core.5.0.2\lib\portable-net45+win+wpa81+wp80\MvvmCross.Core.dll</HintPath>
+    <Reference Include="MvvmCross.Core, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Core.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Forms, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Forms.5.0.2\lib\portable-net45+netcore45+wpa81+MonoAndroid10+Xamarin.iOS10\MvvmCross.Forms.dll</HintPath>
+    <Reference Include="MvvmCross.Forms, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Forms.5.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+Xamarin.iOS10\MvvmCross.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Localization, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Binding.5.0.2\lib\portable-net45+win+wpa81+wp80\MvvmCross.Localization.dll</HintPath>
+    <Reference Include="MvvmCross.Localization, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Binding.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Localization.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Platform, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Platform.5.0.2\lib\portable-net45+win+wpa81+wp80\MvvmCross.Platform.dll</HintPath>
+    <Reference Include="MvvmCross.Platform, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Platform.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Plugins.DownloadCache, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Plugin.DownloadCache.5.0.2\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    <Reference Include="MvvmCross.Plugins.DownloadCache, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.DownloadCache.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.DownloadCache.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Plugins.File, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.Plugin.File.5.0.2\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.File.dll</HintPath>
+    <Reference Include="MvvmCross.Plugins.File, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmCross.Plugin.File.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>

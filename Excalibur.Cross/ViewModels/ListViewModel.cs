@@ -50,7 +50,7 @@ namespace Excalibur.Cross.ViewModels
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
         private bool _isLoading;
-        private IMvxAsyncCommand _goToDetailCommand;
+        private IMvxAsyncCommand<TObservable> _goToDetailCommand;
 
         /// <summary>
         /// Initializes a new instance of ListViewModel 
@@ -95,7 +95,7 @@ namespace Excalibur.Cross.ViewModels
         /// A navigation to detail command 
         /// This will set the <see cref="SelectedObservable"/> to the one selected and will navigate to the <see cref="TDetailViewModel"/>
         /// </summary>
-        public virtual IMvxAsyncCommand GoToDetailCommand
+        public virtual IMvxAsyncCommand<TObservable> GoToDetailCommand
         {
             get
             {

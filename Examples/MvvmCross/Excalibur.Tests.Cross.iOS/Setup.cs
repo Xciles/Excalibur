@@ -12,8 +12,13 @@ namespace Excalibur.Tests.Cross.iOS
         /// <summary>Initializes a new instance of the <see cref="Setup"/> class.</summary>
         /// <param name="applicationDelegate">The application delegate.</param>
         /// <param name="window">The window.</param>
-        public Setup(MvxApplicationDelegate applicationDelegate, UIWindow window)
+        public Setup(IMvxApplicationDelegate applicationDelegate, UIWindow window)
             : base(applicationDelegate, window)
+        {
+        }
+
+        public Setup(IMvxApplicationDelegate applicationDelegate, UIWindow window, IMvxIosViewPresenter presenter)
+            : base(applicationDelegate, presenter)
         {
         }
 

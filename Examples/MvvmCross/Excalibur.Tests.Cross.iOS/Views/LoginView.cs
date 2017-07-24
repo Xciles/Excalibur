@@ -1,7 +1,6 @@
 using Excalibur.Tests.Cross.Core.ViewModels;
 using Foundation;
 using MvvmCross.iOS.Support.XamarinSidebar;
-using MvvmCross.iOS.Support.XamarinSidebar.Attributes;
 
 namespace Excalibur.Tests.Cross.iOS.Views
 {
