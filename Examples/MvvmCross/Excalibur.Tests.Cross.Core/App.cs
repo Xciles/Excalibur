@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
-using Excalibur.Tests.Cross.Core.Configuration;
 using Excalibur.Tests.Cross.Core.State;
 using XLabs.Ioc;
+using Excalibur.Providers.File;
 
 namespace Excalibur.Tests.Cross.Core
 {

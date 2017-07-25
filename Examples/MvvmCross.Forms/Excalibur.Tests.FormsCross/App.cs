@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using Excalibur.Tests.FormsCross.Services.Interfaces;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
-using Excalibur.Tests.FormsCross.Configuration;
 using Excalibur.Tests.FormsCross.State;
 using XLabs.Ioc;
+using Excalibur.Providers.File;
 
 namespace Excalibur.Tests.FormsCross
 {
