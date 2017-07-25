@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Excalibur.Shared.Storage;
+using Excalibur.Shared.Storage.Providers;
 using Newtonsoft.Json;
 using XLabs.Ioc;
 
-namespace Excalibur.Shared.Storage.Providers
+namespace Excalibur.Providers.File
 {
     public class ObjectAsFileStorageProviderInt<T> : ObjectAsFileStorageProvider<int, T>
         where T : StorageDomainInt
