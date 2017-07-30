@@ -2,7 +2,6 @@ using Excalibur.Shared.Business;
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Presentation;
 using Excalibur.Shared.Services;
-using Excalibur.Shared.Storage.Providers;
 using Excalibur.Tests.FormsCross.Services;
 using MvvmCross.Platform.IoC;
 using System.Collections.Generic;
@@ -12,6 +11,7 @@ using MvvmCross.Platform;
 using Excalibur.Tests.FormsCross.State;
 using XLabs.Ioc;
 using Excalibur.Providers.File;
+using Excalibur.Shared.Storage;
 
 namespace Excalibur.Tests.FormsCross
 {

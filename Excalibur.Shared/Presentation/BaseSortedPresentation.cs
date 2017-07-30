@@ -7,7 +7,7 @@ using Excalibur.Shared.Comparers;
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Storage;
-using Excalibur.Utils;
+using Excalibur.Shared.Utils;
 using PubSub;
 using XLabs.Ioc;
 
@@ -15,7 +15,7 @@ namespace Excalibur.Shared.Presentation
 {
     // Todo change to BasePresentation and implement some methods differently...
 
-    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BPresentation<TId, TDomain, TSelectedObservable>, ISortedPresentation<TId, TObservable, TSelectedObservable>
+    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BasePresentation<TId, TDomain, TSelectedObservable>, ISortedPresentation<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()

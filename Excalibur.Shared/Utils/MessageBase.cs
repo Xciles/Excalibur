@@ -1,6 +1,6 @@
 ﻿using Excalibur.Shared.Business;
 
-namespace Excalibur.Utils
+namespace Excalibur.Shared.Utils
 {
     /// <summary>
     /// This class is used for communication by <see cref="PubSub"/> to notify an object has changed. 

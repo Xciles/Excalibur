@@ -23,7 +23,7 @@ namespace Excalibur.Shared.Presentation
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
-    public abstract class BPresentation<TId, TDomain, TSelectedObservable> : ObservableObjectBase, ISinglePresentation<TId, TSelectedObservable>
+    public abstract class BasePresentation<TId, TDomain, TSelectedObservable> : ObservableObjectBase, ISinglePresentation<TId, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TSelectedObservable : ObservableBase<TId>, new()
     {
@@ -38,10 +38,10 @@ namespace Excalibur.Shared.Presentation
         protected CountdownEvent Cde { get; private set; }
 
         /// <summary>
-        /// Initializes a new BPresentation
+        /// Initializes a new BasePresentation
         /// Resolves the Domain to Selected mapper.
         /// </summary>
-        protected BPresentation()
+        protected BasePresentation()
         {
             DomainSelectedMapper = Resolver.Resolve<IObjectMapper<TDomain, TSelectedObservable>>();
         }

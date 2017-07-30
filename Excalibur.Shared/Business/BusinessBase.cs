@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Excalibur.Shared.Storage;
-using Excalibur.Shared.Storage.Providers;
+using Excalibur.Shared.Utils;
 using PubSub;
 using XLabs.Ioc;
-using Excalibur.Utils;
 
 namespace Excalibur.Shared.Business
 {

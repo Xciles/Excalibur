@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Collections;
 using Excalibur.Shared.Presentation;
+using Excalibur.Shared.Utils;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
-using Excalibur.Utils;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.Presentation

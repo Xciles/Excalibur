@@ -3,7 +3,6 @@ using Excalibur.Cross.Storage;
 using Excalibur.Shared.Business;
 using Excalibur.Shared.Configuration;
 using Excalibur.Shared.Storage;
-using Excalibur.Shared.Storage.Providers;
 using MvvmCross.Core.ViewModels;
 using XLabs.Ioc;
 

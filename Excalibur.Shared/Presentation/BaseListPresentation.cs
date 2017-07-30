@@ -8,25 +8,12 @@ using Excalibur.Shared.Collections;
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Storage;
-using Excalibur.Utils;
+using Excalibur.Shared.Utils;
 using PubSub;
 using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
-    public class BaseListPresentationInt<TDomain, TObservable> : BaseListPresentation<int, TDomain, TObservable, TObservable>, IListPresentationInt<TObservable>
-        where TDomain : StorageDomainInt
-        where TObservable : ObservableBaseInt, new()
-    {
-    }
-
-    public class BaseListPresentationInt<TDomain, TObservable, TSelectedObservable> : BaseListPresentation<int, TDomain, TObservable, TSelectedObservable>, IListPresentationInt<TObservable, TSelectedObservable>
-        where TDomain : StorageDomainInt
-        where TObservable : ObservableBaseInt, new()
-        where TSelectedObservable : ObservableBaseInt, new()
-    {
-    }
-
     public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
@@ -50,7 +37,7 @@ namespace Excalibur.Shared.Presentation
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
-    public class BaseListPresentation<TId, TDomain, TObservable, TSelectedObservable> : BPresentation<TId, TDomain, TSelectedObservable>, IListPresentation<TId, TObservable, TSelectedObservable>
+    public class BaseListPresentation<TId, TDomain, TObservable, TSelectedObservable> : BasePresentation<TId, TDomain, TSelectedObservable>, IListPresentation<TId, TObservable, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()

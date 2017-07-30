@@ -2,18 +2,12 @@
 using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Storage;
-using Excalibur.Utils;
+using Excalibur.Shared.Utils;
 using PubSub;
 using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
-    public class BaseSinglePresentationInt<TDomain, TObservable> : BaseSinglePresentation<int, TDomain, TObservable>
-        where TDomain : StorageDomainInt
-        where TObservable : ObservableBaseInt, new()
-    {
-    }
-
     /// <summary>
     /// Presentation will make it possible to use one entity for sharing observable objects. 
     /// Presentation base will map domain objects to observable object which can be passed by reference to view models. 

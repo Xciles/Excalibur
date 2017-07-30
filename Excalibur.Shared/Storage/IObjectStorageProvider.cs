@@ -1,13 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Storage.Providers
+namespace Excalibur.Shared.Storage
 {
-    public interface IObjectStorageProviderInt<T> : IObjectStorageProvider<int, T>
-        where T : StorageDomainInt
-    {
-    }
-
     /// <summary>
     /// A object storage provider that provides a general data storage interface
     /// </summary>
