@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ObjectAsFileStorageProvider.cs" />
-    <Compile Include="ObjectAsFileStorageProviderInt.cs" />
+    <Compile Include="ObjectAsFileStorageProviderOfInt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

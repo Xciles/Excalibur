@@ -7,20 +7,6 @@ using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
-    public abstract class ListViewModelInt<TObservable, TPresentation, TDetailViewModel> : ListViewModel<int, TObservable, TObservable, TPresentation, TDetailViewModel>
-        where TObservable : ObservableBaseInt, new()
-        where TPresentation : class, IListPresentationInt<TObservable>
-        where TDetailViewModel : IMvxViewModel
-    {
-    }
-    public abstract class ListViewModelInt<TObservable, TSelectedObservable, TPresentation, TDetailViewModel> : ListViewModel<int, TObservable, TSelectedObservable, TPresentation, TDetailViewModel>
-        where TObservable : ObservableBaseInt, new()
-        where TSelectedObservable : ObservableBaseInt, new()
-        where TPresentation : class, IListPresentationInt<TObservable, TSelectedObservable>
-        where TDetailViewModel : IMvxViewModel
-    {
-    }
-
     public abstract class ListViewModel<TId, TObservable, TPresentation, TDetailViewModel> : ListViewModel<TId, TObservable, TObservable, TPresentation, TDetailViewModel>
         where TObservable : ObservableBase<TId>, new()
         where TPresentation : class, IListPresentation<TId, TObservable>
