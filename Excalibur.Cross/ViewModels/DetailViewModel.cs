@@ -15,8 +15,8 @@ namespace Excalibur.Cross.ViewModels
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
     /// <typeparam name="TPresentation">The type that should be used to resolve Observables</typeparam>
     public abstract class DetailViewModel<TId, TSelectedObservable, TPresentation> : BaseViewModel
-    where TSelectedObservable : ObservableBase<TId>, new()
-    where TPresentation : class, ISinglePresentation<TId, TSelectedObservable>
+        where TSelectedObservable : ObservableBase<TId>, new()
+        where TPresentation : class, ISinglePresentation<TId, TSelectedObservable>
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
 

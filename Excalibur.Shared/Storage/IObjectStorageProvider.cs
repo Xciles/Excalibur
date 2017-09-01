@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 namespace Excalibur.Shared.Storage
 {
     /// <summary>
-    /// A object storage provider that provides a general data storage interface
+    /// A object storage provider that provides a general data storage interface. 
+    /// This class will use <see cref="TId"/> as a type identifier for objects
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>

@@ -6,9 +6,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.Configuration
 {
-    /// <summary>
-    /// ConfigurationManager that will manage the Configuration. 
-    /// </summary>
+    /// <inheritdoc />
     public class ConfigurationManager : IConfigurationManager
     {
         private readonly IStorageService _storageService;
@@ -21,11 +19,7 @@ namespace Excalibur.Shared.Configuration
             _storageService = Resolver.Resolve<IStorageService>();
         }
 
-        /// <summary>
-        /// Loads the configuration using <see cref="TConfigObject"/> as storage entity
-        /// </summary>
-        /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
-        /// <returns>An await able Task with the configuration as result</returns>
+        /// <inheritdoc />
         public async Task<TConfigObject> LoadAsync<TConfigObject>() where TConfigObject : new()
         {
             var result = new TConfigObject();
@@ -39,12 +33,7 @@ namespace Excalibur.Shared.Configuration
             return result;
         }
 
-        /// <summary>
-        /// Saves the configuration using the <see cref="IStorageService"/> as storage provider
-        /// </summary>
-        /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
-        /// <param name="configObject">The object that contains the configuration</param>
-        /// <returns>An await able Task with the success as result</returns>
+        /// <inheritdoc />
         public async Task<bool> SaveAsync<TConfigObject>(TConfigObject configObject) where TConfigObject : new()
         {
             var configAsString = JsonConvert.SerializeObject(configObject);

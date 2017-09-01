@@ -14,6 +14,7 @@ using XLabs.Ioc;
 
 namespace Excalibur.Shared.Presentation
 {
+    ///  <inheritdoc />
     public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()

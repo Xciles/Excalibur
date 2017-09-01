@@ -5,6 +5,7 @@ using Excalibur.Shared.Storage;
 
 namespace Excalibur.Shared.Business
 {
+    /// <inheritdoc />
     public class BaseListBusiness<TId, TDomain> : BaseListBusiness<TId, TDomain, IServiceBase<IList<TDomain>>>
         where TDomain : StorageDomain<TId>, new()
     {

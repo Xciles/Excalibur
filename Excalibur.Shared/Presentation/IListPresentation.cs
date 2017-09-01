@@ -3,6 +3,7 @@ using Excalibur.Shared.Observable;
 
 namespace Excalibur.Shared.Presentation
 {
+    /// <inheritdoc />
     public interface IListPresentation<TId, TObservable> : IListPresentation<TId, TObservable, TObservable>
         where TObservable : ObservableBase<TId>, new()
     {

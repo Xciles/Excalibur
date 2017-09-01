@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// This class can be used for database objects used by projects. The class
-    /// will provide a default property for the identifier and other supporting methods.
+    /// will provide a default property for the identifier <see cref="TId"/> and other supporting methods.
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
