@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
 using MvvmCross.Droid.Views;
-using MvvmCross.Droid.Shared.Presenter;
 using MvvmCross.Platform;
 using Excalibur.Tests.Cross.Droid.Utils;
 using MvvmCross.Platform.Droid.Platform;
+using MvvmCross.Droid.Support.V7.AppCompat;
 
 namespace Excalibur.Tests.Cross.Droid
 {
@@ -40,7 +40,7 @@ namespace Excalibur.Tests.Cross.Droid
 
         protected override IMvxAndroidViewPresenter CreateViewPresenter()
         {
-            var mvxFragmentsPresenter = new MvxFragmentsPresenter(AndroidViewAssemblies);
+            var mvxFragmentsPresenter = new MvxAppCompatViewPresenter(AndroidViewAssemblies);
             Mvx.RegisterSingleton<IMvxAndroidViewPresenter>(mvxFragmentsPresenter);
 
             //add a presentation hint handler to listen for pop to root

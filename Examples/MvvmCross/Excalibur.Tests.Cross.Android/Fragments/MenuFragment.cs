@@ -7,12 +7,12 @@ using Android.Views;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using Excalibur.Tests.Cross.Droid.Activities;
 using MvvmCross.Binding.Droid.BindingContext;
-using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Droid.Support.V4;
+using MvvmCross.Droid.Views.Attributes;
 
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {
-    [MvxFragment(typeof(MainViewModel), Resource.Id.menu_frame)]
+    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.menu_frame)]
     public class MenuFragment : MvxFragment<MenuViewModel>, NavigationView.IOnNavigationItemSelectedListener
     {
         private NavigationView _menuView;

@@ -15,7 +15,7 @@ namespace Excalibur.Tests.Cross.Droid.Activities
         Theme = "@style/Theme",
         LaunchMode = LaunchMode.SingleTop
     )]
-    public class MainActivity : MvxCachingFragmentCompatActivity<MainViewModel>
+    public class MainActivity : MvxAppCompatActivity<MainViewModel>
     {
         public DrawerLayout DrawerLayout { get; set; }
 

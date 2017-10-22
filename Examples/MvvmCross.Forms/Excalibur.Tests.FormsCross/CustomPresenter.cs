@@ -2,9 +2,8 @@
 using Excalibur.Tests.FormsCross.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
-using MvvmCross.Forms.Core;
-using MvvmCross.Forms.Presenters;
 using MvvmCross.Forms.ViewModels;
+using MvvmCross.Forms.Views;
 using MvvmCross.Platform;
 using Xamarin.Forms;
 
@@ -175,10 +174,10 @@ namespace Excalibur.Tests.FormsCross
 
         private void SetupForBinding(Page page, IMvxViewModel viewModel, MvxViewModelRequest request)
         {
-            var mvxContentPage = page as IMvxContentPage;
+            var mvxContentPage = page as IMvxPage;
             if (mvxContentPage != null)
             {
-                mvxContentPage.Request = request;
+                //mvxContentPage.Request = request;
                 mvxContentPage.ViewModel = viewModel;
             }
             else

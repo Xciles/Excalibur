@@ -4,8 +4,7 @@ using MvvmCross.Droid.Platform;
 using MvvmCross.Droid.Views;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
-using MvvmCross.Forms.Core;
-using MvvmCross.Forms.Droid.Presenters;
+using MvvmCross.Forms.Platform;
 
 namespace Excalibur.Tests.FormsCross.Droid
 {

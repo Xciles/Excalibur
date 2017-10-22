@@ -4,8 +4,7 @@ using System.Text;
 
 using Foundation;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Forms.Core;
-using MvvmCross.Forms.iOS.Presenters;
+using MvvmCross.Forms.Platform;
 using MvvmCross.iOS.Platform;
 using MvvmCross.iOS.Views.Presenters;
 using UIKit;
