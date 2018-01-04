@@ -709,7 +709,13 @@ namespace Excalibur.Tests.Cross.Droid
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.abc_textfield_search_material = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.abc_vector_test = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.abc_vector_test;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_hide_password = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_hide_password;
+			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_hide_password_1 = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_hide_password_1;
+			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_hide_password_2 = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_hide_password_2;
+			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_hide_password_3 = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_hide_password_3;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_show_password = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_show_password;
+			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_show_password_1 = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_show_password_1;
+			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_show_password_2 = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_show_password_2;
+			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.avd_show_password_3 = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.avd_show_password_3;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.design_bottom_navigation_item_background = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.design_bottom_navigation_item_background;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.design_fab_background = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.design_fab_background;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Drawable.design_ic_visibility = global::Excalibur.Tests.Cross.Droid.Resource.Drawable.design_ic_visibility;
@@ -4080,8 +4086,26 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+			// aapt resource value: 0x7f02006b
+			public const int avd_hide_password_1 = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int avd_hide_password_2 = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int avd_hide_password_3 = 2130837613;
+			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
+			
+			// aapt resource value: 0x7f02006e
+			public const int avd_show_password_1 = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int avd_show_password_2 = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int avd_show_password_3 = 2130837616;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -4912,76 +4936,79 @@ namespace Excalibur.Tests.Cross.Droid
 			public const int fragment_user_details = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int menu_drawer = 2130903091;
+			public const int MainView = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int notification_action = 2130903092;
+			public const int menu_drawer = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int notification_action_tombstone = 2130903093;
+			public const int notification_action = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int notification_media_action = 2130903094;
+			public const int notification_action_tombstone = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int notification_media_cancel_action = 2130903095;
+			public const int notification_media_action = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int notification_template_big_media = 2130903096;
+			public const int notification_media_cancel_action = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int notification_template_big_media_custom = 2130903097;
+			public const int notification_template_big_media = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int notification_template_big_media_narrow = 2130903098;
+			public const int notification_template_big_media_custom = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int notification_template_big_media_narrow_custom = 2130903099;
+			public const int notification_template_big_media_narrow = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int notification_template_custom_big = 2130903100;
+			public const int notification_template_big_media_narrow_custom = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int notification_template_icon_group = 2130903101;
+			public const int notification_template_custom_big = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int notification_template_lines_media = 2130903102;
+			public const int notification_template_icon_group = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int notification_template_media = 2130903103;
+			public const int notification_template_lines_media = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int notification_template_media_custom = 2130903104;
+			public const int notification_template_media = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int notification_template_part_chronometer = 2130903105;
+			public const int notification_template_media_custom = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int notification_template_part_time = 2130903106;
+			public const int notification_template_part_chronometer = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int recycler_item_todo = 2130903107;
+			public const int notification_template_part_time = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int recycler_item_user = 2130903108;
+			public const int recycler_item_todo = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int select_dialog_item_material = 2130903109;
+			public const int recycler_item_user = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int select_dialog_multichoice_material = 2130903110;
+			public const int select_dialog_item_material = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int select_dialog_singlechoice_material = 2130903111;
+			public const int select_dialog_multichoice_material = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int SplashScreen = 2130903112;
+			public const int select_dialog_singlechoice_material = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int support_simple_spinner_dropdown_item = 2130903113;
+			public const int SplashScreen = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int toolbar = 2130903114;
+			public const int support_simple_spinner_dropdown_item = 2130903114;
+			
+			// aapt resource value: 0x7f03004b
+			public const int toolbar = 2130903115;
 			
 			static Layout()
 			{
@@ -5924,8 +5951,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f0a0101
 			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131362049;
 			
-			// aapt resource value: 0x7f0a017a
-			public const int Theme = 2131362170;
+			// aapt resource value: 0x7f0a017b
+			public const int Theme = 2131362171;
 			
 			// aapt resource value: 0x7f0a0102
 			public const int Theme_AppCompat = 2131362050;
@@ -5990,8 +6017,8 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f0a010f
 			public const int Theme_AppCompat_NoActionBar = 2131362063;
 			
-			// aapt resource value: 0x7f0a017b
-			public const int Theme_Base = 2131362171;
+			// aapt resource value: 0x7f0a017c
+			public const int Theme_Base = 2131362172;
 			
 			// aapt resource value: 0x7f0a016b
 			public const int Theme_Design = 2131362155;
@@ -6011,14 +6038,14 @@ namespace Excalibur.Tests.Cross.Droid
 			// aapt resource value: 0x7f0a0170
 			public const int Theme_Design_NoActionBar = 2131362160;
 			
-			// aapt resource value: 0x7f0a017c
-			public const int Theme_Login = 2131362172;
-			
 			// aapt resource value: 0x7f0a017d
-			public const int Theme_Menu = 2131362173;
+			public const int Theme_Login = 2131362173;
 			
 			// aapt resource value: 0x7f0a017e
-			public const int Theme_Splash = 2131362174;
+			public const int Theme_Menu = 2131362174;
+			
+			// aapt resource value: 0x7f0a017a
+			public const int Theme_Splash = 2131362170;
 			
 			// aapt resource value: 0x7f0a0110
 			public const int ThemeOverlay_AppCompat = 2131362064;

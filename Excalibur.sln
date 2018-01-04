@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Cross", "Excalibur.Cross\Excalibur.Cross.csproj", "{8CD6A3A6-B0F4-442D-B8B3-6A29EDC5BC8E}"
 EndProject
@@ -428,5 +428,8 @@ Global
 		{83AEC4F5-0B78-4BE4-A157-65A310A4B095} = {BCD9204D-5D83-420E-B32A-1DAFD4A50E67}
 		{91B18E8E-945C-47B2-BDF6-BECADD1992D1} = {BCD9204D-5D83-420E-B32A-1DAFD4A50E67}
 		{55928A6C-F0EA-4D62-B5AE-72455312B264} = {E2E41C4B-6910-4662-83DE-41792E72FACF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D77C87DB-C61D-4A99-B7BD-C69DAA3A9BA5}
 	EndGlobalSection
 EndGlobal
