@@ -1,11 +1,12 @@
-﻿using MvvmCross.Uwp.Views;
+﻿using MvvmCross.Uwp.Attributes;
+using MvvmCross.Uwp.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-	[MvxRegion("PageContent")]
+	[MvxRegionPresentation("PageContent")]
     public sealed partial class TodoView
     {
         public TodoView()

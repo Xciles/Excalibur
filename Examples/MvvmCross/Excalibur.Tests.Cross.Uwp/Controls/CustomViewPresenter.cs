@@ -1,11 +1,10 @@
-﻿using Excalibur.Tests.Cross.Uwp.Utils;
-using Excalibur.Tests.Cross.Uwp.Views;
+﻿using Excalibur.Tests.Cross.Uwp.Views;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Uwp.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Controls
 {
-    public class CustomViewPresenter : MvxExWindowsMultiRegionViewPresenter
+    public class CustomViewPresenter : MvxWindowsViewPresenter
     {
         private readonly IMvxWindowsFrame _rootFrame;
 

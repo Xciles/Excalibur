@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using Excalibur.Tests.Cross.Uwp.Controls;
+using MvvmCross.Uwp.Attributes;
 using MvvmCross.Uwp.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
@@ -11,7 +12,7 @@ namespace Excalibur.Tests.Cross.Uwp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-	[MvxRegion("MenuContent")]
+	[MvxRegionPresentation("MenuContent")]
     public sealed partial class MenuView
     {
         public MenuView()
