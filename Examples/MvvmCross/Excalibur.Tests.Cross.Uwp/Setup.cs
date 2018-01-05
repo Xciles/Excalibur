@@ -33,6 +33,8 @@ namespace Excalibur.Tests.Cross.Uwp
 
         protected override MvxLogProviderType GetDefaultLogProviderType()
         {
+            // Disabling log provider
+            // https://github.com/MvvmCross/MvvmCross/issues/2333
             return MvxLogProviderType.None;
         }
 
