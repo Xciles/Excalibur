@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using MvvmCross.Forms.ViewModels;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Platform;
 using XLabs.Ioc;
@@ -10,17 +9,19 @@ using Excalibur.Shared.Presentation;
 
 namespace Excalibur.Tests.FormsCross.ViewModels
 {
-    public class MainViewModel : MvxMasterDetailViewModel<DashboardViewModel>
+    public class MainViewModel : MvxViewModel
     {
+        private readonly IMvxNavigationService _navigationService;
         private MenuItem _menuItem;
         private IEnumerable<MenuItem> _menu;
         private MvxCommand<MenuItem> _onSelectedChangedCommand;
         private Observable.LoggedInUser _currentUser = new Observable.LoggedInUser();
         private IMvxAsyncCommand _showCurrentUserCommand;
 
-
-        public MainViewModel()
+            
+        public MainViewModel(IMvxNavigationService navigationService)
         {
+            _navigationService = navigationService;
             Menu = new[] {
                 new MenuItem { Title = "Users", Description = "Users", ViewModelType = typeof(UserViewModel) },
                 new MenuItem { Title = "Todos", Description = "Todos", ViewModelType = typeof(TodoViewModel) }
@@ -80,13 +81,6 @@ namespace Excalibur.Tests.FormsCross.ViewModels
                 _showCurrentUserCommand = _showCurrentUserCommand ?? new MvxAsyncCommand(() => Mvx.Resolve<IMvxNavigationService>().Navigate<CurrentUserViewModel>());
                 return _showCurrentUserCommand;
             }
-        }
-
-        public override void RootContentPageActivated()
-        {
-            // When user go backs to root page in NavigationPage (using UI back or changing option in Menu)
-            // we unset the SelectedItem of our list
-            SelectedMenu = null;
         }
     }
 

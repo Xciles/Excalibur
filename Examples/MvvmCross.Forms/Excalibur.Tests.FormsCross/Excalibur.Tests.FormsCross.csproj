@@ -40,10 +40,12 @@
     <Compile Include="Business\Interfaces\ILoggedInUser.cs" />
     <Compile Include="Business\LoggedInUser.cs" />
     <Compile Include="Configuration\Config.cs" />
-    <Compile Include="CustomPresenter.cs" />
     <Compile Include="Domain\LoggedInUser.cs" />
     <Compile Include="Domain\Todo.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="FormsApp.xaml.cs">
+      <DependentUpon>FormsApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Observable\LoggedInUser.cs" />
     <Compile Include="Observable\Todo.cs" />
     <Compile Include="Observable\User.cs" />
@@ -75,6 +77,12 @@
     <Compile Include="Presentation\LoggedInUser.cs" />
     <Compile Include="Presentation\Todo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\BaseTheme.xaml.cs">
+      <DependentUpon>BaseTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MainStyles.xaml.cs">
+      <DependentUpon>MainStyles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\Interfaces\ILoginService.cs" />
     <Compile Include="Services\Interfaces\ISyncService.cs" />
     <Compile Include="Services\LoggedInUserService.cs" />
@@ -204,6 +212,25 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\TodoDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormsApp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MainStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BaseTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

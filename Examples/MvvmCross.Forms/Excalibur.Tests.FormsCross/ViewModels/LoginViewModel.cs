@@ -1,5 +1,6 @@
 ﻿using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.FormsCross.Services.Interfaces;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using XLabs.Ioc;
 
@@ -7,13 +8,15 @@ namespace Excalibur.Tests.FormsCross.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        private readonly IMvxNavigationService _navigationService;
         private readonly ILoginService _loginService;
         private string _email;
         private string _password;
         private bool _isLoading;
 
-        public LoginViewModel(ILoginService loginService)
+        public LoginViewModel(IMvxNavigationService navigationService, ILoginService loginService)
         {
+            _navigationService = navigationService;
             _loginService = loginService;
 
             Email = "myemail@10hourmail.com";
@@ -51,7 +54,8 @@ namespace Excalibur.Tests.FormsCross.ViewModels
                         // Todo init sync things
                         Resolver.Resolve<ISyncService>().FullSyncAsync().ConfigureAwait(false);
 
-                        await NavigationService.Navigate<MainViewModel>();
+                        await _navigationService.Navigate<MainViewModel>();
+                        await _navigationService.Navigate<DashboardViewModel>();
                     }
                     else
                     {

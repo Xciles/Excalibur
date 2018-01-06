@@ -1,60 +1,27 @@
 ﻿using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml.Controls;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
 using MvvmCross.Forms.Platform;
-using MvvmCross.Platform;
-using MvvmCross.Uwp.Platform;
-using MvvmCross.Uwp.Views;
-using Xamarin.Forms;
-using XamlControls = Windows.UI.Xaml.Controls;
+using MvvmCross.Forms.Uwp;
+using MvvmCross.Platform.Logging;
 
 namespace Excalibur.Tests.FormsCross.UWP
 {
-    public class Setup : MvxWindowsSetup
+    public class Setup : MvxFormsWindowsSetup
     {
-        private readonly LaunchActivatedEventArgs _launchActivatedEventArgs;
-
-        public Setup(XamlControls.Frame rootFrame, LaunchActivatedEventArgs e) : base(rootFrame)
+        public Setup(Frame rootFrame, LaunchActivatedEventArgs e) : base(rootFrame, e)
         {
-            _launchActivatedEventArgs = e;
         }
+        protected override MvxLogProviderType GetDefaultLogProviderType() => MvxLogProviderType.None;
 
         protected override IMvxApplication CreateApp()
         {
             return new Excalibur.Tests.FormsCross.App();
         }
 
-        protected override IMvxWindowsViewPresenter CreateViewPresenter(IMvxWindowsFrame rootFrame)
+        protected override MvxFormsApplication CreateFormsApplication()
         {
-            Forms.Init(_launchActivatedEventArgs);
-
-            var xamarinFormsApp = new MvxFormsApplication();
-            var presenter = new MvxFormsUwpCustomPresenter(rootFrame, xamarinFormsApp);
-            //var presenter = new MvxFormsUwpMasterDetailPagePresenter(rootFrame, xamarinFormsApp);
-            Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
-
-            return presenter;
-        }
-    }
-
-    public class MvxFormsUwpCustomPresenter : CustomPresenter, IMvxWindowsViewPresenter
-    {
-        private readonly IMvxWindowsFrame _rootFrame;
-
-        public MvxFormsUwpCustomPresenter(IMvxWindowsFrame rootFrame, Application mvxFormsApp)
-            : base(mvxFormsApp)
-        {
-            _rootFrame = rootFrame;
-        }
-
-        protected override void CustomPlatformInitialization(NavigationPage mainPage)
-        {
-            _rootFrame.Navigate(mainPage.GetType(), _rootFrame);
-        }
-
-        protected override void CustomPlatformInitialization(MasterDetailPage mainPage)
-        {
-            _rootFrame.Navigate(mainPage.GetType(), _rootFrame);
+            return new FormsApp();
         }
     }
 }

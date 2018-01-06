@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
-             xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             x:Class="Excalibur.Tests.FormsCross.Pages.MainPage"
-             Title="Main"
-             Icon="Hamburger.png"
-             Padding="0, 40, 0, 0">
+<views:MvxContentPage x:TypeArguments="viewModels:MainViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:Excalibur.Tests.FormsCross.ViewModels;assembly=Excalibur.Tests.FormsCross"
+                      x:Class="Excalibur.Tests.FormsCross.Pages.MainPage"
+                      Title="Main"
+                      Icon="Hamburger.png"
+                      Padding="0, 40, 0, 0">
 
     <StackLayout VerticalOptions="FillAndExpand"
                  HorizontalOptions="FillAndExpand"
@@ -19,9 +20,9 @@
                      BackgroundColor="DarkBlue">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding ShowCurrentUserCommand}"
-                                      NumberOfTapsRequired="1"/>
+                                      NumberOfTapsRequired="1" />
             </StackLayout.GestureRecognizers>
-            
+
             <Image HorizontalOptions="StartAndExpand"
                    Margin="20"
                    HeightRequest="50"
@@ -51,4 +52,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-</ContentPage>
+</views:MvxContentPage>

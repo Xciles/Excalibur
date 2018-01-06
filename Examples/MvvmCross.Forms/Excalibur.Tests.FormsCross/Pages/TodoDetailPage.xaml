@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Excalibur.Tests.FormsCross.Pages.TodoDetailPage"
-             Title="Todo Detail">
+<views:MvxContentPage x:TypeArguments="viewModels:TodoDetailViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:Excalibur.Tests.FormsCross.ViewModels;assembly=Excalibur.Tests.FormsCross"
+                      x:Class="Excalibur.Tests.FormsCross.Pages.TodoDetailPage"
+                      Title="Todo Detail">
 
     <Label Text="Todo Detail"
            VerticalOptions="Center"
            HorizontalOptions="Center" />
 
-</ContentPage>
+</views:MvxContentPage>

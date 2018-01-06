@@ -24,7 +24,10 @@ namespace Excalibur.Tests.FormsCross
                 // todo init sync and loading of data
                 Resolver.Resolve<ISyncService>().PartialSyncAsync().ConfigureAwait(false);
 
-                Mvx.Resolve<IMvxNavigationService>().Navigate<MainViewModel>();
+                var navigationService = Mvx.Resolve<IMvxNavigationService>();
+
+                navigationService.Navigate<MainViewModel>();
+                navigationService.Navigate<DashboardViewModel>();
             }
             else
             {
