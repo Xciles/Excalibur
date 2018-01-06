@@ -1,43 +1,34 @@
 using Android.Content;
-using MvvmCross.Platform;
-using MvvmCross.Droid.Platform;
-using MvvmCross.Droid.Views;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
+using MvvmCross.Forms.Droid.Platform;
 using MvvmCross.Forms.Platform;
+using MvvmCross.Platform.Logging;
+using MvvmCross.Platform.Platform;
 
 namespace Excalibur.Tests.FormsCross.Droid
 {
-    public class Setup : MvxAndroidSetup
+    public class Setup : MvxFormsAndroidSetup
     {
-        public Setup(Context applicationContext)
+        public Setup(Context applicationContext) 
             : base(applicationContext)
         {
         }
+
+        protected override MvxLogProviderType GetDefaultLogProviderType() => MvxLogProviderType.None;
 
         protected override IMvxApplication CreateApp()
         {
             return new Excalibur.Tests.FormsCross.App();
         }
 
-        protected override IMvxAndroidViewPresenter CreateViewPresenter()
+        protected override IMvxTrace CreateDebugTrace()
         {
-            var presenter = new MvxFormsDroidCustomPresenter();
-            Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
-
-            return presenter;
-        }
-    }
-
-    public class MvxFormsDroidCustomPresenter : CustomPresenter, IMvxAndroidViewPresenter
-    {
-        public MvxFormsDroidCustomPresenter()
-        {
+            return new DebugTrace();
         }
 
-        public MvxFormsDroidCustomPresenter(MvxFormsApplication mvxFormsApp)
-            : base(mvxFormsApp)
+        protected override MvxFormsApplication CreateFormsApplication()
         {
+            return new FormsApp();
         }
     }
 }

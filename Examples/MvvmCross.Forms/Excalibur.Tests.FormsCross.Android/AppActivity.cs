@@ -10,21 +10,30 @@ using Xamarin.Forms;
 
 namespace Excalibur.Tests.FormsCross.Droid
 {
-    [Activity(Label = "AppActivity", ScreenOrientation = ScreenOrientation.Portrait)]
-    public class AppActivity : MvxFormsApplicationActivity
+    [Activity(
+        Label = "AppActivity", 
+        Icon = "@drawable/icon", 
+        Theme = "@style/AppTheme",
+        // MainLauncher = true, // No Splash Screen: Uncomment this lines if removing splash screen
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+        LaunchMode = LaunchMode.SingleTask)]
+    public class AppActivity : MvxFormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(bundle);
 
-            Forms.Init(this, bundle);
-            var mvxFormsApp = new MvxFormsApplication();
-            LoadApplication(mvxFormsApp);
+            // No Splash Screen: Uncomment these lines if removing splash screen
+            // var startup = Mvx.Resolve<IMvxAppStart>();
+            // startup.Start();
+            // InitializeForms(bundle);
+        }
 
-            var presenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsDroidCustomPresenter;
-            presenter.MvxFormsApp = mvxFormsApp;
-
-            Mvx.Resolve<IMvxAppStart>().Start();
+        public override void OnBackPressed()
+        {
+            MoveTaskToBack(false);
         }
     }
 }

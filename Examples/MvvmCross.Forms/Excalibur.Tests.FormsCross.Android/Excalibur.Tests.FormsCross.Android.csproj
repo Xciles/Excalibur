@@ -34,8 +34,8 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidSupportedAbis />
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
-    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -190,6 +190,7 @@
     <Compile Include="AppActivity.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="DebugTrace.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
@@ -204,6 +205,7 @@
     </None>
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
@@ -260,6 +262,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\Hamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\dimens.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

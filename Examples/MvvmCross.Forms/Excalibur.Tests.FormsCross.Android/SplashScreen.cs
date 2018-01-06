@@ -9,7 +9,7 @@ namespace Excalibur.Tests.FormsCross.Droid
         Label = "Excalibur.Lol"
         , MainLauncher = true
         , Icon = "@drawable/icon"
-        , Theme = "@style/Theme.Splash"
+        , Theme = "@style/AppTheme.Splash"
         , NoHistory = true
         , ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashScreen : MvxSplashScreenActivity
@@ -18,29 +18,10 @@ namespace Excalibur.Tests.FormsCross.Droid
         {
         }
 
-        private bool _isInitializationComplete = false;
-        public override void InitializationComplete()
+        protected override void TriggerFirstNavigate()
         {
-            if (!_isInitializationComplete)
-            {
-                _isInitializationComplete = true;
-                StartActivity(typeof(AppActivity));
-            }
-        }
-
-        protected override void OnCreate(Android.OS.Bundle bundle)
-        {
-            Forms.Init(this, bundle);
-            // Leverage controls' StyleId attrib. to Xamarin.UITest
-            Forms.ViewInitialized += (object sender, ViewInitializedEventArgs e) =>
-            {
-                if (!string.IsNullOrWhiteSpace(e.View.StyleId))
-                {
-                    e.NativeView.ContentDescription = e.View.StyleId;
-                }
-            };
-
-            base.OnCreate(bundle);
+            StartActivity(typeof(AppActivity));
+            base.TriggerFirstNavigate();
         }
     }
 }
