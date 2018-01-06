@@ -3053,44 +3053,44 @@ namespace Excalibur.Tests.FormsCross.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0d0053
-			public const int abc_background_cache_hint_selector_material_dark = 2131558483;
-			
 			// aapt resource value: 0x7f0d0054
-			public const int abc_background_cache_hint_selector_material_light = 2131558484;
+			public const int abc_background_cache_hint_selector_material_dark = 2131558484;
 			
 			// aapt resource value: 0x7f0d0055
-			public const int abc_btn_colored_borderless_text_material = 2131558485;
+			public const int abc_background_cache_hint_selector_material_light = 2131558485;
 			
 			// aapt resource value: 0x7f0d0056
-			public const int abc_btn_colored_text_material = 2131558486;
+			public const int abc_btn_colored_borderless_text_material = 2131558486;
 			
 			// aapt resource value: 0x7f0d0057
-			public const int abc_color_highlight_material = 2131558487;
+			public const int abc_btn_colored_text_material = 2131558487;
 			
 			// aapt resource value: 0x7f0d0058
-			public const int abc_hint_foreground_material_dark = 2131558488;
+			public const int abc_color_highlight_material = 2131558488;
 			
 			// aapt resource value: 0x7f0d0059
-			public const int abc_hint_foreground_material_light = 2131558489;
+			public const int abc_hint_foreground_material_dark = 2131558489;
+			
+			// aapt resource value: 0x7f0d005a
+			public const int abc_hint_foreground_material_light = 2131558490;
 			
 			// aapt resource value: 0x7f0d0005
 			public const int abc_input_method_navigation_guard = 2131558405;
 			
-			// aapt resource value: 0x7f0d005a
-			public const int abc_primary_text_disable_only_material_dark = 2131558490;
-			
 			// aapt resource value: 0x7f0d005b
-			public const int abc_primary_text_disable_only_material_light = 2131558491;
+			public const int abc_primary_text_disable_only_material_dark = 2131558491;
 			
 			// aapt resource value: 0x7f0d005c
-			public const int abc_primary_text_material_dark = 2131558492;
+			public const int abc_primary_text_disable_only_material_light = 2131558492;
 			
 			// aapt resource value: 0x7f0d005d
-			public const int abc_primary_text_material_light = 2131558493;
+			public const int abc_primary_text_material_dark = 2131558493;
 			
 			// aapt resource value: 0x7f0d005e
-			public const int abc_search_url_text = 2131558494;
+			public const int abc_primary_text_material_light = 2131558494;
+			
+			// aapt resource value: 0x7f0d005f
+			public const int abc_search_url_text = 2131558495;
 			
 			// aapt resource value: 0x7f0d0006
 			public const int abc_search_url_text_normal = 2131558406;
@@ -3101,32 +3101,32 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0d0008
 			public const int abc_search_url_text_selected = 2131558408;
 			
-			// aapt resource value: 0x7f0d005f
-			public const int abc_secondary_text_material_dark = 2131558495;
-			
 			// aapt resource value: 0x7f0d0060
-			public const int abc_secondary_text_material_light = 2131558496;
+			public const int abc_secondary_text_material_dark = 2131558496;
 			
 			// aapt resource value: 0x7f0d0061
-			public const int abc_tint_btn_checkable = 2131558497;
+			public const int abc_secondary_text_material_light = 2131558497;
 			
 			// aapt resource value: 0x7f0d0062
-			public const int abc_tint_default = 2131558498;
+			public const int abc_tint_btn_checkable = 2131558498;
 			
 			// aapt resource value: 0x7f0d0063
-			public const int abc_tint_edittext = 2131558499;
+			public const int abc_tint_default = 2131558499;
 			
 			// aapt resource value: 0x7f0d0064
-			public const int abc_tint_seek_thumb = 2131558500;
+			public const int abc_tint_edittext = 2131558500;
 			
 			// aapt resource value: 0x7f0d0065
-			public const int abc_tint_spinner = 2131558501;
+			public const int abc_tint_seek_thumb = 2131558501;
 			
 			// aapt resource value: 0x7f0d0066
-			public const int abc_tint_switch_thumb = 2131558502;
+			public const int abc_tint_spinner = 2131558502;
 			
 			// aapt resource value: 0x7f0d0067
-			public const int abc_tint_switch_track = 2131558503;
+			public const int abc_tint_switch_thumb = 2131558503;
+			
+			// aapt resource value: 0x7f0d0068
+			public const int abc_tint_switch_track = 2131558504;
 			
 			// aapt resource value: 0x7f0d0009
 			public const int accent_material_dark = 2131558409;
@@ -3200,8 +3200,8 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0d003f
 			public const int design_bottom_navigation_shadow_color = 2131558463;
 			
-			// aapt resource value: 0x7f0d0068
-			public const int design_error = 2131558504;
+			// aapt resource value: 0x7f0d0069
+			public const int design_error = 2131558505;
 			
 			// aapt resource value: 0x7f0d0040
 			public const int design_fab_shadow_end_color = 2131558464;
@@ -3233,8 +3233,8 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0d0049
 			public const int design_textinput_error_color_light = 2131558473;
 			
-			// aapt resource value: 0x7f0d0069
-			public const int design_tint_password_toggle = 2131558505;
+			// aapt resource value: 0x7f0d006a
+			public const int design_tint_password_toggle = 2131558506;
 			
 			// aapt resource value: 0x7f0d0017
 			public const int dim_foreground_disabled_material_dark = 2131558423;
@@ -3362,17 +3362,20 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0d003c
 			public const int switch_thumb_disabled_material_light = 2131558460;
 			
-			// aapt resource value: 0x7f0d006a
-			public const int switch_thumb_material_dark = 2131558506;
-			
 			// aapt resource value: 0x7f0d006b
-			public const int switch_thumb_material_light = 2131558507;
+			public const int switch_thumb_material_dark = 2131558507;
+			
+			// aapt resource value: 0x7f0d006c
+			public const int switch_thumb_material_light = 2131558508;
 			
 			// aapt resource value: 0x7f0d003d
 			public const int switch_thumb_normal_material_dark = 2131558461;
 			
 			// aapt resource value: 0x7f0d003e
 			public const int switch_thumb_normal_material_light = 2131558462;
+			
+			// aapt resource value: 0x7f0d0053
+			public const int text_gray = 2131558483;
 			
 			// aapt resource value: 0x7f0d004d
 			public const int white = 2131558477;
@@ -3612,6 +3615,9 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f080010
 			public const int abc_text_size_title_material_toolbar = 2131230736;
 			
+			// aapt resource value: 0x7f080099
+			public const int button_login_height = 2131230873;
+			
 			// aapt resource value: 0x7f080009
 			public const int cardview_compat_inset_shadow = 2131230729;
 			
@@ -3741,6 +3747,27 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f08005b
 			public const int disabled_alpha_material_light = 2131230811;
 			
+			// aapt resource value: 0x7f0800a0
+			public const int element_margin_huge = 2131230880;
+			
+			// aapt resource value: 0x7f08009f
+			public const int element_margin_large = 2131230879;
+			
+			// aapt resource value: 0x7f08009e
+			public const int element_margin_medium = 2131230878;
+			
+			// aapt resource value: 0x7f08009d
+			public const int element_margin_small = 2131230877;
+			
+			// aapt resource value: 0x7f08009a
+			public const int element_margin_smallest = 2131230874;
+			
+			// aapt resource value: 0x7f08009b
+			public const int element_margin_tinier = 2131230875;
+			
+			// aapt resource value: 0x7f08009c
+			public const int element_margin_tiny = 2131230876;
+			
 			// aapt resource value: 0x7f08005c
 			public const int highlight_alpha_material_colored = 2131230812;
 			
@@ -3771,17 +3798,14 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f080002
 			public const int item_touch_helper_swipe_escape_velocity = 2131230722;
 			
-			// aapt resource value: 0x7f080099
-			public const int margin_huge = 2131230873;
-			
 			// aapt resource value: 0x7f080098
-			public const int margin_large = 2131230872;
+			public const int margin_huge = 2131230872;
+			
+			// aapt resource value: 0x7f080097
+			public const int margin_large = 2131230871;
 			
 			// aapt resource value: 0x7f080096
 			public const int margin_medium = 2131230870;
-			
-			// aapt resource value: 0x7f080097
-			public const int margin_medium_big = 2131230871;
 			
 			// aapt resource value: 0x7f080095
 			public const int margin_small = 2131230869;
@@ -3806,6 +3830,9 @@ namespace Excalibur.Tests.FormsCross.Droid
 			
 			// aapt resource value: 0x7f080007
 			public const int mr_dialog_fixed_width_minor = 2131230727;
+			
+			// aapt resource value: 0x7f0800a1
+			public const int navigation_drawer_width = 2131230881;
 			
 			// aapt resource value: 0x7f080063
 			public const int notification_action_icon_size = 2131230819;
@@ -3852,29 +3879,26 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f08006d
 			public const int notification_top_pad_large_text = 2131230829;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int text_gigantic = 2131230881;
+			// aapt resource value: 0x7f0800a7
+			public const int text_huge = 2131230887;
 			
-			// aapt resource value: 0x7f08009f
-			public const int text_huge = 2131230879;
+			// aapt resource value: 0x7f0800a6
+			public const int text_large = 2131230886;
 			
-			// aapt resource value: 0x7f08009e
-			public const int text_large = 2131230878;
+			// aapt resource value: 0x7f0800a5
+			public const int text_medium = 2131230885;
 			
-			// aapt resource value: 0x7f08009d
-			public const int text_medium = 2131230877;
+			// aapt resource value: 0x7f0800a4
+			public const int text_small = 2131230884;
 			
-			// aapt resource value: 0x7f08009c
-			public const int text_small = 2131230876;
+			// aapt resource value: 0x7f0800a2
+			public const int text_tinier = 2131230882;
 			
-			// aapt resource value: 0x7f08009a
-			public const int text_tiniest = 2131230874;
+			// aapt resource value: 0x7f0800a3
+			public const int text_tiny = 2131230883;
 			
-			// aapt resource value: 0x7f08009b
-			public const int text_tiny = 2131230875;
-			
-			// aapt resource value: 0x7f0800a0
-			public const int text_very_huge = 2131230880;
+			// aapt resource value: 0x7f0800a8
+			public const int text_very_huge = 2131230888;
 			
 			static Dimension()
 			{
@@ -5583,10 +5607,10 @@ namespace Excalibur.Tests.FormsCross.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int Tabbar = 2130903107;
+			public const int tabbar = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int Toolbar = 2130903108;
+			public const int toolbar = 2130903108;
 			
 			static Layout()
 			{
@@ -5817,15 +5841,6 @@ namespace Excalibur.Tests.FormsCross.Droid
 			
 			// aapt resource value: 0x7f0c0170
 			public const int Animation_Design_BottomSheetDialog = 2131493232;
-			
-			// aapt resource value: 0x7f0c0189
-			public const int AppTheme = 2131493257;
-			
-			// aapt resource value: 0x7f0c018a
-			public const int AppTheme_Base = 2131493258;
-			
-			// aapt resource value: 0x7f0c018b
-			public const int AppTheme_Splash = 2131493259;
 			
 			// aapt resource value: 0x7f0c00b2
 			public const int Base_AlertDialog_AppCompat = 2131493042;
@@ -6610,6 +6625,9 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0c0110
 			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131493136;
 			
+			// aapt resource value: 0x7f0c0189
+			public const int Theme = 2131493257;
+			
 			// aapt resource value: 0x7f0c0111
 			public const int Theme_AppCompat = 2131493137;
 			
@@ -6673,6 +6691,9 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0c011e
 			public const int Theme_AppCompat_NoActionBar = 2131493150;
 			
+			// aapt resource value: 0x7f0c018a
+			public const int Theme_Base = 2131493258;
+			
 			// aapt resource value: 0x7f0c017a
 			public const int Theme_Design = 2131493242;
 			
@@ -6691,6 +6712,9 @@ namespace Excalibur.Tests.FormsCross.Droid
 			// aapt resource value: 0x7f0c017f
 			public const int Theme_Design_NoActionBar = 2131493247;
 			
+			// aapt resource value: 0x7f0c018b
+			public const int Theme_Login = 2131493259;
+			
 			// aapt resource value: 0x7f0c0003
 			public const int Theme_MediaRouter = 2131492867;
 			
@@ -6702,6 +6726,12 @@ namespace Excalibur.Tests.FormsCross.Droid
 			
 			// aapt resource value: 0x7f0c0006
 			public const int Theme_MediaRouter_LightControlPanel = 2131492870;
+			
+			// aapt resource value: 0x7f0c018c
+			public const int Theme_Menu = 2131493260;
+			
+			// aapt resource value: 0x7f0c018d
+			public const int Theme_Splash = 2131493261;
 			
 			// aapt resource value: 0x7f0c011f
 			public const int ThemeOverlay_AppCompat = 2131493151;

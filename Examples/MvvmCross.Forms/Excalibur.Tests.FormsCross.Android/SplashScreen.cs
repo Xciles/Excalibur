@@ -6,10 +6,10 @@ using Xamarin.Forms;
 namespace Excalibur.Tests.FormsCross.Droid
 {
     [Activity(
-        Label = "Excalibur.Lol"
+        Label = "Excalibur.Forms"
         , MainLauncher = true
         , Icon = "@drawable/icon"
-        , Theme = "@style/AppTheme.Splash"
+        , Theme = "@style/Theme.Splash"
         , NoHistory = true
         , ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashScreen : MvxSplashScreenActivity

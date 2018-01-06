@@ -1,28 +1,23 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
+using Excalibur.Tests.FormsCross.ViewModels;
 using MvvmCross.Forms.Droid.Views;
-using MvvmCross.Forms.Platform;
-using MvvmCross.Platform;
-using Xamarin.Forms;
 
 namespace Excalibur.Tests.FormsCross.Droid
 {
     [Activity(
         Label = "AppActivity", 
-        Icon = "@drawable/icon", 
-        Theme = "@style/AppTheme",
+        Theme = "@style/Theme",
         // MainLauncher = true, // No Splash Screen: Uncomment this lines if removing splash screen
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
         LaunchMode = LaunchMode.SingleTask)]
     public class AppActivity : MvxFormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            TabLayoutResource = Resource.Layout.tabbar;
+            ToolbarResource = Resource.Layout.toolbar;
+
             base.OnCreate(bundle);
 
             // No Splash Screen: Uncomment these lines if removing splash screen
