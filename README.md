@@ -1,7 +1,13 @@
 # Excalibur
-Excalibur
+## Info
 
-Some examples
+This project tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications. 
+
+Excalbur achieves this by using Generics for a lot of boilerplating that you tend to write when developing using Xamarin. 
+
+Basic idea 
+
+## Some examples
 
 ```C#
 public class Participant : BaseListBusiness<int, ParticipantDomain, IServiceBase<IList<ParticipantDomain>>>
