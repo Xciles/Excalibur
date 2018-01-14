@@ -13,7 +13,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public UserViewModel()
         {
-            if (Observables.Any())
+            if (!Observables.Any())
             {
                 Resolver.Resolve<IListBusiness<int, Domain.User>>().PublishFromStorageAsync();
             }
