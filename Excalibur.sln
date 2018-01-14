@@ -47,6 +47,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Providers.File", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{E2E41C4B-6910-4662-83DE-41792E72FACF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3023740F-4B8B-46AC-B192-37144F23CBE4}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\ImprovementNotes.md = Docs\ImprovementNotes.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -428,6 +433,7 @@ Global
 		{83AEC4F5-0B78-4BE4-A157-65A310A4B095} = {BCD9204D-5D83-420E-B32A-1DAFD4A50E67}
 		{91B18E8E-945C-47B2-BDF6-BECADD1992D1} = {BCD9204D-5D83-420E-B32A-1DAFD4A50E67}
 		{55928A6C-F0EA-4D62-B5AE-72455312B264} = {E2E41C4B-6910-4662-83DE-41792E72FACF}
+		{3023740F-4B8B-46AC-B192-37144F23CBE4} = {1B1FD36B-3763-4926-83CE-48690505E909}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D77C87DB-C61D-4A99-B7BD-C69DAA3A9BA5}
