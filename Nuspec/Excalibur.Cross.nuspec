@@ -1,47 +1,68 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
-	<metadata>
-		<id>Excalibur.Cross</id>
-		<version>0.1.1-beta</version>
-		<title>Excalibur.Cross</title>
-		<authors>Excalibur contributors</authors>
-		<owners></owners>
-		<licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
-		<projectUrl>https://github.com/Xciles/Excalibur</projectUrl>
-		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>Excalibur</description>
-		<tags>xamarin mvvmcross</tags>
-		<releaseNotes>
-0.1.1-beta
-Adding code comments
-Changing few method signatures to include Async
-Renaming few methods to better represent what they are doing
-0.1.0-beta
-First beta release
+    <metadata>
+        <id>Excalibur.Cross</id>
+        <version>0.2.0-beta</version>
+        <title>Excalibur.Cross</title>
+        <authors>Excalibur contributors</authors>
+        <owners></owners>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/Xciles/Excalibur</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Excalibur</description>
+        <tags>xamarin mvvmcross</tags>
+        <releaseNotes>
+            0.2.0-beta
+            --
+            This package contains Excalibur.Cross, Excalibur.Shared and the Excalibur.Providers.File. I will introduce a different nugpk for them at a later stage.
+            --
+            Changing BasePresentation to BaseListPresentation.
+            Changing IPresentation to IListPresentation.
+            ToUnixTimeInSeconds fix to return actual seconds instead of miliseconds.
+            Adding base implementation for various Excalibur items (Int).
+            Introducing PCL for shared project (instead of shared project)
+            Typed implementation to custom files and folder
+            Moving Providers to Storage (-.Provider)
+            MessageBase moved to Excalibur.Shared.Utils
+            Renamed BPresentation to BasePresentation
+            Bumping package versions (To latest version, 5th Jan*)
+            MvvmCross 5.6.3
+            Adding comments
+            Incluing Inhericdoc
+            0.1.1-beta
+            Adding code comments
+            Changing few method signatures to include Async
+            Renaming few methods to better represent what they are doing
+            0.1.0-beta
+            First beta release
         </releaseNotes>
-		<dependencies>
-		  <group targetFramework=".NETPortable4.5-Profile111" >
-			<dependency id="AutoMapper" version="6.0.2" />
-			<dependency id="MvvmCross" version="5.0.1" />
-			<dependency id="MvvmCross.Binding" version="5.0.1" />
-			<dependency id="MvvmCross.Core" version="5.0.1" />
-			<dependency id="MvvmCross.Platform" version="5.0.1" />
-			<dependency id="MvvmCross.Plugin.File" version="5.0.1" />
-			<dependency id="MvvmCross.Plugin.Json" version="5.0.1" />
-			<dependency id="MvvmCross.Plugin.JsonLocalization" version="5.0.1" />
-			<dependency id="MvvmCross.Plugin.ResourceLoader" version="5.0.1" />
-			<dependency id="MvvmCross.Plugin.Visibility" version="5.0.1" />
-			<dependency id="Newtonsoft.Json" version="10.0.2" />
-			<dependency id="PubSub" version="1.5.0" />
-			<dependency id="XLabs.IoC" version="2.3.0-pre05" />
-		  </group>
-		</dependencies>
-	</metadata>
-	<files>	
-    
-		<!-- PCL111 -->
-		<file src="..\Excalibur.Cross\bin\Debug\Excalibur.Cross.dll" target="lib\portable45-net45+win8+wpa81\Excalibur.Cross.dll" />
-		<file src="..\Excalibur.Cross\bin\Debug\Excalibur.Cross.pdb" target="lib\portable45-net45+win8+wpa81\Excalibur.Cross.pdb" />
+        <dependencies>
+            <group targetFramework=".NETPortable4.5-Profile111" >
+                <dependency id="AutoMapper" version="6.1.1" />
+                <dependency id="MvvmCross" version="5.6.3" />
+                <dependency id="MvvmCross.Binding" version="5.6.3" />
+                <dependency id="MvvmCross.Core" version="5.6.3" />
+                <dependency id="MvvmCross.Platform" version="5.6.3" />
+                <dependency id="MvvmCross.Plugin.File" version="5.6.3" />
+                <dependency id="MvvmCross.Plugin.Json" version="5.6.3" />
+                <dependency id="MvvmCross.Plugin.JsonLocalization" version="5.6.3" />
+                <dependency id="MvvmCross.Plugin.ResourceLoader" version="5.6.3" />
+                <dependency id="MvvmCross.Plugin.Visibility" version="5.6.3" />
+                <dependency id="Newtonsoft.Json" version="10.0.3" />
+                <dependency id="PubSub" version="2.0.0" />
+                <dependency id="XLabs.IoC" version="2.3.0-pre05" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
 
-	</files>
+        <!-- PCL111 -->
+        <file src="..\Excalibur.Cross\bin\Debug\Excalibur.Cross.dll" target="lib\portable45-net45+win8+wpa81\Excalibur.Cross.dll" />
+        <file src="..\Excalibur.Cross\bin\Debug\Excalibur.Cross.pdb" target="lib\portable45-net45+win8+wpa81\Excalibur.Cross.pdb" />
+        <file src="..\Excalibur.Shared\bin\Debug\Excalibur.Shared.dll" target="lib\portable45-net45+win8+wpa81\Excalibur.Shared.dll" />
+        <file src="..\Excalibur.Shared\bin\Debug\Excalibur.Shared.pdb" target="lib\portable45-net45+win8+wpa81\Excalibur.Shared.pdb" />
+        <file src="..\Providers\Excalibur.Providers.File\bin\Debug\Excalibur.Providers.File.dll" target="lib\portable45-net45+win8+wpa81\Excalibur.Providers.File.dll" />
+        <file src="..\Providers\Excalibur.Providers.File\bin\Debug\Excalibur.Providers.File.pdb" target="lib\portable45-net45+win8+wpa81\Excalibur.Providers.File.pdb" />
+
+    </files>
 </package>
