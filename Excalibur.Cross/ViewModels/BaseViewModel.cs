@@ -45,4 +45,20 @@ namespace Excalibur.Cross.ViewModels
             }
         }
     }
+
+    /// <summary>
+    /// BaseViewModel implementation that extends the standard BaseViewModel implementation to accept a <see cref=“TParameter”/> on navigation to the viewmodel.
+    /// </summary>
+    public abstract class BaseViewModel<TParameter> : BaseViewModel, IMvxViewModel<TParameter>
+    {
+        public abstract void Prepare(TParameter parameter);
+    }
+
+    /// <summary>
+    /// BaseViewModel implementation that extends the standard BaseViewModel implementation to accept a <see cref=“TParameter”/> on navigation to the viewmodel and returns a <see cref=“TResult”/> when the viewmodel is closed
+    /// </summary>
+    public abstract class BaseViewModel<TParameter, TResult> : BaseViewModelResult<TResult>, IMvxViewModel<TParameter, TResult>
+    {
+        public abstract void Prepare(TParameter parameter);
+    }
 }
