@@ -3,15 +3,14 @@ using Excalibur.Shared.ObjectConverter;
 using Excalibur.Shared.Presentation;
 using Excalibur.Shared.Services;
 using Excalibur.Tests.Cross.Core.Services;
-using MvvmCross.Platform.IoC;
 using System.Collections.Generic;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
 using Excalibur.Tests.Cross.Core.State;
 using XLabs.Ioc;
-using Excalibur.Providers.File;
 using Excalibur.Shared.Storage;
+using MvvmCross.IoC;
+using MvvmCross.ViewModels;
+using MvvmCross;
 
 namespace Excalibur.Tests.Cross.Core
 {
