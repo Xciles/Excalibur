@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using Excalibur.Shared.Collections;
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Presentation;
-using MvvmCross.Core.ViewModels;
+using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
@@ -86,12 +87,12 @@ namespace Excalibur.Cross.ViewModels
         {
             get
             {
-                _goToDetailCommand = _goToDetailCommand ?? new MvxAsyncCommand<TObservable>((selected) =>
+                _goToDetailCommand = _goToDetailCommand ?? new MvxAsyncCommand<TObservable>(async (selected) =>
                 {
                     var presentation = Resolver.Resolve<TPresentation>();
                     presentation.SetSelectedObservable(selected.Id);
 
-                    return NavigationService.Navigate<TDetailViewModel>();
+                    await NavigationService.Navigate<TDetailViewModel>();
                 });
 
                 return _goToDetailCommand;

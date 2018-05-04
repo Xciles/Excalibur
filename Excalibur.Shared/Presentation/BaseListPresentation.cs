@@ -116,7 +116,7 @@ namespace Excalibur.Shared.Presentation
                     {
                         Observables.Remove(tmpObservable);
                         SignalCde();
-                    });
+                    }).ConfigureAwait(false);
                 }
             }
 
@@ -135,7 +135,7 @@ namespace Excalibur.Shared.Presentation
                     {
                         Observables.Add(observable);
                         SignalCde();
-                    });
+                    }).ConfigureAwait(false);
                 }
             }
 

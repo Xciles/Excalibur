@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Excalibur.Shared.Business;
-using MvvmCross.Platform.Core;
+using MvvmCross.Base;
 
 namespace Excalibur.Cross.Business
 {
@@ -14,9 +15,9 @@ namespace Excalibur.Cross.Business
         /// </summary>
         /// <param name="action">The action to be invoked on the main thread</param>
         /// <returns>The result</returns>
-        public bool InvokeOnMainThread(Action action)
+        public Task InvokeOnMainThread(Action action)
         {
-            return MvvmCross.Platform.Mvx.Resolve<IMvxMainThreadDispatcher>().RequestMainThreadAction(action);
+            return MvvmCross.Mvx.Resolve<IMvxMainThreadAsyncDispatcher>().ExecuteOnMainThreadAsync(action);
         }
     }
 }

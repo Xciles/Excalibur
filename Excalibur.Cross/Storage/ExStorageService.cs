@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Excalibur.Shared.Storage;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Platform;
-using MvvmCross.Plugins.File;
+using MvvmCross;
+using MvvmCross.Logging;
+using MvvmCross.Plugin.File;
 
 namespace Excalibur.Cross.Storage
 {
@@ -96,7 +96,7 @@ namespace Excalibur.Cross.Storage
             }
             catch (Exception ex)
             {
-                Mvx.Resolve<IMvxTrace>().Trace(MvxTraceLevel.Error, "ExStorageService.DeleteFile", ex.Message + " - " + ex.StackTrace);
+                Mvx.Resolve<IMvxLog>().ErrorException("ExStorageService.DeleteFile", ex);
             }
         }
 
@@ -126,7 +126,7 @@ namespace Excalibur.Cross.Storage
             }
             catch (Exception ex)
             {
-                Mvx.Resolve<IMvxTrace>().Trace(MvxTraceLevel.Error, "ExStorageService.FileChecks", ex.Message + " - " + ex.StackTrace);
+                Mvx.Resolve<IMvxLog>().ErrorException("ExStorageService.FileChecks", ex);
             }
 
             var fullPath = _fileStore.PathCombine(folder, fullName);

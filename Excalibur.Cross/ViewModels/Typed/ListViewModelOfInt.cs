@@ -1,6 +1,6 @@
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Presentation;
-using MvvmCross.Core.ViewModels;
+using MvvmCross.ViewModels;
 
 namespace Excalibur.Cross.ViewModels
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using MvvmCross.Plugins.JsonLocalization;
+using MvvmCross.Plugin.JsonLocalization;
 
 namespace Excalibur.Cross.Language
 {
@@ -21,8 +21,8 @@ namespace Excalibur.Cross.Language
 
             var builder = new ExTextProviderBuilder();
 
-            MvvmCross.Platform.Mvx.RegisterSingleton<IMvxTextProviderBuilder>(builder);
-            MvvmCross.Platform.Mvx.RegisterSingleton(builder.TextProvider);
+            MvvmCross.Mvx.RegisterSingleton<IMvxTextProviderBuilder>(builder);
+            MvvmCross.Mvx.RegisterSingleton(builder.TextProvider);
         }
     }
 }

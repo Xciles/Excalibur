@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Excalibur.Shared.Business
 {
@@ -13,6 +14,6 @@ namespace Excalibur.Shared.Business
         /// </summary>
         /// <param name="action">The action to be invoked on the main thread</param>
         /// <returns>The result</returns>
-        bool InvokeOnMainThread(Action action);
+        Task InvokeOnMainThread(Action action);
     }
 }

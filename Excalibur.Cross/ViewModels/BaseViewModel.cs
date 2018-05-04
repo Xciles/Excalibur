@@ -1,9 +1,10 @@
 ﻿using System.Windows.Input;
 using Excalibur.Cross.Language;
-using MvvmCross.Core.Navigation;
-using MvvmCross.Core.ViewModels;
+using MvvmCross;
+using MvvmCross.Commands;
 using MvvmCross.Localization;
-using MvvmCross.Platform;
+using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 
 namespace Excalibur.Cross.ViewModels
 {
@@ -37,11 +38,11 @@ namespace Excalibur.Cross.ViewModels
         /// A MvvmCross Navigate back command
         /// This will just call Close(this) to close the current view.
         /// </summary>
-        public virtual ICommand GoBackCommand
+        public virtual IMvxAsyncCommand GoBackCommand
         {
             get
             {
-                return new MvxCommand(() => Close(this));
+                return new MvxAsyncCommand(async () => await NavigationService.Close(this));
             }
         }
     }

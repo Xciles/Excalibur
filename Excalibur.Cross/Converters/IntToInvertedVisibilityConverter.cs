@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using MvvmCross.Platform.UI;
-using MvvmCross.Plugins.Visibility;
+using MvvmCross.Plugin.Visibility;
+using MvvmCross.UI;
 
 namespace Excalibur.Cross.Converters
 {
