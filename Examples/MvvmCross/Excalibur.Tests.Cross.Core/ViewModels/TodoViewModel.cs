@@ -4,7 +4,7 @@ using System.Windows.Input;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Shared.Business;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
-using MvvmCross.Core.ViewModels;
+using MvvmCross.Commands;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
@@ -19,11 +19,11 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
             }
         }
 
-        public ICommand ReloadCommand
+        public IMvxAsyncCommand ReloadCommand
         {
             get
             {
-                return new MvxCommand(async () =>
+                return new MvxAsyncCommand(async () =>
                 {
                     // Todo fix IsLoading presentation ref
                     IsLoading = true;

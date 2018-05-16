@@ -6,9 +6,9 @@ using Android.Support.Design.Widget;
 using Android.Views;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using Excalibur.Tests.Cross.Droid.Activities;
-using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Droid.Support.V4;
-using MvvmCross.Droid.Views.Attributes;
+using MvvmCross.Platforms.Android.Binding.BindingContext;
+using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {

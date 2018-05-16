@@ -11,6 +11,8 @@ using Excalibur.Shared.Storage;
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 using MvvmCross;
+using Excalibur.Providers.File;
+using Excalibur.Tests.Cross.Core.ViewModels;
 
 namespace Excalibur.Tests.Cross.Core
 {

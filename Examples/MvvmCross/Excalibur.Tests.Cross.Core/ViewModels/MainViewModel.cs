@@ -1,6 +1,6 @@
 ﻿using Excalibur.Cross.ViewModels;
-using MvvmCross.Core.Navigation;
-using MvvmCross.Platform;
+using MvvmCross;
+using MvvmCross.Navigation;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {

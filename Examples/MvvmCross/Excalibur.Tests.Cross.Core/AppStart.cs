@@ -17,6 +17,12 @@ namespace Excalibur.Tests.Cross.Core
             _loginService = loginService;
         }
 
+        protected override void Startup(object hint = null)
+        {
+            ResetStart();
+            base.Startup(hint);
+        }
+
         public override void ResetStart()
         {
             // login things

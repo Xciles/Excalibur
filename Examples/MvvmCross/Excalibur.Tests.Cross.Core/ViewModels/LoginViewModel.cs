@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Shared.Business;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
-using MvvmCross.Core.ViewModels;
+using MvvmCross.Commands;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels

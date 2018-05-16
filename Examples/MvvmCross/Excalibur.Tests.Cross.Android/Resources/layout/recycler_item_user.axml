@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:local="http://schemas.android.com/apk/res-auto"
-              android:orientation="horizontal"
-              android:layout_marginBottom="5dp"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content">
-  <LinearLayout
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
+    android:layout_marginBottom="5dp"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
-    <MvxImageView
-      android:layout_height="50dp"
-      android:layout_width="50dp"
-      local:MvxBind="ImageUrl Image"
-      android:layout_gravity="center"
-      android:scaleType="centerCrop" />
     <LinearLayout
-      android:layout_width="fill_parent"
-      android:layout_height="60dp"
-      android:orientation="vertical"
-      android:layout_marginLeft="10dp">
-      <TextView
-        local:MvxBind="Text Name"
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="news text" />
-      <TextView
-        local:MvxBind="Text Username"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:textColor="@color/gray"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="news text" />
+        android:layout_height="wrap_content">
+        <ffimageloading.cross.MvxCachedImageView
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            local:MvxBind="ImagePath Image" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+            <TextView
+                local:MvxBind="Text Name"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="news text" />
+            <TextView
+                local:MvxBind="Text Username"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="news text" />
+        </LinearLayout>
     </LinearLayout>
-  </LinearLayout>
 </LinearLayout>

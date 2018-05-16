@@ -6,7 +6,7 @@ using Android.Views;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.RecyclerView;
-using MvvmCross.Droid.Views.Attributes;
+using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {

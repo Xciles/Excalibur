@@ -1,13 +1,19 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Excalibur.Shared.Services
 {
+    public abstract class ServiceBase
+    {
+        protected static HttpClient SharedClient { get; set; } = new HttpClient();
+    }
+
     /// <summary>
     /// Abstract base class for services. 
     /// This might be extended with custom checks and method that might be useful for sharing.
     /// </summary>
     /// <typeparam name="T">The type of the object that is used for communication</typeparam>
-    public abstract class ServiceBase<T> : IServiceBase<T>
+    public abstract class ServiceBase<T> : ServiceBase, IServiceBase<T>
     {
         /// <summary>
         /// Base method for syncing data.

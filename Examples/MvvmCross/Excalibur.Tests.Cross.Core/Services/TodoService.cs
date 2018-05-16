@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Excalibur.Shared.Services;
 using Excalibur.Tests.Cross.Core.Domain;
-using Xciles.Uncommon.Net;
 
 namespace Excalibur.Tests.Cross.Core.Services
 {
@@ -10,7 +10,8 @@ namespace Excalibur.Tests.Cross.Core.Services
     {
         public override async Task<IList<Todo>> SyncDataAsync()
         {
-            var result = await UncommonRequestHelper.ProcessGetRequestAsync<IList<Todo>>("https://jsonplaceholder.typicode.com/todos");
+            var responseMessage = await SharedClient.GetAsync("https://jsonplaceholder.typicode.com/todos");
+            var result = responseMessage.ConvertFromJsonResponse<IList<Todo>>();
 
             return result.Result;
         }

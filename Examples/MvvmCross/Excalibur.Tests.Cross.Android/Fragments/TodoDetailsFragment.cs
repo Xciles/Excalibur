@@ -2,7 +2,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Excalibur.Tests.Cross.Core.ViewModels;
-using MvvmCross.Droid.Views.Attributes;
+using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {

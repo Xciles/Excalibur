@@ -1,41 +1,28 @@
-using Android.Content;
-using MvvmCross.Droid.Platform;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform.Platform;
 using System.Collections.Generic;
-using System.Net;
 using System.Reflection;
-using MvvmCross.Droid.Views;
-using MvvmCross.Platform;
+using Excalibur.Tests.Cross.Core;
 using Excalibur.Tests.Cross.Droid.Utils;
-using MvvmCross.Platform.Droid.Platform;
+using MvvmCross;
 using MvvmCross.Droid.Support.V7.AppCompat;
+using MvvmCross.Logging;
+using MvvmCross.Platforms.Android;
+using MvvmCross.Platforms.Android.Core;
+using MvvmCross.Platforms.Android.Presenters;
+using MvvmCross.ViewModels;
+using Serilog;
 
 namespace Excalibur.Tests.Cross.Droid
 {
-    public class Setup : MvxAndroidSetup
+    public class Setup : MvxAndroidSetup<App>
     {
-        public Setup(Context applicationContext) : base(applicationContext)
-        {
-        }
-
-        protected override IMvxApplication CreateApp()
-        {
-            return new Core.App();
-        }
-
-        protected override IMvxTrace CreateDebugTrace()
-        {
-            return new DebugTrace();
-        }
 
         protected override IEnumerable<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
         {
-            typeof(Android.Support.Design.Widget.NavigationView).Assembly,
-            typeof(Android.Support.Design.Widget.FloatingActionButton).Assembly,
-            typeof(Android.Support.V7.Widget.Toolbar).Assembly,
-            typeof(Android.Support.V4.Widget.DrawerLayout).Assembly,
-            typeof(Android.Support.V4.View.ViewPager).Assembly,
+            typeof(global::Android.Support.Design.Widget.NavigationView).Assembly,
+            typeof(global::Android.Support.Design.Widget.FloatingActionButton).Assembly,
+            typeof(global::Android.Support.V7.Widget.Toolbar).Assembly,
+            typeof(global::Android.Support.V4.Widget.DrawerLayout).Assembly,
+            typeof(global::Android.Support.V4.View.ViewPager).Assembly,
         };
 
         protected override IMvxAndroidViewPresenter CreateViewPresenter()
@@ -47,7 +34,7 @@ namespace Excalibur.Tests.Cross.Droid
             mvxFragmentsPresenter.AddPresentationHintHandler<MvxPanelPopToRootPresentationHint>(hint =>
             {
                 var activity = Mvx.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
-                var fragmentActivity = activity as Android.Support.V4.App.FragmentActivity;
+                var fragmentActivity = activity as global::Android.Support.V4.App.FragmentActivity;
 
                 for (int i = 0; i < fragmentActivity.SupportFragmentManager.BackStackEntryCount; i++)
                 {
@@ -59,6 +46,15 @@ namespace Excalibur.Tests.Cross.Droid
             //picked up in the third view model
             Mvx.RegisterSingleton<MvxPresentationHint>(() => new MvxPanelPopToRootPresentationHint());
             return mvxFragmentsPresenter;
+        }
+
+        protected override IMvxLogProvider CreateLogProvider()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.AndroidLog()
+                .CreateLogger();
+            return base.CreateLogProvider();
         }
     }
 }

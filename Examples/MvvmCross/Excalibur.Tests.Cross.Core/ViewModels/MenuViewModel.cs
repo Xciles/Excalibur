@@ -1,7 +1,8 @@
 ﻿using System.Windows.Input;
 using Excalibur.Cross.ViewModels;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
+using MvvmCross;
+using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -14,13 +15,13 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         private IMvxAsyncCommand _showCurrentUserCommand;
 
 
-        public IMvxCommand PopToRootCommand
+        public IMvxAsyncCommand PopToRootCommand
         {
             get
             {
-                return new MvxCommand(() =>
+                return new MvxAsyncCommand(async () =>
                 {
-                    ChangePresentation(_popToRootHint);
+                    await NavigationService.ChangePresentation(_popToRootHint);
                 });
             }
         }
@@ -29,7 +30,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                _showDashboardCommand = _showDashboardCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<DashboardViewModel>());
+                _showDashboardCommand = _showDashboardCommand ?? new MvxAsyncCommand(async () => await NavigationService.Navigate<DashboardViewModel>());
                 return _showDashboardCommand;
             }
         }
@@ -38,7 +39,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                _showUsersCommand = _showUsersCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<UserViewModel>());
+                _showUsersCommand = _showUsersCommand ?? new MvxAsyncCommand(async () => await NavigationService.Navigate<UserViewModel>());
                 return _showUsersCommand;
             }
         }
@@ -47,7 +48,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                _showTodosCommand = _showTodosCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<TodoViewModel>());
+                _showTodosCommand = _showTodosCommand ?? new MvxAsyncCommand(async () => await NavigationService.Navigate<TodoViewModel>());
                 return _showTodosCommand;
             }
         }
@@ -56,7 +57,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
         {
             get
             {
-                _showCurrentUserCommand = _showCurrentUserCommand ?? new MvxAsyncCommand(() => NavigationService.Navigate<CurrentUserViewModel>());
+                _showCurrentUserCommand = _showCurrentUserCommand ?? new MvxAsyncCommand(async () => await NavigationService.Navigate<CurrentUserViewModel>());
                 return _showCurrentUserCommand;
             }
         }

@@ -1,6 +1,8 @@
 using Android.App;
 using Android.Content.PM;
-using MvvmCross.Droid.Views;
+using Android.OS;
+using Excalibur.Tests.Cross.Core;
+using MvvmCross.Platforms.Android.Views;
 
 namespace Excalibur.Tests.Cross.Droid
 {
@@ -10,10 +12,15 @@ namespace Excalibur.Tests.Cross.Droid
                 Theme = "@style/Theme.Splash",
                 NoHistory = true,
                 ScreenOrientation = ScreenOrientation.Portrait)]
-    public class SplashScreen : MvxSplashScreenActivity
+    public class SplashScreen : MvxSplashScreenActivity<Setup, App>
     {
         public SplashScreen() : base(Resource.Layout.SplashScreen)
         {
+        }
+
+        protected override void RunAppStart(Bundle bundle)
+        {
+            base.RunAppStart(bundle);
         }
     }
 }

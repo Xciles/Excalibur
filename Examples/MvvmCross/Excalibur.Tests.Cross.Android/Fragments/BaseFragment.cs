@@ -3,10 +3,10 @@ using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Excalibur.Tests.Cross.Droid.Activities;
-using MvvmCross.Binding.Droid.BindingContext;
-using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.AppCompat;
+using MvvmCross.Platforms.Android.Binding.BindingContext;
+using MvvmCross.ViewModels;
 
 namespace Excalibur.Tests.Cross.Droid.Fragments
 {
@@ -85,4 +85,3 @@ namespace Excalibur.Tests.Cross.Droid.Fragments
         }
     }
 }
-

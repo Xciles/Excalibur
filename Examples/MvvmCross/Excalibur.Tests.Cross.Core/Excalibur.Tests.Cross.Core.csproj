@@ -5,11 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Excalibur.Common\Excalibur.Common.csproj" />
     <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.File\Excalibur.Providers.File.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XLabs.IoC" Version="2.3.0-pre05" />
   </ItemGroup>
 
 </Project>

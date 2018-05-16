@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Excalibur.Shared.Services;
 using Excalibur.Tests.Cross.Core.Business.Interfaces;
 using Excalibur.Tests.Cross.Core.Domain;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Cross.Core.State;
-using Xciles.Uncommon.Net;
 using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.Services
 {
-    public class LoginService : ILoginService
+    public class LoginService : ServiceBase, ILoginService
     {
         public async Task<bool> LoginAsync(string email, string password)
         {
@@ -22,7 +23,9 @@ namespace Excalibur.Tests.Cross.Core.Services
             var rand = new Random();
 
             var url = $"https://jsonplaceholder.typicode.com/users/{rand.Next(1, 10)}";
-            var result = await UncommonRequestHelper.ProcessGetRequestAsync<LoggedInUser>(url);
+
+            var responseMessage = await SharedClient.GetAsync(url);
+            var result = responseMessage.ConvertFromJsonResponse<LoggedInUser>();
 
             await Task.Delay(1000);
 
