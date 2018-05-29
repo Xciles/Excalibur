@@ -15,8 +15,26 @@ namespace Excalibur.Providers.File
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
     /// <typeparam name="T">The type of the object that wants to be stored</typeparam>
-    public class ObjectAsFileStorageProvider<TId, T> : IObjectStorageProvider<TId, T>
+    /// <typeparam name="TSerializer">The type of serializer to use, <see cref="ObjectToFileSerializer"/></typeparam>
+    public class ObjectAsFileStorageProvider<TId, T, TSerializer> : ObjectAsFileStorageProvider<TId, T>
         where T : StorageDomain<TId>
+        where TSerializer : ObjectToFileSerializer, new()
+    {
+        protected override JsonSerializerSettings JsonSerializerSettings()
+        {
+            return Activator.CreateInstance<TSerializer>().JsonSerializerSettings();
+        }
+    }
+
+    /// <summary>
+    /// Provides a <see cref="IObjectStorageProvider{TId,T}"/> implementation for storing objects as files.
+    /// Basic implementation.
+    /// </summary>
+    /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
+    ///                         etc. </typeparam>
+    /// <typeparam name="T">The type of the object that wants to be stored</typeparam>
+    public class ObjectAsFileStorageProvider<TId, T> : IObjectStorageProvider<TId, T>
+    where T : StorageDomain<TId>
     {
         private const string DataFolder = "data";
         private const string FileName = "{0}.json";
@@ -124,9 +142,9 @@ namespace Excalibur.Providers.File
         /// Base <see cref="JsonSerializerSettings"/> setting <see cref="ReferenceLoopHandling"/> to Ignore.
         /// </summary>
         /// <returns></returns>
-        private static JsonSerializerSettings JsonSerializerSettings()
+        protected virtual JsonSerializerSettings JsonSerializerSettings()
         {
-            return new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+            return new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
         }
     }
 }
