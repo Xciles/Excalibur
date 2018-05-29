@@ -1,69 +1,75 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
-    <metadata>
-        <id>Excalibur.Cross</id>
-        <version>0.3.1-beta</version>
-        <title>Excalibur.Cross</title>
-        <authors>Excalibur contributors</authors>
-        <owners></owners>
-        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
-        <projectUrl>https://github.com/Xciles/Excalibur</projectUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Excalibur</description>
-        <tags>xamarin mvvmcross</tags>
-        <releaseNotes>
-          0.3.1-beta
-          Removing Excalibur.Shared from the dependency list
-          0.3.0-beta
-          Moving to netstandard2.0
-          Adding Common to this packages for now...
-          Changes to make things work again with MvvmCross 6
-          Adding some new BaseModel Classes
+  <metadata>
+    <id>Excalibur.Cross</id>
+    <version>0.3.2-beta</version>
+    <title>Excalibur.Cross</title>
+    <authors>Excalibur contributors</authors>
+    <owners></owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Xciles/Excalibur</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Excalibur</description>
+    <tags>xamarin mvvmcross</tags>
+    <releaseNotes>
+      0.3.2-beta
+      Adding more dependencies
+      Adding File serializer options
+      0.3.1-beta
+      Removing Excalibur.Shared from the dependency list
+      0.3.0-beta
+      Moving to netstandard2.0
+      Adding Common to this packages for now...
+      Changes to make things work again with MvvmCross 6
+      Adding some new BaseModel Classes
 
-          0.2.0-beta
-          --
-          This package contains Excalibur.Cross, Excalibur.Shared and the Excalibur.Providers.File. I will introduce a different nupkg for them at a later stage.
-          --
-          Changing BasePresentation to BaseListPresentation.
-          Changing IPresentation to IListPresentation.
-          ToUnixTimeInSeconds fix to return actual seconds instead of miliseconds.
-          Adding base implementation for various Excalibur items (Int).
-          Introducing PCL for shared project (instead of shared project)
-          Typed implementation to custom files and folder
-          Moving Providers to Storage (-.Provider)
-          MessageBase moved to Excalibur.Shared.Utils
-          Renamed BPresentation to BasePresentation
-          Bumping package versions (To latest version, 5th Jan*)
-          MvvmCross 5.6.3
-          Adding comments
-          Incluing Inhericdoc
-          0.1.1-beta
-          Adding code comments
-          Changing few method signatures to include Async
-          Renaming few methods to better represent what they are doing
-          0.1.0-beta
-          First beta release
-        </releaseNotes>
-		<dependencies>
-		  <group targetFramework=".NETStandard2.0">
-			<dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
-			<dependency id="MvvmCross" version="6.0.1" exclude="Build,Analyzers" />
-			<dependency id="MvvmCross.Plugin.JsonLocalization" version="6.0.1" exclude="Build,Analyzers" />
-			<dependency id="MvvmCross.Plugin.Visibility" version="6.0.1" exclude="Build,Analyzers" />
-		  </group>
-		</dependencies>
-    </metadata>
-    <files>
+      0.2.0-beta
+      --
+      This package contains Excalibur.Cross, Excalibur.Shared and the Excalibur.Providers.File. I will introduce a different nupkg for them at a later stage.
+      --
+      Changing BasePresentation to BaseListPresentation.
+      Changing IPresentation to IListPresentation.
+      ToUnixTimeInSeconds fix to return actual seconds instead of miliseconds.
+      Adding base implementation for various Excalibur items (Int).
+      Introducing PCL for shared project (instead of shared project)
+      Typed implementation to custom files and folder
+      Moving Providers to Storage (-.Provider)
+      MessageBase moved to Excalibur.Shared.Utils
+      Renamed BPresentation to BasePresentation
+      Bumping package versions (To latest version, 5th Jan*)
+      MvvmCross 5.6.3
+      Adding comments
+      Incluing Inhericdoc
+      0.1.1-beta
+      Adding code comments
+      Changing few method signatures to include Async
+      Renaming few methods to better represent what they are doing
+      0.1.0-beta
+      First beta release
+    </releaseNotes>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="AutoMapper" version="6.2.2" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
+        <dependency id="MvvmCross" version="6.0.1" exclude="Build,Analyzers" />
+        <dependency id="MvvmCross.Plugin.JsonLocalization" version="6.0.1" exclude="Build,Analyzers" />
+        <dependency id="MvvmCross.Plugin.Visibility" version="6.0.1" exclude="Build,Analyzers" />
+        <dependency id="PubSub" version="2.0.0" exclude="Build,Analyzers" />
+        <dependency id="XLabs.IoC" version="2.3.0-pre05" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
 
-        <!-- NETStandard2 -->
-        <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.dll" target="lib\netstandard2.0\Excalibur.Cross.dll" />
-        <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.pdb" />
-        <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.dll" target="lib\netstandard2.0\Excalibur.Shared.dll" />
-        <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.pdb" target="lib\netstandard2.0\Excalibur.Shared.pdb" />
-        <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.dll" target="lib\netstandard2.0\Excalibur.Providers.File.dll" />
-        <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.pdb" />
-        <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.dll" target="lib\netstandard2.0\Excalibur.Common.dll" />
-        <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.pdb" />
+    <!-- NETStandard2 -->
+    <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.dll" target="lib\netstandard2.0\Excalibur.Cross.dll" />
+    <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.pdb" />
+    <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.dll" target="lib\netstandard2.0\Excalibur.Shared.dll" />
+    <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.pdb" target="lib\netstandard2.0\Excalibur.Shared.pdb" />
+    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.dll" target="lib\netstandard2.0\Excalibur.Providers.File.dll" />
+    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.pdb" />
+    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.dll" target="lib\netstandard2.0\Excalibur.Common.dll" />
+    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.pdb" />
 
-    </files>
+  </files>
 </package>
