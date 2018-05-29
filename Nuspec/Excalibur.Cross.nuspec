@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>Excalibur.Cross</id>
-        <version>0.3.0-beta</version>
+        <version>0.3.1-beta</version>
         <title>Excalibur.Cross</title>
         <authors>Excalibur contributors</authors>
         <owners></owners>
@@ -12,40 +12,41 @@
         <description>Excalibur</description>
         <tags>xamarin mvvmcross</tags>
         <releaseNotes>
-			0.3.0-beta
-			Moving to netstandard2.0
-			Adding Common to this packages for now...
-			Changes to make things work again with MvvmCross 6
-			Adding some new BaseModel Classes
-			
-            0.2.0-beta
-            --
-            This package contains Excalibur.Cross, Excalibur.Shared and the Excalibur.Providers.File. I will introduce a different nupkg for them at a later stage.
-            --
-            Changing BasePresentation to BaseListPresentation.
-            Changing IPresentation to IListPresentation.
-            ToUnixTimeInSeconds fix to return actual seconds instead of miliseconds.
-            Adding base implementation for various Excalibur items (Int).
-            Introducing PCL for shared project (instead of shared project)
-            Typed implementation to custom files and folder
-            Moving Providers to Storage (-.Provider)
-            MessageBase moved to Excalibur.Shared.Utils
-            Renamed BPresentation to BasePresentation
-            Bumping package versions (To latest version, 5th Jan*)
-            MvvmCross 5.6.3
-            Adding comments
-            Incluing Inhericdoc
-            0.1.1-beta
-            Adding code comments
-            Changing few method signatures to include Async
-            Renaming few methods to better represent what they are doing
-            0.1.0-beta
-            First beta release
+          0.3.1-beta
+          Removing Excalibur.Shared from the dependency list
+          0.3.0-beta
+          Moving to netstandard2.0
+          Adding Common to this packages for now...
+          Changes to make things work again with MvvmCross 6
+          Adding some new BaseModel Classes
+
+          0.2.0-beta
+          --
+          This package contains Excalibur.Cross, Excalibur.Shared and the Excalibur.Providers.File. I will introduce a different nupkg for them at a later stage.
+          --
+          Changing BasePresentation to BaseListPresentation.
+          Changing IPresentation to IListPresentation.
+          ToUnixTimeInSeconds fix to return actual seconds instead of miliseconds.
+          Adding base implementation for various Excalibur items (Int).
+          Introducing PCL for shared project (instead of shared project)
+          Typed implementation to custom files and folder
+          Moving Providers to Storage (-.Provider)
+          MessageBase moved to Excalibur.Shared.Utils
+          Renamed BPresentation to BasePresentation
+          Bumping package versions (To latest version, 5th Jan*)
+          MvvmCross 5.6.3
+          Adding comments
+          Incluing Inhericdoc
+          0.1.1-beta
+          Adding code comments
+          Changing few method signatures to include Async
+          Renaming few methods to better represent what they are doing
+          0.1.0-beta
+          First beta release
         </releaseNotes>
 		<dependencies>
 		  <group targetFramework=".NETStandard2.0">
 			<dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
-			<dependency id="Excalibur.Shared" version="1.0.0" exclude="Build,Analyzers" />
 			<dependency id="MvvmCross" version="6.0.1" exclude="Build,Analyzers" />
 			<dependency id="MvvmCross.Plugin.JsonLocalization" version="6.0.1" exclude="Build,Analyzers" />
 			<dependency id="MvvmCross.Plugin.Visibility" version="6.0.1" exclude="Build,Analyzers" />
