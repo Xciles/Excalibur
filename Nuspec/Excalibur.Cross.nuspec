@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>Excalibur.Cross</id>
-    <version>0.3.2-beta</version>
+    <version>0.3.3-beta</version>
     <title>Excalibur.Cross</title>
     <authors>Excalibur contributors</authors>
     <owners></owners>
@@ -12,6 +12,10 @@
     <description>Excalibur</description>
     <tags>xamarin mvvmcross</tags>
     <releaseNotes>
+      0.3.3-beta
+      Adding xml documentation
+      The SharedClient will now be instantiated with an AutomaticDecompressionHandler
+      BaseMapper private _config has been changed to protected Config {get;}
       0.3.2-beta
       Adding more dependencies
       Adding File serializer options
@@ -64,16 +68,16 @@
     <!-- NETStandard2 -->
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.dll" target="lib\netstandard2.0\Excalibur.Cross.dll" />
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.pdb" />
-    <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.xml" />
+    <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.xml" target="lib\netstandard2.0\Excalibur.Cross.xml" />
     <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.dll" target="lib\netstandard2.0\Excalibur.Shared.dll" />
     <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.pdb" target="lib\netstandard2.0\Excalibur.Shared.pdb" />
-    <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.pdb" target="lib\netstandard2.0\Excalibur.Shared.xml" />
+    <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.xml" target="lib\netstandard2.0\Excalibur.Shared.xml" />
     <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.dll" target="lib\netstandard2.0\Excalibur.Providers.File.dll" />
     <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.pdb" />
-    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.xml" />
+    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.xml" target="lib\netstandard2.0\Excalibur.Providers.File.xml" />
     <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.dll" target="lib\netstandard2.0\Excalibur.Common.dll" />
     <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.pdb" />
-    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.xml" />
+    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.xml" target="lib\netstandard2.0\Excalibur.Common.xml" />
 
   </files>
 </package>
