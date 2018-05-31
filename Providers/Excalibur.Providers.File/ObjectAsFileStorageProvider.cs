@@ -20,6 +20,11 @@ namespace Excalibur.Providers.File
         where T : StorageDomain<TId>
         where TSerializer : ObjectToFileSerializer, new()
     {
+        /// <summary>
+        /// Override for the <see cref="JsonSerializerSettings"/> that will Activate a new instance of TSerializer
+        ///     and will return the <see cref="ObjectToFileSerializer.JsonSerializerSettings"/> from that type instead.
+        /// </summary>
+        /// <returns></returns>
         protected override JsonSerializerSettings JsonSerializerSettings()
         {
             return Activator.CreateInstance<TSerializer>().JsonSerializerSettings();
@@ -141,7 +146,7 @@ namespace Excalibur.Providers.File
         /// <summary>
         /// Base <see cref="JsonSerializerSettings"/> setting <see cref="ReferenceLoopHandling"/> to Ignore.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>An instance of <see cref="JsonSerializerSettings"/></returns>
         protected virtual JsonSerializerSettings JsonSerializerSettings()
         {
             return new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };

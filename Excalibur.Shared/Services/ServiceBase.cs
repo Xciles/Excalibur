@@ -15,7 +15,7 @@ namespace Excalibur.Shared.Services
         ///
         /// Might introduce a HttpClient per Type of service, but for now, just the one.
         /// </summary>
-        protected static HttpClient SharedClient { get; set; } = new HttpClient();
+        protected static HttpClient SharedClient { get; set; } = new HttpClient(new AutomaticDecompressionHandler());
     }
 
     /// <summary>

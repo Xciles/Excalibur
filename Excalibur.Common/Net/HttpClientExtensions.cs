@@ -6,8 +6,14 @@ using Newtonsoft.Json;
 // ReSharper disable once CheckNamespace
 namespace System.Net.Http
 {
+    /// <summary>
+    /// Various Extensions on the <see cref="HttpClient"/> mainly anything to do with Json
+    /// </summary>
     public static class HttpClientExtensions
     {
+        /// <summary>
+        /// <see cref="JsonSerializerSettings"/> that are used when converting
+        /// </summary>
         public static JsonSerializerSettings JsonSerializerSettings = new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects };
 
         public static Task<HttpResponseMessage> PostContentAsJsonAsync<T>(this HttpClient client, string requestUrl, T requestContent)

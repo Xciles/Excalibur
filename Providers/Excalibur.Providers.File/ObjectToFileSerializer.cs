@@ -7,6 +7,10 @@ namespace Excalibur.Providers.File
     /// </summary>
     public abstract class ObjectToFileSerializer
     {
+        /// <summary>
+        /// Method that should be implemented and will return the custom <see cref="JsonSerializerSettings"/>.
+        /// </summary>
+        /// <returns>An instance of <see cref="JsonSerializerSettings"/></returns>
         public abstract JsonSerializerSettings JsonSerializerSettings();
     }
 }
