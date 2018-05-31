@@ -10,7 +10,10 @@ namespace Excalibur.Shared.ObjectConverter
     public class BaseObjectMapper<TSource, TDestination> : IObjectMapper<TSource, TDestination>
         where TDestination : new()
     {
-        private readonly MapperConfiguration _config;
+        /// <summary>
+        /// <see cref="MapperConfiguration"/> that should be used when mapping the object.
+        /// </summary>
+        protected MapperConfiguration Config { get; }
 
         /// <summary>
         /// Initializes the object mapper. 
@@ -19,7 +22,7 @@ namespace Excalibur.Shared.ObjectConverter
         /// </summary>
         public BaseObjectMapper()
         {
-            _config = new MapperConfiguration(cfg => {
+            Config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<TSource, TDestination>();
             });
         }
@@ -31,7 +34,7 @@ namespace Excalibur.Shared.ObjectConverter
         /// <returns>The mapped object as destination</returns>
         public virtual TDestination Map(TSource source)
         {
-            IMapper mapper = _config.CreateMapper();
+            IMapper mapper = Config.CreateMapper();
             return mapper.Map<TSource, TDestination>(source);
         }
 
@@ -42,7 +45,7 @@ namespace Excalibur.Shared.ObjectConverter
         /// <param name="destination">The instance of a destination object</param>
         public virtual void UpdateDestination(TSource source, TDestination destination)
         {
-            IMapper mapper = _config.CreateMapper();
+            IMapper mapper = Config.CreateMapper();
             mapper.Map(source, destination);
         }
 
@@ -53,7 +56,7 @@ namespace Excalibur.Shared.ObjectConverter
         /// <param name="source">The instance of a source object</param>
         public virtual void UpdateSource(TDestination destination, TSource source)
         {
-            IMapper mapper = _config.CreateMapper();
+            IMapper mapper = Config.CreateMapper();
             mapper.Map(destination, source);
         }
     }
