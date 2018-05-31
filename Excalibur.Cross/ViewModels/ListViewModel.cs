@@ -57,8 +57,8 @@ namespace Excalibur.Cross.ViewModels
         /// </summary>
         public IObservableCollection<TObservable> Observables
         {
-            get { return _observables; }
-            set { SetProperty(ref _observables, value); }
+            get => _observables;
+            set => SetProperty(ref _observables, value);
         }
 
         /// <summary>
@@ -66,8 +66,8 @@ namespace Excalibur.Cross.ViewModels
         /// </summary>
         public bool IsLoading
         {
-            get { return _isLoading; }
-            set { SetProperty(ref _isLoading, value); }
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
         }
 
         /// <summary>
@@ -75,13 +75,13 @@ namespace Excalibur.Cross.ViewModels
         /// </summary>
         public TSelectedObservable SelectedObservable
         {
-            get { return _selectedObservable; }
-            set { SetProperty(ref _selectedObservable, value); }
+            get => _selectedObservable;
+            set => SetProperty(ref _selectedObservable, value);
         }
 
         /// <summary>
         /// A navigation to detail command 
-        /// This will set the <see cref="SelectedObservable"/> to the one selected and will navigate to the <see cref="TDetailViewModel"/>
+        /// This will set the <see cref="SelectedObservable"/> to the one selected and will navigate to the TDetailViewModel
         /// </summary>
         public virtual IMvxAsyncCommand<TObservable> GoToDetailCommand
         {

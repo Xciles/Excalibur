@@ -35,8 +35,8 @@ namespace Excalibur.Cross.ViewModels
         /// </summary>
         public TSelectedObservable SelectedObservable
         {
-            get { return _selectedObservable; }
-            set { SetProperty(ref _selectedObservable, value); }
+            get => _selectedObservable;
+            set => SetProperty(ref _selectedObservable, value);
         }
     }
 }

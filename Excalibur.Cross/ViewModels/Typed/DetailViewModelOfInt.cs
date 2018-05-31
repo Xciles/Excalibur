@@ -1,6 +1,7 @@
 using Excalibur.Shared.Observable;
 using Excalibur.Shared.Presentation;
 
+// ReSharper disable once CheckNamespace
 namespace Excalibur.Cross.ViewModels
 {
     /// <inheritdoc />

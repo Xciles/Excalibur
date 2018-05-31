@@ -10,7 +10,7 @@ namespace Excalibur.Cross.Storage
     /// <summary>
     /// MvvmCross implementation of the <see cref="IStorageService"/>
     /// </summary>
-    public class ExStorageService : StorageServiceBase, IStorageService
+    public class ExStorageService : StorageServiceBase
     {
         private readonly IMvxFileStore _fileStore;
         private readonly IMvxFileStoreAsync _fileStoreAsync;
