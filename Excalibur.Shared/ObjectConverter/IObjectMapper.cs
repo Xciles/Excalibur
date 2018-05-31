@@ -8,7 +8,7 @@
     public interface IObjectMapper<TSource, TDestination>
     {
         /// <summary>
-        /// Maps a <see cref="TSource"/> to a <see cref="TDestination"/> object
+        /// Maps a TSource to a TDestination object
         /// </summary>
         /// <param name="source">The instance of a source object</param>
         /// <returns>The mapped object as destination</returns>

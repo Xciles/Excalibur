@@ -3,8 +3,18 @@ using System.Threading.Tasks;
 
 namespace Excalibur.Shared.Services
 {
+    /// <summary>
+    /// Base class for services.
+    ///
+    /// This class provides a static HttpClient as <see cref="SharedClient"/>.
+    /// </summary>
     public abstract class ServiceBase
     {
+        /// <summary>
+        /// Static HttpClient that should be used when making webrequests.
+        ///
+        /// Might introduce a HttpClient per Type of service, but for now, just the one.
+        /// </summary>
         protected static HttpClient SharedClient { get; set; } = new HttpClient();
     }
 

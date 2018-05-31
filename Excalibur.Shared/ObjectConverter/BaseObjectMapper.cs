@@ -14,7 +14,7 @@ namespace Excalibur.Shared.ObjectConverter
 
         /// <summary>
         /// Initializes the object mapper. 
-        /// Constructor creates the <see cref="MapperConfiguration"/> using <see cref="TSource"/> and <see cref="TDestination"/> as
+        /// Constructor creates the <see cref="MapperConfiguration"/> using TSource and TDestination as
         /// source and destination
         /// </summary>
         public BaseObjectMapper()
@@ -25,7 +25,7 @@ namespace Excalibur.Shared.ObjectConverter
         }
 
         /// <summary>
-        /// Maps a <see cref="TSource"/> to a <see cref="TDestination"/> object using <see cref="AutoMapper"/>
+        /// Maps a TSource to a TDestination object using <see cref="AutoMapper"/>
         /// </summary>
         /// <param name="source">The instance of a source object</param>
         /// <returns>The mapped object as destination</returns>

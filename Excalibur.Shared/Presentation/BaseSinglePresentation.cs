@@ -50,8 +50,8 @@ namespace Excalibur.Shared.Presentation
         /// </summary>
         public bool IsLoading
         {
-            get { return _isLoading; }
-            set { SetProperty(ref _isLoading, value); }
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
         }
 
         /// <summary>
@@ -59,10 +59,11 @@ namespace Excalibur.Shared.Presentation
         /// </summary>
         public TObservable SelectedObservable
         {
-            get { return _selectedObservable; }
-            set { SetProperty(ref _selectedObservable, value); }
+            get => _selectedObservable;
+            set => SetProperty(ref _selectedObservable, value);
         }
 
+        /// <inheritdoc />
         public virtual void Initialize()
         {
         }
@@ -78,14 +79,15 @@ namespace Excalibur.Shared.Presentation
             DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
         }
 
+        /// <inheritdoc />
         ~BaseSinglePresentation()
         {
-            this.Dispose(false);
+            Dispose(false);
         }
 
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 

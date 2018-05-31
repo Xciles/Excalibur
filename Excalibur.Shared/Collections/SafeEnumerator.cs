@@ -16,6 +16,7 @@ namespace Excalibur.Shared.Collections
         // this is the object we shall lock on. 
         private readonly object _mLock;
 
+        /// <inheritdoc />
         public SafeEnumerator(object @lock)
         {
             // entering lock in constructor
@@ -23,6 +24,10 @@ namespace Excalibur.Shared.Collections
             Monitor.Enter(_mLock);
         }
 
+        /// <summary>
+        /// Just a method that is used for actually setting the list to enumerate on.
+        /// </summary>
+        /// <param name="inner"></param>
         public void SetList(IEnumerator<T> inner)
         {
             _mInner = inner;
@@ -30,6 +35,7 @@ namespace Excalibur.Shared.Collections
 
         #region Implementation of IDisposable
 
+        /// <inheritdoc />
         public void Dispose()
         {
             // .. and exiting lock on Dispose()
@@ -41,29 +47,22 @@ namespace Excalibur.Shared.Collections
 
         #region Implementation of IEnumerator
 
-        // we just delegate actual implementation
-        // to the inner enumerator, that actually iterates
-        // over some collection
-
+        /// <inheritdoc />
         public bool MoveNext()
         {
             return _mInner.MoveNext();
         }
 
+        /// <inheritdoc />
         public void Reset()
         {
             _mInner.Reset();
         }
 
-        public T Current
-        {
-            get { return _mInner.Current; }
-        }
+        /// <inheritdoc />
+        public T Current => _mInner.Current;
 
-        object IEnumerator.Current
-        {
-            get { return Current; }
-        }
+        object IEnumerator.Current => Current;
 
         #endregion
     }

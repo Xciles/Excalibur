@@ -45,7 +45,7 @@ namespace Excalibur.Shared.Business
         }
 
         /// <summary>
-        /// Updates the domain object from service using <see cref="TService"/>
+        /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
         /// </summary>
         /// <returns>An await-able task</returns>
         public override async Task UpdateFromServiceAsync()
@@ -62,14 +62,16 @@ namespace Excalibur.Shared.Business
         /// Note: Might add an initial range when loading the first time
         /// </summary>
         /// <returns>An await-able task</returns>
-        public override async Task PublishFromStorageAsync()
+        public override Task PublishFromStorageAsync()
         {
             // todo Add initial range when loading from storage
             PublishListUpdated();
+
+            return Task.CompletedTask;
         }
 
         /// <summary>
-        /// Stores <see cref="objectsToStore"/> using <see cref="Storage"/>. 
+        /// Stores incomming objectsToStore using <see cref="Storage"/>. 
         /// This stores all entities.
         /// </summary>
         /// <param name="objectsToStore">The objects to store</param>

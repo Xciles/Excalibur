@@ -26,7 +26,7 @@ namespace Excalibur.Shared.Business
         where TService : class, IServiceBase<TDomain>
     {
         /// <summary>
-        /// Updates the domain object from service using <see cref="TService"/>
+        /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
         /// </summary>
         /// <returns>An await-able task</returns>
         public override async Task UpdateFromServiceAsync()

@@ -1,5 +1,6 @@
 ﻿using Excalibur.Shared.Observable;
 
+// ReSharper disable once CheckNamespace
 namespace Excalibur.Shared.Presentation
 {
     /// <inheritdoc />

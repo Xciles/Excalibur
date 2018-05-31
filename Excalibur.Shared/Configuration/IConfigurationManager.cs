@@ -8,7 +8,7 @@ namespace Excalibur.Shared.Configuration
     public interface IConfigurationManager
     {
         /// <summary>
-        /// Loads the configuration using <see cref="TConfigObject"/> as storage entity
+        /// Loads the configuration using TConfigObject as storage entity
         /// </summary>
         /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
         /// <returns>An await able Task with the configuration as result</returns>

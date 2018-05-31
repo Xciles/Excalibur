@@ -44,9 +44,15 @@ namespace Excalibur.Shared.Presentation
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
+        /// <summary>
+        /// Object mapper that can be used for mapping from TDomain to a TObservable or vice versa.
+        /// </summary>
         protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
+        /// <summary>
+        /// Object mapper that can be used for mapping from TObservable to a TSelectedObservable or vice versa.
+        /// </summary>
         protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
-        private SemaphoreSlim _semaphore = new SemaphoreSlim(1);
+        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1);
 
         /// <summary>
         /// Initializes a new BaseListPresentation 
@@ -68,8 +74,8 @@ namespace Excalibur.Shared.Presentation
         /// </summary>
         public IObservableCollection<TObservable> Observables
         {
-            get { return _observables; }
-            set { SetProperty(ref _observables, value); }
+            get => _observables;
+            set => SetProperty(ref _observables, value);
         }
 
         /// <summary>
@@ -80,7 +86,7 @@ namespace Excalibur.Shared.Presentation
         /// This will make sure, using a semaphore, that just the one thread will update at a given time.
         /// 
         /// Old items will be removed from the observables and new ones will be added. A business will be used to retrieve the objects that should be mapped.
-        /// When busy <see cref="IsLoading"/> will be used to indicate if the Presentation is busy.
+        /// When busy <see cref="BasePresentation{TId,TDomain,TSelectedObservable}.IsLoading"/> will be used to indicate if the Presentation is busy.
         /// </summary>
         /// <param name="messageBase"></param>
         /// <returns></returns>
@@ -100,6 +106,7 @@ namespace Excalibur.Shared.Presentation
             }
             catch (Exception)
             {
+                // ignored
             }
 
             var count = objects.Count + deleteIds;
@@ -186,9 +193,9 @@ namespace Excalibur.Shared.Presentation
 
         /// <summary>
         /// Method to be used when navigating to for example detail view models or when selecting a certain object. 
-        /// This will make sure the object wanted for selection will be mapped in <see cref="SelectedObservable"/>.
+        /// This will make sure the object wanted for selection will be mapped in <see cref="BasePresentation{TId,TDomain,TSelectedObservable}.SelectedObservable"/>.
         /// 
-        /// <see cref="SelectedObservable"/> can then be used for detailed information about the object that was selected.
+        /// <see cref="BasePresentation{TId,TDomain,TSelectedObservable}.SelectedObservable"/> can then be used for detailed information about the object that was selected.
         /// </summary>
         /// <param name="observableId">The id of the object that should be set as SelectedObservable</param>
         public virtual void SetSelectedObservable(TId observableId)
@@ -239,14 +246,15 @@ namespace Excalibur.Shared.Presentation
             return default(TObservable);
         }
 
+        /// <inheritdoc />
         ~BaseListPresentation()
         {
-            this.Dispose(false);
+            Dispose(false);
         }
 
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 

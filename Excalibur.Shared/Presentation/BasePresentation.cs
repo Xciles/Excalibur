@@ -22,12 +22,16 @@ namespace Excalibur.Shared.Presentation
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
+    /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
     public abstract class BasePresentation<TId, TDomain, TSelectedObservable> : ObservableObjectBase, ISinglePresentation<TId, TSelectedObservable>
         where TDomain : StorageDomain<TId>
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
+        /// <summary>
+        /// Object mapper that can be used for mapping from TDomain to a TSelectedObservable or vice versa.
+        /// </summary>
         protected IObjectMapper<TDomain, TSelectedObservable> DomainSelectedMapper { get; set; }
         private bool _isLoading = true;
         /// <summary>
@@ -51,8 +55,8 @@ namespace Excalibur.Shared.Presentation
         /// </summary>
         public bool IsLoading
         {
-            get { return _isLoading; }
-            set { SetProperty(ref _isLoading, value); }
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
         }
 
         /// <summary>
@@ -60,10 +64,11 @@ namespace Excalibur.Shared.Presentation
         /// </summary>
         public TSelectedObservable SelectedObservable
         {
-            get { return _selectedObservable; }
-            set { SetProperty(ref _selectedObservable, value); }
+            get => _selectedObservable;
+            set => SetProperty(ref _selectedObservable, value);
         }
 
+        /// <inheritdoc />
         public virtual void Initialize()
         {
         }

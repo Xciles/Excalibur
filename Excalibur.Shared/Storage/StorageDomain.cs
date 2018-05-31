@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// This class can be used for database objects used by projects. The class
-    /// will provide a default property for the identifier <see cref="TId"/> and other supporting methods.
+    /// will provide a default property for the identifier TId and other supporting methods.
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
@@ -20,8 +20,8 @@
         //[DataMember]
         public TId Id
         {
-            get { return _id; }
-            set { _id = value; }
+            get => _id;
+            set => _id = value;
         }
 
         // Todo add == operator

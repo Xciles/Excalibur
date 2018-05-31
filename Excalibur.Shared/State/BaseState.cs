@@ -14,7 +14,7 @@ namespace Excalibur.Shared.State
         where TConfig : new()
     {
         /// <summary>
-        /// The configuration manager that manages the <see cref="TConfig"/>
+        /// The configuration manager that manages the Config
         /// </summary>
         protected IConfigurationManager ConfigurationManager { get; set; }
 
@@ -42,10 +42,15 @@ namespace Excalibur.Shared.State
             await Initialize().ConfigureAwait(false);
         }
 
-        protected virtual async Task Initialize()
+        /// <summary>
+        /// Initialize method that will be used for loading default thing if needed.
+        /// </summary>
+        /// <returns>An awaitable task</returns>
+        protected virtual Task Initialize()
         {
             // Add custom things here
             // Like default images
+            return Task.CompletedTask;
         }
 
         /// <summary>

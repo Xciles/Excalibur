@@ -64,12 +64,16 @@
     <!-- NETStandard2 -->
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.dll" target="lib\netstandard2.0\Excalibur.Cross.dll" />
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.pdb" />
+    <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.xml" />
     <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.dll" target="lib\netstandard2.0\Excalibur.Shared.dll" />
     <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.pdb" target="lib\netstandard2.0\Excalibur.Shared.pdb" />
+    <file src="..\Excalibur.Shared\bin\Debug\netstandard2.0\Excalibur.Shared.pdb" target="lib\netstandard2.0\Excalibur.Shared.xml" />
     <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.dll" target="lib\netstandard2.0\Excalibur.Providers.File.dll" />
     <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.pdb" />
+    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.xml" />
     <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.dll" target="lib\netstandard2.0\Excalibur.Common.dll" />
     <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.pdb" />
+    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.xml" />
 
   </files>
 </package>

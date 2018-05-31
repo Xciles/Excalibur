@@ -9,17 +9,23 @@ namespace Excalibur.Shared.Core
     public abstract class ExSingletonBase<T> : IDisposable
         where T : class
     {
+        /// <inheritdoc />
         ~ExSingletonBase()
         {
             this.Dispose(false);
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Dispose method that will dispose the singleton instance.
+        /// </summary>
+        /// <param name="isDisposing">Indicates if we want to dispose or not</param>
         protected void Dispose(bool isDisposing)
         {
             if (isDisposing)
@@ -35,7 +41,7 @@ namespace Excalibur.Shared.Core
         /// Static instance. Needs to use lambda expression
         /// to construct an instance (since constructor is private).
         /// </summary>
-        private static readonly Lazy<T> SInstance = new Lazy<T>(() => CreateInstanceOfT());
+        private static readonly Lazy<T> SInstance = new Lazy<T>(CreateInstanceOfT);
 
         #endregion
 
@@ -44,7 +50,7 @@ namespace Excalibur.Shared.Core
         /// <summary>
         /// Gets the instance of this singleton.
         /// </summary>
-        public static T Instance { get { return SInstance.Value; } }
+        public static T Instance => SInstance.Value;
 
         #endregion
 

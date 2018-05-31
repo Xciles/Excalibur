@@ -1,6 +1,7 @@
 ﻿using Excalibur.Shared.Services;
 using Excalibur.Shared.Storage;
 
+// ReSharper disable once CheckNamespace
 namespace Excalibur.Shared.Business
 {
     /// <inheritdoc />

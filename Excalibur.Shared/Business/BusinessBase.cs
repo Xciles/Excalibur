@@ -11,8 +11,8 @@ namespace Excalibur.Shared.Business
     /// Abstract base for business entities. 
     /// This entity provides various Publish methods (using <see cref="PubSub"/>) and methods that should be implemented.
     /// 
-    /// The constructor will resolve a corresponding <see cref="TService"/> and <see cref="IObjectStorageProvider{TId,T}"/> for the 
-    /// given <see cref="TDomain"/>.
+    /// The constructor will resolve a corresponding TService and <see cref="IObjectStorageProvider{TId,T}"/> for the 
+    /// given TDomain />.
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
@@ -22,7 +22,15 @@ namespace Excalibur.Shared.Business
         where TDomain : StorageDomain<TId>, new()
         where TService : class
     {
+        /// <summary>
+        /// Instance of a givin TService that will and can be used for web requests.
+        /// For example, this instance will be used in by <see cref="UpdateFromServiceAsync"/>
+        /// </summary>
         protected TService Service { get; set; }
+
+        /// <summary>
+        /// Instance of a givin <see cref="IObjectStorageProvider{TId,TDomain}"/> that will be used for storing entities
+        /// </summary>
         protected IObjectStorageProvider<TId, TDomain> Storage { get; set; }
 
         /// <summary>
@@ -52,7 +60,7 @@ namespace Excalibur.Shared.Business
         /// <param name="state">The state of the object.</param>
         protected void PublishUpdated(TDomain updatedObject, EDomainState state = EDomainState.Updated)
         {
-            this.Publish<MessageBase<TDomain>>(new MessageBase<TDomain>(updatedObject));
+            this.Publish(new MessageBase<TDomain>(updatedObject));
         }
 
         /// <summary>
@@ -67,7 +75,10 @@ namespace Excalibur.Shared.Business
             PublishListUpdated();
         }
 
+        /// <inheritdoc />
         public abstract Task UpdateFromServiceAsync();
+
+        /// <inheritdoc />
         public abstract Task PublishFromStorageAsync();
     }
 }

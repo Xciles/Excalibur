@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Base observable that is used for entities that want to be used by Excalibur. 
-    /// This base provides a default implementation containing the Id as <see cref="TId"/>.
+    /// This base provides a default implementation containing the Id as TId.
     /// </summary>    
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
@@ -15,8 +15,8 @@
         /// </summary>
         public TId Id
         {
-            get { return _id; }
-            set { SetProperty(ref _id, value); }
+            get => _id;
+            set => SetProperty(ref _id, value);
         }
 
         /// <summary>
