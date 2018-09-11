@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Excalibur.Shared.Business;
-using Excalibur.Shared.Collections;
-using Excalibur.Shared.Presentation;
-using Excalibur.Shared.Utils;
+using Excalibur.Cross.Business;
+using Excalibur.Cross.Collections;
+using Excalibur.Cross.Presentation;
+using Excalibur.Cross.Utils;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
 using XLabs.Ioc;
 

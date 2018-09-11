@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Excalibur.Shared.Collections
+namespace Excalibur.Cross.Collections
 {
     /// <summary>
     /// Interface for a sorted Observable Collection

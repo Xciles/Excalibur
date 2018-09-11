@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Excalibur.Shared.Business;
-using Excalibur.Shared.Collections;
-using Excalibur.Shared.ObjectConverter;
-using Excalibur.Shared.Observable;
-using Excalibur.Shared.Storage;
-using Excalibur.Shared.Utils;
-using PubSub;
-using XLabs.Ioc;
+using Excalibur.Cross.Business;
+using Excalibur.Cross.Collections;
+using Excalibur.Cross.ObjectConverter;
+using Excalibur.Cross.Observable;
+using Excalibur.Cross.Storage;
+using Excalibur.Cross.Utils;
 
-namespace Excalibur.Shared.Presentation
+namespace Excalibur.Cross.Presentation
 {
     ///  <inheritdoc />
     public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>

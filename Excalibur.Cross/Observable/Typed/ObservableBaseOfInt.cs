@@ -1,5 +1,5 @@
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Shared.Observable
+namespace Excalibur.Cross.Observable.Typed
 {
     /// <inheritdoc />
     public abstract class ObservableBaseOfInt : ObservableBase<int>

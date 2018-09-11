@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business
 {
     /// <summary>
     /// An entity to represent a single instance and single domain object. 

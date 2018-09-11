@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business
 {
     /// <summary>
     /// Excalibur main thread dispatcher. 

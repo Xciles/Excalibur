@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Services
+namespace Excalibur.Cross.Services
 {
     /// <summary>
     /// Interface for a service class that will manage communication with internal and external endpoints

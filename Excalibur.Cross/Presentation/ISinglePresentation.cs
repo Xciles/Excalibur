@@ -1,6 +1,6 @@
-﻿using Excalibur.Shared.Observable;
+﻿using Excalibur.Cross.Observable;
 
-namespace Excalibur.Shared.Presentation
+namespace Excalibur.Cross.Presentation
 {
     /// <summary>
     /// Presentation will make it possible to use one entity for sharing observable objects. 

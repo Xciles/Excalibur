@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Excalibur.Shared.Core
+namespace Excalibur.Cross.Core
 {
     /// <summary>
     /// A base class for the singleton design pattern.

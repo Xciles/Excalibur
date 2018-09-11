@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Services
+namespace Excalibur.Cross.Services
 {
     /// <summary>
     /// Base class for services.

@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Shared.Storage
+﻿namespace Excalibur.Cross.Storage
 {
     /// <summary>
     /// This class can be used for database objects used by projects. The class

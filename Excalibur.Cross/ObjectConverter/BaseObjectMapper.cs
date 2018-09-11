@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Excalibur.Shared.ObjectConverter
+namespace Excalibur.Cross.ObjectConverter
 {
     /// <summary>
     /// Base object mapper using <see cref="AutoMapper"/> as underlying object mapper

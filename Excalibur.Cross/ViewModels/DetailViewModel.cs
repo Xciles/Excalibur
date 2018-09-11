@@ -1,5 +1,5 @@
-﻿using Excalibur.Shared.Observable;
-using Excalibur.Shared.Presentation;
+﻿using Excalibur.Cross.Observable;
+using Excalibur.Cross.Presentation;
 using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels

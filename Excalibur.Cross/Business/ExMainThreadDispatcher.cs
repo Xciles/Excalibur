@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Excalibur.Shared.Business;
 using MvvmCross.Base;
 
 namespace Excalibur.Cross.Business

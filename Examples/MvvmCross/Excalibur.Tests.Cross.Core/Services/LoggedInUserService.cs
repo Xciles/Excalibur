@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Excalibur.Shared.Services;
+using Excalibur.Cross.Services;
 using Excalibur.Tests.Cross.Core.Domain;
 
 namespace Excalibur.Tests.Cross.Core.Services

@@ -1,5 +1,5 @@
+using Excalibur.Cross.Presentation;
 using Excalibur.Cross.ViewModels;
-using Excalibur.Shared.Presentation;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {

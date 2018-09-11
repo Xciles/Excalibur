@@ -1,5 +1,5 @@
-﻿using Excalibur.Shared.Collections;
-using Excalibur.Shared.Presentation;
+﻿using Excalibur.Cross.Collections;
+using Excalibur.Cross.Presentation;
 
 namespace Excalibur.Tests.Cross.Core.Presentation.Interfaces
 {

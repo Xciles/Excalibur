@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Shared.Services;
+using Excalibur.Cross.Services;
 
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business
 {
     /// <summary>
     /// Business entity interface for Excalibur

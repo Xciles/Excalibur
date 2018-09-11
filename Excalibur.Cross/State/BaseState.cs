@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Shared.Configuration;
-using XLabs.Ioc;
+using Excalibur.Cross.Configuration;
 
-namespace Excalibur.Shared.State
+namespace Excalibur.Cross.State
 {
     /// <summary>
     /// Base class for managing state. 

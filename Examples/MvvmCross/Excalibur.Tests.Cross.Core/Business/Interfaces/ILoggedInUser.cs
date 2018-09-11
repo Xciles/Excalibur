@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Shared.Business;
+using Excalibur.Cross.Business;
 
 namespace Excalibur.Tests.Cross.Core.Business.Interfaces
 {

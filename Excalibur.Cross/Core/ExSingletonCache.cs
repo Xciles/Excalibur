@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Shared.Core
+﻿namespace Excalibur.Cross.Core
 {
     /// <inheritdoc />
     /// <summary>

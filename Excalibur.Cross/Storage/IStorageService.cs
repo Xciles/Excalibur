@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Storage
+namespace Excalibur.Cross.Storage
 {
     /// <summary>
     /// This interface provides an implementation for storing files.

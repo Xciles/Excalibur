@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Excalibur.Shared.Storage;
-using Excalibur.Shared.Utils;
-using PubSub;
-using XLabs.Ioc;
+using Excalibur.Cross.Storage;
+using Excalibur.Cross.Utils;
 
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business
 {
     /// <summary>
     /// Abstract base for business entities. 

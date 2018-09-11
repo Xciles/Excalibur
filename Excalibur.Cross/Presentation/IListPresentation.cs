@@ -1,7 +1,7 @@
-﻿using Excalibur.Shared.Collections;
-using Excalibur.Shared.Observable;
+﻿using Excalibur.Cross.Collections;
+using Excalibur.Cross.Observable;
 
-namespace Excalibur.Shared.Presentation
+namespace Excalibur.Cross.Presentation
 {
     /// <inheritdoc />
     public interface IListPresentation<TId, TObservable> : IListPresentation<TId, TObservable, TObservable>

@@ -1,4 +1,4 @@
-﻿using Excalibur.Shared.Presentation;
+﻿using Excalibur.Cross.Presentation;
 
 namespace Excalibur.Tests.Cross.Core.Presentation
 {

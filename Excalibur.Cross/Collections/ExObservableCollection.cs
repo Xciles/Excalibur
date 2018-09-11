@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Excalibur.Shared.Collections
+namespace Excalibur.Cross.Collections
 {
     /// <summary>
     /// A base observable collection

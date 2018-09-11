@@ -1,10 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using Excalibur.Shared.Storage;
+using Excalibur.Cross.Storage;
 using Newtonsoft.Json;
-using XLabs.Ioc;
 
-namespace Excalibur.Shared.Configuration
+namespace Excalibur.Cross.Configuration
 {
     /// <inheritdoc />
     public class ConfigurationManager : IConfigurationManager

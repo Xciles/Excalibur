@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 
-namespace Excalibur.Shared.Collections
+namespace Excalibur.Cross.Collections
 {
     /// <summary>
     /// Interface for an Observable Collection

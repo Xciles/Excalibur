@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Excalibur.Shared.Services;
-using Excalibur.Shared.Storage;
+using Excalibur.Cross.Services;
+using Excalibur.Cross.Storage;
 
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business
 {
     /// <inheritdoc />
     public class BaseSingleBusiness<TId, TDomain> : BaseSingleBusiness<TId, TDomain, IServiceBase<TDomain>>

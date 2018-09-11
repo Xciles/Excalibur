@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Shared.Business;
-using Excalibur.Shared.Utils;
+using Excalibur.Cross.Business;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using XLabs.Ioc;
 

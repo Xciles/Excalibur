@@ -1,8 +1,8 @@
-using Excalibur.Shared.Observable;
-using Excalibur.Shared.Storage;
+using Excalibur.Cross.Observable.Typed;
+using Excalibur.Cross.Storage.Typed;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Shared.Presentation
+namespace Excalibur.Cross.Presentation.Typed
 {
     /// <inheritdoc cref="BaseListPresentationOfInt{TDomain,TObservable,TObservable}"/>
     public class BaseListPresentationOfInt<TDomain, TObservable> : BaseListPresentationOfInt<TDomain, TObservable, TObservable>, IListPresentationOfInt<TObservable>

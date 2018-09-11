@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Storage
+namespace Excalibur.Cross.Storage
 {
     /// <summary>
     /// Base implementation for the <see cref="IStorageService"/> used for storing files. 

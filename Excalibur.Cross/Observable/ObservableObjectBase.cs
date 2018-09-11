@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Excalibur.Shared.Observable
+namespace Excalibur.Cross.Observable
 {
     /// <summary>
     /// Base implementation for an object that needs to be an observable. This class implements <see cref="INotifyPropertyChanged"/> and provides <see cref="SetProperty{T}"/> 

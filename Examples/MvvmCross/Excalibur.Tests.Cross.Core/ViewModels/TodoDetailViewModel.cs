@@ -1,5 +1,5 @@
+using Excalibur.Cross.Presentation;
 using Excalibur.Cross.ViewModels;
-using Excalibur.Shared.Presentation;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
 using XLabs.Ioc;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Excalibur.Shared.Comparers
+namespace Excalibur.Cross.Comparers
 {
     /// <inheritdoc />
     public abstract class BaseComparer<TObservable> : IComparer<TObservable>

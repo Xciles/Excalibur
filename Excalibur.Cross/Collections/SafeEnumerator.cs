@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Excalibur.Shared.Collections
+namespace Excalibur.Cross.Collections
 {
     /// <summary>
     /// Credits for this solution go to: 

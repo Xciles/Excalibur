@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Excalibur.Shared.State
+namespace Excalibur.Cross.State
 {
     /// <summary>
     /// Interface for managing state of an application.

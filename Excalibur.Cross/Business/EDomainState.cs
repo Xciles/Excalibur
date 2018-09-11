@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Shared.Business
+﻿namespace Excalibur.Cross.Business
 {
     /// <summary>
     /// Enumeration for domain state when publishing

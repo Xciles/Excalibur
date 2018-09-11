@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Excalibur.Shared.Collections;
-using Excalibur.Shared.Observable;
-using Excalibur.Shared.Presentation;
+using Excalibur.Cross.Collections;
+using Excalibur.Cross.Observable;
+using Excalibur.Cross.Presentation;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using XLabs.Ioc;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Excalibur.Shared.Storage
+namespace Excalibur.Cross.Storage
 {
     /// <summary>
     /// A object storage provider that provides a general data storage interface. 

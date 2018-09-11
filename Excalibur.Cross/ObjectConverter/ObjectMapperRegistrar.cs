@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Excalibur.Shared.ObjectConverter
+namespace Excalibur.Cross.ObjectConverter
 {
     public static class ObjectMapperRegistrar
     {

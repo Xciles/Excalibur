@@ -1,8 +1,8 @@
-﻿using Excalibur.Shared.Services;
-using Excalibur.Shared.Storage;
+﻿using Excalibur.Cross.Services;
+using Excalibur.Cross.Storage.Typed;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business.Typed
 {
     /// <inheritdoc />
     public class BaseSingleBusinessOfInt<TDomain> : BaseSingleBusinessOfInt<TDomain, IServiceBase<TDomain>>

@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Shared.ObjectConverter
+﻿namespace Excalibur.Cross.ObjectConverter
 {
     /// <summary>
     /// Interface for an object mapper

@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Excalibur.Cross.Business;
 using Excalibur.Cross.ViewModels;
-using Excalibur.Shared.Business;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
 using MvvmCross.Commands;
 using XLabs.Ioc;

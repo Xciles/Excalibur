@@ -1,12 +1,10 @@
 ﻿using System;
-using Excalibur.Shared.ObjectConverter;
-using Excalibur.Shared.Observable;
-using Excalibur.Shared.Storage;
-using Excalibur.Shared.Utils;
-using PubSub;
-using XLabs.Ioc;
+using Excalibur.Cross.ObjectConverter;
+using Excalibur.Cross.Observable;
+using Excalibur.Cross.Storage;
+using Excalibur.Cross.Utils;
 
-namespace Excalibur.Shared.Presentation
+namespace Excalibur.Cross.Presentation
 {
     /// <summary>
     /// Presentation will make it possible to use one entity for sharing observable objects. 

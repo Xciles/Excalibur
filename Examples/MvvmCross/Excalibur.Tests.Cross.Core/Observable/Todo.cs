@@ -1,4 +1,4 @@
-﻿using Excalibur.Shared.Observable;
+﻿using Excalibur.Cross.Observable;
 
 namespace Excalibur.Tests.Cross.Core.Observable
 {

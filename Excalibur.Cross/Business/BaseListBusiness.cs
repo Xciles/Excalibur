@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Excalibur.Shared.Services;
-using Excalibur.Shared.Storage;
+using Excalibur.Cross.Services;
+using Excalibur.Cross.Storage;
 
-namespace Excalibur.Shared.Business
+namespace Excalibur.Cross.Business
 {
     /// <inheritdoc />
     public class BaseListBusiness<TId, TDomain> : BaseListBusiness<TId, TDomain, IServiceBase<IList<TDomain>>>
@@ -71,7 +71,7 @@ namespace Excalibur.Shared.Business
         }
 
         /// <summary>
-        /// Stores incomming objectsToStore using <see cref="Storage"/>. 
+        /// Stores incomming objectsToStore using <see cref="Excalibur.Shared.Storage"/>. 
         /// This stores all entities.
         /// </summary>
         /// <param name="objectsToStore">The objects to store</param>

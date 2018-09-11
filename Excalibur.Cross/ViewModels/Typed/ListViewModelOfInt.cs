@@ -1,9 +1,9 @@
-using Excalibur.Shared.Observable;
-using Excalibur.Shared.Presentation;
+using Excalibur.Cross.Observable.Typed;
+using Excalibur.Cross.Presentation.Typed;
 using MvvmCross.ViewModels;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.ViewModels
+namespace Excalibur.Cross.ViewModels.Typed
 {
     /// <inheritdoc />
     public abstract class ListViewModelOfInt<TObservable, TPresentation, TDetailViewModel> : ListViewModelOfInt<TObservable, TObservable, TPresentation, TDetailViewModel>
