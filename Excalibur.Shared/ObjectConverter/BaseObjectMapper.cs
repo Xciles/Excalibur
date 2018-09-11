@@ -13,7 +13,7 @@ namespace Excalibur.Shared.ObjectConverter
         /// <summary>
         /// <see cref="MapperConfiguration"/> that should be used when mapping the object.
         /// </summary>
-        protected MapperConfiguration Config { get; }
+        protected MapperConfiguration Config { get; set; }
 
         /// <summary>
         /// Initializes the object mapper. 
