@@ -12,9 +12,5 @@
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.1" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Excalibur.Shared\Excalibur.Shared.csproj" />
-  </ItemGroup>
   
 </Project>

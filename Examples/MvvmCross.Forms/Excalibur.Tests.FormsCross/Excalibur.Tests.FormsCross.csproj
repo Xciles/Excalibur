@@ -165,10 +165,6 @@
       <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
       <Name>Excalibur.Cross</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Excalibur.Shared\Excalibur.Shared.csproj">
-      <Project>{f955794c-3a41-4a7f-aac1-c8d6c26a8468}</Project>
-      <Name>Excalibur.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.File\Excalibur.Providers.File.csproj">
       <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
       <Name>Excalibur.Providers.File</Name>

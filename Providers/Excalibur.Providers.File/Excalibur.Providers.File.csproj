@@ -13,8 +13,4 @@
     <PackageReference Include="XLabs.IoC" Version="2.3.0-pre05" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Excalibur.Shared\Excalibur.Shared.csproj" />
-  </ItemGroup>
-
 </Project>
