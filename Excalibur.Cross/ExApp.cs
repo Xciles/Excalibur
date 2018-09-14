@@ -1,8 +1,8 @@
 ﻿using Excalibur.Cross.Business;
 using Excalibur.Cross.Configuration;
 using Excalibur.Cross.Storage;
+using MvvmCross;
 using MvvmCross.ViewModels;
-using XLabs.Ioc;
 
 namespace Excalibur.Cross
 {
@@ -15,19 +15,6 @@ namespace Excalibur.Cross
     public abstract class ExApp : MvxApplication
     {
         /// <summary>
-        /// The internal container for Excalibur
-        /// </summary>
-        protected SimpleContainer Container { get; set; }
-
-        /// <summary>
-        /// Initializes the ExApp and creates a Container
-        /// </summary>
-        protected ExApp()
-        {
-            Container = new SimpleContainer();
-        }
-
-        /// <summary>
         /// The MvxApplication Initialize. 
         /// This method is used to register default dependencies and register the internal container.
         /// 
@@ -37,7 +24,6 @@ namespace Excalibur.Cross
         {
             // Register services
             RegisterExcaliburInternal();
-            Resolver.SetResolver(Container.GetResolver());
 
             RegisterDependencies();
 
@@ -58,7 +44,7 @@ namespace Excalibur.Cross
         public void UseObjectProvider<TId, TDomain>(IObjectStorageProvider<TId, TDomain> type)
             where TDomain : StorageDomain<TId>
         {
-            Container.Register<IObjectStorageProvider<TId, TDomain>>(type);
+            Mvx.RegisterType<IObjectStorageProvider<TId, TDomain>>(() => type);
         }
 
         /// <summary>
@@ -66,9 +52,9 @@ namespace Excalibur.Cross
         /// </summary>
         private void RegisterExcaliburInternal()
         {
-            Container.Register<IStorageService, ExStorageService>();
-            Container.Register<IExMainThreadDispatcher, ExMainThreadDispatcher>();
-            Container.Register<IConfigurationManager, ConfigurationManager>();
+            Mvx.RegisterType<IStorageService, ExStorageService>();
+            Mvx.RegisterType<IExMainThreadDispatcher, ExMainThreadDispatcher>();
+            Mvx.RegisterType<IConfigurationManager, ConfigurationManager>();
 
             // Register business based on domain entities
             // Register Services based on domain entities

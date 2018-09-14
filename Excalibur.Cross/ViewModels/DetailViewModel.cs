@@ -1,6 +1,5 @@
 ﻿using Excalibur.Cross.Observable;
 using Excalibur.Cross.Presentation;
-using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
@@ -24,9 +23,8 @@ namespace Excalibur.Cross.ViewModels
         /// Initializes an instance of DetailViewModel. 
         /// This will try to bind the <see cref="SelectedObservable"/> to the presentations SelectedObervable
         /// </summary>
-        protected DetailViewModel()
+        protected DetailViewModel(TPresentation presentation)
         {
-            var presentation = Resolver.Resolve<TPresentation>();
             SelectedObservable = presentation.SelectedObservable;
         }
 

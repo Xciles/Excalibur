@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.Observable.Typed;
+﻿using Excalibur.Cross.ObjectConverter;
+using Excalibur.Cross.Observable.Typed;
 using Excalibur.Cross.Storage.Typed;
 
 // ReSharper disable once CheckNamespace
@@ -9,5 +10,8 @@ namespace Excalibur.Cross.Presentation.Typed
         where TDomain : StorageDomainOfInt
         where TObservable : ObservableBaseOfInt, new()
     {
+        public BaseSinglePresentationOfInt(IObjectMapper<TDomain, TObservable> domainSelectedMapper) : base(domainSelectedMapper)
+        {
+        }
     }
 }

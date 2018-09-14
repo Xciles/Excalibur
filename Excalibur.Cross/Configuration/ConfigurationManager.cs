@@ -13,9 +13,9 @@ namespace Excalibur.Cross.Configuration
         /// <summary>
         /// Initializes a ConfigurationManager using the <see cref="IStorageService"/> as storage provider
         /// </summary>
-        public ConfigurationManager()
+        public ConfigurationManager(IStorageService storageService)
         {
-            _storageService = Resolver.Resolve<IStorageService>();
+            _storageService = storageService;
         }
 
         /// <inheritdoc />

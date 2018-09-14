@@ -1,148 +1,148 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Excalibur.Cross.Business;
-using Excalibur.Cross.Collections;
-using Excalibur.Cross.Comparers;
-using Excalibur.Cross.ObjectConverter;
-using Excalibur.Cross.Observable;
-using Excalibur.Cross.Storage;
-using Excalibur.Cross.Utils;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using Excalibur.Cross.Business;
+//using Excalibur.Cross.Collections;
+//using Excalibur.Cross.Comparers;
+//using Excalibur.Cross.ObjectConverter;
+//using Excalibur.Cross.Observable;
+//using Excalibur.Cross.Storage;
+//using Excalibur.Cross.Utils;
 
-namespace Excalibur.Cross.Presentation
-{
-    // Todo change to BasePresentation and implement some methods differently...
+//namespace Excalibur.Cross.Presentation
+//{
+//    // Todo change to BasePresentation and implement some methods differently...
 
-    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BasePresentation<TId, TDomain, TSelectedObservable>, ISortedPresentation<TId, TObservable, TSelectedObservable>
-        where TDomain : StorageDomain<TId>
-        where TObservable : ObservableBase<TId>, new()
-        where TSelectedObservable : ObservableBase<TId>, new()
-        where TComparer : BaseComparer<TObservable>, new()
-    {
-        private ISortedObservableCollection<TObservable> _observables = new ExSortedObservableCollection<TObservable>(new TComparer());
-        protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
-        protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
+//    public abstract class BaseSortedPresentation<TId, TDomain, TObservable, TSelectedObservable, TComparer> : BasePresentation<TId, TDomain, TSelectedObservable>, ISortedPresentation<TId, TObservable, TSelectedObservable>
+//        where TDomain : StorageDomain<TId>
+//        where TObservable : ObservableBase<TId>, new()
+//        where TSelectedObservable : ObservableBase<TId>, new()
+//        where TComparer : BaseComparer<TObservable>, new()
+//    {
+//        private ISortedObservableCollection<TObservable> _observables = new ExSortedObservableCollection<TObservable>(new TComparer());
+//        protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
+//        protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
 
-        protected BaseSortedPresentation()
-        {
-            // retrieve mappers
-            this.Subscribe<MessageBase<IList<TDomain>>>(ListUpdatedHandler);
-            this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
+//        protected BaseSortedPresentation()
+//        {
+//            // retrieve mappers
+//            this.Subscribe<MessageBase<IList<TDomain>>>(ListUpdatedHandler);
+//            this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
-            DomainObservableMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
-            ObservableSelectedMapper = Resolver.Resolve<IObjectMapper<TObservable, TSelectedObservable>>();
-        }
+//            DomainObservableMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
+//            ObservableSelectedMapper = Resolver.Resolve<IObjectMapper<TObservable, TSelectedObservable>>();
+//        }
 
-        protected virtual async void ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
-        {
-            // Might need to add new threads and main thread requests.
-            IsLoading = true;
+//        protected virtual async void ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
+//        {
+//            // Might need to add new threads and main thread requests.
+//            IsLoading = true;
 
-            var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
+//            var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
 
-            var deleteIds = 0;
-            try
-            {
-                deleteIds = Observables.Select(x => x.Id).Except(objects.Select(x => x.Id)).Count();
-            }
-            catch (Exception)
-            {
-            }
+//            var deleteIds = 0;
+//            try
+//            {
+//                deleteIds = Observables.Select(x => x.Id).Except(objects.Select(x => x.Id)).Count();
+//            }
+//            catch (Exception)
+//            {
+//            }
 
-            var count = objects.Count + deleteIds;
-            VerifyAndResetCountdown(count);
+//            var count = objects.Count + deleteIds;
+//            VerifyAndResetCountdown(count);
 
-            var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
+//            var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
 
-            foreach (var observable in Observables.Reverse())
-            {
-                TObservable tmpObservable = observable;
-                dispatcher.InvokeOnMainThread(() =>
-                {
-                    Observables.Remove(tmpObservable);
-                    SignalCde();
-                });
-            }
+//            foreach (var observable in Observables.Reverse())
+//            {
+//                TObservable tmpObservable = observable;
+//                dispatcher.InvokeOnMainThread(() =>
+//                {
+//                    Observables.Remove(tmpObservable);
+//                    SignalCde();
+//                });
+//            }
 
-            foreach (var domainObject in objects)
-            {
-                if (ObservablesContainsId(domainObject.Id))
-                {
-                    var observable = Observables.First(x => x.Id.Equals(domainObject.Id));
-                    DomainObservableMapper.UpdateDestination(domainObject, observable);
-                    SignalCde();
-                }
-                else
-                {
-                    var observable = DomainObservableMapper.Map(domainObject);
-                    dispatcher.InvokeOnMainThread(() =>
-                    {
-                        Observables.InsertItem(observable);
-                        SignalCde();
-                    });
-                }
-            }
+//            foreach (var domainObject in objects)
+//            {
+//                if (ObservablesContainsId(domainObject.Id))
+//                {
+//                    var observable = Observables.First(x => x.Id.Equals(domainObject.Id));
+//                    DomainObservableMapper.UpdateDestination(domainObject, observable);
+//                    SignalCde();
+//                }
+//                else
+//                {
+//                    var observable = DomainObservableMapper.Map(domainObject);
+//                    dispatcher.InvokeOnMainThread(() =>
+//                    {
+//                        Observables.InsertItem(observable);
+//                        SignalCde();
+//                    });
+//                }
+//            }
 
-            if (SelectedObservable.IsTransient() && Observables.Any())
-            {
-                ObservableSelectedMapper.UpdateDestination(Observables.First(), SelectedObservable);
-            }
+//            if (SelectedObservable.IsTransient() && Observables.Any())
+//            {
+//                ObservableSelectedMapper.UpdateDestination(Observables.First(), SelectedObservable);
+//            }
 
-            IsLoading = false;
-        }
+//            IsLoading = false;
+//        }
 
-        protected virtual void ItemUpdatedHandler(MessageBase<TDomain> messageBase)
-        {
-            // Update item in the list
-            var itemInList = Observables.FirstOrDefault(x => x.Id.Equals(messageBase.Object.Id));
-            if (itemInList != null)
-            {
-                DomainObservableMapper.UpdateDestination(messageBase.Object, itemInList);
-            }
+//        protected virtual void ItemUpdatedHandler(MessageBase<TDomain> messageBase)
+//        {
+//            // Update item in the list
+//            var itemInList = Observables.FirstOrDefault(x => x.Id.Equals(messageBase.Object.Id));
+//            if (itemInList != null)
+//            {
+//                DomainObservableMapper.UpdateDestination(messageBase.Object, itemInList);
+//            }
 
-            // Update the selected item only if updated and is selected
-            if (SelectedObservable.Id.Equals(messageBase.Object.Id) && messageBase.State == EDomainState.Updated)
-            {
-                DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
-            }
-        }
+//            // Update the selected item only if updated and is selected
+//            if (SelectedObservable.Id.Equals(messageBase.Object.Id) && messageBase.State == EDomainState.Updated)
+//            {
+//                DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
+//            }
+//        }
 
-        public ISortedObservableCollection<TObservable> Observables
-        {
-            get { return _observables; }
-            set { SetProperty(ref _observables, value); }
-        }
+//        public ISortedObservableCollection<TObservable> Observables
+//        {
+//            get { return _observables; }
+//            set { SetProperty(ref _observables, value); }
+//        }
 
-        protected virtual bool ObservablesContainsId(TId id)
-        {
-            return Observables.FirstOrDefault(x => x.Id.Equals(id)) != null;
-        }
+//        protected virtual bool ObservablesContainsId(TId id)
+//        {
+//            return Observables.FirstOrDefault(x => x.Id.Equals(id)) != null;
+//        }
 
-        public virtual void SetSelectedObservable(TId observableId)
-        {
-            try
-            {
-                if (Observables.Any())
-                {
-                    var usedObservable = Observables.FirstOrDefault(x => x.Id.Equals(observableId));
-                    if (usedObservable != null)
-                    {
-                        ObservableSelectedMapper.UpdateDestination(usedObservable, SelectedObservable);
-                    }
-                    else
-                    {
-                        var result = Resolver.Resolve<IListBusiness<TId, TDomain>>().GetByIdAsync(observableId).Result; // Todo make method async?
-                        if (result != null)
-                        {
-                            DomainSelectedMapper.UpdateDestination(result, SelectedObservable);
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                // todo logging
-            }
-        }
-    }
-}
+//        public virtual void SetSelectedObservable(TId observableId)
+//        {
+//            try
+//            {
+//                if (Observables.Any())
+//                {
+//                    var usedObservable = Observables.FirstOrDefault(x => x.Id.Equals(observableId));
+//                    if (usedObservable != null)
+//                    {
+//                        ObservableSelectedMapper.UpdateDestination(usedObservable, SelectedObservable);
+//                    }
+//                    else
+//                    {
+//                        var result = Resolver.Resolve<IListBusiness<TId, TDomain>>().GetByIdAsync(observableId).Result; // Todo make method async?
+//                        if (result != null)
+//                        {
+//                            DomainSelectedMapper.UpdateDestination(result, SelectedObservable);
+//                        }
+//                    }
+//                }
+//            }
+//            catch (Exception)
+//            {
+//                // todo logging
+//            }
+//        }
+//    }
+//}

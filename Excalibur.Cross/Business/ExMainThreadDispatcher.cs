@@ -9,6 +9,13 @@ namespace Excalibur.Cross.Business
     /// </summary>
     public class ExMainThreadDispatcher : IExMainThreadDispatcher
     {
+        private readonly IMvxMainThreadAsyncDispatcher _dispatcher;
+
+        public ExMainThreadDispatcher(IMvxMainThreadAsyncDispatcher dispatcher)
+        {
+            _dispatcher = dispatcher;
+        }
+
         /// <summary>
         /// Schedules an action to be run on the main thread of the application using MvvmCross <see cref="IMvxMainThreadDispatcher"/>
         /// </summary>
@@ -16,7 +23,7 @@ namespace Excalibur.Cross.Business
         /// <returns>The result</returns>
         public Task InvokeOnMainThread(Action action)
         {
-            return MvvmCross.Mvx.Resolve<IMvxMainThreadAsyncDispatcher>().ExecuteOnMainThreadAsync(action);
+            return _dispatcher.ExecuteOnMainThreadAsync(action);
         }
     }
 }

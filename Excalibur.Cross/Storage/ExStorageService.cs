@@ -18,10 +18,10 @@ namespace Excalibur.Cross.Storage
         /// Initializes a new ExStorageService.
         /// This will resolve internal MvvmCross dependencies <see cref="IMvxFileStore"/> and <see cref="IMvxFileStoreAsync"/>
         /// </summary>
-        public ExStorageService()
+        public ExStorageService(IMvxFileStore fileStore, IMvxFileStoreAsync fileStoreAsync)
         {
-            _fileStore = Mvx.Resolve<IMvxFileStore>();
-            _fileStoreAsync = Mvx.Resolve<IMvxFileStoreAsync>();
+            _fileStore = fileStore;
+            _fileStoreAsync = fileStoreAsync;
         }
 
         /// <summary>

@@ -44,9 +44,9 @@ namespace Excalibur.Cross.Presentation
         /// Initializes a new BasePresentation
         /// Resolves the Domain to Selected mapper.
         /// </summary>
-        protected BasePresentation()
+        protected BasePresentation(IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper)
         {
-            DomainSelectedMapper = Resolver.Resolve<IObjectMapper<TDomain, TSelectedObservable>>();
+            DomainSelectedMapper = domainSelectedMapper;
         }
 
         /// <summary>

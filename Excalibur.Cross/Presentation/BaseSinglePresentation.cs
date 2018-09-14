@@ -3,6 +3,7 @@ using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Storage;
 using Excalibur.Cross.Utils;
+using PubSub.Extension;
 
 namespace Excalibur.Cross.Presentation
 {
@@ -35,12 +36,12 @@ namespace Excalibur.Cross.Presentation
         /// This Resolves the Domain to Selected mapper
         /// Also subscribes to Single item publish message
         /// </summary>
-        public BaseSinglePresentation()
+        public BaseSinglePresentation(IObjectMapper<TDomain, TObservable> domainSelectedMapper)
         {
             // retrieve mappers
             this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
-            DomainSelectedMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
+            DomainSelectedMapper = domainSelectedMapper;
         }
 
         /// <summary>

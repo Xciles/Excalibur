@@ -11,6 +11,9 @@ namespace Excalibur.Cross.ViewModels.Typed
         where TPresentation : class, IListPresentationOfInt<TObservable>
         where TDetailViewModel : IMvxViewModel
     {
+        protected ListViewModelOfInt(TPresentation presentation) : base(presentation)
+        {
+        }
     }
 
     /// <inheritdoc />
@@ -20,5 +23,8 @@ namespace Excalibur.Cross.ViewModels.Typed
         where TPresentation : class, IListPresentationOfInt<TObservable, TSelectedObservable>
         where TDetailViewModel : IMvxViewModel
     {
+        protected ListViewModelOfInt(TPresentation presentation) : base(presentation)
+        {
+        }
     }
 }

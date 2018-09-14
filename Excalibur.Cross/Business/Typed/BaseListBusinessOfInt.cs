@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Excalibur.Cross.Services;
+using Excalibur.Cross.Storage;
 using Excalibur.Cross.Storage.Typed;
 
 // ReSharper disable once CheckNamespace
@@ -9,6 +10,9 @@ namespace Excalibur.Cross.Business.Typed
     public class BaseListBusinessOfInt<TDomain> : BaseListBusinessOfInt<TDomain, IServiceBase<IList<TDomain>>> 
         where TDomain : StorageDomainOfInt, new()
     {
+        protected BaseListBusinessOfInt(IServiceBase<IList<TDomain>> service, IObjectStorageProvider<int, TDomain> storageProvider) : base(service, storageProvider)
+        {
+        }
     }
 
     /// <inheritdoc cref="BaseListBusiness{TId, TDomain, TService}" />
@@ -16,5 +20,8 @@ namespace Excalibur.Cross.Business.Typed
         where TDomain : StorageDomainOfInt, new()
         where TService : class, IServiceBase<IList<TDomain>>
     {
+        protected BaseListBusinessOfInt(TService service, IObjectStorageProvider<int, TDomain> storageProvider) : base(service, storageProvider)
+        {
+        }
     }
 }

@@ -9,5 +9,8 @@ namespace Excalibur.Cross.ViewModels.Typed
         where TSelectedObservable : ObservableBaseOfInt, new()
         where TPresentation : class, ISinglePresentationOfInt<TSelectedObservable>
     {
+        protected DetailViewModelOfInt(TPresentation presentation) : base(presentation)
+        {
+        }
     }
 }

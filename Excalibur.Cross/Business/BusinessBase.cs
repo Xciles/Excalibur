@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Excalibur.Cross.Storage;
 using Excalibur.Cross.Utils;
+using PubSub.Extension;
 
 namespace Excalibur.Cross.Business
 {
@@ -35,10 +36,10 @@ namespace Excalibur.Cross.Business
         /// Initializes the instance.
         /// Resolves a Service and Storage that will be used.
         /// </summary>
-        protected BusinessBase()
+        protected BusinessBase(TService service, IObjectStorageProvider<TId, TDomain> storageProvider)
         {
-            Service = Resolver.Resolve<TService>();
-            Storage = Resolver.Resolve<IObjectStorageProvider<TId, TDomain>>();
+            Service = service;
+            Storage = storageProvider;
         }
 
         /// <summary>

@@ -9,6 +9,7 @@ using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Storage;
 using Excalibur.Cross.Utils;
+using PubSub.Extension;
 
 namespace Excalibur.Cross.Presentation
 {
@@ -17,6 +18,14 @@ namespace Excalibur.Cross.Presentation
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
     {
+        public BaseListPresentation(
+            IObjectMapper<TDomain, TObservable> domainMapper, 
+            IObjectMapper<TObservable, TObservable> observableSelectedMapper, 
+            IListBusiness<TId, TDomain> listBusiness, 
+            IExMainThreadDispatcher dispatcher) 
+            : base(domainMapper, domainMapper, observableSelectedMapper, listBusiness, dispatcher)
+        {
+        }
     }
 
     /// <summary>
@@ -41,6 +50,8 @@ namespace Excalibur.Cross.Presentation
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
     {
+        protected IListBusiness<TId, TDomain> ListBusiness { get; set; }
+        protected IExMainThreadDispatcher Dispatcher { get; set; }
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
         /// <summary>
         /// Object mapper that can be used for mapping from TDomain to a TObservable or vice versa.
@@ -57,14 +68,22 @@ namespace Excalibur.Cross.Presentation
         /// This Resolves the Domain to Observable mapper and Observable to Selected Observable mapper.
         /// Also subscribes to both the List and Single item publish message
         /// </summary>
-        public BaseListPresentation()
+        public BaseListPresentation(
+            IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper,
+            IObjectMapper<TDomain, TObservable> domainObservableMapper,
+            IObjectMapper<TObservable, TSelectedObservable> observableSelectedMapper,
+            IListBusiness<TId, TDomain> listBusiness,
+            IExMainThreadDispatcher dispatcher) 
+            : base(domainSelectedMapper)
         {
             // retrieve mappers
             this.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message); });
             this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
-            DomainObservableMapper = Resolver.Resolve<IObjectMapper<TDomain, TObservable>>();
-            ObservableSelectedMapper = Resolver.Resolve<IObjectMapper<TObservable, TSelectedObservable>>();
+            DomainObservableMapper = domainObservableMapper;
+            ObservableSelectedMapper = observableSelectedMapper;
+            ListBusiness = listBusiness;
+            Dispatcher = dispatcher;
         }
 
         /// <summary>
@@ -95,7 +114,7 @@ namespace Excalibur.Cross.Presentation
 
             await _semaphore.WaitAsync((30 * 1000)); // 30 sec
 
-            var objects = await Resolver.Resolve<IListBusiness<TId, TDomain>>().GetAllAsync().ConfigureAwait(false);
+            var objects = await ListBusiness.GetAllAsync().ConfigureAwait(false);
 
             var deleteIds = 0;
             try
@@ -110,14 +129,13 @@ namespace Excalibur.Cross.Presentation
             var count = objects.Count + deleteIds;
             VerifyAndResetCountdown(count);
 
-            var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
 
             foreach (var observable in Observables.Reverse())
             {
                 if (!objects.Select(x => x.Id).Contains(observable.Id))
                 {
                     TObservable tmpObservable = observable;
-                    dispatcher.InvokeOnMainThread(() =>
+                    Dispatcher.InvokeOnMainThread(() =>
                     {
                         Observables.Remove(tmpObservable);
                         SignalCde();
@@ -136,7 +154,7 @@ namespace Excalibur.Cross.Presentation
                 else
                 {
                     var observable = DomainObservableMapper.Map(domainObject);
-                    dispatcher.InvokeOnMainThread(() =>
+                    Dispatcher.InvokeOnMainThread(() =>
                     {
                         Observables.Add(observable);
                         SignalCde();
@@ -209,7 +227,7 @@ namespace Excalibur.Cross.Presentation
                     }
                     else
                     {
-                        var result = Resolver.Resolve<IListBusiness<TId, TDomain>>().GetByIdAsync(observableId).Result; // Todo make method async?
+                        var result = ListBusiness.GetByIdAsync(observableId).Result; // Todo make method async?
                         if (result != null)
                         {
                             DomainSelectedMapper.UpdateDestination(result, SelectedObservable);
@@ -235,7 +253,7 @@ namespace Excalibur.Cross.Presentation
                 return Observables.First(x => x.Id.Equals(observableId));
             }
 
-            var result = Resolver.Resolve<IListBusiness<TId, TDomain>>().GetByIdAsync(observableId).Result; // Todo make method async?
+            var result = ListBusiness.GetByIdAsync(observableId).Result; // Todo make method async?
             if (result != null)
             {
                 return DomainObservableMapper.Map(result);

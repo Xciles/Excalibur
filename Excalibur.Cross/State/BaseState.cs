@@ -20,9 +20,9 @@ namespace Excalibur.Cross.State
         /// <summary>
         /// Initializes the BaseState.
         /// </summary>
-        protected BaseState()
+        protected BaseState(IConfigurationManager configurationManager)
         {
-            ConfigurationManager = Resolver.Resolve<IConfigurationManager>();
+            ConfigurationManager = configurationManager;
         }
 
         /// <summary>

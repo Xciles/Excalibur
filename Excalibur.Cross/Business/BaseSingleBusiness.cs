@@ -9,6 +9,9 @@ namespace Excalibur.Cross.Business
     public class BaseSingleBusiness<TId, TDomain> : BaseSingleBusiness<TId, TDomain, IServiceBase<TDomain>>
         where TDomain : StorageDomain<TId>, new()
     {
+        protected BaseSingleBusiness(IServiceBase<TDomain> service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        {
+        }
     }
 
     /// <summary>
@@ -25,6 +28,10 @@ namespace Excalibur.Cross.Business
         where TDomain : StorageDomain<TId>, new()
         where TService : class, IServiceBase<TDomain>
     {
+        protected BaseSingleBusiness(TService service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        {
+        }
+
         /// <summary>
         /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
         /// </summary>

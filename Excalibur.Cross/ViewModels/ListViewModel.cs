@@ -4,7 +4,6 @@ using Excalibur.Cross.Observable;
 using Excalibur.Cross.Presentation;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
-using XLabs.Ioc;
 
 namespace Excalibur.Cross.ViewModels
 {
@@ -14,6 +13,9 @@ namespace Excalibur.Cross.ViewModels
         where TPresentation : class, IListPresentation<TId, TObservable>
         where TDetailViewModel : IMvxViewModel
     {
+        protected ListViewModel(TPresentation presentation) : base(presentation)
+        {
+        }
     }
 
     /// <summary>
@@ -35,6 +37,7 @@ namespace Excalibur.Cross.ViewModels
         where TPresentation : class, IListPresentation<TId, TObservable, TSelectedObservable>
         where TDetailViewModel : IMvxViewModel
     {
+        protected TPresentation Presentation { get; set; }
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
         private bool _isLoading;
@@ -44,9 +47,9 @@ namespace Excalibur.Cross.ViewModels
         /// Initializes a new instance of ListViewModel 
         /// This will resolve the presentation and bind to various properties.
         /// </summary>
-        protected ListViewModel()
+        protected ListViewModel(TPresentation presentation)
         {
-            var presentation = Resolver.Resolve<TPresentation>();
+            Presentation = presentation;
             Observables = presentation.Observables;
             SelectedObservable = presentation.SelectedObservable;
             IsLoading = presentation.IsLoading;
@@ -89,8 +92,7 @@ namespace Excalibur.Cross.ViewModels
             {
                 _goToDetailCommand = _goToDetailCommand ?? new MvxAsyncCommand<TObservable>(async (selected) =>
                 {
-                    var presentation = Resolver.Resolve<TPresentation>();
-                    presentation.SetSelectedObservable(selected.Id);
+                    Presentation.SetSelectedObservable(selected.Id);
 
                     await NavigationService.Navigate<TDetailViewModel>();
                 });
