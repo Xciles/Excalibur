@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Excalibur.Shared.Storage;
+using Excalibur.Base.Storage;
 using Newtonsoft.Json;
-using XLabs.Ioc;
 
 namespace Excalibur.Providers.File
 {
     /// <summary>
-    /// Provides a <see cref="IObjectStorageProvider{TId,T}"/> implementation for storing objects as files.
+    /// Provides a <see cref="IObjectStorageProvider{TId,TDomain}"/> implementation for storing objects as files.
     /// Basic implementation.
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
@@ -28,6 +27,10 @@ namespace Excalibur.Providers.File
         protected override JsonSerializerSettings JsonSerializerSettings()
         {
             return Activator.CreateInstance<TSerializer>().JsonSerializerSettings();
+        }
+
+        public ObjectAsFileStorageProvider(IStorageService storageService) : base(storageService)
+        {
         }
     }
 
@@ -49,9 +52,9 @@ namespace Excalibur.Providers.File
         /// <summary>
         /// Initializes a <see cref="ObjectAsFileStorageProvider{TId,T}"/> resolving a <see cref="IStorageService"/> to store files with
         /// </summary>
-        public ObjectAsFileStorageProvider()
+        public ObjectAsFileStorageProvider(IStorageService storageService)
         {
-            _storageService = Resolver.Resolve<IStorageService>();
+            _storageService = storageService;
         }
 
         /// <summary>

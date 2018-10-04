@@ -1,7 +1,7 @@
+using Excalibur.Base.Storage.Typed;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable.Typed;
-using Excalibur.Cross.Storage.Typed;
 
 // ReSharper disable once CheckNamespace
 namespace Excalibur.Cross.Presentation.Typed

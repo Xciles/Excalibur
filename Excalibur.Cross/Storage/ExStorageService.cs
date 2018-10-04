@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Excalibur.Base.Storage;
 using MvvmCross;
 using MvvmCross.Logging;
 using MvvmCross.Plugin.File;

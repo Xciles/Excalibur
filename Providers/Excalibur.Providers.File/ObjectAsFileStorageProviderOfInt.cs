@@ -1,4 +1,5 @@
-using Excalibur.Shared.Storage;
+using Excalibur.Base.Storage;
+using Excalibur.Base.Storage.Typed;
 
 namespace Excalibur.Providers.File
 {
@@ -9,5 +10,8 @@ namespace Excalibur.Providers.File
     public class ObjectAsFileStorageProviderOfInt<T> : ObjectAsFileStorageProvider<int, T>
         where T : StorageDomainOfInt
     {
+        public ObjectAsFileStorageProviderOfInt(IStorageService storageService) : base(storageService)
+        {
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
 using Excalibur.Cross.Storage;
 

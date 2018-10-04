@@ -1,5 +1,6 @@
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.Storage.Typed
+
+namespace Excalibur.Base.Storage.Typed
 {
     /// <inheritdoc />
     public interface IObjectStorageProviderOfInt<T> : IObjectStorageProvider<int, T>

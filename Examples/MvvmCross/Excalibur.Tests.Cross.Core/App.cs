@@ -1,5 +1,6 @@
 using Excalibur.Tests.Cross.Core.Services;
 using System.Collections.Generic;
+using Excalibur.Base.Storage;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Presentation;

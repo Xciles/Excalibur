@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Excalibur.Base.Storage;
 
 namespace Excalibur.Cross.Storage
 {

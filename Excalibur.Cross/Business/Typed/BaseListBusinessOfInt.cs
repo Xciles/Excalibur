@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Excalibur.Base.Storage;
+using Excalibur.Base.Storage.Typed;
 using Excalibur.Cross.Services;
 using Excalibur.Cross.Storage;
-using Excalibur.Cross.Storage.Typed;
 
 // ReSharper disable once CheckNamespace
 namespace Excalibur.Cross.Business.Typed

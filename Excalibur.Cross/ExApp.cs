@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.Business;
+﻿using Excalibur.Base.Storage;
+using Excalibur.Cross.Business;
 using Excalibur.Cross.Configuration;
 using Excalibur.Cross.Storage;
 using MvvmCross;
@@ -44,7 +45,7 @@ namespace Excalibur.Cross
         public void UseObjectProvider<TId, TDomain>(IObjectStorageProvider<TId, TDomain> type)
             where TDomain : StorageDomain<TId>
         {
-            Mvx.RegisterType<IObjectStorageProvider<TId, TDomain>>(() => type);
+            Mvx.IoCProvider.RegisterType<IObjectStorageProvider<TId, TDomain>>(() => type);
         }
 
         /// <summary>
@@ -52,15 +53,14 @@ namespace Excalibur.Cross
         /// </summary>
         private void RegisterExcaliburInternal()
         {
-            Mvx.RegisterType<IStorageService, ExStorageService>();
-            Mvx.RegisterType<IExMainThreadDispatcher, ExMainThreadDispatcher>();
-            Mvx.RegisterType<IConfigurationManager, ConfigurationManager>();
+            Mvx.IoCProvider.RegisterType<IStorageService, ExStorageService>();
+            Mvx.IoCProvider.RegisterType<IExMainThreadDispatcher, ExMainThreadDispatcher>();
+            Mvx.IoCProvider.RegisterType<IConfigurationManager, ConfigurationManager>();
 
             // Register business based on domain entities
             // Register Services based on domain entities
             // Register presentation based on Domain / Observable AS singleton
             // Register Iobjectmappers based on domain / Observables
-
         }
     }
 }
