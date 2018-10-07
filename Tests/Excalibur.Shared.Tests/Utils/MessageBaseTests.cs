@@ -1,5 +1,5 @@
-﻿using Excalibur.Shared.Business;
-using Excalibur.Shared.Utils;
+﻿using Excalibur.Cross.Business;
+using Excalibur.Cross.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Excalibur.Shared.Tests.Utils

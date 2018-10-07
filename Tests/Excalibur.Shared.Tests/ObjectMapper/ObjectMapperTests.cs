@@ -1,4 +1,4 @@
-﻿using Excalibur.Shared.ObjectConverter;
+﻿using Excalibur.Cross.ObjectConverter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Excalibur.Shared.Tests.ObjectMapper

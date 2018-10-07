@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Shared.Configuration;
-using Excalibur.Shared.Storage;
+using Excalibur.Base.Storage;
+using Excalibur.Cross.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Newtonsoft.Json;
-using XLabs.Ioc;
 
 namespace Excalibur.Shared.Tests.Configuration
 {
@@ -23,24 +22,13 @@ namespace Excalibur.Shared.Tests.Configuration
         [TestInitialize]
         public void Initialize()
         {
-            var container = new SimpleContainer();
-
             _mockedStorageService = new Mock<IStorageService>();
-            container.Register<IStorageService>(_mockedStorageService.Object);
-
-            Resolver.SetResolver(container.GetResolver());
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            Resolver.ResetResolver();
         }
 
         [TestMethod]
         public void CreationTest()
         {
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             Assert.IsNotNull(manager);
         }
 
@@ -56,7 +44,7 @@ namespace Excalibur.Shared.Tests.Configuration
             _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                                 .Returns(() => Task.FromResult(JsonConvert.SerializeObject(config)));
 
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
 
             Assert.IsNotNull(loadedConfig);
@@ -69,7 +57,7 @@ namespace Excalibur.Shared.Tests.Configuration
         [TestMethod]
         public async Task LoadNullConfigurationAsync()
         {
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
 
             Assert.IsNotNull(loadedConfig);
@@ -86,7 +74,7 @@ namespace Excalibur.Shared.Tests.Configuration
             _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("{[[]}"));
 
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
         }
 
@@ -96,7 +84,7 @@ namespace Excalibur.Shared.Tests.Configuration
             _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("{}"));
 
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
 
             Assert.IsNotNull(loadedConfig);
@@ -120,7 +108,7 @@ namespace Excalibur.Shared.Tests.Configuration
             _mockedStorageService.Setup(x => x.StoreAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("NoPath"));
 
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             var result = await manager.SaveAsync(config);
 
             Assert.AreEqual(result, true);
@@ -145,7 +133,7 @@ namespace Excalibur.Shared.Tests.Configuration
             _mockedStorageService.Setup(x => x.StoreAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("NoPath"));
 
-            var manager = new ConfigurationManager();
+            var manager = new ConfigurationManager(_mockedStorageService.Object);
             var result = await manager.SaveAsync(config);
 
             Assert.AreEqual(result, true);
