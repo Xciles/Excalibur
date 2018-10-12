@@ -8,8 +8,8 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         public void ShowMenu()
         {
-            Mvx.Resolve<IMvxNavigationService>().Navigate<DashboardViewModel>();
-            Mvx.Resolve<IMvxNavigationService>().Navigate<MenuViewModel>();
+            NavigationService.Navigate<DashboardViewModel>();
+            NavigationService.Navigate<MenuViewModel>();
         }
     }
 }

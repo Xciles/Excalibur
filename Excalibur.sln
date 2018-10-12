@@ -48,7 +48,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3023740F-4
 		Docs\ImprovementNotes.md = Docs\ImprovementNotes.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Base", "Excalibur.Base\Excalibur.Base.csproj", "{C78329B8-8BA1-47FC-AFF8-D21793BA3B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Base", "Excalibur.Base\Excalibur.Base.csproj", "{C78329B8-8BA1-47FC-AFF8-D21793BA3B4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{B0CC6DCE-A80D-48B6-9523-8A61BA1BF004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

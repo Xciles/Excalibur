@@ -4,18 +4,18 @@ using System.Windows.Input;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
+using MvvmCross;
 using MvvmCross.Commands;
-using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
     public class TodoViewModel : ListViewModel<int, Observable.Todo, Observable.Todo, ITodo, TodoDetailViewModel>
     {
-        public TodoViewModel()
+        public TodoViewModel(ITodo presentation) : base(presentation)
         {
             if (!Observables.Any())
             {
-                Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+                Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
             }
         }
 
@@ -29,7 +29,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                     IsLoading = true;
 
                     await Task.Delay(5000);
-                    await Resolver.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
+                    await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
 
                     IsLoading = false;
                 });

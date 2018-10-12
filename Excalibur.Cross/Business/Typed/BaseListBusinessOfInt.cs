@@ -11,7 +11,7 @@ namespace Excalibur.Cross.Business.Typed
     public class BaseListBusinessOfInt<TDomain> : BaseListBusinessOfInt<TDomain, IServiceBase<IList<TDomain>>> 
         where TDomain : StorageDomainOfInt, new()
     {
-        protected BaseListBusinessOfInt(IServiceBase<IList<TDomain>> service, IObjectStorageProvider<int, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseListBusinessOfInt(IServiceBase<IList<TDomain>> service, IObjectStorageProvider<int, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
     }
@@ -21,7 +21,7 @@ namespace Excalibur.Cross.Business.Typed
         where TDomain : StorageDomainOfInt, new()
         where TService : class, IServiceBase<IList<TDomain>>
     {
-        protected BaseListBusinessOfInt(TService service, IObjectStorageProvider<int, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseListBusinessOfInt(TService service, IObjectStorageProvider<int, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
     }

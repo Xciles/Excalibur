@@ -6,7 +6,7 @@ using Excalibur.Cross.Collections;
 using Excalibur.Cross.Presentation;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
-using XLabs.Ioc;
+using MvvmCross;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -17,10 +17,10 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
 
         public DashboardViewModel()
         {
-            var userPresentation = Resolver.Resolve<ISinglePresentation<int, Observable.LoggedInUser>>();
+            var userPresentation = Mvx.IoCProvider.Resolve<ISinglePresentation<int, Observable.LoggedInUser>>();
             CurrentUserObservable = userPresentation.SelectedObservable;
 
-            var todoPresentation = Resolver.Resolve<ITodo>();
+            var todoPresentation = Mvx.IoCProvider.Resolve<ITodo>();
             CurrentUserTodoObservables = todoPresentation.CurrentUserTodoObservables;
 
             Task.Factory.StartNew(async () =>
@@ -29,7 +29,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
 
                 if (!CurrentUserTodoObservables.Any())
                 {
-                    await Resolver.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+                    await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
                 }
             });
         }

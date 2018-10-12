@@ -1,5 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Windows.Input;
 using Excalibur.Cross.ViewModels;
+using Excalibur.Tests.Cross.Core.ViewModels.Menu;
 using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -8,22 +10,29 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
-        private readonly MvxPresentationHint _popToRootHint = Mvx.Resolve<MvxPresentationHint>();
         private IMvxAsyncCommand _showDashboardCommand;
         private IMvxAsyncCommand _showUsersCommand;
         private IMvxAsyncCommand _showTodosCommand;
         private IMvxAsyncCommand _showCurrentUserCommand;
 
+        private List<MenuItem> _menuItems;
 
-        public IMvxAsyncCommand PopToRootCommand
+        public List<MenuItem> MenuItems
         {
-            get
-            {
-                return new MvxAsyncCommand(async () =>
-                {
-                    await NavigationService.ChangePresentation(_popToRootHint);
-                });
-            }
+            get => _menuItems;
+            set => SetProperty(ref _menuItems, value);
+
+        }
+
+        public MenuViewModel()
+        {
+            MenuItems = new List<MenuItem>();
+            MenuItems.Add(new CurrentUserMenuItem() { Title = TextSource.GetText("CurrentUser"), Navigate = ShowCurrentUserCommand });
+
+            MenuItems.Add(new HeaderMenuItem() { Title = TextSource.GetText("OtherItems") });
+            MenuItems.Add(new MenuItem() { Title = TextSource.GetText("Dashboard"), Navigate = ShowDashboardCommand });
+            MenuItems.Add(new MenuItem() { Title = TextSource.GetText("Users"), Navigate = ShowUsersCommand });
+            MenuItems.Add(new MenuItem() { Title = TextSource.GetText("Todos"), Navigate = ShowTodosCommand });
         }
 
         public IMvxAsyncCommand ShowDashboardCommand

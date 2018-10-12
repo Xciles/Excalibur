@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
+using MvvmCross;
 using MvvmCross.Commands;
-using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -51,7 +51,7 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
                     if (await _loginService.LoginAsync(Email, Password))
                     {
                         // Todo init sync things
-                        Resolver.Resolve<ISyncService>().FullSyncAsync().ConfigureAwait(false);
+                        Mvx.IoCProvider.Resolve<ISyncService>().FullSyncAsync().ConfigureAwait(false);
 
                         await NavigationService.Navigate<MainViewModel>();
                     }

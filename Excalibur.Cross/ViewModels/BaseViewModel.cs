@@ -12,10 +12,15 @@ namespace Excalibur.Cross.ViewModels
     /// </summary>
     public abstract class BaseViewModel : MvxViewModel
     {
+        protected BaseViewModel()
+        {
+            NavigationService = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
+        }
+
         /// <summary>
         /// The MvvmCross NavigationService
         /// </summary>
-        protected IMvxNavigationService NavigationService { get; } = Mvx.Resolve<IMvxNavigationService>();
+        protected IMvxNavigationService NavigationService { get; }
 
         /// <summary>
         /// A TextSource binding for localization

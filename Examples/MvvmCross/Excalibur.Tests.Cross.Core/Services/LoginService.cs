@@ -6,7 +6,7 @@ using Excalibur.Tests.Cross.Core.Business.Interfaces;
 using Excalibur.Tests.Cross.Core.Domain;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Cross.Core.State;
-using XLabs.Ioc;
+using MvvmCross;
 
 namespace Excalibur.Tests.Cross.Core.Services
 {
@@ -14,7 +14,7 @@ namespace Excalibur.Tests.Cross.Core.Services
     {
         public async Task<bool> LoginAsync(string email, string password)
         {
-            var state = Resolver.Resolve<IApplicationState>();
+            var state = Mvx.IoCProvider.Resolve<IApplicationState>();
             state.Email = email;
             await state.SaveAsync();
 
@@ -29,7 +29,7 @@ namespace Excalibur.Tests.Cross.Core.Services
 
             await Task.Delay(1000);
 
-            var loggedInUserBusiness = Resolver.Resolve<ILoggedInUser>();
+            var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
             await loggedInUserBusiness.Store(result.Result);
 
             return true;
@@ -37,13 +37,13 @@ namespace Excalibur.Tests.Cross.Core.Services
 
         public async Task<bool> ValidateAsync()
         {
-            var state = Resolver.Resolve<IApplicationState>();
+            var state = Mvx.IoCProvider.Resolve<IApplicationState>();
             if (!string.IsNullOrWhiteSpace(state.Email))
             {
                 // we load the current user from storage, usually we reauth and sync current user
 
-                var loggedInUserBusiness = Resolver.Resolve<ILoggedInUser>();
-                await loggedInUserBusiness.PublishFromStorageAsync().ConfigureAwait(false);
+                var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
+                loggedInUserBusiness.PublishFromStorageAsync().ConfigureAwait(false);
 
                 return true;
             }

@@ -3,10 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.Collections;
+using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Presentation;
 using Excalibur.Cross.Utils;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
-using XLabs.Ioc;
+using MvvmCross;
 
 namespace Excalibur.Tests.Cross.Core.Presentation
 {
@@ -14,16 +15,20 @@ namespace Excalibur.Tests.Cross.Core.Presentation
     {
         private IObservableCollection<Observable.Todo> _currentUserTodoObservables = new ExObservableCollection<Observable.Todo>(new List<Observable.Todo>());
 
+        public Todo(IObjectMapper<Domain.Todo, Observable.Todo> domainSelectedMapper, IObjectMapper<Domain.Todo, Observable.Todo> domainObservableMapper, IObjectMapper<Observable.Todo, Observable.Todo> observableSelectedMapper, IListBusiness<int, Domain.Todo> listBusiness, IExMainThreadDispatcher dispatcher) : base(domainSelectedMapper, domainObservableMapper, observableSelectedMapper, listBusiness, dispatcher)
+        {
+        }
+
         protected override async Task ListUpdatedHandler(MessageBase<IList<Domain.Todo>> messageBase)
         {
             await base.ListUpdatedHandler(messageBase);
 
             Cde.Wait(1000);
 
-            var userPresentation = Resolver.Resolve<ISinglePresentation<int, Observable.LoggedInUser>>();
+            var userPresentation = Mvx.IoCProvider.Resolve<ISinglePresentation<int, Observable.LoggedInUser>>();
             if (!userPresentation.SelectedObservable.IsTransient())
             {
-                var dispatcher = Resolver.Resolve<IExMainThreadDispatcher>();
+                var dispatcher = Mvx.IoCProvider.Resolve<IExMainThreadDispatcher>();
                 dispatcher.InvokeOnMainThread(() => { CurrentUserTodoObservables.Clear(); });
                 var todosFromUser = Observables.Where(x => x.UserId.Equals(userPresentation.SelectedObservable.Id)).Take(5);
                 foreach (var todo in todosFromUser)

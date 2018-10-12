@@ -1,18 +1,25 @@
-﻿using System;
-using Windows.UI.Xaml.Controls;
+﻿
+
+using System.Collections.Generic;
+using System.Linq;
 using Excalibur.Tests.Cross.Uwp.Controls;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Platform.Platform;
-using MvvmCross.Uwp.Platform;
-using MvvmCross.Uwp.Views;
+using MvvmCross;
+using MvvmCross.Base;
+using MvvmCross.IoC;
+using MvvmCross.Localization;
+using MvvmCross.Platforms.Uap.Core;
+using MvvmCross.Plugin.File;
+using MvvmCross.Plugin.File.Platforms.Uap;
+using MvvmCross.Plugin.Json;
+using MvvmCross.Plugin.ResourceLoader.Platforms.Uap;
+using MvvmCross.ViewModels;
 
 namespace Excalibur.Tests.Cross.Uwp
 {
-    public class Setup : MvxWindowsSetup
+
+    public class Setup : MvxWindowsSetup<Core.App>
     {
-        public Setup(Frame rootFrame) : base(rootFrame)
+        public Setup() : base()
         {
         }
 
@@ -21,28 +28,27 @@ namespace Excalibur.Tests.Cross.Uwp
             return new Core.App();
         }
 
-        protected override IMvxWindowsViewPresenter CreateViewPresenter(IMvxWindowsFrame rootFrame)
+        // Workaround for https://github.com/MvvmCross/MvvmCross/issues/2678
+        protected override IEnumerable<System.Reflection.Assembly> ValueConverterAssemblies
         {
-            return new CustomViewPresenter(rootFrame);
-        }
-
-        protected override IMvxTrace CreateDebugTrace()
-        {
-            return new DebugTrace();
-        }
-
-        protected override MvxLogProviderType GetDefaultLogProviderType()
-        {
-            // Disabling log provider
-            // https://github.com/MvvmCross/MvvmCross/issues/2333
-            return MvxLogProviderType.None;
+            get
+            {
+                var toReturn = base.ValueConverterAssemblies.ToList();
+                toReturn.Add(typeof(MvxLanguageConverter).Assembly);
+                return toReturn;
+            }
         }
 
         protected override void InitializeFirstChance()
         {
             base.InitializeFirstChance();
 
-            Mvx.RegisterSingleton<MvxPresentationHint>(() => new MvxPanelPopToRootPresentationHint());
+            Mvx.IoCProvider.ConstructAndRegisterSingleton<MvxPresentationHint, MvxPanelPopToRootPresentationHint>();
+
+            Mvx.IoCProvider.RegisterSingleton<IMvxJsonConverter>(new MvxJsonConverter());
+            Mvx.IoCProvider.RegisterType<IMvxFileStore, MvxWindowsFileStore>();
+            Mvx.IoCProvider.RegisterType<IMvxFileStoreAsync, MvxWindowsFileStore>();
+            Mvx.IoCProvider.RegisterType<IMvxResourceLoader, MvxStoreResourceLoader>();
         }
     }
 }

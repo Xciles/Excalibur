@@ -11,13 +11,14 @@
     <AssemblyName>Excalibur.Tests.Cross.Uwp</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.17134.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>Excalibur.Tests.Cross.Uwp_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -89,26 +90,14 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
-    <Compile Include="Bootstrap\JsonLocalizationPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
-    <Compile Include="Controls\CustomViewPresenter.cs" />
     <Compile Include="Controls\TestDataTemplateSelector.cs" />
     <Compile Include="Controls\MvxPanelPopToRootPresentationHint.cs" />
-    <Compile Include="Controls\NavMenuItem.cs" />
-    <Compile Include="DebugTrace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Controls\NavMenuListView.cs" />
-    <Compile Include="Utils\MvxExWindowsMultiRegionViewPresenter.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
@@ -142,10 +131,19 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="..\Excalibur.Tests.Cross.Core\AppResources\Text\MenuViewModel.json">
+      <Link>AppResources\Text\MenuViewModel.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Excalibur.Tests.Cross.Core\AppResources\Text\Shared.json">
+      <Link>AppResources\Text\Shared.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Excalibur.Tests.Cross.Uwp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\kappa_500.png" />
+    <Content Include="Assets\MenuButton.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -162,13 +160,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Excalibur.Base\Excalibur.Base.csproj">
+      <Project>{c78329b8-8ba1-47fc-aff8-d21793ba3b4d}</Project>
+      <Name>Excalibur.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj">
       <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
       <Name>Excalibur.Cross</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Excalibur.Shared\Excalibur.Shared.csproj">
-      <Project>{f955794c-3a41-4a7f-aac1-c8d6c26a8468}</Project>
-      <Name>Excalibur.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.File\Excalibur.Providers.File.csproj">
       <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
@@ -180,6 +178,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Styles\GeneralStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Styles\CustomStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -221,6 +224,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>7.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.1.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross">
+      <Version>6.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.File">
+      <Version>6.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.JsonLocalization">
+      <Version>6.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.Visibility">
+      <Version>6.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="PubSub">
+      <Version>2.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

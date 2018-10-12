@@ -1,6 +1,4 @@
-﻿
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+﻿// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 using Windows.Foundation;
 using Windows.UI.Xaml;

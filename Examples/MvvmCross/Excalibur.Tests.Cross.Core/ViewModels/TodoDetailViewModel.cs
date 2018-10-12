@@ -1,7 +1,7 @@
 using Excalibur.Cross.Presentation;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
-using XLabs.Ioc;
+using MvvmCross;
 
 namespace Excalibur.Tests.Cross.Core.ViewModels
 {
@@ -9,9 +9,10 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         private Observable.User _userObservable = new Observable.User();
 
-        public TodoDetailViewModel()
+
+        public TodoDetailViewModel(ITodo presentation) : base(presentation)
         {
-            var userPresentation = Resolver.Resolve<IListPresentation<int, Observable.User, Observable.User>>();
+            var userPresentation = Mvx.IoCProvider.Resolve<IListPresentation<int, Observable.User, Observable.User>>();
 
             var user = userPresentation.GetObservable(SelectedObservable.UserId);
             if (user != null)

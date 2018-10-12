@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using MvvmCross.Uwp.Views;
+using MvvmCross.Platforms.Uap.Views;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
 {

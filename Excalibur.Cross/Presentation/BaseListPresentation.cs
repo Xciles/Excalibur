@@ -15,7 +15,7 @@ using PubSub.Extension;
 namespace Excalibur.Cross.Presentation
 {
     ///  <inheritdoc />
-    public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>
+    public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>, IListPresentation<TId, TObservable>
         where TDomain : StorageDomain<TId>
         where TObservable : ObservableBase<TId>, new()
     {
@@ -70,8 +70,8 @@ namespace Excalibur.Cross.Presentation
         /// Also subscribes to both the List and Single item publish message
         /// </summary>
         public BaseListPresentation(
-            IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper,
             IObjectMapper<TDomain, TObservable> domainObservableMapper,
+            IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper,
             IObjectMapper<TObservable, TSelectedObservable> observableSelectedMapper,
             IListBusiness<TId, TDomain> listBusiness,
             IExMainThreadDispatcher dispatcher) 

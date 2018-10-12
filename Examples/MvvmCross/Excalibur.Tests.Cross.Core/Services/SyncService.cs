@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Excalibur.Cross.Business;
 using Excalibur.Tests.Cross.Core.Services.Interfaces;
-using XLabs.Ioc;
+using MvvmCross;
 
 namespace Excalibur.Tests.Cross.Core.Services
 {
@@ -28,8 +29,8 @@ namespace Excalibur.Tests.Cross.Core.Services
 
         public async Task FullSyncAsync()
         {
-            await Resolver.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
-            await Resolver.Resolve<IListBusiness<int, Domain.Todo>>().UpdateFromServiceAsync();
+            await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
+            await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().UpdateFromServiceAsync();
         }
 
         public async Task PartialSyncAsync()

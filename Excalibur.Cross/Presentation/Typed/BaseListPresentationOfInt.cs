@@ -28,12 +28,12 @@ namespace Excalibur.Cross.Presentation.Typed
         where TSelectedObservable : ObservableBaseOfInt, new()
     {
         public BaseListPresentationOfInt(
-            IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper, 
             IObjectMapper<TDomain, TObservable> domainObservableMapper, 
+            IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper, 
             IObjectMapper<TObservable, TSelectedObservable> observableSelectedMapper, 
             IListBusiness<int, TDomain> listBusiness, 
             IExMainThreadDispatcher dispatcher) 
-            : base(domainSelectedMapper, domainObservableMapper, observableSelectedMapper, listBusiness, dispatcher)
+            : base(domainObservableMapper, domainSelectedMapper, observableSelectedMapper, listBusiness, dispatcher)
         {
         }
     }

@@ -10,7 +10,7 @@ namespace Excalibur.Cross.Business
     public class BaseListBusiness<TId, TDomain> : BaseListBusiness<TId, TDomain, IServiceBase<IList<TDomain>>>
         where TDomain : StorageDomain<TId>, new()
     {
-        protected BaseListBusiness(IServiceBase<IList<TDomain>> service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseListBusiness(IServiceBase<IList<TDomain>> service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
     }
@@ -29,7 +29,7 @@ namespace Excalibur.Cross.Business
         where TDomain : StorageDomain<TId>, new()
         where TService : class, IServiceBase<IList<TDomain>>
     {
-        protected BaseListBusiness(TService service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseListBusiness(TService service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
         

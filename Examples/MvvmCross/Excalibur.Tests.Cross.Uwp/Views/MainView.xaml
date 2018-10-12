@@ -49,17 +49,28 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+        <Rectangle Height="1"
+                   Margin="0 52 0 0"
+                   Fill="{ThemeResource WarmGrey}"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Stretch" />
+
         <SplitView x:Name="RootSplitView"
                    DisplayMode="Inline"
-                   OpenPaneLength="180"
+                   OpenPaneLength="236"
                    PaneClosed="RootSplitView_PaneClosed"
+                   PaneBackground="{ThemeResource White}"
                    IsTabStop="False">
 
             <SplitView.Pane>
-                <Frame x:Name="MenuContent" />
+                <Frame x:Name="MenuContent"
+                       BorderBrush="{ThemeResource WarmGrey}"
+                       BorderThickness="0 0 0 0" />
             </SplitView.Pane>
 
-            <Frame x:Name="PageContent" />
+            <Frame x:Name="PageContent"
+                   BorderBrush="{ThemeResource WarmGrey}"
+                   BorderThickness="1 0 0 0" />
         </SplitView>
 
         <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
@@ -70,7 +81,9 @@
                       IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
                       Unchecked="TogglePaneButton_Unchecked"
                       Checked="TogglePaneButton_Checked"
+                      Foreground="{ThemeResource DarkRed}"
                       AutomationProperties.Name="Menu"
                       ToolTipService.ToolTip="Menu" />
+
     </Grid>
 </local:BaseView>

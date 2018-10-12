@@ -1,44 +1,41 @@
-﻿using Excalibur.Tests.Cross.Core.Services.Interfaces;
+﻿using System.Threading.Tasks;
+using Excalibur.Tests.Cross.Core.Services.Interfaces;
+using Excalibur.Tests.Cross.Core.State;
 using Excalibur.Tests.Cross.Core.ViewModels;
 using MvvmCross;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
-using XLabs.Ioc;
 
 namespace Excalibur.Tests.Cross.Core
 {
-    public class AppStart : MvxAppStart, IMvxAppStart
+    public class AppStart : MvxAppStart
     {
+        private readonly IApplicationState _state;
         private readonly ILoginService _loginService;
 
-        public AppStart(IMvxApplication application, ILoginService loginService) :
-            base(application)
+        public AppStart(IMvxApplication application, IMvxNavigationService navigationService, IApplicationState state, ILoginService loginService) : base(application, navigationService)
         {
+            _state = state;
             _loginService = loginService;
         }
 
-        protected override void Startup(object hint = null)
+        protected override async Task NavigateToFirstViewModel(object hint = null)
         {
-            ResetStart();
-            base.Startup(hint);
-        }
+            // https://github.com/MvvmCross/MvvmCross/blob/bdaa09299714d94cf3f2c548a465d994c20d52f0/docs/_documentation/advanced/customizing-appstart.md
 
-        public override void ResetStart()
-        {
             // login things
-            if (_loginService.ValidateAsync().GetAwaiter().GetResult())
+            if (await _loginService.ValidateAsync().ConfigureAwait(false))
+            //if (true)
             {
                 // todo init sync and loading of data
-                Resolver.Resolve<ISyncService>().PartialSyncAsync().ConfigureAwait(false);
+                Mvx.IoCProvider.Resolve<ISyncService>().PartialSyncAsync().ConfigureAwait(false);
 
-                var navigationService = Mvx.Resolve<IMvxNavigationService>();
-
-                navigationService.Navigate<MainViewModel>();
-                navigationService.Navigate<DashboardViewModel>();
+                await NavigationService.Navigate<MainViewModel>();
+                //await NavigationService.Navigate<DashboardViewModel>();
             }
             else
             {
-                Mvx.Resolve<IMvxNavigationService>().Navigate<LoginViewModel>();
+                await NavigationService.Navigate<LoginViewModel>();
             }
         }
     }

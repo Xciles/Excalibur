@@ -1,5 +1,4 @@
-﻿using MvvmCross.Uwp.Attributes;
-using MvvmCross.Uwp.Views;
+﻿using MvvmCross.Platforms.Uap.Presenters.Attributes;
 
 namespace Excalibur.Tests.Cross.Uwp.Views
 {
