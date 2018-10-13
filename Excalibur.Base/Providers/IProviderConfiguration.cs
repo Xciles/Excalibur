@@ -8,4 +8,9 @@
     public interface IProviderConfig
     {
     }
+
+    public interface IProvider
+    {
+
+    }
 }

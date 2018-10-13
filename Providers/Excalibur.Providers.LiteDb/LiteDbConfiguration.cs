@@ -27,8 +27,11 @@ namespace Excalibur.Providers.LiteDb
         // BulkInsert
         // Update
         // Upsert
+        // Delete
+
         // Find
         // FindOne
+
         // EnsureIndex
 
         // Provider > LiteProvider > LiteImplementation
