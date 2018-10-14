@@ -157,6 +157,12 @@ namespace Excalibur.Providers.LiteDb
             return Task.FromResult(0);
         }
 
+        public Task<IEnumerable<T>> FindAll()
+        {
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return Task.FromResult(collection.FindAll());
+        }
+
         public virtual Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = int.MaxValue)
         {
             var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
