@@ -2,16 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>Excalibur.Cross</id>
-    <version>0.4.1-beta</version>
+    <version>0.5.0-beta</version>
     <title>Excalibur.Cross</title>
     <authors>Excalibur contributors</authors>
     <owners></owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/Xciles/Excalibur</projectUrl>
+    <repository type="git" url="https://github.com/Xciles/Excalibur" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Excalibur</description>
     <tags>xamarin mvvmcross</tags>
     <releaseNotes>
+      0.5.0-beta
+      Breaking changes release. 
+      Change list coming soon.
       0.4.1-beta
       todo
       0.4.0-beta
@@ -58,10 +62,11 @@
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="AutoMapper" version="7.0.1" exclude="Build,Analyzers" />
-        <dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
         <dependency id="MvvmCross" version="6.2.0" exclude="Build,Analyzers" />
+        <dependency id="MvvmCross.Plugin.File" version="6.2.0" exclude="Build,Analyzers" />
         <dependency id="MvvmCross.Plugin.JsonLocalization" version="6.2.0" exclude="Build,Analyzers" />
         <dependency id="MvvmCross.Plugin.Visibility" version="6.2.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
         <dependency id="PubSub" version="2.1.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
@@ -72,15 +77,13 @@
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.dll" target="lib\netstandard2.0\Excalibur.Cross.dll" />
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.pdb" target="lib\netstandard2.0\Excalibur.Cross.pdb" />
     <file src="..\Excalibur.Cross\bin\Debug\netstandard2.0\Excalibur.Cross.xml" target="lib\netstandard2.0\Excalibur.Cross.xml" />
+
+    <file src="..\Excalibur.Avalon\bin\Debug\netstandard2.0\Excalibur.Avalon.dll" target="lib\netstandard2.0\Excalibur.Avalon.dll" />
+    <file src="..\Excalibur.Avalon\bin\Debug\netstandard2.0\Excalibur.Avalon.pdb" target="lib\netstandard2.0\Excalibur.Avalon.pdb" />
+    <file src="..\Excalibur.Avalon\bin\Debug\netstandard2.0\Excalibur.Avalon.xml" target="lib\netstandard2.0\Excalibur.Avalon.xml" />
     <file src="..\Excalibur.Base\bin\Debug\netstandard2.0\Excalibur.Base.dll" target="lib\netstandard2.0\Excalibur.Base.dll" />
     <file src="..\Excalibur.Base\bin\Debug\netstandard2.0\Excalibur.Base.pdb" target="lib\netstandard2.0\Excalibur.Base.pdb" />
     <file src="..\Excalibur.Base\bin\Debug\netstandard2.0\Excalibur.Base.xml" target="lib\netstandard2.0\Excalibur.Base.xml" />
-    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.dll" target="lib\netstandard2.0\Excalibur.Providers.File.dll" />
-    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.pdb" target="lib\netstandard2.0\Excalibur.Providers.File.pdb" />
-    <file src="..\Providers\Excalibur.Providers.File\bin\Debug\netstandard2.0\Excalibur.Providers.File.xml" target="lib\netstandard2.0\Excalibur.Providers.File.xml" />
-    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.dll" target="lib\netstandard2.0\Excalibur.Common.dll" />
-    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.pdb" target="lib\netstandard2.0\Excalibur.Common.pdb" />
-    <file src="..\Excalibur.Common\bin\Debug\netstandard2.0\Excalibur.Common.xml" target="lib\netstandard2.0\Excalibur.Common.xml" />
 
   </files>
 </package>

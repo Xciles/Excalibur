@@ -21,7 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.Cross.Andro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{1B1FD36B-3763-4926-83CE-48690505E909}"
 	ProjectSection(SolutionItems) = preProject
+		Nuspec\Excalibur.Avalon.nuspec = Nuspec\Excalibur.Avalon.nuspec
+		Nuspec\Excalibur.Base.nuspec = Nuspec\Excalibur.Base.nuspec
 		Nuspec\Excalibur.Cross.nuspec = Nuspec\Excalibur.Cross.nuspec
+		Nuspec\Excalibur.Providers.FileStorage.nuspec = Nuspec\Excalibur.Providers.FileStorage.nuspec
+		Nuspec\Excalibur.Providers.LiteDb.nuspec = Nuspec\Excalibur.Providers.LiteDb.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -52,7 +56,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Base", "Excalibur
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{B0CC6DCE-A80D-48B6-9523-8A61BA1BF004}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Providers.LiteDb", "Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj", "{FC75E57E-3B8E-4798-8131-2C1BFB323318}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.LiteDb", "Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj", "{FC75E57E-3B8E-4798-8131-2C1BFB323318}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
