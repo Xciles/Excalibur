@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
+using MvvmCross;
 using Newtonsoft.Json;
 
 namespace Excalibur.Providers.FileStorage
@@ -25,17 +26,24 @@ namespace Excalibur.Providers.FileStorage
     {
         public FileStorageConfig Configuration { get; private set; }
 
-        public void Configure(IProviderConfig config)
+        public FileStorageConfiguration(IProviderConfig config)
         {
             if (config == null) throw new ArgumentNullException(nameof(config));
             if (!(config is FileStorageConfig liteConfig)) throw new ArgumentException("Please provide FileStorageConfig instance", nameof(config));
 
             Configuration = liteConfig;
         }
+
+        public void Configure()
+        {
+            Mvx.IoCProvider.RegisterSingleton<IProviderConfiguration<FileStorageConfig>>(this);
+        }
     }
 
     public class FileStorageConfig : IProviderConfig
     {
+        public string DataFolder { get; set; } = "data";
+        public string FileNamingFormat { get; set; } = "{0}.json";
     }
 
     public interface IFileStorageProvider<TId, T> : IDatabaseProvider<TId, T> 
@@ -46,14 +54,16 @@ namespace Excalibur.Providers.FileStorage
     public class FileStorageProvider<TId, T> : ObjectToFileSerializer, IFileStorageProvider<TId, T>
         where T : ProviderDomain<TId>
     {
-        private const string DataFolder = "data";
-        private const string FileName = "{0}.json";
+        private string DataFolder => _providerConfig.DataFolder;
+        private string FileNamingFormat => _providerConfig.FileNamingFormat;
 
         private readonly IStorageService _storageService;
+        private readonly FileStorageConfig _providerConfig;
 
-        public FileStorageProvider(IStorageService storageService)
+        public FileStorageProvider(IStorageService storageService, IProviderConfiguration<FileStorageConfig> providerConfiguration)
         {
             _storageService = storageService;
+            _providerConfig = providerConfiguration.Configuration;
         }
 
         public async Task Insert(T item)
@@ -79,10 +89,10 @@ namespace Excalibur.Providers.FileStorage
         {
             // Delete the file before writing.
             // Sometimes write operation will fail when trying to write to a file that already exists
-            _storageService.DeleteFile(DataFolder, String.Format(FileName, typeof(T).Name));
+            _storageService.DeleteFile(DataFolder, String.Format(FileNamingFormat, typeof(T).Name));
 
             var objectAsString = JsonConvert.SerializeObject(items, JsonSerializerSettings());
-            await _storageService.StoreAsync(DataFolder, String.Format(FileName, typeof(T).Name), objectAsString).ConfigureAwait(false);
+            await _storageService.StoreAsync(DataFolder, String.Format(FileNamingFormat, typeof(T).Name), objectAsString).ConfigureAwait(false);
         }
 
         public async Task<bool> Upsert(T item)
@@ -113,7 +123,7 @@ namespace Excalibur.Providers.FileStorage
 
         public async Task<IEnumerable<T>> FindAll()
         {
-            var objectAsString = await _storageService.ReadAsTextAsync(DataFolder, String.Format(FileName, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
+            var objectAsString = await _storageService.ReadAsTextAsync(DataFolder, String.Format(FileNamingFormat, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
 
             return JsonConvert.DeserializeObject<IEnumerable<T>>(objectAsString, JsonSerializerSettings()) ?? Enumerable.Empty<T>();
         }

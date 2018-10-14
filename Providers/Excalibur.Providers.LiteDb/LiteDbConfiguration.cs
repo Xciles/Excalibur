@@ -6,6 +6,7 @@ using Excalibur.Base.Providers;
 using LiteDB;
 using MvvmCross;
 using MvvmCross.IoC;
+using MvvmCross.Plugin.File;
 
 namespace Excalibur.Providers.LiteDb
 {
@@ -13,20 +14,31 @@ namespace Excalibur.Providers.LiteDb
     {
         public LiteDbConfig Configuration { get; private set; }
 
-        public void Configure(IProviderConfig config)
+        public LiteDbConfiguration(IProviderConfig config)
         {
             if (config == null) throw new ArgumentNullException(nameof(config));
             if (!(config is LiteDbConfig liteConfig)) throw new ArgumentException("Please provide LiteDbConfig instance", nameof(config));
 
             Configuration = liteConfig;
+        }
 
+        public void Configure()
+        {
+            var fileStore = Mvx.IoCProvider.Resolve<IMvxFileStore>();
+
+            Configuration.ConnectionString = $"Filename={fileStore.NativePath(Configuration.FileName)};{Configuration.Options}";
+
+            Mvx.IoCProvider.RegisterSingleton<IProviderConfiguration<LiteDbConfig>>(this);
             Mvx.IoCProvider.ConstructAndRegisterSingleton<ILiteDbInstance, LiteDbInstance>();
         }
     }
 
     public class LiteDbConfig : IProviderConfig
     {
-        public string ConnectionString { get; set; }
+        public string FileName { get; set; }
+        public string Options { get; set; }
+
+        internal string ConnectionString { get; set; }
     }
 
     public interface ILiteDbProvider<TId, T> : IDatabaseProvider<TId, T> 
@@ -51,7 +63,7 @@ namespace Excalibur.Providers.LiteDb
         private LiteDbConfig _providerConfig;
         public LiteDatabase LiteDatabase { get; }
 
-        protected LiteDbInstance(IProviderConfiguration<LiteDbConfig> providerConfiguration)
+        public LiteDbInstance(IProviderConfiguration<LiteDbConfig> providerConfiguration)
         {
             _providerConfig = providerConfiguration.Configuration;
             LiteDatabase = new LiteDatabase(_providerConfig.ConnectionString);
@@ -122,7 +134,11 @@ namespace Excalibur.Providers.LiteDb
         public virtual Task InsertBulk(IEnumerable<T> items)
         {
             var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
-            collection.InsertBulk(items);
+
+            foreach (var item in items)
+            {
+                collection.Upsert(item);
+            }
 
             EnsureIndexOnInsert();
 

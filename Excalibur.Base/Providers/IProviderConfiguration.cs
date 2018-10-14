@@ -9,7 +9,7 @@ namespace Excalibur.Base.Providers
         where T : IProviderConfig
     {
         T Configuration { get; }
-        void Configure(IProviderConfig config);
+        void Configure();
     }
 
     public interface IProviderConfig
