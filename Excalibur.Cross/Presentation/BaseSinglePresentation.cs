@@ -1,4 +1,5 @@
 ﻿using System;
+using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
@@ -25,7 +26,7 @@ namespace Excalibur.Cross.Presentation
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TObservable">The type that should be used for details information</typeparam>
     public class BaseSinglePresentation<TId, TDomain, TObservable> : ObservableObjectBase, ISinglePresentation<TId, TObservable>
-    where TDomain : StorageDomain<TId>
+    where TDomain : ProviderDomain<TId>
     where TObservable : ObservableBase<TId>, new()
     {
         private bool _isLoading = true;

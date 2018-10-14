@@ -1,4 +1,4 @@
-using Excalibur.Base.Storage.Typed;
+using Excalibur.Base.Providers;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable.Typed;
@@ -8,7 +8,7 @@ namespace Excalibur.Cross.Presentation.Typed
 {
     /// <inheritdoc cref="BaseListPresentationOfInt{TDomain,TObservable,TObservable}"/>
     public class BaseListPresentationOfInt<TDomain, TObservable> : BaseListPresentationOfInt<TDomain, TObservable, TObservable>, IListPresentationOfInt<TObservable>
-        where TDomain : StorageDomainOfInt
+        where TDomain : ProviderDomainOfInt
         where TObservable : ObservableBaseOfInt, new()
     {
         public BaseListPresentationOfInt(
@@ -23,7 +23,7 @@ namespace Excalibur.Cross.Presentation.Typed
 
     /// <inheritdoc cref="BaseListPresentation{TId,TDomain,TObservable,TSelectedObservable}"/>
     public class BaseListPresentationOfInt<TDomain, TObservable, TSelectedObservable> : BaseListPresentation<int, TDomain, TObservable, TSelectedObservable>, IListPresentationOfInt<TObservable, TSelectedObservable>
-        where TDomain : StorageDomainOfInt
+        where TDomain : ProviderDomainOfInt
         where TObservable : ObservableBaseOfInt, new()
         where TSelectedObservable : ObservableBaseOfInt, new()
     {

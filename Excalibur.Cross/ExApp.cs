@@ -1,4 +1,5 @@
-﻿using Excalibur.Base.Storage;
+﻿using Excalibur.Base.Providers;
+using Excalibur.Base.Storage;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.Configuration;
 using Excalibur.Cross.Storage;
@@ -42,10 +43,10 @@ namespace Excalibur.Cross
         /// <typeparam name="TId"></typeparam>
         /// <typeparam name="TDomain"></typeparam>
         /// <param name="type"></param>
-        public void UseObjectProvider<TId, TDomain>(IObjectStorageProvider<TId, TDomain> type)
-            where TDomain : StorageDomain<TId>
+        public void UseObjectProvider<TId, TDomain>(IDatabaseProvider<TId, TDomain> type)
+            where TDomain : ProviderDomain<TId>
         {
-            Mvx.IoCProvider.RegisterType<IObjectStorageProvider<TId, TDomain>>(() => type);
+            Mvx.IoCProvider.RegisterType<IDatabaseProvider<TId, TDomain>>(() => type);
         }
 
         /// <summary>

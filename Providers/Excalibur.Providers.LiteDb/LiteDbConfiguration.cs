@@ -29,7 +29,8 @@ namespace Excalibur.Providers.LiteDb
         public string ConnectionString { get; set; }
     }
 
-    public interface ILiteDbProvider<T> : IDatabaseProvider<T>
+    public interface ILiteDbProvider<TId, T> : IDatabaseProvider<TId, T> 
+        where T : ProviderDomain<TId>
     {
         bool EnsureIndex<TK>(Expression<Func<T, TK>> property, string expression, bool unique = false);
         bool EnsureIndex<TK>(Expression<Func<T, TK>> property, bool unique = false);
@@ -82,7 +83,8 @@ namespace Excalibur.Providers.LiteDb
         }
     }
 
-    public class LiteDbProvider<T> : ILiteDbProvider<T>
+    public class LiteDbProvider<TId, T> : ILiteDbProvider<TId, T> 
+        where T : ProviderDomain<TId>
     {
         // Insert
         // BulkInsert
@@ -161,6 +163,12 @@ namespace Excalibur.Providers.LiteDb
         {
             var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
             return Task.FromResult(collection.FindAll());
+        }
+
+        public Task<T> FindById(TId id)
+        {
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return Task.FromResult(collection.FindOne(x => x.Id.Equals(id)));
         }
 
         public virtual Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = int.MaxValue)

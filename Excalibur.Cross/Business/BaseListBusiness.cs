@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
 using Excalibur.Cross.Storage;
@@ -8,9 +9,9 @@ namespace Excalibur.Cross.Business
 {
     /// <inheritdoc />
     public class BaseListBusiness<TId, TDomain> : BaseListBusiness<TId, TDomain, IServiceBase<IList<TDomain>>>
-        where TDomain : StorageDomain<TId>, new()
+        where TDomain : ProviderDomain<TId>, new()
     {
-        public BaseListBusiness(IServiceBase<IList<TDomain>> service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseListBusiness(IServiceBase<IList<TDomain>> service, IDatabaseProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
     }
@@ -26,10 +27,10 @@ namespace Excalibur.Cross.Business
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TService">The type of the service that should be used for communications</typeparam>
     public class BaseListBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, IListBusiness<TId, TDomain>
-        where TDomain : StorageDomain<TId>, new()
+        where TDomain : ProviderDomain<TId>, new()
         where TService : class, IServiceBase<IList<TDomain>>
     {
-        public BaseListBusiness(TService service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseListBusiness(TService service, IDatabaseProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
         
@@ -37,9 +38,9 @@ namespace Excalibur.Cross.Business
         /// Gets all domain objects managed by this entity
         /// </summary>
         /// <returns>An await able Task with all domain objects as result</returns>
-        public virtual async Task<IList<TDomain>> GetAllAsync()
+        public virtual async Task<IEnumerable<TDomain>> GetAllAsync()
         {
-            return await Storage.GetRangeAsync().ConfigureAwait(false);
+            return await Storage.FindAll().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace Excalibur.Cross.Business
         /// <returns>An await able Task with the domain object as result</returns>
         public virtual async Task<TDomain> GetByIdAsync(TId id)
         {
-            return await Storage.GetAsync(id).ConfigureAwait(false);
+            return await Storage.FindById(id).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -86,7 +87,7 @@ namespace Excalibur.Cross.Business
         /// <returns>An await-able task</returns>
         protected async Task StoreItemsAsync(IList<TDomain> objectsToStore)
         {
-            await Storage.StoreRangeAsync(objectsToStore).ConfigureAwait(false);
+            await Storage.InsertBulk(objectsToStore).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -96,7 +97,7 @@ namespace Excalibur.Cross.Business
         /// <returns>An await-able task</returns>
         public async Task DeleteItemAsync(TId id)
         {
-            await Storage.DeleteAsync(id).ConfigureAwait(false);
+            await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
 
             PublishListUpdated();
         }

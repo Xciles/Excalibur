@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.Storage;
 using Excalibur.Cross.Utils;
@@ -19,7 +20,7 @@ namespace Excalibur.Cross.Business
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TService">The type of the service that should be used for communications</typeparam>
     public abstract class BusinessBase<TId, TDomain, TService> : IBusiness
-        where TDomain : StorageDomain<TId>, new()
+        where TDomain : ProviderDomain<TId>, new()
         where TService : class
     {
         /// <summary>
@@ -31,13 +32,13 @@ namespace Excalibur.Cross.Business
         /// <summary>
         /// Instance of a givin <see cref="IObjectStorageProvider{TId,TDomain}"/> that will be used for storing entities
         /// </summary>
-        protected IObjectStorageProvider<TId, TDomain> Storage { get; set; }
+        protected IDatabaseProvider<TId, TDomain> Storage { get; set; }
 
         /// <summary>
         /// Initializes the instance.
         /// Resolves a Service and Storage that will be used.
         /// </summary>
-        protected BusinessBase(TService service, IObjectStorageProvider<TId, TDomain> storageProvider)
+        protected BusinessBase(TService service, IDatabaseProvider<TId, TDomain> storageProvider)
         {
             Service = service;
             Storage = storageProvider;
@@ -70,7 +71,7 @@ namespace Excalibur.Cross.Business
         /// <returns>An await-able task</returns>
         protected async Task StoreItemAsync(TDomain objectToStore)
         {
-            await Storage.AddOrUpdateAsync(objectToStore).ConfigureAwait(false);
+            await Storage.Insert(objectToStore).ConfigureAwait(false);
 
             PublishListUpdated();
         }

@@ -17,7 +17,7 @@ namespace Excalibur.Cross.Business
         /// Get all domain objects that are managed by this business entity
         /// </summary>
         /// <returns>An await able Task with all objects as result</returns>
-        Task<IList<TDomain>> GetAllAsync();
+        Task<IEnumerable<TDomain>> GetAllAsync();
         /// <summary>
         /// Get a single domain object from storage by a TId
         /// </summary>

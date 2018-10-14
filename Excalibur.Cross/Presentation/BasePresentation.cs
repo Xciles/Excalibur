@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
@@ -25,7 +26,7 @@ namespace Excalibur.Cross.Presentation
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
     public abstract class BasePresentation<TId, TDomain, TSelectedObservable> : ObservableObjectBase, ISinglePresentation<TId, TSelectedObservable>
-        where TDomain : StorageDomain<TId>
+        where TDomain : ProviderDomain<TId>
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();

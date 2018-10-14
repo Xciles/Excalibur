@@ -38,12 +38,13 @@ namespace Excalibur.Providers.FileStorage
     {
     }
 
-    public interface IFileStorageProvider<T> : IDatabaseProvider<T>
+    public interface IFileStorageProvider<TId, T> : IDatabaseProvider<TId, T> 
+        where T : ProviderDomain<TId>
     {
     }
 
-    public class FileStorageProvider<TId, T> : ObjectToFileSerializer, IFileStorageProvider<T>
-        where T : StorageDomain<TId>
+    public class FileStorageProvider<TId, T> : ObjectToFileSerializer, IFileStorageProvider<TId, T>
+        where T : ProviderDomain<TId>
     {
         private const string DataFolder = "data";
         private const string FileName = "{0}.json";
@@ -115,6 +116,13 @@ namespace Excalibur.Providers.FileStorage
             var objectAsString = await _storageService.ReadAsTextAsync(DataFolder, String.Format(FileName, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
 
             return JsonConvert.DeserializeObject<IEnumerable<T>>(objectAsString, JsonSerializerSettings()) ?? Enumerable.Empty<T>();
+        }
+
+        public async Task<T> FindById(TId id)
+        {
+            // todo: Seek actual id from disk instead of searching the list
+            var items = await FindAll().ConfigureAwait(false);
+            return items.FirstOrDefault(x => x.Id.Equals(id));
         }
 
         public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = Int32.MaxValue)

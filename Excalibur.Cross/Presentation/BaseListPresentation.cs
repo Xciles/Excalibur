@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.Collections;
@@ -16,7 +17,7 @@ namespace Excalibur.Cross.Presentation
 {
     ///  <inheritdoc />
     public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>, IListPresentation<TId, TObservable>
-        where TDomain : StorageDomain<TId>
+        where TDomain : ProviderDomain<TId>
         where TObservable : ObservableBase<TId>, new()
     {
         public BaseListPresentation(
@@ -47,7 +48,7 @@ namespace Excalibur.Cross.Presentation
     /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
     public class BaseListPresentation<TId, TDomain, TObservable, TSelectedObservable> : BasePresentation<TId, TDomain, TSelectedObservable>, IListPresentation<TId, TObservable, TSelectedObservable>
-        where TDomain : StorageDomain<TId>
+        where TDomain : ProviderDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
     {
@@ -115,7 +116,7 @@ namespace Excalibur.Cross.Presentation
 
             await _semaphore.WaitAsync((30 * 1000)); // 30 sec
 
-            var objects = await ListBusiness.GetAllAsync().ConfigureAwait(false);
+            var objects = (await ListBusiness.GetAllAsync().ConfigureAwait(false)).ToList();
 
             var deleteIds = 0;
             try

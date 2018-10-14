@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
 using Excalibur.Cross.Storage;
@@ -8,9 +9,9 @@ namespace Excalibur.Cross.Business
 {
     /// <inheritdoc />
     public class BaseSingleBusiness<TId, TDomain> : BaseSingleBusiness<TId, TDomain, IServiceBase<TDomain>>
-        where TDomain : StorageDomain<TId>, new()
+        where TDomain : ProviderDomain<TId>, new()
     {
-        public BaseSingleBusiness(IServiceBase<TDomain> service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseSingleBusiness(IServiceBase<TDomain> service, IDatabaseProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
     }
@@ -26,10 +27,10 @@ namespace Excalibur.Cross.Business
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TService">The type of the service that should be used for communications</typeparam>
     public class BaseSingleBusiness<TId, TDomain, TService> : BusinessBase<TId, TDomain, TService>, ISingleBusiness<TDomain>
-        where TDomain : StorageDomain<TId>, new()
+        where TDomain : ProviderDomain<TId>, new()
         where TService : class, IServiceBase<TDomain>
     {
-        public BaseSingleBusiness(TService service, IObjectStorageProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
+        public BaseSingleBusiness(TService service, IDatabaseProvider<TId, TDomain> storageProvider) : base(service, storageProvider)
         {
         }
 
@@ -62,7 +63,7 @@ namespace Excalibur.Cross.Business
         /// <returns>An await able Task with the domain object as result</returns>
         public virtual async Task<TDomain> GetAsync()
         {
-            var list = await Storage.GetRangeAsync().ConfigureAwait(false);
+            var list = await Storage.FindAll().ConfigureAwait(false);
             return list.FirstOrDefault();
         }
 
@@ -76,7 +77,7 @@ namespace Excalibur.Cross.Business
 
             if (itemToDelete != null)
             {
-                await Storage.DeleteAsync(itemToDelete.Id).ConfigureAwait(false);
+                await Storage.Delete(x => x.Id.Equals(itemToDelete.Id)).ConfigureAwait(false);
 
                 PublishUpdated(itemToDelete, EDomainState.Deleted);
             }
