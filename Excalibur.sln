@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.FormsCross.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Tests.FormsCross.UWP", "Examples\MvvmCross.Forms\Excalibur.Tests.FormsCross.UWP\Excalibur.Tests.FormsCross.UWP.csproj", "{91B18E8E-945C-47B2-BDF6-BECADD1992D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.File", "Providers\Excalibur.Providers.File\Excalibur.Providers.File.csproj", "{55928A6C-F0EA-4D62-B5AE-72455312B264}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.FileStorage", "Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj", "{55928A6C-F0EA-4D62-B5AE-72455312B264}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{E2E41C4B-6910-4662-83DE-41792E72FACF}"
 EndProject
