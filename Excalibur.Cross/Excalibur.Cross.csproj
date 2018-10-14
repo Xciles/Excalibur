@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Excalibur.Base\Excalibur.Base.csproj" />
-    <ProjectReference Include="..\Excalibur.Common\Excalibur.Common.csproj" />
+    <ProjectReference Include="..\Excalibur.Avalon\Excalibur.Avalon.csproj" />
   </ItemGroup>
 
 </Project>

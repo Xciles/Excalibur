@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Cross", "Excalibur.Cross\Excalibur.Cross.csproj", "{8CD6A3A6-B0F4-442D-B8B3-6A29EDC5BC8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Common", "Excalibur.Common\Excalibur.Common.csproj", "{DCC7B30E-1D2F-4F2F-BBF8-04CE6EF9C0D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Avalon", "Excalibur.Avalon\Excalibur.Avalon.csproj", "{DCC7B30E-1D2F-4F2F-BBF8-04CE6EF9C0D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{F67211A5-9725-4D99-AA46-E7AFEE908394}"
 EndProject
