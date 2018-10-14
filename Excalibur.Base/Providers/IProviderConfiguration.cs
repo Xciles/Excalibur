@@ -27,8 +27,5 @@ namespace Excalibur.Base.Providers
 
         Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = int.MaxValue);
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
-
-
-        //Task DeleteDatabase();
     }
 }

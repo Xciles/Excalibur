@@ -4,6 +4,8 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Excalibur.Base.Providers;
 using LiteDB;
+using MvvmCross;
+using MvvmCross.IoC;
 
 namespace Excalibur.Providers.LiteDb
 {
@@ -17,6 +19,8 @@ namespace Excalibur.Providers.LiteDb
             if (!(config is LiteDbConfig liteConfig)) throw new ArgumentException("Please provide LiteDbConfig instance", nameof(config));
 
             Configuration = liteConfig;
+
+            Mvx.IoCProvider.ConstructAndRegisterSingleton<ILiteDbInstance, LiteDbInstance>();
         }
     }
 
@@ -34,6 +38,48 @@ namespace Excalibur.Providers.LiteDb
 
         // EnsureIndex
         // DropIndex
+    }
+
+    public interface ILiteDbInstance
+    {
+        LiteDatabase LiteDatabase { get; }
+    }
+
+    public class LiteDbInstance : ILiteDbInstance, IDisposable
+    {
+        private LiteDbConfig _providerConfig;
+        public LiteDatabase LiteDatabase { get; }
+
+        protected LiteDbInstance(IProviderConfiguration<LiteDbConfig> providerConfiguration)
+        {
+            _providerConfig = providerConfiguration.Configuration;
+            LiteDatabase = new LiteDatabase(_providerConfig.ConnectionString);
+        }
+
+        ~LiteDbInstance()
+        {
+            Dispose(false);
+        }
+
+        private void ReleaseUnmanagedResources()
+        {
+            LiteDatabase.Dispose();
+        }
+
+        private void Dispose(bool disposing)
+        {
+            ReleaseUnmanagedResources();
+            if (disposing)
+            {
+                LiteDatabase?.Dispose();
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 
     public class LiteDbProvider<T> : ILiteDbProvider<T>
@@ -54,35 +100,29 @@ namespace Excalibur.Providers.LiteDb
 
         // Provider > LiteProvider > LiteImplementation
         // Makes sure the the base provider can be used as well as custom providers per implementation (and in businessess/presentation w/e)
-        private readonly LiteDbConfig _providerConfig;
+        private readonly ILiteDbInstance _liteDbInstance;
 
-        public LiteDbProvider(IProviderConfiguration<LiteDbConfig> providerConfiguration)
+        public LiteDbProvider(ILiteDbInstance liteDbInstance)
         {
-            _providerConfig = providerConfiguration.Configuration;
+            _liteDbInstance = liteDbInstance;
         }
 
         public virtual Task Insert(T item)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                collection.Insert(item);
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            collection.Insert(item);
 
-                EnsureIndexOnInsert();
-            }
+            EnsureIndexOnInsert();
 
             return Task.FromResult(0);
         }
 
         public virtual Task InsertBulk(IEnumerable<T> items)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                collection.InsertBulk(items);
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            collection.InsertBulk(items);
 
-                EnsureIndexOnInsert();
-            }
+            EnsureIndexOnInsert();
 
             return Task.FromResult(0);
         }
@@ -90,13 +130,10 @@ namespace Excalibur.Providers.LiteDb
         public virtual Task<bool> Upsert(T item)
         {
             bool result;
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                result = collection.Upsert(item);
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            result = collection.Upsert(item);
 
-                EnsureIndexOnInsert();
-            }
+            EnsureIndexOnInsert();
 
             return Task.FromResult(result);
         }
@@ -104,71 +141,50 @@ namespace Excalibur.Providers.LiteDb
         public virtual Task<bool> Update(T item)
         {
             bool result;
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                result = collection.Update(item);
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            result = collection.Update(item);
 
-                EnsureIndexOnUpdate();
-            }
+            EnsureIndexOnUpdate();
 
             return Task.FromResult(result);
         }
 
         public virtual Task Delete(Expression<Func<T, bool>> predicate)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                collection.Delete(predicate);
-            }
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            collection.Delete(predicate);
 
             return Task.FromResult(0);
         }
 
         public virtual Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = int.MaxValue)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                return Task.FromResult(collection.Find(predicate, skip, take));
-            }
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return Task.FromResult(collection.Find(predicate, skip, take));
         }
 
         public virtual Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                return Task.FromResult(collection.FindOne(predicate));
-            }
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return Task.FromResult(collection.FindOne(predicate));
         }
 
         public virtual bool EnsureIndex<TK>(Expression<Func<T, TK>> property, string expression, bool unique = false)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                return collection.EnsureIndex(property, expression, unique);
-            }
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return collection.EnsureIndex(property, expression, unique);
         }
 
         public virtual bool EnsureIndex<TK>(Expression<Func<T, TK>> property, bool unique = false)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                return collection.EnsureIndex(property, unique);
-            }
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return collection.EnsureIndex(property, unique);
         }
 
         public virtual bool DropIndex(string field)
         {
-            using (var db = new LiteDatabase(_providerConfig.ConnectionString))
-            {
-                var collection = db.GetCollection<T>();
-                return collection.DropIndex(field);
-            }
+            var collection = _liteDbInstance.LiteDatabase.GetCollection<T>();
+            return collection.DropIndex(field);
         }
 
         public virtual void EnsureIndexOnInsert() { }
