@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Excalibur.Common.Extensions
+namespace Excalibur.Avalon.Extensions
 {
     /// <summary>
     /// This class contains a few useful extensions on Datetime. 
@@ -27,6 +27,12 @@ namespace Excalibur.Common.Extensions
         public static long ToUnixTimeInSeconds(this DateTime time)
         {
             return (long)time.Subtract(Epoch).TotalSeconds;
+        }
+
+        public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek)
+        {
+            int diff = (7 + (dt.DayOfWeek - startOfWeek)) % 7;
+            return dt.AddDays(-1 * diff).Date;
         }
     }
 }

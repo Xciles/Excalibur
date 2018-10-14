@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Excalibur.Common.Extensions
+namespace Excalibur.Avalon.Extensions
 {
     public static class DictionaryExtensions
     {

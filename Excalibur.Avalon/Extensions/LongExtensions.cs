@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Excalibur.Common.Extensions
+namespace Excalibur.Avalon.Extensions
 {
     /// <summary>
     /// This class contains a few useful extensions on long. 
