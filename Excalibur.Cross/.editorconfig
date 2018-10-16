@@ -2,6 +2,8 @@
 # You can modify the rules from these initially generated values to suit your own policies
 # You can learn more about editorconfig here: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
 [*.cs]
+# top-most EditorConfig file
+root = true
 
 #Core editorconfig formatting - indentation
 
@@ -21,8 +23,6 @@ csharp_indent_case_contents_when_block = false:suggestion
 csharp_new_line_before_catch = true:suggestion
 #place else statements on a new line
 csharp_new_line_before_else = true:suggestion
-#require braces to be on a new line for methods, control_blocks, properties, types, and accessors (also known as "Allman" style)
-csharp_new_line_before_open_brace = methods, control_blocks, properties, types, accessors:suggestion
 
 #Formatting - organize using options
 
@@ -140,3 +140,8 @@ dotnet_naming_symbols.private_fields.applicable_accessibilities = private
 
 dotnet_naming_style.prefix_underscore.capitalization = camel_case
 dotnet_naming_style.prefix_underscore.required_prefix = _
+
+csharp_new_line_before_finally = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_members_in_object_initializers  = true:suggestion
+csharp_new_line_before_members_in_anonymous_types  = true:suggestion

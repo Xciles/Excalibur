@@ -170,7 +170,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj">
       <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
-      <Name>Excalibur.Providers.File</Name>
+      <Name>Excalibur.Providers.FileStorage</Name>
     </ProjectReference>
     <ProjectReference Include="..\Excalibur.Tests.Cross.Core\Excalibur.Tests.Cross.Core.csproj">
       <Project>{db1bbfcc-a5ec-4aa1-a677-2c528357b2b9}</Project>
