@@ -4,18 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\Excalibur.Providers.FileStorage.xml</DocumentationFile>
+  <PropertyGroup>
+    <AssemblyName>Excalibur.Providers.FileStorage</AssemblyName>
+    <RootNamespace>ExcaliburExcalibur.Providers.FileStorage</RootNamespace>
+    <PackageId>Excalibur.Providers.FileStorage</PackageId>
+    <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
+
+      This is provider that uses file-storage as storage/database.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="6.2.0" />
     <PackageReference Include="MvvmCross.Plugin.File" Version="6.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>
   </ItemGroup>
 
   <ItemGroup>

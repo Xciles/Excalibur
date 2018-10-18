@@ -4,16 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\Excalibur.Avalon.xml</DocumentationFile>
+  <PropertyGroup>
+    <AssemblyName>Excalibur.Avalon</AssemblyName>
+    <RootNamespace>Excalibur.Avalon</RootNamespace>
+    <PackageId>Excalibur.Avalon</PackageId>
+    <Description>Excalibur tries to bring structure for developers.
+
+      This is a common shared project that contains lots of useful stuff.
+    </Description>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>
-  </ItemGroup>
 
 </Project>
