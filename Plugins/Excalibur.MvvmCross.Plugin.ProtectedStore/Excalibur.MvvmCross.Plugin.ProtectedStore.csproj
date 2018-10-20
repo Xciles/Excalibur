@@ -41,4 +41,8 @@
     <Compile Include="Platforms\Xamarin-common\**\*.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MvvmCross" Version="6.2.0" />
+  </ItemGroup>
+
 </Project>
