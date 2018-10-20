@@ -61,9 +61,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{B0CC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.LiteDb", "Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj", "{FC75E57E-3B8E-4798-8131-2C1BFB323318}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProtectedStore", "ProtectedStore", "{830E08EB-E8C5-496C-B2A9-FCCF2C6C8F64}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.ProtectedStore", "Plugins\Excalibur.MvvmCross.Plugin.ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj", "{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.ProtectedStore", "Plugins\ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj", "{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OldNuget", "OldNuget", "{C992E265-D435-4739-944B-8BDF8DF28374}"
 	ProjectSection(SolutionItems) = preProject
@@ -73,6 +71,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OldNuget", "OldNuget", "{C9
 		Nuspec\Excalibur.Providers.FileStorage.nuspec = Nuspec\Excalibur.Providers.FileStorage.nuspec
 		Nuspec\Excalibur.Providers.LiteDb.nuspec = Nuspec\Excalibur.Providers.LiteDb.nuspec
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.RootChecker", "Plugins\RootChecker\Excalibur.MvvmCross.Plugin.RootChecker.csproj", "{3B84D020-558E-4B8C-867F-F74ACA34C25E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -462,6 +462,30 @@ Global
 		{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7}.Release|x64.Build.0 = Release|Any CPU
 		{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7}.Release|x86.ActiveCfg = Release|Any CPU
 		{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7}.Release|x86.Build.0 = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|x64.Build.0 = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Debug|x86.Build.0 = Debug|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|ARM.Build.0 = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|iPhone.Build.0 = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|x64.ActiveCfg = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|x64.Build.0 = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|x86.ActiveCfg = Release|Any CPU
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -481,9 +505,9 @@ Global
 		{55928A6C-F0EA-4D62-B5AE-72455312B264} = {E2E41C4B-6910-4662-83DE-41792E72FACF}
 		{3023740F-4B8B-46AC-B192-37144F23CBE4} = {1B1FD36B-3763-4926-83CE-48690505E909}
 		{FC75E57E-3B8E-4798-8131-2C1BFB323318} = {E2E41C4B-6910-4662-83DE-41792E72FACF}
-		{830E08EB-E8C5-496C-B2A9-FCCF2C6C8F64} = {B0CC6DCE-A80D-48B6-9523-8A61BA1BF004}
-		{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7} = {830E08EB-E8C5-496C-B2A9-FCCF2C6C8F64}
+		{EB5A5557-A776-46C7-9BD0-FFC5F822D8B7} = {B0CC6DCE-A80D-48B6-9523-8A61BA1BF004}
 		{C992E265-D435-4739-944B-8BDF8DF28374} = {1B1FD36B-3763-4926-83CE-48690505E909}
+		{3B84D020-558E-4B8C-867F-F74ACA34C25E} = {B0CC6DCE-A80D-48B6-9523-8A61BA1BF004}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D77C87DB-C61D-4A99-B7BD-C69DAA3A9BA5}
