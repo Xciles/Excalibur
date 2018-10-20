@@ -10,6 +10,16 @@
     <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'iOS' ">netstandard2.0;Xamarin.iOS10</TargetFrameworks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AssemblyName>Excalibur.MvvmCross.Plugin.RootChecker</AssemblyName>
+    <RootNamespace>Excalibur.MvvmCross.Plugin.RootChecker</RootNamespace>
+    <PackageId>Excalibur.MvvmCross.Plugin.RootChecker</PackageId>
+    <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
+
+      This is RootChecker plugin that provides you with an interface to check if the devices might have root access. Note this an indication.
+    </Description>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Platforms\**\*.cs" />
     <None Include="Platforms\**\*.cs" />

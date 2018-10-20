@@ -10,6 +10,16 @@
     <TargetFrameworks Condition=" '$(TargetsToBuild)' == 'iOS' ">netstandard2.0;Xamarin.iOS10</TargetFrameworks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AssemblyName>Excalibur.MvvmCross.Plugin.ProtectedStore</AssemblyName>
+    <RootNamespace>Excalibur.MvvmCross.Plugin.ProtectedStore</RootNamespace>
+    <PackageId>Excalibur.MvvmCross.Plugin.ProtectedStore</PackageId>
+    <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
+
+      This is ProtectedStore plugin that provides you with KeyChain, KeyStore or DataProtectionProvider via a shared interface.
+    </Description>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Platforms\**\*.cs" />
     <None Include="Platforms\**\*.cs" />
