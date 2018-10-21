@@ -1,10 +1,8 @@
 using System;
 using System.Threading;
 using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
-using Excalibur.Cross.Storage;
 
 namespace Excalibur.Cross.Presentation
 {

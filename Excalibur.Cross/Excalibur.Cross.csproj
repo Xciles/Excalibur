@@ -29,4 +29,9 @@
     <ProjectReference Include="..\Excalibur.Avalon\Excalibur.Avalon.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="Storage\" />
+  </ItemGroup>
+
 </Project>

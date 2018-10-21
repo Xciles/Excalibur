@@ -5,15 +5,15 @@ using MvvmCross;
 using MvvmCross.Logging;
 using MvvmCross.Plugin.File;
 
-namespace Excalibur.Cross.Storage
+namespace Excalibur.Providers.FileStorage
 {
     /// <summary>
     /// MvvmCross implementation of the <see cref="IStorageService"/>
     /// </summary>
     public class ExStorageService : StorageServiceBase
     {
-        private readonly IMvxFileStore _fileStore;
-        private readonly IMvxFileStoreAsync _fileStoreAsync;
+        protected IMvxFileStore FileStore { get; private set; }
+        protected IMvxFileStoreAsync FileStoreAsync { get; private set; }
 
         /// <summary>
         /// Initializes a new ExStorageService.
@@ -21,8 +21,8 @@ namespace Excalibur.Cross.Storage
         /// </summary>
         public ExStorageService(IMvxFileStore fileStore, IMvxFileStoreAsync fileStoreAsync)
         {
-            _fileStore = fileStore;
-            _fileStoreAsync = fileStoreAsync;
+            FileStore = fileStore;
+            FileStoreAsync = fileStoreAsync;
         }
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace Excalibur.Cross.Storage
         {
             var fullPath = FileChecks(folder, fullName);
 
-            await _fileStoreAsync.WriteFileAsync(fullPath, contentAsString).ConfigureAwait(false);
-            return _fileStore.NativePath(fullPath);
+            await FileStoreAsync.WriteFileAsync(fullPath, contentAsString).ConfigureAwait(false);
+            return FileStore.NativePath(fullPath);
         }
 
         /// <summary>
@@ -51,8 +51,8 @@ namespace Excalibur.Cross.Storage
         {
             var fullPath = FileChecks(folder, fullName);
 
-            await _fileStoreAsync.WriteFileAsync(fullPath, contentAsBytes).ConfigureAwait(false);
-            return _fileStore.NativePath(fullPath);
+            await FileStoreAsync.WriteFileAsync(fullPath, contentAsBytes).ConfigureAwait(false);
+            return FileStore.NativePath(fullPath);
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace Excalibur.Cross.Storage
         /// <returns>File content as string</returns>
         public override async Task<string> ReadAsTextAsync(string folder, string fullName)
         {
-            var fullPath = _fileStore.PathCombine(folder, fullName);
-            var result = await _fileStoreAsync.TryReadTextFileAsync(fullPath).ConfigureAwait(false);
+            var fullPath = FileStore.PathCombine(folder, fullName);
+            var result = await FileStoreAsync.TryReadTextFileAsync(fullPath).ConfigureAwait(false);
 
             return result.Result;
         }
@@ -77,8 +77,8 @@ namespace Excalibur.Cross.Storage
         /// <returns>File content as byte[]</returns>
         public override async Task<byte[]> ReadAsBinaryAsync(string folder, string fullName)
         {
-            var fullPath = _fileStore.PathCombine(folder, fullName);
-            var result = await _fileStoreAsync.TryReadBinaryFileAsync(fullPath).ConfigureAwait(false);
+            var fullPath = FileStore.PathCombine(folder, fullName);
+            var result = await FileStoreAsync.TryReadBinaryFileAsync(fullPath).ConfigureAwait(false);
 
             return result.Result;
         }
@@ -92,11 +92,11 @@ namespace Excalibur.Cross.Storage
         {
             try
             {
-                _fileStore.DeleteFile(_fileStore.PathCombine(folder, fullName));
+                FileStore.DeleteFile(FileStore.PathCombine(folder, fullName));
             }
             catch (Exception ex)
             {
-                Mvx.Resolve<IMvxLog>().ErrorException("ExStorageService.DeleteFile", ex);
+                Mvx.IoCProvider.Resolve<IMvxLog>().ErrorException("ExStorageService.DeleteFile", ex);
             }
         }
 
@@ -108,8 +108,8 @@ namespace Excalibur.Cross.Storage
         /// <returns>True if the file exists, otherwise false.</returns>
         public override bool Exists(string folder, string fullName)
         {
-            var fullPath = _fileStore.PathCombine(folder, fullName);
-            return _fileStore.Exists(fullPath);
+            var fullPath = FileStore.PathCombine(folder, fullName);
+            return FileStore.Exists(fullPath);
         }
 
         /// <summary>
@@ -122,16 +122,16 @@ namespace Excalibur.Cross.Storage
         {
             try
             {
-                _fileStore.EnsureFolderExists(folder);
+                FileStore.EnsureFolderExists(folder);
             }
             catch (Exception ex)
             {
-                Mvx.Resolve<IMvxLog>().ErrorException("ExStorageService.FileChecks", ex);
+                Mvx.IoCProvider.Resolve<IMvxLog>().ErrorException("ExStorageService.FileChecks", ex);
             }
 
-            var fullPath = _fileStore.PathCombine(folder, fullName);
+            var fullPath = FileStore.PathCombine(folder, fullName);
 
-            if (_fileStore.Exists(fullPath))
+            if (FileStore.Exists(fullPath))
             {
                 DeleteFile(folder, fullName);
             }

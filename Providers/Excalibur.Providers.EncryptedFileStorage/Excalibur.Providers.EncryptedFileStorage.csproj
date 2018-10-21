@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <AssemblyName>Excalibur.Providers.FileStorage</AssemblyName>
-    <RootNamespace>Excalibur.Providers.FileStorage</RootNamespace>
-    <PackageId>Excalibur.Providers.FileStorage</PackageId>
+    <AssemblyName>Excalibur.Providers.EncryptedFileStorage</AssemblyName>
+    <RootNamespace>Excalibur.Providers.EncryptedFileStorage</RootNamespace>
+    <PackageId>Excalibur.Providers.EncryptedFileStorage</PackageId>
     <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
 
-      This is provider that uses file-storage as storage/database.
+      This is provider that uses encrypted file-storage as storage/database.
     </Description>
   </PropertyGroup>
 
@@ -18,10 +18,12 @@
     <PackageReference Include="MvvmCross" Version="6.2.0" />
     <PackageReference Include="MvvmCross.Plugin.File" Version="6.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="PCLCrypto" Version="2.1.32-alpha" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
+    <ProjectReference Include="..\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
   </ItemGroup>
 
 </Project>

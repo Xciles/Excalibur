@@ -1,5 +1,5 @@
-﻿using Excalibur.Cross.Configuration;
-using Excalibur.Cross.State;
+﻿using Excalibur.Base.Configuration;
+using Excalibur.Base.State;
 using Excalibur.Tests.Cross.Core.Configuration;
 
 namespace Excalibur.Tests.Cross.Core.State

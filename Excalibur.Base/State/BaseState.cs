@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Cross.Configuration;
+using Excalibur.Base.Configuration;
 
-namespace Excalibur.Cross.State
+namespace Excalibur.Base.State
 {
     /// <summary>
     /// Base class for managing state. 

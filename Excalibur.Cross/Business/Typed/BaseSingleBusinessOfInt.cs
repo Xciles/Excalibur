@@ -1,7 +1,5 @@
 ﻿using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
-using Excalibur.Cross.Storage;
 
 // ReSharper disable once CheckNamespace
 namespace Excalibur.Cross.Business.Typed

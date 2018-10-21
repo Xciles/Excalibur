@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
+using Excalibur.Base.Configuration;
 using Excalibur.Base.Storage;
-using Excalibur.Cross.Storage;
 using Newtonsoft.Json;
 
-namespace Excalibur.Cross.Configuration
+namespace Excalibur.Providers.FileStorage
 {
     /// <inheritdoc />
     public class ConfigurationManager : IConfigurationManager

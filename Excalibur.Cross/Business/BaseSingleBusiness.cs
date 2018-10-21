@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
-using Excalibur.Cross.Storage;
 
 namespace Excalibur.Cross.Business
 {

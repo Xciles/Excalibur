@@ -3,26 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Excalibur.Base.Configuration;
 using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
 using MvvmCross;
-using MvvmCross.Plugin;
 using Newtonsoft.Json;
 
-namespace Excalibur.Providers.FileStorage
+namespace Excalibur.Providers.EncryptedFileStorage
 {
-    [MvxPlugin]
-    [Preserve(AllMembers = true)]
-    public class Plugin : IMvxPlugin
-    {
-        public void Load()
-        {
-            Mvx.IoCProvider.RegisterType<IStorageService, ExStorageService>();
-            Mvx.IoCProvider.RegisterType<IConfigurationManager, ConfigurationManager>();
-        }
-    }
-
     /// <summary>
     /// Class that provides custom file serializer settings that should be used when storing a file.
     /// </summary>
