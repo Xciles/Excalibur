@@ -9,8 +9,10 @@ using Windows.Storage.Streams;
 
 namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
 {
+    /// <inheritdoc />
     public class ProtectedStore : IProtectedStore
     {
+        /// <inheritdoc />
         public IEnumerable<string> GetStringsForIdentifier(string identifier)
         {
             using (var store = IsolatedStorageFile.GetUserStoreForApplication())
@@ -39,6 +41,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
             }
         }
 
+        /// <inheritdoc />
         public void Save(string stringToSave, string identifier)
         {
             var provider = new DataProtectionProvider(identifier);
@@ -57,6 +60,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
             }
         }
 
+        /// <inheritdoc />
         public void Delete(string identifier)
         {
             var path = GetStringsPath(identifier);

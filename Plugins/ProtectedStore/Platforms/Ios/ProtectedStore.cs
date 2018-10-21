@@ -6,8 +6,10 @@ using Security;
 
 namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
 {
+    /// <inheritdoc />
     public class ProtectedStore : IProtectedStore
     {
+        /// <inheritdoc />
         public IEnumerable<string> GetStringsForIdentifier(string identifier)
         {
             var query = new SecRecord(SecKind.GenericPassword)
@@ -20,6 +22,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
             return records != null ? records.Select(GetStringFromRecord).ToList() : new List<string>();
         }
 
+        /// <inheritdoc />
         public void Save(string stringToSave, string identifier)
         {
             //
@@ -50,6 +53,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
             }
         }
 
+        /// <inheritdoc />
         public void Delete(string identifier)
         {
             var query = new SecRecord(SecKind.GenericPassword)

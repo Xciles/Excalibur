@@ -7,6 +7,7 @@ using Javax.Crypto;
 
 namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
 {
+    /// <inheritdoc />
     public class ProtectedStore : IProtectedStore
     {
         private readonly Context _context;
@@ -17,6 +18,12 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
         private static char[] _password;
         private static string _fileName = "Excalibur.Store";
 
+        /// <summary>
+        /// In Android we have to call this method first.
+        /// This will make sure that the store will be initialized using a user provided key as password.
+        /// </summary>
+        /// <param name="password">The password for the KeyStore</param>
+        /// <param name="fileName">A filename for the KeyStore</param>
         public static void Init(string password, string fileName = "Excalibur.Store")
         {
             _password = password.ToCharArray();
@@ -50,6 +57,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             }
         }
 
+        /// <inheritdoc />
         public IEnumerable<string> GetStringsForIdentifier(string identifier)
         {
             var returnList = new List<string>();
@@ -73,6 +81,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             return returnList;
         }
 
+        /// <inheritdoc />
         public void Delete(string identifier)
         {
             var alias = MakeAlias(identifier);
@@ -81,6 +90,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             Save();
         }
 
+        /// <inheritdoc />
         public void Save(string stringToSave, string identifier)
         {
             var alias = MakeAlias(identifier);
