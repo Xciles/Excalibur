@@ -5,8 +5,8 @@ using MvvmCross;
 namespace Excalibur.Providers.FileStorage
 {
     /// <summary>
-    /// This is used to provide the FileStorage your configuration.
-    /// Please call Configure() in the App.RegisterDependencies() to make sure everything is configured properly.
+    /// This is used to provide FileStorage with your configuration.
+    /// Please call Configure() in the App.RegisterDependencies() to make sure everything is configured correctly.
     /// </summary>
     public class FileStorageConfiguration : IProviderConfiguration<FileStorageConfig>
     {

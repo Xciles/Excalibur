@@ -4,7 +4,7 @@ namespace Excalibur.Providers.FileStorage
 {
     /// <summary>
     /// A database provider that provides a general data storage interface.
-    /// This provider will use 
+    /// Provider using this interface should use file storage as data store.
     /// This class will use TId as a type identifier for objects
     /// </summary>
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
