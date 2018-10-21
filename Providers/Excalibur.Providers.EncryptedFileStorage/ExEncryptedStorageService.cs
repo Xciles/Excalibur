@@ -195,7 +195,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
         byte[] CreateDerivedKey(string password, byte[] salt, int keyLengthInBytes = 32, int iterations = 1000);
 
         /// <summary>    
-        /// Encrypts given data using AES as default
+        /// Encrypts given data using AesCbcPkcs7 as default
         /// </summary>    
         /// <param name="data">Data to encrypt</param>    
         /// <param name="password">Password</param>    
@@ -205,7 +205,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
         byte[] EncryptAes(string data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
 
         /// <summary>    
-        /// Encrypts given data using AES as default
+        /// Encrypts given data using AesCbcPkcs7 as default
         /// </summary>    
         /// <param name="data">Data to encrypt</param>    
         /// <param name="password">Password</param>    
@@ -215,7 +215,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
         byte[] EncryptAesFromBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
 
         /// <summary>    
-        /// Decrypts given bytes using AES as default
+        /// Decrypts given bytes using AesCbcPkcs7 as default
         /// </summary>    
         /// <param name="data">data to decrypt</param>    
         /// <param name="password">Password used for encryption</param>    
@@ -225,7 +225,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
         string DecryptAes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
 
         /// <summary>    
-        /// Decrypts given bytes using AES as default
+        /// Decrypts given bytes using AesCbcPkcs7 as default
         /// </summary>    
         /// <param name="data">data to decrypt</param>    
         /// <param name="password">Password used for encryption</param>    
@@ -239,10 +239,10 @@ namespace Excalibur.Providers.EncryptedFileStorage
     public class ExCrypto : IExCrypto
     {
         /// <inheritdoc />
-        public byte[] CreateSalt(int lengthInBytes) => WinRTCrypto.CryptographicBuffer.GenerateRandom(lengthInBytes);
+        public byte[] CreateSalt(int lengthInBytes = 15) => WinRTCrypto.CryptographicBuffer.GenerateRandom(lengthInBytes);
 
         /// <inheritdoc />
-        public byte[] CreateDerivedKey(string password, byte[] salt, int keyLengthInBytes = 32, int iterations = 1000)
+        public byte[] CreateDerivedKey(string password, byte[] salt, int keyLengthInBytes = 32, int iterations = 5000)
         {
             return NetFxCrypto.DeriveBytes.GetBytes(password, salt, iterations, keyLengthInBytes);
         }
@@ -260,8 +260,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
 
             var aes = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
             var symmetricKey = aes.CreateSymmetricKey(key);
-            var bytes = WinRTCrypto.CryptographicEngine.Encrypt(symmetricKey, data);
-            return bytes;
+            return WinRTCrypto.CryptographicEngine.Encrypt(symmetricKey, data);
         }
 
         /// <inheritdoc />
