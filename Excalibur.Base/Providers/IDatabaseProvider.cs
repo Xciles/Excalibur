@@ -12,7 +12,7 @@ namespace Excalibur.Base.Providers
     /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
     ///                         etc. </typeparam>
     /// <typeparam name="T">The type of the object that wants to be stored</typeparam>
-    public interface IDatabaseProvider<TId, T>
+    public interface IDatabaseProvider<in TId, T>
         where T : ProviderDomain<TId>
     {
         /// <summary>
