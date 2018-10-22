@@ -1,6 +1,6 @@
 ﻿using PCLCrypto;
 
-namespace Excalibur.Providers.EncryptedFileStorage
+namespace Excalibur.Providers.Encryption
 {
     /// <summary>    
     /// Cryptographic helper inspired by

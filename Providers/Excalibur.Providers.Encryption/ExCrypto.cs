@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using PCLCrypto;
 
-namespace Excalibur.Providers.EncryptedFileStorage
+namespace Excalibur.Providers.Encryption
 {
     /// <inheritdoc />
     public class ExCrypto : IExCrypto

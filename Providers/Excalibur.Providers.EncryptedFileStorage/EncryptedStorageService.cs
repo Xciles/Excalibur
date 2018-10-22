@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Excalibur.Providers.Encryption;
 using Excalibur.Providers.FileStorage;
 using MvvmCross.Plugin.File;
 
