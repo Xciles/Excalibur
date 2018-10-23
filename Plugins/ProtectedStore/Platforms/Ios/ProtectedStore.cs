@@ -10,6 +10,19 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
     public class ProtectedStore : IProtectedStore
     {
         /// <inheritdoc />
+        public string GetStringForIdentifier(string identifier)
+        {
+            var query = new SecRecord(SecKind.GenericPassword)
+            {
+                Service = identifier
+            };
+
+            var record = SecKeyChain.QueryAsRecord(query, out _);
+
+            return GetStringFromRecord(record);
+        }
+
+        /// <inheritdoc />
         public IEnumerable<string> GetStringsForIdentifier(string identifier)
         {
             var query = new SecRecord(SecKind.GenericPassword)

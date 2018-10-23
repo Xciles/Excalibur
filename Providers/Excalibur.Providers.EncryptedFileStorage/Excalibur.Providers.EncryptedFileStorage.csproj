@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
+    <ProjectReference Include="..\..\Plugins\ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj" />
     <ProjectReference Include="..\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
     <ProjectReference Include="..\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj" />
   </ItemGroup>

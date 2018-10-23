@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Excalibur.Base.Storage;
-using Excalibur.Cross.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Newtonsoft.Json;

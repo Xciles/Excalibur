@@ -13,6 +13,37 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
     public class ProtectedStore : IProtectedStore
     {
         /// <inheritdoc />
+        public string GetStringForIdentifier(string identifier)
+        {
+            using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                // Create a DataProtectionProvider object.
+                var provider = new DataProtectionProvider();
+
+                foreach (var path in store.GetFileNames(GetStringsPath(identifier)))
+                {
+                    using (var stream = new BinaryReader(new IsolatedStorageFileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read, store)))
+                    {
+                        var length = stream.ReadInt32();
+                        var dataAsBytes = stream.ReadBytes(length);
+
+                        // Decrypt the protected message specified on input.
+                        var buffUnprotected = provider.UnprotectAsync(dataAsBytes.AsBuffer()).GetResults();
+
+                        // Execution of the SampleUnprotectData method resumes here
+                        // after the awaited task (Provider.UnprotectAsync) completes
+                        // Convert the unprotected message from an IBuffer object to a string.
+                        var strClearText = CryptographicBuffer.ConvertBinaryToString(BinaryStringEncoding.Utf8, buffUnprotected);
+
+                        return strClearText;
+                    }
+                }
+
+                return "";
+            }
+        }
+
+        /// <inheritdoc />
         public IEnumerable<string> GetStringsForIdentifier(string identifier)
         {
             using (var store = IsolatedStorageFile.GetUserStoreForApplication())

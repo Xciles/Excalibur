@@ -9,11 +9,11 @@ namespace Excalibur.Providers.Encryption
     public interface IExCrypto
     {
         /// <summary>    
-        /// Creates Salt with given length in bytes.    
+        /// Creates a random buffer with given length in bytes that contains data.    
         /// </summary>    
         /// <param name="lengthInBytes">No. of bytes</param>    
         /// <returns></returns>    
-        byte[] CreateSalt(int lengthInBytes);
+        byte[] GenerateRandom(int lengthInBytes);
 
         /// <summary>    
         /// Creates a derived key from a combination of password and salt with a certain length and number of iterations
@@ -33,7 +33,7 @@ namespace Excalibur.Providers.Encryption
         /// <param name="salt">Salt</param>
         /// <param name="algorithm">The algorithm that should be used</param>
         /// <returns>Encrypted bytes</returns>    
-        byte[] EncryptAes(string data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
+        byte[] Encrypt(string data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
 
         /// <summary>    
         /// Encrypts given bytes data using AesCbcPkcs7 as default
@@ -43,7 +43,7 @@ namespace Excalibur.Providers.Encryption
         /// <param name="salt">Salt</param>    
         /// <param name="algorithm">The algorithm that should be used</param>
         /// <returns>Encrypted bytes</returns>    
-        byte[] EncryptAesFromBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
+        byte[] EncryptFromBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
 
         /// <summary>    
         /// Decrypts given bytes to string using AesCbcPkcs7 as default
@@ -53,7 +53,7 @@ namespace Excalibur.Providers.Encryption
         /// <param name="salt">Salt used for encryption</param>    
         /// <param name="algorithm">The algorithm that should be used</param>
         /// <returns>Decrypted data as string</returns>    
-        string DecryptAes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
+        string Decrypt(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
 
         /// <summary>    
         /// Decrypts given bytes to bytes using AesCbcPkcs7 as default
@@ -63,6 +63,40 @@ namespace Excalibur.Providers.Encryption
         /// <param name="salt">Salt used for encryption</param>    
         /// <param name="algorithm">The algorithm that should be used</param>
         /// <returns>Decrypted data as byte[]</returns>    
-        byte[] DecryptAesToBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
+        byte[] DecryptToBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7);
+
+        /// <summary>
+        /// Hash a given string with an algorithm
+        /// </summary>
+        /// <param name="data">The data to hash</param>
+        /// <param name="algorithm">The algorithm to use</param>
+        /// <returns>Hashed data as byte[]</returns>
+        byte[] Hash(string data, HashAlgorithm algorithm = HashAlgorithm.Sha256);
+
+        /// <summary>
+        /// Hash a given byte[] with an algorithm
+        /// </summary>
+        /// <param name="data">The data to hash</param>
+        /// <param name="algorithm">The algorithm to use</param>
+        /// <returns>Hashed data as byte[]</returns>
+        byte[] Hash(byte[] data, HashAlgorithm algorithm = HashAlgorithm.Sha256);
+
+        /// <summary>
+        /// Hash a given string with an algorithm
+        /// </summary>
+        /// <param name="data">The data to hash</param>
+        /// <param name="keyMaterial"></param>
+        /// <param name="algorithm">The algorithm to use</param>
+        /// <returns>Hashed data as byte[]</returns>
+        byte[] HashMac(string data, byte[] keyMaterial, MacAlgorithm algorithm = MacAlgorithm.HmacSha256);
+
+        /// <summary>
+        /// Hash a given byte[] with an algorithm
+        /// </summary>
+        /// <param name="data">The data to hash</param>
+        /// <param name="keyMaterial"></param>
+        /// <param name="algorithm">The algorithm to use</param>
+        /// <returns>Hashed data as byte[]</returns>
+        byte[] HashMac(byte[] data, byte[] keyMaterial, MacAlgorithm algorithm = MacAlgorithm.HmacSha256);
     }
 }

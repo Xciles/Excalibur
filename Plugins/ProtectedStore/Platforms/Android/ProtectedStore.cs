@@ -58,6 +58,27 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
         }
 
         /// <inheritdoc />
+        public string GetStringForIdentifier(string identifier)
+        {
+            var postfix = MakeAlias(identifier);
+
+            var aliases = _keyStore.Aliases();
+            while (aliases.HasMoreElements)
+            {
+                var alias = aliases.NextElement().ToString();
+                if (!alias.EndsWith(postfix)) continue;
+
+                if (_keyStore.GetEntry(alias, _passwordProtection) is KeyStore.SecretKeyEntry entry)
+                {
+                    var bytes = entry.SecretKey.GetEncoded();
+                    return Encoding.UTF8.GetString(bytes);
+                }
+            }
+
+            return "";
+        }
+
+        /// <inheritdoc />
         public IEnumerable<string> GetStringsForIdentifier(string identifier)
         {
             var returnList = new List<string>();
@@ -73,8 +94,8 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
                 if (_keyStore.GetEntry(alias, _passwordProtection) is KeyStore.SecretKeyEntry entry)
                 {
                     var bytes = entry.SecretKey.GetEncoded();
-                    var password = Encoding.UTF8.GetString(bytes);
-                    returnList.Add(password);
+                    var secret = Encoding.UTF8.GetString(bytes);
+                    returnList.Add(secret);
                 }
             }
 

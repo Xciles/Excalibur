@@ -20,7 +20,7 @@ namespace Excalibur.Providers.FileStorage
         }
 
         /// <inheritdoc />
-        public async Task<TConfigObject> LoadAsync<TConfigObject>() where TConfigObject : new()
+        public virtual async Task<TConfigObject> LoadAsync<TConfigObject>() where TConfigObject : new()
         {
             var result = new TConfigObject();
 
@@ -34,7 +34,7 @@ namespace Excalibur.Providers.FileStorage
         }
 
         /// <inheritdoc />
-        public async Task<bool> SaveAsync<TConfigObject>(TConfigObject configObject) where TConfigObject : new()
+        public virtual async Task<bool> SaveAsync<TConfigObject>(TConfigObject configObject) where TConfigObject : new()
         {
             var configAsString = JsonConvert.SerializeObject(configObject);
             var configName = typeof(TConfigObject).Name;

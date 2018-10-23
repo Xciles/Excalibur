@@ -11,11 +11,19 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore
     public interface IProtectedStore
     {
         /// <summary>
+        /// Returns stored information (as string) for a given identifier
+        /// </summary>
+        /// <param name="identifier">Identifier to retrieve the stored information for</param>
+        /// <returns>Stored information for the identifier</returns>
+        string GetStringForIdentifier(string identifier);
+
+        /// <summary>
         /// Returns all stored information (as string) for a given identifier
         /// </summary>
         /// <param name="identifier">Identifier to retrieve the stored information for</param>
         /// <returns>Stored information for the identifier</returns>
         IEnumerable<string> GetStringsForIdentifier(string identifier);
+
         /// <summary>
         /// Saves a certain combination into secure storage.
         /// Identifier acts as the key.
@@ -23,6 +31,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore
         /// <param name="stringToSave">The string to save</param>
         /// <param name="identifier">The Identifier as key</param>
         void Save(string stringToSave, string identifier);
+
         /// <summary>
         /// Deletes all information for a given identifier
         /// </summary>
