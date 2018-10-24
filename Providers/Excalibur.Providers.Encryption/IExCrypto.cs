@@ -23,7 +23,7 @@ namespace Excalibur.Providers.Encryption
         /// <param name="keyLengthInBytes">The key length</param>    
         /// <param name="iterations">Number of iterations</param>    
         /// <returns></returns>    
-        byte[] CreateDerivedKey(string password, byte[] salt, int keyLengthInBytes = 32, int iterations = 1000);
+        byte[] CreateDerivedKey(string password, byte[] salt, int keyLengthInBytes = 32, int iterations = 5000);
 
         /// <summary>    
         /// Encrypts given string data using AesCbcPkcs7 as default

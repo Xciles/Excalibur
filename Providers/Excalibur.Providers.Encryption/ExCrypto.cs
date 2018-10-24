@@ -26,8 +26,8 @@ namespace Excalibur.Providers.Encryption
         {
             byte[] key = CreateDerivedKey(password, salt);
 
-            var aes = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
-            var symmetricKey = aes.CreateSymmetricKey(key);
+            var algorithmProvider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
+            var symmetricKey = algorithmProvider.CreateSymmetricKey(key);
             return WinRTCrypto.CryptographicEngine.Encrypt(symmetricKey, data);
         }
 
@@ -43,8 +43,8 @@ namespace Excalibur.Providers.Encryption
         {
             byte[] key = CreateDerivedKey(password, salt);
 
-            var aes = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
-            var symmetricKey = aes.CreateSymmetricKey(key);
+            var algorithmProvider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
+            var symmetricKey = algorithmProvider.CreateSymmetricKey(key);
             return WinRTCrypto.CryptographicEngine.Decrypt(symmetricKey, data);
         }
 
@@ -57,8 +57,8 @@ namespace Excalibur.Providers.Encryption
         /// <inheritdoc />
         public byte[] Hash(byte[] data, HashAlgorithm algorithm = HashAlgorithm.Sha256)
         {
-            var hasher = WinRTCrypto.HashAlgorithmProvider.OpenAlgorithm(algorithm);
-            return hasher.HashData(data);
+            var algorithmProvider = WinRTCrypto.HashAlgorithmProvider.OpenAlgorithm(algorithm);
+            return algorithmProvider.HashData(data);
         }
 
         /// <inheritdoc />
