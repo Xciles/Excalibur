@@ -12,9 +12,9 @@ namespace Excalibur.Providers.EncryptedFileStorage
     {
         public void Load()
         {
-            Mvx.IoCProvider.RegisterType<IConfigurationManager, ConfigurationManager>();
-            Mvx.IoCProvider.RegisterType<IStorageService, EncryptedStorageService>();
             Mvx.IoCProvider.RegisterType<IEncryptedProviderConfig, EncryptedFileStorageConfig>();
+            Mvx.IoCProvider.RegisterType<IStorageService, EncryptedStorageService>();
+            Mvx.IoCProvider.RegisterType<IConfigurationManager, ConfigurationManager>();
         }
     }
 }
