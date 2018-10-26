@@ -1,0 +1,106 @@
+﻿<views:BaseView x:Class="Excalibur.Tests.Encrypted.Cross.Uwp.Views.MenuView"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:menu="using:Excalibur.Tests.Encrypted.Cross.Core.ViewModels.Menu"
+                xmlns:views="using:Excalibur.Tests.Encrypted.Cross.Uwp.Views"
+                xmlns:controls="using:Excalibur.Tests.Encrypted.Cross.Uwp.Controls"
+                mc:Ignorable="d">
+
+
+    <Page.Resources>
+        <DataTemplate x:Key="UserMenuItemTemplate"
+                      x:DataType="menu:MenuItem">
+            <Grid Height="62">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                       Source="{Binding CurrentUserObservable.Image}"
+                       Margin="5" />
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center">
+                    <TextBlock Text="{Binding CurrentUserObservable.Username}"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               TextWrapping="NoWrap" />
+                    <TextBlock Text="{Binding CurrentUserObservable.Name}"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               FontSize="12"
+                               Foreground="Gray"
+                               TextWrapping="NoWrap" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="NavMenuItemTemplate"
+                      x:DataType="menu:MenuItem">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="158" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="Text"
+                           Grid.Column="1"
+                           Text="{Binding Title}"
+                           FontWeight="SemiBold"
+                           FontSize="14"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Stretch"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           TextWrapping="NoWrap" />
+                <Image Grid.Column="2"
+                       MaxHeight="16"
+                       VerticalAlignment="Center"
+                       Source="../Assets/MenuButton.png" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="NavMenuHeaderItemTemplate"
+                      x:DataType="menu:MenuItem">
+            <Grid VerticalAlignment="Stretch">
+                <TextBlock x:Name="Header"
+                           Text="{Binding Title}"
+                           FontWeight="SemiBold"
+                           FontSize="13"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           TextWrapping="NoWrap" />
+            </Grid>
+        </DataTemplate>
+
+        <controls:MenuDataTemplateSelector x:Key="MenuDataTemplateSelector"
+                                           DefaultTemplate="{StaticResource NavMenuItemTemplate}"
+                                           UserItemTemplate="{StaticResource UserMenuItemTemplate}"
+                                           HeaderItemTemplate="{StaticResource NavMenuHeaderItemTemplate}" />
+
+        <controls:MenuContainerStyleSelector x:Key="StyleContainerSelector"
+                                             DefaultStyle="{StaticResource NavMenuItemContainerStyle}"
+                                             UserItemStyle="{StaticResource NavMenuItemContainerStyle}"
+                                             HeaderItemStyle="{StaticResource NavHeaderMenuItemContainerStyle}" />
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- A custom ListView to display the items in the pane.  The automation Name is set in the ContainerContentChanging event. -->
+        <controls:NavMenuListView x:Name="NavMenuList"
+                                  Grid.Row="1"
+                                  TabIndex="3"
+                                  ContainerContentChanging="NavMenuItemContainerContentChanging"
+                                  ItemContainerStyleSelector="{StaticResource StyleContainerSelector}"
+                                  ItemTemplateSelector="{StaticResource MenuDataTemplateSelector}"
+                                  ItemsSource="{Binding MenuItems}"
+                                  Background="{ThemeResource White}"
+                                  ItemInvoked="NavMenuList_ItemInvoked" />
+    </Grid>
+
+</views:BaseView>
+

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Excalibur.Avalon\Excalibur.Avalon.csproj" />
+    <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
+    <ProjectReference Include="..\..\..\Plugins\ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj" />
+    <ProjectReference Include="..\..\..\Plugins\RootChecker\Excalibur.MvvmCross.Plugin.RootChecker.csproj" />
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiteDB" Version="4.1.4" />
+  </ItemGroup>
+
+</Project>
