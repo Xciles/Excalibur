@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Excalibur.Base.Storage;
+using Excalibur.Providers.FileStorage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Newtonsoft.Json;
@@ -42,6 +43,8 @@ namespace Excalibur.Shared.Tests.Configuration
 
             _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                                 .Returns(() => Task.FromResult(JsonConvert.SerializeObject(config)));
+            _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
+                                .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
@@ -51,11 +54,15 @@ namespace Excalibur.Shared.Tests.Configuration
             Assert.AreEqual(config.Name, loadedConfig.Name);
 
             _mockedStorageService.Verify(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
         }
 
         [TestMethod]
         public async Task LoadNullConfigurationAsync()
         {
+            _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(() => true);
+
             var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
 
@@ -64,6 +71,7 @@ namespace Excalibur.Shared.Tests.Configuration
             Assert.IsTrue(string.IsNullOrEmpty(loadedConfig.Name));
 
             _mockedStorageService.Verify(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
         }
 
         [TestMethod]
@@ -72,6 +80,8 @@ namespace Excalibur.Shared.Tests.Configuration
         {
             _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("{[[]}"));
+            _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
@@ -82,6 +92,8 @@ namespace Excalibur.Shared.Tests.Configuration
         {
             _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("{}"));
+            _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
             var loadedConfig = await manager.LoadAsync<ConfigTest>();
@@ -91,6 +103,7 @@ namespace Excalibur.Shared.Tests.Configuration
             Assert.IsTrue(string.IsNullOrEmpty(loadedConfig.Name));
 
             _mockedStorageService.Verify(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
         }
 
         [TestMethod]
