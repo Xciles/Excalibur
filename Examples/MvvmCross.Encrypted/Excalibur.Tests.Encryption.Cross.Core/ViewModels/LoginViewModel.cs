@@ -12,6 +12,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels
         private string _email;
         private string _password;
         private bool _isLoading;
+        private bool _showError;
 
         public LoginViewModel(ILoginService loginService)
         {
@@ -40,6 +41,12 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels
             set { SetProperty(ref _isLoading, value); }
         }
 
+        public bool ShowError
+        {
+            get => _showError;
+            set => SetProperty(ref _showError, value);
+        }
+
         public IMvxAsyncCommand LoginCommand
         {
             get
@@ -49,15 +56,14 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels
                     IsLoading = true;
                     if (await _loginService.LoginAsync(Email, Password))
                     {
-                        // Todo init sync things
-                        Mvx.IoCProvider.Resolve<ISyncService>().FullSyncAsync().ConfigureAwait(false);
-
+                        ShowError = false;
                         await NavigationService.Navigate<RegisterPinViewModel>();
                     }
                     else
                     {
                         // Todo alert dialog
                         IsLoading = false;
+                        ShowError = true;
                     }
                 }, () => !IsLoading);
             }

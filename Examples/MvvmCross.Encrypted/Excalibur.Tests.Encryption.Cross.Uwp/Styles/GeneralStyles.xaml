@@ -28,6 +28,16 @@
             <SolidColorBrush x:Key="Red">#931405</SolidColorBrush>
             <SolidColorBrush x:Key="DarkRed">#490901</SolidColorBrush>
             <SolidColorBrush x:Key="LightRed">#a82d1e</SolidColorBrush>
+
+
+            <LinearGradientBrush x:Key="TitleGradient"
+                                 StartPoint="0,0.5"
+                                 EndPoint="1,0.5">
+                <GradientStop Color="#931405"
+                              Offset="0.0" />
+                <GradientStop Color="#490901"
+                              Offset="1.0" />
+            </LinearGradientBrush>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 

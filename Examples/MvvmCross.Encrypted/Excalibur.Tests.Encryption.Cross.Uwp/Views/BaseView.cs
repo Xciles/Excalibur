@@ -1,7 +1,10 @@
-﻿using Windows.UI.Core;
+﻿using Windows.System;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using Excalibur.Tests.Encrypted.Cross.Uwp.Extensions;
 using MvvmCross.Platforms.Uap.Views;
 
 namespace Excalibur.Tests.Encrypted.Cross.Uwp.Views
@@ -52,6 +55,24 @@ namespace Excalibur.Tests.Encrypted.Cross.Uwp.Views
                 // Remove the UI from the title bar if in-app back stack is empty.
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
+        }
+    }
+
+    public abstract class BasePinView : BaseView
+    {
+        protected void Password_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            //Ignore input if it is not a number
+            if (!e.Key.IsNumber() && e.Key != VirtualKey.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
+        protected void Password_OnPasswordChanging(PasswordBox sender, PasswordBoxPasswordChangingEventArgs args)
+        {
+            //Remove all non numbers from password 
+            sender.Password = sender.Password.SanitizePin();
         }
     }
 }

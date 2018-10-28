@@ -1,4 +1,4 @@
-﻿<baseViews:BaseView x:Class="Excalibur.Tests.Encrypted.Cross.Uwp.Views.LoginView"
+﻿<baseViews:BasePinView x:Class="Excalibur.Tests.Encrypted.Cross.Uwp.Views.PinViews.PinSuccessView"
                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,6 +6,7 @@
                        xmlns:baseViews="using:Excalibur.Tests.Encrypted.Cross.Uwp.Views"
                        mc:Ignorable="d"
                        KeyDown="OnEnterDown"
+                       Loaded="PinSuccessView_OnLoaded"
                        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -50,7 +51,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />
@@ -68,52 +68,23 @@
                            TextAlignment="Start" />
             </Viewbox>
 
-            <TextBox Text="{Binding Email, Mode=TwoWay}"
-                     Grid.Column="0"
-                     Grid.Row="1"
-                     Grid.ColumnSpan="2"
-                     MaxHeight="60"
-                     FontSize="34"
-                     PlaceholderText="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=EnterEmailMessage}" />
-
-            <PasswordBox Password="{Binding Password, Mode=TwoWay}"
-                         Grid.Column="0"
-                         Grid.Row="2"
-                         Grid.ColumnSpan="2"
-                         MaxHeight="60"
-                         FontSize="34"
-                         VerticalAlignment="Center"
-                         HorizontalContentAlignment="Center"
-                         PlaceholderText="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=EnterPasswordMessage}" />
-            <TextBlock Visibility="{Binding ShowError, Converter={StaticResource VisibilityConverter}}"
+            <TextBlock Grid.Row="1"
                        Grid.Column="0"
-                       Grid.Row="3"
                        Grid.ColumnSpan="2"
-                       VerticalAlignment="Top"
-                       TextAlignment="Center"
-                       Style="{StaticResource ExErrorStyle}"
-                       Text="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=WrongPasswordMessage}" />
+                       Style="{ThemeResource ExWelcomeStyle}"
+                       Text="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=Description}" />
 
-            <Button Command="{Binding LoginCommand}"
-                    Grid.Row="4"
+            <Button Command="{Binding ContinueCommand}"
+                    Grid.Row="2"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    Content="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=LoginButtonText}"
-                    IsEnabled="{Binding LoginCommand.CanExecute}"
+                    Content="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=ContinueButtonText}"
+                    IsEnabled="{Binding ContinueCommand.CanExecute}"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center"
-                    Padding="56 10 56 15"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Center"
+                    Padding="15 10 15 15"
                     Style="{ThemeResource ExPrimaryButtonStyle}" />
-            <TextBlock Grid.Row="4"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       Text="{Binding TextSource,Converter={StaticResource Language},ConverterParameter=ForgotPasswordMessage}"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       HorizontalAlignment="Center"
-                       HorizontalTextAlignment="Center"
-                       VerticalAlignment="Top"
-                       Foreground="{ThemeResource Grey}" />
         </Grid>
     </Grid>
-</baseViews:BaseView>
+</baseViews:BasePinView>

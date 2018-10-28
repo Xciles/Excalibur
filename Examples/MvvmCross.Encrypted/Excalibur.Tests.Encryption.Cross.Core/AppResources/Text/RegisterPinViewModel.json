@@ -1,0 +1,6 @@
+﻿{
+  "Title": "Choose your pin",
+  "EnterPinMessage": "Enter your pin",
+  "Description": "Choose a pin. It must be 5 numbers long.",
+  "ContinueButtonText": "Continue"
+}

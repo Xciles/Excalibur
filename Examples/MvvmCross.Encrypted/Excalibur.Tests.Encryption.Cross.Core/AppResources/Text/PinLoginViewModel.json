@@ -1,0 +1,7 @@
+﻿{
+  "Title": "Login to Excalibur Example",
+  "EnterPinMessage": "Enter your pin",
+  "ForgotPinMessage": "Forgot your pin?",
+  "LoginButtonText": "Login",
+  "WrongPinMessage": "Wrong pin, try again"
+}

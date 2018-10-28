@@ -1,0 +1,8 @@
+﻿{
+  "Title": "Confirm your pin",
+  "EnterPinMessage": "Repeat your pin",
+  "Description": "Please confirm your pin by entering it again.",
+  "ContinueButtonText": "Continue",
+  "ReturnButtonText": "Return",
+  "WrongPinMessage": "Pin does not match, try again"
+}

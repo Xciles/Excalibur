@@ -1,0 +1,8 @@
+﻿{
+  "Title": "Login to Excalibur Example",
+  "EnterEmailMessage": "Email",
+  "EnterPasswordMessage": "Password",
+  "ForgotPasswordMessage": "Forgot your Password?",
+  "LoginButtonText": "Login",
+  "WrongPasswordMessage": "Wrong Password, try again"
+}
