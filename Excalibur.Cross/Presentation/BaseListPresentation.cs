@@ -9,6 +9,7 @@ using Excalibur.Cross.Collections;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Utils;
+using MvvmCross.Base;
 using PubSub.Extension;
 
 namespace Excalibur.Cross.Presentation
@@ -22,7 +23,7 @@ namespace Excalibur.Cross.Presentation
             IObjectMapper<TDomain, TObservable> domainMapper, 
             IObjectMapper<TObservable, TObservable> observableSelectedMapper, 
             IListBusiness<TId, TDomain> listBusiness, 
-            IExMainThreadDispatcher dispatcher) 
+            IMvxMainThreadAsyncDispatcher dispatcher) 
             : base(domainMapper, domainMapper, observableSelectedMapper, listBusiness, dispatcher)
         {
         }
@@ -51,7 +52,7 @@ namespace Excalibur.Cross.Presentation
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         protected IListBusiness<TId, TDomain> ListBusiness { get; set; }
-        protected IExMainThreadDispatcher Dispatcher { get; set; }
+        protected IMvxMainThreadAsyncDispatcher Dispatcher { get; set; }
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
         /// <summary>
         /// Object mapper that can be used for mapping from TDomain to a TObservable or vice versa.
@@ -73,7 +74,7 @@ namespace Excalibur.Cross.Presentation
             IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper,
             IObjectMapper<TObservable, TSelectedObservable> observableSelectedMapper,
             IListBusiness<TId, TDomain> listBusiness,
-            IExMainThreadDispatcher dispatcher) 
+            IMvxMainThreadAsyncDispatcher dispatcher) 
             : base(domainSelectedMapper)
         {
             // retrieve mappers
@@ -135,7 +136,7 @@ namespace Excalibur.Cross.Presentation
                 if (!objects.Select(x => x.Id).Contains(observable.Id))
                 {
                     TObservable tmpObservable = observable;
-                    Dispatcher.InvokeOnMainThread(() =>
+                    Dispatcher.ExecuteOnMainThreadAsync(() =>
                     {
                         Observables.Remove(tmpObservable);
                         SignalCde();
@@ -154,7 +155,7 @@ namespace Excalibur.Cross.Presentation
                 else
                 {
                     var observable = DomainObservableMapper.Map(domainObject);
-                    Dispatcher.InvokeOnMainThread(() =>
+                    Dispatcher.ExecuteOnMainThreadAsync(() =>
                     {
                         Observables.Add(observable);
                         SignalCde();

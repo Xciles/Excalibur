@@ -2,6 +2,7 @@ using Excalibur.Base.Providers;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable.Typed;
+using MvvmCross.Base;
 
 // ReSharper disable once CheckNamespace
 namespace Excalibur.Cross.Presentation.Typed
@@ -14,8 +15,8 @@ namespace Excalibur.Cross.Presentation.Typed
         public BaseListPresentationOfInt(
             IObjectMapper<TDomain, TObservable> domainMapper, 
             IObjectMapper<TObservable, TObservable> observableSelectedMapper, 
-            IListBusiness<int, TDomain> listBusiness, 
-            IExMainThreadDispatcher dispatcher) 
+            IListBusiness<int, TDomain> listBusiness,
+            IMvxMainThreadAsyncDispatcher dispatcher) 
             : base(domainMapper, domainMapper, observableSelectedMapper, listBusiness, dispatcher)
         {
         }
@@ -31,8 +32,8 @@ namespace Excalibur.Cross.Presentation.Typed
             IObjectMapper<TDomain, TObservable> domainObservableMapper, 
             IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper, 
             IObjectMapper<TObservable, TSelectedObservable> observableSelectedMapper, 
-            IListBusiness<int, TDomain> listBusiness, 
-            IExMainThreadDispatcher dispatcher) 
+            IListBusiness<int, TDomain> listBusiness,
+            IMvxMainThreadAsyncDispatcher dispatcher) 
             : base(domainObservableMapper, domainSelectedMapper, observableSelectedMapper, listBusiness, dispatcher)
         {
         }

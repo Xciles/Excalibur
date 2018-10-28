@@ -53,8 +53,6 @@ namespace Excalibur.Cross
         /// </summary>
         private void RegisterExcaliburInternal()
         {
-            Mvx.IoCProvider.RegisterType<IExMainThreadDispatcher, ExMainThreadDispatcher>();
-
             // Register business based on domain entities
             // Register Services based on domain entities
             // Register presentation based on Domain / Observable AS singleton
