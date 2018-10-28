@@ -20,5 +20,11 @@ namespace Excalibur.Base.Configuration
         /// <param name="configObject">The object that contains the configuration</param>
         /// <returns>An await able Task with the success as result</returns>
         Task<bool> SaveAsync<TConfigObject>(TConfigObject configObject) where TConfigObject : new();
+        /// <summary>
+        /// Returns if the configuration manager is currently managing some kind of configuration for config object
+        /// </summary>
+        /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
+        /// <returns>An await able Task with the success as result</returns>
+        bool HasConfigurationFor<TConfigObject>() where TConfigObject : new();
     }
 }

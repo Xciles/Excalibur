@@ -211,6 +211,14 @@
       <Project>{3b84d020-558e-4b8c-867f-f74aca34c25e}</Project>
       <Name>Excalibur.MvvmCross.Plugin.RootChecker</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.EncryptedFileStorage\Excalibur.Providers.EncryptedFileStorage.csproj">
+      <Project>{7a60b781-e323-42f0-830b-d130ecda2f72}</Project>
+      <Name>Excalibur.Providers.EncryptedFileStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj">
+      <Project>{d04e5f56-4b9c-4a74-94fd-35ad597a0b0f}</Project>
+      <Name>Excalibur.Providers.Encryption</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj">
       <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
       <Name>Excalibur.Providers.FileStorage</Name>

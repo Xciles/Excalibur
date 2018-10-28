@@ -26,7 +26,8 @@ namespace Excalibur.Tests.Encrypted.Cross.Core
             // https://github.com/MvvmCross/MvvmCross/blob/bdaa09299714d94cf3f2c548a465d994c20d52f0/docs/_documentation/advanced/customizing-appstart.md
 
             // login things
-            if (_state.Pin?.Length == ExampleConstants.PinRequirements.Length) 
+            if (_state.HasConfiguration()) 
+            //if (_state.Pin?.Length == ExampleConstants.PinRequirements.Length) 
             {
                 await NavigationService.Navigate<PinLoginViewModel>();
             }

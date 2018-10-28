@@ -9,6 +9,8 @@
     <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
     <ProjectReference Include="..\..\..\Plugins\ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj" />
     <ProjectReference Include="..\..\..\Plugins\RootChecker\Excalibur.MvvmCross.Plugin.RootChecker.csproj" />
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.EncryptedFileStorage\Excalibur.Providers.EncryptedFileStorage.csproj" />
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj" />
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj" />
   </ItemGroup>

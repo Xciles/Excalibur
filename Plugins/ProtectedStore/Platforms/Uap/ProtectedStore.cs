@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.DataProtection;
 using Windows.Storage.Streams;
@@ -12,13 +13,15 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
     /// <inheritdoc />
     public class ProtectedStore : IProtectedStore
     {
+        private const string Descriptor = "LOCAL=user";
+
         /// <inheritdoc />
-        public string GetStringForIdentifier(string identifier)
+        public async Task<string> GetStringForIdentifier(string identifier)
         {
             using (var store = IsolatedStorageFile.GetUserStoreForApplication())
             {
                 // Create a DataProtectionProvider object.
-                var provider = new DataProtectionProvider();
+                var provider = new DataProtectionProvider(Descriptor);
 
                 foreach (var path in store.GetFileNames(GetStringsPath(identifier)))
                 {
@@ -28,7 +31,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
                         var dataAsBytes = stream.ReadBytes(length);
 
                         // Decrypt the protected message specified on input.
-                        var buffUnprotected = provider.UnprotectAsync(dataAsBytes.AsBuffer()).GetResults();
+                        var buffUnprotected = await provider.UnprotectAsync(dataAsBytes.AsBuffer());
 
                         // Execution of the SampleUnprotectData method resumes here
                         // after the awaited task (Provider.UnprotectAsync) completes
@@ -44,12 +47,13 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
         }
 
         /// <inheritdoc />
-        public IEnumerable<string> GetStringsForIdentifier(string identifier)
+        public async Task<IEnumerable<string>> GetStringsForIdentifier(string identifier)
         {
             using (var store = IsolatedStorageFile.GetUserStoreForApplication())
             {
                 // Create a DataProtectionProvider object.
-                var provider = new DataProtectionProvider();
+                var provider = new DataProtectionProvider(Descriptor);
+                var returnList = new List<string>();
 
                 foreach (var path in store.GetFileNames(GetStringsPath(identifier)))
                 {
@@ -59,25 +63,25 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
                         var dataAsBytes = stream.ReadBytes(length);
 
                         // Decrypt the protected message specified on input.
-                        var buffUnprotected = provider.UnprotectAsync(dataAsBytes.AsBuffer()).GetResults();
+                        var buffUnprotected = await provider.UnprotectAsync(dataAsBytes.AsBuffer());
 
                         // Execution of the SampleUnprotectData method resumes here
                         // after the awaited task (Provider.UnprotectAsync) completes
                         // Convert the unprotected message from an IBuffer object to a string.
-                        var strClearText = CryptographicBuffer.ConvertBinaryToString(BinaryStringEncoding.Utf8, buffUnprotected);
-
-                        yield return strClearText;
+                        returnList.Add(CryptographicBuffer.ConvertBinaryToString(BinaryStringEncoding.Utf8, buffUnprotected));
                     }
                 }
+
+                return returnList;
             }
         }
 
         /// <inheritdoc />
-        public void Save(string stringToSave, string identifier)
+        public async Task Save(string identifier, string stringToSave)
         {
-            var provider = new DataProtectionProvider(identifier);
+            var provider = new DataProtectionProvider(Descriptor);
             var messageBuffer = CryptographicBuffer.ConvertStringToBinary(stringToSave, BinaryStringEncoding.Utf8);
-            var protectedBuffer = provider.ProtectAsync(messageBuffer).GetResults();
+            var protectedBuffer = await provider.ProtectAsync(messageBuffer);
 
             var path = GetStringsPath(identifier);
 
@@ -92,13 +96,15 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
         }
 
         /// <inheritdoc />
-        public void Delete(string identifier)
+        public Task Delete(string identifier)
         {
             var path = GetStringsPath(identifier);
             using (var storageFile = IsolatedStorageFile.GetUserStoreForApplication())
             {
                 storageFile.DeleteFile(path);
             }
+
+            return Task.CompletedTask;
         }
 
         private static string GetStringsPath(string identifier) => string.Format("Excalibur-{0}", identifier);

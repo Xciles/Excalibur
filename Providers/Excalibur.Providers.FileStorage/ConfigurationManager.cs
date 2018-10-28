@@ -23,11 +23,13 @@ namespace Excalibur.Providers.FileStorage
         public virtual async Task<TConfigObject> LoadAsync<TConfigObject>() where TConfigObject : new()
         {
             var result = new TConfigObject();
-
-            var configAsString = await _storageService.ReadAsTextAsync("", $"{typeof(TConfigObject).Name}.json").ConfigureAwait(false);
-            if (!String.IsNullOrWhiteSpace(configAsString))
+            if (HasConfigurationFor<TConfigObject>())
             {
-                result = JsonConvert.DeserializeObject<TConfigObject>(configAsString);
+                var configAsString = await _storageService.ReadAsTextAsync("", $"{typeof(TConfigObject).Name}.json").ConfigureAwait(false);
+                if (!String.IsNullOrWhiteSpace(configAsString))
+                {
+                    result = JsonConvert.DeserializeObject<TConfigObject>(configAsString);
+                }
             }
 
             return result;
@@ -47,6 +49,12 @@ namespace Excalibur.Providers.FileStorage
             await _storageService.StoreAsync("", $"{configName}.json", configAsString).ConfigureAwait(false);
 
             return true;
+        }
+
+        public bool HasConfigurationFor<TConfigObject>() where TConfigObject : new()
+        {
+            var configName = typeof(TConfigObject).Name;
+            return _storageService.Exists("", $"{configName}.json");
         }
     }
 }

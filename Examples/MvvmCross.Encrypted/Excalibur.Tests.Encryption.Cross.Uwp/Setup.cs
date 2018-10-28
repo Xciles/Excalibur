@@ -50,6 +50,8 @@ namespace Excalibur.Tests.Encrypted.Cross.Uwp
             assemblies.Add(typeof(MvvmCross.Plugin.RootChecker.Platforms.Uap.Plugin).Assembly);
             assemblies.Add(typeof(MvvmCross.Plugin.ProtectedStore.Platforms.Uap.Plugin).Assembly);
             assemblies.Add(typeof(Providers.FileStorage.Plugin).Assembly);
+            assemblies.Add(typeof(Providers.Encryption.Plugin).Assembly);
+            assemblies.Add(typeof(Providers.EncryptedFileStorage.Plugin).Assembly);
             return assemblies;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Android.Content;
 using Java.Security;
 using Javax.Crypto;
@@ -58,7 +59,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
         }
 
         /// <inheritdoc />
-        public string GetStringForIdentifier(string identifier)
+        public Task<string> GetStringForIdentifier(string identifier)
         {
             var postfix = MakeAlias(identifier);
 
@@ -71,15 +72,15 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
                 if (_keyStore.GetEntry(alias, _passwordProtection) is KeyStore.SecretKeyEntry entry)
                 {
                     var bytes = entry.SecretKey.GetEncoded();
-                    return Encoding.UTF8.GetString(bytes);
+                    return Task.FromResult(Encoding.UTF8.GetString(bytes));
                 }
             }
 
-            return "";
+            return Task.FromResult("");
         }
 
         /// <inheritdoc />
-        public IEnumerable<string> GetStringsForIdentifier(string identifier)
+        public Task<IEnumerable<string>> GetStringsForIdentifier(string identifier)
         {
             var returnList = new List<string>();
 
@@ -99,20 +100,22 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
                 }
             }
 
-            return returnList;
+            return Task.FromResult<IEnumerable<string>>(returnList);
         }
 
         /// <inheritdoc />
-        public void Delete(string identifier)
+        public Task Delete(string identifier)
         {
             var alias = MakeAlias(identifier);
 
             _keyStore.DeleteEntry(alias);
             Save();
+
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
-        public void Save(string stringToSave, string identifier)
+        public Task Save(string identifier, string stringToSave)
         {
             var alias = MakeAlias(identifier);
 
@@ -121,6 +124,8 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             _keyStore.SetEntry(alias, entry, _passwordProtection);
 
             Save();
+
+            return Task.CompletedTask;
         }
 
         private void Save()

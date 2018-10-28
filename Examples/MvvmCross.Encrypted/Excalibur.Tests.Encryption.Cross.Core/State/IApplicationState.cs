@@ -8,5 +8,6 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.State
         bool Authenticated { get; set; }
         int? PinAttempts { get; set; }
         string Pin { get; set; }
+        bool HasConfiguration();
     }
 }

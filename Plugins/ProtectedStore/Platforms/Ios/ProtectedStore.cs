@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Foundation;
 using Security;
 
@@ -10,7 +11,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
     public class ProtectedStore : IProtectedStore
     {
         /// <inheritdoc />
-        public string GetStringForIdentifier(string identifier)
+        public Task<string> GetStringForIdentifier(string identifier)
         {
             var query = new SecRecord(SecKind.GenericPassword)
             {
@@ -19,11 +20,11 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
 
             var record = SecKeyChain.QueryAsRecord(query, out _);
 
-            return GetStringFromRecord(record);
+            return Task.FromResult(GetStringFromRecord(record));
         }
 
         /// <inheritdoc />
-        public IEnumerable<string> GetStringsForIdentifier(string identifier)
+        public Task<IEnumerable<string>> GetStringsForIdentifier(string identifier)
         {
             var query = new SecRecord(SecKind.GenericPassword)
             {
@@ -32,11 +33,15 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
 
             var records = SecKeyChain.QueryAsRecord(query, 1000, out _);
 
-            return records != null ? records.Select(GetStringFromRecord).ToList() : new List<string>();
+            return records != null 
+                    ? 
+                    Task.FromResult<IEnumerable<string>>(records.Select(GetStringFromRecord).ToList()) 
+                    : 
+                    Task.FromResult(Enumerable.Empty<string>());
         }
 
         /// <inheritdoc />
-        public void Save(string stringToSave, string identifier)
+        public Task Save(string identifier, string stringToSave)
         {
             //
             // Remove any existing record
@@ -64,10 +69,12 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
             {
                 throw new Exception("Could not save account to KeyChain: " + statusCode);
             }
+
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
-        public void Delete(string identifier)
+        public Task Delete(string identifier)
         {
             var query = new SecRecord(SecKind.GenericPassword)
             {
@@ -80,6 +87,8 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
             {
                 throw new Exception("Could not delete account from KeyChain: " + statusCode);
             }
+
+            return Task.CompletedTask;
         }
 
         private string GetStringFromRecord(SecRecord record) => NSString.FromData(record.Generic, NSStringEncoding.UTF8);

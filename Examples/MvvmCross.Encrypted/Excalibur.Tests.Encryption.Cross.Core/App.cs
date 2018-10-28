@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Excalibur.Base.Providers;
+using Excalibur.Base.Storage;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.Language;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Presentation;
 using Excalibur.Cross.Services;
+using Excalibur.Providers.EncryptedFileStorage;
 using Excalibur.Providers.FileStorage;
 using Excalibur.Tests.Encrypted.Cross.Core.Services;
 using Excalibur.Tests.Encrypted.Cross.Core.Services.Interfaces;
@@ -33,13 +35,14 @@ namespace Excalibur.Tests.Encrypted.Cross.Core
             RegisterTextResources();
             RegisterAppStart(appStart);
 
-            var state = Mvx.IoCProvider.Resolve<IApplicationState>();
-            state.InitAndLoadAsync().GetAwaiter().GetResult();
+            //var state = Mvx.IoCProvider.Resolve<IApplicationState>();
+            //state.InitAndLoadAsync().GetAwaiter().GetResult();
         }
 
         public override void RegisterDependencies()
         {
             // Application Things
+            Mvx.IoCProvider.RegisterType<IStorageService, EncryptedStorageService>();
             Mvx.IoCProvider.ConstructAndRegisterSingleton<IApplicationState, ApplicationState>();
             Mvx.IoCProvider.ConstructAndRegisterSingleton<ISyncService, SyncService>();
 

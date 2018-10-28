@@ -8,15 +8,23 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.Business
 {
     public class LoggedInUser : BaseSingleBusiness<int, Domain.LoggedInUser>, ILoggedInUser
     {
+        private static Domain.LoggedInUser _tempUser;
+
         public LoggedInUser(IServiceBase<Domain.LoggedInUser> service, IDatabaseProvider<int, Domain.LoggedInUser> storageProvider) : base(service, storageProvider)
         {
         }
 
-        public async Task Store(Domain.LoggedInUser user)
+        public void StoreForSaveAfterPin(Domain.LoggedInUser user)
         {
-            await StoreItemAsync(user);
+            _tempUser = user;
+        }
 
-            PublishUpdated(user);
+        public async Task Store()
+        {
+            await StoreItemAsync(_tempUser);
+
+            PublishUpdated(_tempUser);
+            _tempUser = null;
         }
     }
 }

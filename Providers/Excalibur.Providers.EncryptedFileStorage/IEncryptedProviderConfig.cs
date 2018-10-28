@@ -1,4 +1,5 @@
-﻿using Excalibur.Base.Providers;
+﻿using System.Threading.Tasks;
+using Excalibur.Base.Providers;
 
 namespace Excalibur.Providers.EncryptedFileStorage
 {
@@ -6,5 +7,8 @@ namespace Excalibur.Providers.EncryptedFileStorage
     {
         string ProtectedStoreKeyIdentifier { get; set; }
         string ProtectedStoreSaltIdentifier { get; set; }
+        bool HasBeenInitialized { get; }
+
+        Task Init(string password);
     }
 }

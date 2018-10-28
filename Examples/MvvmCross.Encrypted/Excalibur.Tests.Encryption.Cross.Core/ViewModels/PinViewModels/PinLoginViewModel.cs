@@ -50,12 +50,14 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
             {
                 return new MvxAsyncCommand(async () => 
                 {
+                    await _state.InitAndLoadAsync();
                     if (_state.Pin == Pin && await _loginService.ValidateAsync().ConfigureAwait(false))
                     {
                         await NavigationService.Navigate<MainViewModel>();
                     }
                     else
                     {
+                        // todo unload?
                         ShowError = true;
                     }
                 });

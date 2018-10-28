@@ -33,5 +33,10 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.State
             get { return Config.Pin; }
             set { Config.Pin = value; }
         }
+
+        public bool HasConfiguration()
+        {
+            return ConfigurationManager.HasConfigurationFor<Config>();
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Excalibur.Base.Storage;
 using Excalibur.Providers.FileStorage;
 using MvvmCross;
+using MvvmCross.IoC;
 using MvvmCross.Plugin;
 
 namespace Excalibur.Providers.EncryptedFileStorage
@@ -12,7 +13,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
     {
         public void Load()
         {
-            Mvx.IoCProvider.RegisterType<IEncryptedProviderConfig, EncryptedFileStorageConfig>();
+            Mvx.IoCProvider.ConstructAndRegisterSingleton<IEncryptedProviderConfig, EncryptedFileStorageConfig>();
             Mvx.IoCProvider.RegisterType<IStorageService, EncryptedStorageService>();
             Mvx.IoCProvider.RegisterType<IConfigurationManager, ConfigurationManager>();
         }

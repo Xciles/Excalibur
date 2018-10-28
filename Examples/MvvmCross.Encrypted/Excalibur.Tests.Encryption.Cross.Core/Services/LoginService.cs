@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Excalibur.Cross.Services;
@@ -22,7 +22,6 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.Services
         public async Task<bool> LoginAsync(string email, string password)
         {
             _applicationState.Email = email;
-            await _applicationState.SaveAsync();
 
             // simulate user logging in and retrieving
             // Usually we get some kind of profile returned, simulating this
@@ -36,7 +35,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.Services
             await Task.Delay(1000);
 
             var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
-            await loggedInUserBusiness.Store(result.Result);
+            loggedInUserBusiness.StoreForSaveAfterPin(result.Result);
 
             return true;
         }

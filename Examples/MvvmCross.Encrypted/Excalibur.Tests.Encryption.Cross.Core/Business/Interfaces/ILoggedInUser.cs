@@ -5,6 +5,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.Business.Interfaces
 {
     public interface ILoggedInUser : ISingleBusiness<Domain.LoggedInUser>
     {
-        Task Store(Domain.LoggedInUser user);
+        void StoreForSaveAfterPin(Domain.LoggedInUser user);
+        Task Store();
     }
 }
