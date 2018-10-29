@@ -9,6 +9,13 @@ namespace Excalibur.Providers.EncryptedFileStorage
         string ProtectedStoreSaltIdentifier { get; set; }
         bool HasBeenInitialized { get; }
 
-        Task Init(string password);
+        Task InitializeFirstTimeAndGenerate(string password);
+        Task<bool> InitializeAndTryDecrypt(string password);
+
+        string DeviceKey();
+        Task<string> Key();
+        Task<byte[]> Salt();
+        void Clear();
+        Task Reset();
     }
 }

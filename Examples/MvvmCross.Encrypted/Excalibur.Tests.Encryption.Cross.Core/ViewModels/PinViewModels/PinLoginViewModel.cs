@@ -1,7 +1,9 @@
 ﻿using Excalibur.Cross.ViewModels;
+using Excalibur.Providers.EncryptedFileStorage;
 using Excalibur.Tests.Encrypted.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Encrypted.Cross.Core.State;
 using Excalibur.Tests.Encrypted.Cross.Core.Utils;
+using MvvmCross;
 using MvvmCross.Commands;
 
 namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
@@ -50,10 +52,19 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
             {
                 return new MvxAsyncCommand(async () => 
                 {
-                    await _state.InitAndLoadAsync();
-                    if (_state.Pin == Pin && await _loginService.ValidateAsync().ConfigureAwait(false))
+                    var config = Mvx.IoCProvider.Resolve<IEncryptedProviderConfig>();
+                    if (await config.InitializeAndTryDecrypt(Pin))
                     {
-                        await NavigationService.Navigate<MainViewModel>();
+                        await _state.InitAndLoadAsync();
+                        if (await _loginService.ValidateAsync().ConfigureAwait(false))
+                        {
+                            await NavigationService.Navigate<MainViewModel>();
+                        }
+                        else
+                        {
+                            // todo unload?
+                            ShowError = true;
+                        }
                     }
                     else
                     {

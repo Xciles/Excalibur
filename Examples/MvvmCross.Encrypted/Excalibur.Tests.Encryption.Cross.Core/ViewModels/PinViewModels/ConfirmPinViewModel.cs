@@ -57,7 +57,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
                     // we have to init ProtectedStore before in Android as well (based on pincode)
 
                     var config = Mvx.IoCProvider.Resolve<IEncryptedProviderConfig>();
-                    await config.Init(ConfirmPin);
+                    await config.InitializeFirstTimeAndGenerate(ConfirmPin);
 
                     var tempEmail = _state.Email;
                     await _state.InitAndLoadAsync();
