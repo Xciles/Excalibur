@@ -8,6 +8,7 @@ using Excalibur.Cross.Presentation;
 using Excalibur.Cross.Utils;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
 using MvvmCross;
+using MvvmCross.Base;
 
 namespace Excalibur.Tests.Cross.Core.Presentation
 {
@@ -15,7 +16,7 @@ namespace Excalibur.Tests.Cross.Core.Presentation
     {
         private IObservableCollection<Observable.Todo> _currentUserTodoObservables = new ExObservableCollection<Observable.Todo>(new List<Observable.Todo>());
 
-        public Todo(IObjectMapper<Domain.Todo, Observable.Todo> domainSelectedMapper, IObjectMapper<Domain.Todo, Observable.Todo> domainObservableMapper, IObjectMapper<Observable.Todo, Observable.Todo> observableSelectedMapper, IListBusiness<int, Domain.Todo> listBusiness, IExMainThreadDispatcher dispatcher) : base(domainSelectedMapper, domainObservableMapper, observableSelectedMapper, listBusiness, dispatcher)
+        public Todo(IObjectMapper<Domain.Todo, Observable.Todo> domainSelectedMapper, IObjectMapper<Domain.Todo, Observable.Todo> domainObservableMapper, IObjectMapper<Observable.Todo, Observable.Todo> observableSelectedMapper, IListBusiness<int, Domain.Todo> listBusiness, IMvxMainThreadAsyncDispatcher dispatcher) : base(domainSelectedMapper, domainObservableMapper, observableSelectedMapper, listBusiness, dispatcher)
         {
         }
 
@@ -28,12 +29,12 @@ namespace Excalibur.Tests.Cross.Core.Presentation
             var userPresentation = Mvx.IoCProvider.Resolve<ISinglePresentation<int, Observable.LoggedInUser>>();
             if (!userPresentation.SelectedObservable.IsTransient())
             {
-                var dispatcher = Mvx.IoCProvider.Resolve<IExMainThreadDispatcher>();
-                dispatcher.InvokeOnMainThread(() => { CurrentUserTodoObservables.Clear(); });
+                var dispatcher = Mvx.IoCProvider.Resolve<IMvxMainThreadAsyncDispatcher>();
+                dispatcher.ExecuteOnMainThreadAsync(() => { CurrentUserTodoObservables.Clear(); });
                 var todosFromUser = Observables.Where(x => x.UserId.Equals(userPresentation.SelectedObservable.Id)).Take(5);
                 foreach (var todo in todosFromUser)
                 {
-                    dispatcher.InvokeOnMainThread(() => { CurrentUserTodoObservables.Add(todo); });
+                    dispatcher.ExecuteOnMainThreadAsync(() => { CurrentUserTodoObservables.Add(todo); });
                 }
             }
         }
