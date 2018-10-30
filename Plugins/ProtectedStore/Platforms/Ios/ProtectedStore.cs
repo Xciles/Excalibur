@@ -91,6 +91,16 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
             return Task.CompletedTask;
         }
 
+        public void Initialize(string password, string fileName = "Excalibur.Store")
+        {
+            // For iOS this does not require an implementation
+        }
+
+        public void Terminate()
+        {
+            // For iOS this does not require an implementation
+        }
+
         private string GetStringFromRecord(SecRecord record) => NSString.FromData(record.Generic, NSStringEncoding.UTF8);
 
         private string FindString(string identifier)

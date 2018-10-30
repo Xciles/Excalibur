@@ -11,13 +11,13 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
     /// <inheritdoc />
     public class ProtectedStore : IProtectedStore
     {
-        private readonly Context _context;
-        private readonly KeyStore _keyStore;
-        private readonly KeyStore.PasswordProtection _passwordProtection;
+        private Context _context;
+        private KeyStore _keyStore;
+        private KeyStore.PasswordProtection _passwordProtection;
 
         private static readonly object FileLock = new object();
         private static char[] _password;
-        private static string _fileName = "Excalibur.Store";
+        private static string _fileName;
 
         /// <summary>
         /// In Android we have to call this method first.
@@ -25,14 +25,11 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
         /// </summary>
         /// <param name="password">The password for the KeyStore</param>
         /// <param name="fileName">A filename for the KeyStore</param>
-        public static void Init(string password, string fileName = "Excalibur.Store")
+        public void Initialize(string password, string fileName = "Excalibur.Store")
         {
             _password = password.ToCharArray();
             _fileName = fileName;
-        }
 
-        public ProtectedStore()
-        {
             if (_password == null)
             {
                 throw new ArgumentNullException(nameof(_password), "Please call ProtectedStore.Init(<password>, <fileName?>) first.");
@@ -55,6 +52,17 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             catch (Java.IO.FileNotFoundException)
             {
                 _keyStore.Load(null, _password);
+            }
+        }
+
+        public void Terminate()
+        {
+            _keyStore = null;
+            _passwordProtection = null;
+            lock (FileLock)
+            {
+                _context = null;
+                _password = null;
             }
         }
 

@@ -38,5 +38,8 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore
         /// </summary>
         /// <param name="identifier">The Identifier that was used as key</param>
         Task Delete(string identifier);
+
+        void Initialize(string password, string fileName = "Excalibur.Store");
+        void Terminate();
     }
 }

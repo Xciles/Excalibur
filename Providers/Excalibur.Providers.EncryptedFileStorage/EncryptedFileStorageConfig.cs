@@ -34,6 +34,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
         {
             // Store the password
             _password = password;
+            _protectedStore.Initialize(DeviceKey());
 
             // We generate an encryption key for the protected store key
             var keySalt = _crypto.GenerateRandom(32);
@@ -118,6 +119,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
         public void Clear()
         {
             _password = null;
+            _protectedStore.Terminate();
             HasBeenInitialized = false;
         }
 
