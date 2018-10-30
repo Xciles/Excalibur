@@ -76,6 +76,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             {
                 // Store the password
                 _password = password;
+                _protectedStore.Initialize(DeviceKey());
                 await Key();
                 if (await DecryptAndStoreTest())
                 {
@@ -86,8 +87,9 @@ namespace Excalibur.Providers.EncryptedFileStorage
             }
             catch (Exception)
             {
-                // just ignore
+                // just clear to make sure
                 // todo introduce password attempts
+                Clear();
             }
             return false;
         }
