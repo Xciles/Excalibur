@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.ViewModels;
+﻿using Excalibur.Base.Providers;
+using Excalibur.Cross.ViewModels;
 using Excalibur.Providers.EncryptedFileStorage;
 using Excalibur.Tests.Encrypted.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Encrypted.Cross.Core.State;
@@ -24,7 +25,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
         public string Pin
         {
             get => _pin;
-            set 
+            set
             {
                 SetProperty(ref _pin, value.TrimIllegalCharacters());
 
@@ -48,14 +49,19 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
 
         public IMvxAsyncCommand LoginCommand
         {
-            get 
+            get
             {
-                return new MvxAsyncCommand(async () => 
+                return new MvxAsyncCommand(async () =>
                 {
                     var config = Mvx.IoCProvider.Resolve<IEncryptedProviderConfig>();
                     if (await config.InitializeAndTryDecrypt(Pin))
                     {
                         await _state.InitAndLoadAsync();
+                        if (Mvx.IoCProvider.TryResolve<IEncryptedProviderConfiguration>(out var encryptedProviderConfiguration))
+                        {
+                            encryptedProviderConfiguration.ConfigureKey(config.DeviceKey());
+                        }
+
                         if (await _loginService.ValidateAsync().ConfigureAwait(false))
                         {
                             await NavigationService.Navigate<MainViewModel>();

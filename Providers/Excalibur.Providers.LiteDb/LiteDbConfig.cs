@@ -1,4 +1,6 @@
 ﻿using Excalibur.Base.Providers;
+using MvvmCross;
+using MvvmCross.Plugin.File;
 
 namespace Excalibur.Providers.LiteDb
 {
@@ -16,13 +18,36 @@ namespace Excalibur.Providers.LiteDb
         /// </summary>
         public string FileName { get; set; }
         /// <summary>
-        /// Other configurable LiteDb options should be inputted here.
+        /// Password option for LiteDb
+        /// </summary>
+        public string Password { get; set; }
+        /// <summary>
+        /// Other (aside from filename and password) configurable LiteDb options should be inputted here.
         /// </summary>
         public string Options { get; set; }
 
         /// <summary>
         /// Processed connection string. Concatenating FileName and Options, if options are present.
         /// </summary>
-        internal string ConnectionString { get; set; }
+        internal string ConnectionString
+        {
+            get
+            {
+                var fileStore = Mvx.IoCProvider.Resolve<IMvxFileStore>();
+
+                var result = $"Filename={fileStore.NativePath(FileName)};";
+                if (!string.IsNullOrWhiteSpace(Password))
+                {
+                    result += $"Password={Password};";
+                }
+
+                if (!string.IsNullOrWhiteSpace(Password))
+                {
+                    result += Options;
+                }
+
+                return result;
+            }
+        }
     }
 }

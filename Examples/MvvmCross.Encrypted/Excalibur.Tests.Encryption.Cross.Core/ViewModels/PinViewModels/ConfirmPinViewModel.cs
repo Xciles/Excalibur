@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.ViewModels;
+﻿using Excalibur.Base.Providers;
+using Excalibur.Cross.ViewModels;
 using Excalibur.Providers.EncryptedFileStorage;
 using Excalibur.Tests.Encrypted.Cross.Core.Business.Interfaces;
 using Excalibur.Tests.Encrypted.Cross.Core.State;
@@ -66,9 +67,13 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
                     _state.Email = tempEmail;
                     await _state.SaveAsync();
 
+                    if (Mvx.IoCProvider.TryResolve<IEncryptedProviderConfiguration>(out var encryptedProviderConfiguration))
+                    {
+                        encryptedProviderConfiguration.ConfigureKey(config.DeviceKey());
+                    }
+
                     var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
                     await loggedInUserBusiness.Store();
-
 
                     await NavigationService.Navigate<PinSuccessViewModel>();
                 });

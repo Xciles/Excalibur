@@ -10,7 +10,7 @@ namespace Excalibur.Providers.LiteDb
     /// This is used to provide LiteDb with your configuration.
     /// Please call Configure() in the App.RegisterDependencies() to make sure everything is configured correctly.
     /// </summary>
-    public class LiteDbConfiguration : IProviderConfiguration<LiteDbConfig>
+    public class LiteDbConfiguration : IProviderConfiguration<LiteDbConfig>, IEncryptedProviderConfiguration
     {
         /// <inheritdoc />
         public LiteDbConfig Configuration { get; private set; }
@@ -26,12 +26,17 @@ namespace Excalibur.Providers.LiteDb
         /// <inheritdoc />
         public void Configure()
         {
-            var fileStore = Mvx.IoCProvider.Resolve<IMvxFileStore>();
-
-            Configuration.ConnectionString = $"Filename={fileStore.NativePath(Configuration.FileName)};{Configuration.Options}";
-
             Mvx.IoCProvider.RegisterSingleton<IProviderConfiguration<LiteDbConfig>>(this);
+            Mvx.IoCProvider.RegisterSingleton<IEncryptedProviderConfiguration>(this);
             Mvx.IoCProvider.ConstructAndRegisterSingleton<ILiteDbInstance, LiteDbInstance>();
+        }
+
+        /// <inheritdoc />
+        public void ConfigureKey(string key)
+        {
+            Configuration.Password = key;
+
+            Mvx.IoCProvider.Resolve<ILiteDbInstance>().ReinitializeInstance();
         }
     }
 }

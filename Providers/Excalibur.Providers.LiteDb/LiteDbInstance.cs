@@ -9,11 +9,17 @@ namespace Excalibur.Providers.LiteDb
     {
         private readonly LiteDbConfig _providerConfig;
         /// <inheritdoc cref="ILiteDbInstance"/>
-        public LiteDatabase LiteDatabase { get; }
+        public LiteDatabase LiteDatabase { get; private set; }
 
         public LiteDbInstance(IProviderConfiguration<LiteDbConfig> providerConfiguration)
         {
             _providerConfig = providerConfiguration.Configuration;
+            ReinitializeInstance();
+        }
+
+        public void ReinitializeInstance()
+        {
+            LiteDatabase?.Dispose();
             LiteDatabase = new LiteDatabase(_providerConfig.ConnectionString);
         }
 
