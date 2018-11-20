@@ -215,7 +215,7 @@ namespace Excalibur.Cross.Presentation
         /// <see cref="BasePresentation{TId,TDomain,TSelectedObservable}.SelectedObservable"/> can then be used for detailed information about the object that was selected.
         /// </summary>
         /// <param name="observableId">The id of the object that should be set as SelectedObservable</param>
-        public virtual void SetSelectedObservable(TId observableId)
+        public virtual async Task SetSelectedObservable(TId observableId)
         {
             try
             {
@@ -228,7 +228,7 @@ namespace Excalibur.Cross.Presentation
                     }
                     else
                     {
-                        var result = ListBusiness.GetByIdAsync(observableId).Result; // Todo make method async?
+                        var result = await ListBusiness.GetByIdAsync(observableId); // Todo make method async?
                         if (result != null)
                         {
                             DomainSelectedMapper.UpdateDestination(result, SelectedObservable);

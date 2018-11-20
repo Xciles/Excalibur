@@ -79,6 +79,17 @@ namespace Excalibur.Providers.LiteDb
         }
 
         /// <inheritdoc />
+        public virtual Task Clear()
+        {
+            if (LiteDbInstance.LiteDatabase.CollectionExists(nameof(T)))
+            {
+                LiteDbInstance.LiteDatabase.DropCollection(nameof(T));
+            }
+
+            return Task.FromResult(0);
+        }
+
+        /// <inheritdoc />
         public Task<IEnumerable<T>> FindAll()
         {
             var collection = LiteDbInstance.LiteDatabase.GetCollection<T>();

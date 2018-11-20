@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Excalibur.Base.Providers;
 using Excalibur.Base.Storage;
@@ -51,6 +53,11 @@ namespace Excalibur.Cross.Business
         {
             return await Storage.FindById(id).ConfigureAwait(false);
         }
+        
+        public virtual async Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate)
+        {
+            return await Storage.FirstOrDefault(predicate).ConfigureAwait(false);
+        }
 
         /// <summary>
         /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
@@ -95,6 +102,13 @@ namespace Excalibur.Cross.Business
         /// <param name="id">The id of the object that should be deleted</param>
         /// <returns>An await-able task</returns>
         public async Task DeleteItemAsync(TId id)
+        {
+            await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
+
+            PublishListUpdated();
+        }
+        
+        public async Task ClearStorage(TId id)
         {
             await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
 
