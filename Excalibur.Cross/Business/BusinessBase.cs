@@ -74,6 +74,13 @@ namespace Excalibur.Cross.Business
             PublishListUpdated();
         }
 
+        public async Task Clear()
+        {
+            await Storage.Clear();
+
+            PublishListUpdated();
+        }
+
         /// <inheritdoc />
         public abstract Task UpdateFromServiceAsync();
 

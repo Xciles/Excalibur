@@ -14,7 +14,8 @@ namespace Excalibur.Cross.Business
         /// Gets the represented object
         /// </summary>
         /// <returns>An await able Task with the requested object as result</returns>
-        Task<TDomain> GetAsync();
+        Task<TDomain> FirstOrDefault();
+
         /// <summary>
         /// Deletes the represented object
         /// </summary>

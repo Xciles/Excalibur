@@ -86,7 +86,7 @@ namespace Excalibur.Cross.Business
         }
 
         /// <summary>
-        /// Stores incomming objectsToStore using <see cref="Excalibur.Shared.Storage"/>. 
+        /// Stores incoming objectsToStore using <see cref="Excalibur.Shared.Storage"/>. 
         /// This stores all entities.
         /// </summary>
         /// <param name="objectsToStore">The objects to store</param>
@@ -102,13 +102,6 @@ namespace Excalibur.Cross.Business
         /// <param name="id">The id of the object that should be deleted</param>
         /// <returns>An await-able task</returns>
         public async Task DeleteItemAsync(TId id)
-        {
-            await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
-
-            PublishListUpdated();
-        }
-        
-        public async Task ClearStorage(TId id)
         {
             await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
 

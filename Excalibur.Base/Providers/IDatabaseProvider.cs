@@ -34,12 +34,14 @@ namespace Excalibur.Base.Providers
         /// <param name="item">The object to insert or update</param>
         /// <returns>True, if inserted, false if updated.</returns>
         Task<bool> Upsert(T item);
+
         /// <summary>
         /// Update an item
         /// </summary>
         /// <param name="item">The object to update</param>
         /// <returns>An await able Task</returns>
         Task<bool> Update(T item);
+
         /// <summary>
         /// Delete stored items based on a predicate in the store
         /// </summary>
@@ -52,12 +54,14 @@ namespace Excalibur.Base.Providers
         /// </summary>
         /// <returns>All items in the store</returns>
         Task<IEnumerable<T>> FindAll();
+
         /// <summary>
         /// Find an item based on an Id
         /// </summary>
         /// <param name="id">The Id to find the item for</param>
         /// <returns>The stored item</returns>
         Task<T> FindById(TId id);
+
         /// <summary>
         /// Find items based on a predicate
         /// </summary>
@@ -66,16 +70,20 @@ namespace Excalibur.Base.Providers
         /// <param name="take">Amount of items to return</param>
         /// <returns>All found items</returns>
         Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = int.MaxValue);
+
         /// <summary>
         /// Find the first item within the store
         /// </summary>
         /// <returns>The first item in the store</returns>
         Task<T> FirstOrDefault();
+
         /// <summary>
         /// Find the first item within the store based on a predicate
         /// </summary>
         /// <param name="predicate">The predicate that should be used for searching</param>
         /// <returns>The first item in the store</returns>
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
+
+        Task Clear();
     }
 }

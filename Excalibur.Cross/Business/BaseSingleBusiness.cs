@@ -53,17 +53,16 @@ namespace Excalibur.Cross.Business
         /// <returns>An await-able task</returns>
         public override async Task PublishFromStorageAsync()
         {
-            PublishUpdated(await GetAsync().ConfigureAwait(false));
+            PublishUpdated(await FirstOrDefault().ConfigureAwait(false));
         }
 
         /// <summary>
         /// Get the domain object that is managed by this entity
         /// </summary>
         /// <returns>An await able Task with the domain object as result</returns>
-        public virtual async Task<TDomain> GetAsync()
+        public virtual async Task<TDomain> FirstOrDefault()
         {
-            var list = await Storage.FindAll().ConfigureAwait(false);
-            return list.FirstOrDefault();
+            return await Storage.FirstOrDefault().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -72,7 +71,7 @@ namespace Excalibur.Cross.Business
         /// <returns>An await-able task</returns>
         public async Task DeleteAsync()
         {
-            var itemToDelete = await GetAsync().ConfigureAwait(false);
+            var itemToDelete = await FirstOrDefault().ConfigureAwait(false);
 
             if (itemToDelete != null)
             {

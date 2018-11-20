@@ -112,6 +112,13 @@ namespace Excalibur.Providers.FileStorage
             return items.FirstOrDefault(predicate.Compile());
         }
 
+        public Task Clear()
+        {
+            _storageService.DeleteFile(DataFolder, String.Format(FileNamingFormat, typeof(T).Name));
+
+            return Task.CompletedTask;
+        }
+
         public override JsonSerializerSettings JsonSerializerSettings()
         {
             return new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };

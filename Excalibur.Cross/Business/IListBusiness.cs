@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Excalibur.Cross.Business
@@ -18,17 +20,21 @@ namespace Excalibur.Cross.Business
         /// </summary>
         /// <returns>An await able Task with all objects as result</returns>
         Task<IEnumerable<TDomain>> GetAllAsync();
+
         /// <summary>
         /// Get a single domain object from storage by a TId
         /// </summary>
         /// <param name="id">The Id of the object to get</param>
         /// <returns>An await able Task with the requested object as result</returns>
         Task<TDomain> GetByIdAsync(TId id);
+
         /// <summary>
         /// Deletes a domain object by a TId
         /// </summary>
         /// <param name="id">The Id of the object to delete</param>
         /// <returns>An await able Task</returns>
         Task DeleteItemAsync(TId id);
+
+        Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate);
     }
 }

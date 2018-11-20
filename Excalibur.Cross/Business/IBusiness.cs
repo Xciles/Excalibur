@@ -20,5 +20,7 @@ namespace Excalibur.Cross.Business
         /// </summary>
         /// <returns>An await able Task</returns>
         Task PublishFromStorageAsync();
+
+        Task Clear();
     }
 }
