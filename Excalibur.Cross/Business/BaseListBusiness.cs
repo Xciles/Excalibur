@@ -39,7 +39,7 @@ namespace Excalibur.Cross.Business
         /// Gets all domain objects managed by this entity
         /// </summary>
         /// <returns>An await able Task with all domain objects as result</returns>
-        public virtual async Task<IEnumerable<TDomain>> GetAllAsync()
+        public virtual async Task<IEnumerable<TDomain>> FindAll()
         {
             return await Storage.FindAll().ConfigureAwait(false);
         }
@@ -57,6 +57,11 @@ namespace Excalibur.Cross.Business
         public virtual async Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate)
         {
             return await Storage.FirstOrDefault(predicate).ConfigureAwait(false);
+        }
+        
+        public virtual async Task<IEnumerable<TDomain>> Find(Expression<Func<TDomain, bool>> predicate, int skip = 0, int take = int.MaxValue)
+        {
+            return await Storage.Find(predicate, skip, take).ConfigureAwait(false);
         }
 
         /// <summary>

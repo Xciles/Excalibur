@@ -115,7 +115,7 @@ namespace Excalibur.Cross.Presentation
 
             await _semaphore.WaitAsync((30 * 1000)); // 30 sec
 
-            var objects = (await ListBusiness.GetAllAsync().ConfigureAwait(false)).ToList();
+            var objects = (await ListBusiness.FindAll().ConfigureAwait(false)).ToList();
 
             var deleteIds = 0;
             try
