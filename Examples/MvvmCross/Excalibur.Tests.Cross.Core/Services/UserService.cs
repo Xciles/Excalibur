@@ -10,10 +10,13 @@ namespace Excalibur.Tests.Cross.Core.Services
     {
         public override async Task<IList<User>> SyncDataAsync()
         {
-            var responseMessage = await SharedClient.GetAsync("https://jsonplaceholder.typicode.com/users");
-            var result = responseMessage.ConvertFromJsonResponse<IList<User>>();
+            using (var client = CreateDefaultHttpClient())
+            {
+                var responseMessage = await client.GetAsync("https://jsonplaceholder.typicode.com/users");
+                var result = responseMessage.ConvertFromJsonResponse<IList<User>>();
 
-            return result.Result;
+                return result.Result;
+            }
         }
     }
 }

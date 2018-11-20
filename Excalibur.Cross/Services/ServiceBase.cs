@@ -10,12 +10,10 @@ namespace Excalibur.Cross.Services
     /// </summary>
     public abstract class ServiceBase
     {
-        /// <summary>
-        /// Static HttpClient that should be used when making webrequests.
-        ///
-        /// Might introduce a HttpClient per Type of service, but for now, just the one.
-        /// </summary>
-        protected static HttpClient SharedClient { get; set; } = new HttpClient(new AutomaticDecompressionHandler());
+        protected HttpClient CreateDefaultHttpClient()
+        {
+            return new HttpClient(new AutomaticDecompressionHandler());
+        }
     }
 
     /// <summary>

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Excalibur.Cross.Presentation;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.Cross.Core.Presentation.Interfaces;
@@ -9,12 +10,17 @@ namespace Excalibur.Tests.Cross.Core.ViewModels
     {
         private Observable.User _userObservable = new Observable.User();
 
-
         public TodoDetailViewModel(ITodo presentation) : base(presentation)
         {
+        }
+
+        public override async Task Initialize()
+        {
+            await base.Initialize();
+
             var userPresentation = Mvx.IoCProvider.Resolve<IListPresentation<int, Observable.User, Observable.User>>();
 
-            var user = userPresentation.GetObservable(SelectedObservable.UserId);
+            var user = await userPresentation.GetObservable(SelectedObservable.UserId);
             if (user != null)
             {
                 UserObservable = user;

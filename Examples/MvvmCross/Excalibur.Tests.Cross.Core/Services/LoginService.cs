@@ -24,13 +24,16 @@ namespace Excalibur.Tests.Cross.Core.Services
 
             var url = $"https://jsonplaceholder.typicode.com/users/{rand.Next(1, 10)}";
 
-            var responseMessage = await SharedClient.GetAsync(url);
-            var result = responseMessage.ConvertFromJsonResponse<LoggedInUser>();
+            using (var client = CreateDefaultHttpClient())
+            {
+                var responseMessage = await client.GetAsync(url);
+                var result = responseMessage.ConvertFromJsonResponse<LoggedInUser>();
 
-            await Task.Delay(1000);
+                await Task.Delay(1000);
 
-            var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
-            await loggedInUserBusiness.Store(result.Result);
+                var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
+                await loggedInUserBusiness.Store(result.Result);
+            }
 
             return true;
         }
