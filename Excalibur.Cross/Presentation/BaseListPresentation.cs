@@ -110,7 +110,7 @@ namespace Excalibur.Cross.Presentation
         /// <returns></returns>
         protected virtual async Task ListUpdatedHandler(MessageBase<IList<TDomain>> messageBase)
         {
-            // todo Might need to add Task.Run/Startnews arround the dispatcher threads
+            // todo Might need to add Task.Run/Startnews around the dispatcher threads
             IsLoading = true;
 
             await _semaphore.WaitAsync((30 * 1000)); // 30 sec
@@ -228,7 +228,7 @@ namespace Excalibur.Cross.Presentation
                     }
                     else
                     {
-                        var result = await ListBusiness.GetByIdAsync(observableId); // Todo make method async?
+                        var result = await ListBusiness.GetByIdAsync(observableId);
                         if (result != null)
                         {
                             DomainSelectedMapper.UpdateDestination(result, SelectedObservable);
@@ -247,14 +247,14 @@ namespace Excalibur.Cross.Presentation
         /// </summary>
         /// <param name="observableId">The id of the observable that should be returned</param>
         /// <returns>An observable object</returns>
-        public virtual TObservable GetObservable(TId observableId)
+        public virtual async Task<TObservable> GetObservable(TId observableId)
         {
             if (Observables.Any() && ObservablesContainsId(observableId))
             {
                 return Observables.First(x => x.Id.Equals(observableId));
             }
 
-            var result = ListBusiness.GetByIdAsync(observableId).Result; // Todo make method async?
+            var result = await ListBusiness.GetByIdAsync(observableId);
             if (result != null)
             {
                 return DomainObservableMapper.Map(result);

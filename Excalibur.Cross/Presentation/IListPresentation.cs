@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.Collections;
+﻿using System.Threading.Tasks;
+using Excalibur.Cross.Collections;
 using Excalibur.Cross.Observable;
 
 namespace Excalibur.Cross.Presentation
@@ -36,12 +37,12 @@ namespace Excalibur.Cross.Presentation
         /// Sets the <see cref="SetSelectedObservable"/> to the object with corresponding Id
         /// </summary>
         /// <param name="observableId">The id of the object that should be set as <see cref="SetSelectedObservable"/></param>
-        void SetSelectedObservable(TId observableId);
+        Task SetSelectedObservable(TId observableId);
         /// <summary>
         /// If needed, a certain TObservable can be requested.
         /// </summary>
         /// <param name="observableId">The id of the object that should be returned</param>
         /// <returns>The requested TObservable</returns>
-        TObservable GetObservable(TId observableId);
+        Task<TObservable> GetObservable(TId observableId);
     }
 }
