@@ -80,7 +80,7 @@ namespace Excalibur.Cross.Presentation
             : base(domainSelectedMapper)
         {
             // retrieve mappers
-            this.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message); });
+            this.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message).ConfigureAwait(false); });
             this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainObservableMapper = domainObservableMapper;
@@ -113,7 +113,7 @@ namespace Excalibur.Cross.Presentation
             // todo Might need to add Task.Run/Startnews around the dispatcher threads
             IsLoading = true;
 
-            await _semaphore.WaitAsync((30 * 1000)); // 30 sec
+            await _semaphore.WaitAsync((30 * 1000)).ConfigureAwait(false); // 30 sec
 
             var objects = (await ListBusiness.FindAll().ConfigureAwait(false)).ToList();
 

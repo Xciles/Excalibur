@@ -89,8 +89,8 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
             {
                 using (var stream = new IsolatedStorageFileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, storageFile))
                 {
-                    stream.Write(BitConverter.GetBytes(protectedBuffer.Length), 0, sizeof(int));
-                    stream.Write(protectedBuffer.ToArray(), 0, (int)protectedBuffer.Length);
+                    await stream.WriteAsync(BitConverter.GetBytes(protectedBuffer.Length), 0, sizeof(int)).ConfigureAwait(false);
+                    await stream.WriteAsync(protectedBuffer.ToArray(), 0, (int)protectedBuffer.Length).ConfigureAwait(false);
                 }
             }
         }

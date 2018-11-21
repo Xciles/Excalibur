@@ -23,16 +23,16 @@ namespace Excalibur.Providers.EncryptedFileStorage
         {
             if (!_config.HasBeenInitialized) throw new ArgumentException(ErrorString);
 
-            var encryptedBytes = _exCrypto.Encrypt(contentAsString, await _config.Key(), await _config.Salt());
-            return await base.Store(folder, fullName, encryptedBytes);
+            var encryptedBytes = _exCrypto.Encrypt(contentAsString, await _config.Key().ConfigureAwait(false), await _config.Salt().ConfigureAwait(false));
+            return await base.Store(folder, fullName, encryptedBytes).ConfigureAwait(false);
         }
 
         public override async Task<string> Store(string folder, string fullName, byte[] contentAsBytes)
         {
             if (!_config.HasBeenInitialized) throw new ArgumentException(ErrorString);
 
-            var encryptedBytes = _exCrypto.EncryptFromBytes(contentAsBytes, await _config.Key(), await _config.Salt());
-            return await base.Store(folder, fullName, encryptedBytes);
+            var encryptedBytes = _exCrypto.EncryptFromBytes(contentAsBytes, await _config.Key().ConfigureAwait(false), await _config.Salt().ConfigureAwait(false));
+            return await base.Store(folder, fullName, encryptedBytes).ConfigureAwait(false);
         }
 
         public override async Task<string> ReadAsText(string folder, string fullName)
@@ -42,7 +42,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             if (Exists(folder, fullName))
             {
                 var encryptedBytes = await base.ReadAsBinary(folder, fullName).ConfigureAwait(false);
-                return _exCrypto.Decrypt(encryptedBytes, await _config.Key(), await _config.Salt());
+                return _exCrypto.Decrypt(encryptedBytes, await _config.Key().ConfigureAwait(false), await _config.Salt().ConfigureAwait(false));
             }
 
             return string.Empty;
@@ -55,7 +55,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             if (Exists(folder, fullName))
             {
                 var encryptedBytes = await base.ReadAsBinary(folder, fullName).ConfigureAwait(false);
-                return _exCrypto.DecryptToBytes(encryptedBytes, await _config.Key(), await _config.Salt());
+                return _exCrypto.DecryptToBytes(encryptedBytes, await _config.Key().ConfigureAwait(false), await _config.Salt().ConfigureAwait(false));
             }
             return new byte[]{};
         }

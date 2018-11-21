@@ -40,7 +40,7 @@ namespace Excalibur.Cross.ViewModels
         {
             get
             {
-                return new MvxAsyncCommand(async () => await NavigationService.Close(this));
+                return new MvxAsyncCommand(async () => await NavigationService.Close(this).ConfigureAwait(false));
             }
         }
     }

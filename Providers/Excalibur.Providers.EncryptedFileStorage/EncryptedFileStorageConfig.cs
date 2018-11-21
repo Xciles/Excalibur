@@ -42,31 +42,31 @@ namespace Excalibur.Providers.EncryptedFileStorage
 
             // Generate some salt we use for encrypting / decrypting just the combinationKey
             var combinationKeySalt = _crypto.GenerateRandom(32);
-            await _protectedStore.Save(ProtectedStoreDeviceSaltIdentifier, Convert.ToBase64String(combinationKeySalt));
+            await _protectedStore.Save(ProtectedStoreDeviceSaltIdentifier, Convert.ToBase64String(combinationKeySalt)).ConfigureAwait(false);
 
             // We encrypt the key with the above information and store it for later use
             var keyEncrypted = _crypto.EncryptFromBytes(key, DeviceKey(), combinationKeySalt);
-            await _protectedStore.Save(ProtectedStoreKeyIdentifier, Convert.ToBase64String(keyEncrypted));
+            await _protectedStore.Save(ProtectedStoreKeyIdentifier, Convert.ToBase64String(keyEncrypted)).ConfigureAwait(false);
 
             // We need some salt for storage encryption
             var storeSalt = _crypto.GenerateRandom(32);
-            await _protectedStore.Save(ProtectedStoreSaltIdentifier, Convert.ToBase64String(storeSalt));
+            await _protectedStore.Save(ProtectedStoreSaltIdentifier, Convert.ToBase64String(storeSalt)).ConfigureAwait(false);
 
-            await EncryptAndStoreTest();
+            await EncryptAndStoreTest().ConfigureAwait(false);
 
             HasBeenInitialized = true;
         }
 
         private async Task EncryptAndStoreTest()
         {
-            var testEncrypted = _crypto.Encrypt(Test, await Key(), await Salt());
-            await _protectedStore.Save(TestIdentifier, Convert.ToBase64String(testEncrypted));
+            var testEncrypted = _crypto.Encrypt(Test, await Key().ConfigureAwait(false), await Salt().ConfigureAwait(false));
+            await _protectedStore.Save(TestIdentifier, Convert.ToBase64String(testEncrypted)).ConfigureAwait(false);
         }
 
         private async Task<bool> DecryptAndStoreTest()
         {
-            var encryptedTest = await _protectedStore.GetStringForIdentifier(TestIdentifier);
-            var decryptedTest = _crypto.Decrypt(Convert.FromBase64String(encryptedTest), await Key(), await Salt());
+            var encryptedTest = await _protectedStore.GetStringForIdentifier(TestIdentifier).ConfigureAwait(false);
+            var decryptedTest = _crypto.Decrypt(Convert.FromBase64String(encryptedTest), await Key().ConfigureAwait(false), await Salt().ConfigureAwait(false));
             return decryptedTest.Equals(Test);
         }
 
@@ -77,8 +77,8 @@ namespace Excalibur.Providers.EncryptedFileStorage
                 // Store the password
                 _password = password;
                 _protectedStore.Initialize(DeviceKey());
-                await Key();
-                if (await DecryptAndStoreTest())
+                await Key().ConfigureAwait(false);
+                if (await DecryptAndStoreTest().ConfigureAwait(false))
                 {
                     HasBeenInitialized = true;
 
@@ -101,22 +101,16 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return Convert.ToBase64String(combinationKey);
         }
 
-        private async Task<byte[]> DeviceSalt()
-        {
-            return Convert.FromBase64String(await _protectedStore.GetStringForIdentifier(ProtectedStoreDeviceSaltIdentifier));
-        }
+        private async Task<byte[]> DeviceSalt() => Convert.FromBase64String(await _protectedStore.GetStringForIdentifier(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false));
 
         public async Task<string> Key()
         {
-            var encryptedKey = await _protectedStore.GetStringForIdentifier(ProtectedStoreKeyIdentifier);
-            var decryptedKey = _crypto.DecryptToBytes(Convert.FromBase64String(encryptedKey), DeviceKey(), await DeviceSalt());
+            var encryptedKey = await _protectedStore.GetStringForIdentifier(ProtectedStoreKeyIdentifier).ConfigureAwait(false);
+            var decryptedKey = _crypto.DecryptToBytes(Convert.FromBase64String(encryptedKey), DeviceKey(), await DeviceSalt().ConfigureAwait(false));
             return Convert.ToBase64String(decryptedKey);
         }
 
-        public async Task<byte[]> Salt()
-        {
-            return Convert.FromBase64String(await _protectedStore.GetStringForIdentifier(ProtectedStoreSaltIdentifier));
-        }
+        public async Task<byte[]> Salt() => Convert.FromBase64String(await _protectedStore.GetStringForIdentifier(ProtectedStoreSaltIdentifier).ConfigureAwait(false));
 
         public void Clear()
         {
@@ -127,10 +121,10 @@ namespace Excalibur.Providers.EncryptedFileStorage
 
         public async Task Reset()
         {
-            await _protectedStore.Delete(TestIdentifier);
-            await _protectedStore.Delete(ProtectedStoreKeyIdentifier);
-            await _protectedStore.Delete(ProtectedStoreDeviceSaltIdentifier);
-            await _protectedStore.Delete(ProtectedStoreSaltIdentifier);
+            await _protectedStore.Delete(TestIdentifier).ConfigureAwait(false);
+            await _protectedStore.Delete(ProtectedStoreKeyIdentifier).ConfigureAwait(false);
+            await _protectedStore.Delete(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false);
+            await _protectedStore.Delete(ProtectedStoreSaltIdentifier).ConfigureAwait(false);
         }
     }
 }
