@@ -33,6 +33,11 @@ namespace Excalibur.Avalon.Extensions
             return norm;
         }
 
+        /// <summary>
+        /// Tries to remove all diacritics (accents) from a string.
+        /// </summary>
+        /// <param name="text">The string to remove diacritics for</param>
+        /// <returns>A normalized string</returns>
         public static string RemoveDiacritics(this string text)
         {
             if (text == null || string.IsNullOrWhiteSpace(text))

@@ -56,7 +56,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
                     var config = Mvx.IoCProvider.Resolve<IEncryptedProviderConfig>();
                     if (await config.InitializeAndTryDecrypt(Pin))
                     {
-                        await _state.InitAndLoadAsync();
+                        await _state.InitAndLoad();
                         if (Mvx.IoCProvider.TryResolve<IEncryptedProviderConfiguration>(out var encryptedProviderConfiguration))
                         {
                             encryptedProviderConfiguration.ConfigureKey(config.DeviceKey());

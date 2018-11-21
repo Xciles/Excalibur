@@ -34,9 +34,9 @@ namespace Excalibur.Base.State
         /// Initialize and load the state
         /// </summary>
         /// <returns>An await-able task</returns>
-        public virtual async Task InitAndLoadAsync()
+        public virtual async Task InitAndLoad()
         {
-            Config = await ConfigurationManager.LoadAsync<TConfig>().ConfigureAwait(false);
+            Config = await ConfigurationManager.Load<TConfig>().ConfigureAwait(false);
 
             await Initialize().ConfigureAwait(false);
         }
@@ -56,9 +56,9 @@ namespace Excalibur.Base.State
         /// Save the state.
         /// </summary>
         /// <returns>An await-able task</returns>
-        public virtual async Task SaveAsync()
+        public virtual async Task Save()
         {
-            await ConfigurationManager.SaveAsync(Config).ConfigureAwait(false);
+            await ConfigurationManager.Save(Config).ConfigureAwait(false);
         }
     }
 }

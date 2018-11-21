@@ -13,10 +13,13 @@ namespace Excalibur.Avalon.Extensions
             var properties = objType.GetProperties();
             var matchedProperty = properties.FirstOrDefault(p => p.Name == name);
             if (matchedProperty == null)
+            {
                 throw new ArgumentException("name");
+            }
 
             return matchedProperty;
         }
+
         private static LambdaExpression GetOrderExpression(Type objType, PropertyInfo pi)
         {
             var paramExpr = Expression.Parameter(objType);

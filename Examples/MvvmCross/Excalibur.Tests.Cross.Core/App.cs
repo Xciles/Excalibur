@@ -37,7 +37,7 @@ namespace Excalibur.Tests.Cross.Core
             RegisterAppStart(appStart);
 
             var state = Mvx.IoCProvider.Resolve<IApplicationState>();
-            state.InitAndLoadAsync().GetAwaiter().GetResult();
+            state.InitAndLoad().GetAwaiter().GetResult();
         }
 
         public override void RegisterDependencies()

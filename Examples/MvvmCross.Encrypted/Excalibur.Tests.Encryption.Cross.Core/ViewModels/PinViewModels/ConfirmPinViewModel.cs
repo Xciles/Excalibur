@@ -61,11 +61,11 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels.PinViewModels
                     await config.InitializeFirstTimeAndGenerate(ConfirmPin);
 
                     var tempEmail = _state.Email;
-                    await _state.InitAndLoadAsync();
+                    await _state.InitAndLoad();
 
                     _state.Pin = ConfirmPin;
                     _state.Email = tempEmail;
-                    await _state.SaveAsync();
+                    await _state.Save();
 
                     if (Mvx.IoCProvider.TryResolve<IEncryptedProviderConfiguration>(out var encryptedProviderConfiguration))
                     {

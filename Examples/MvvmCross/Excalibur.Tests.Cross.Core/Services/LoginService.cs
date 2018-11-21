@@ -16,7 +16,7 @@ namespace Excalibur.Tests.Cross.Core.Services
         {
             var state = Mvx.IoCProvider.Resolve<IApplicationState>();
             state.Email = email;
-            await state.SaveAsync();
+            await state.Save();
 
             // simulate user logging in and retrieving
             // Usually we get some kind of profile returned, simulating this

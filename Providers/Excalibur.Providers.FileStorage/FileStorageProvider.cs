@@ -50,7 +50,7 @@ namespace Excalibur.Providers.FileStorage
             _storageService.DeleteFile(DataFolder, String.Format(FileNamingFormat, typeof(T).Name));
 
             var objectAsString = JsonConvert.SerializeObject(items, JsonSerializerSettings());
-            await _storageService.StoreAsync(DataFolder, String.Format(FileNamingFormat, typeof(T).Name), objectAsString).ConfigureAwait(false);
+            await _storageService.Store(DataFolder, String.Format(FileNamingFormat, typeof(T).Name), objectAsString).ConfigureAwait(false);
         }
 
         public async Task<bool> Upsert(T item)
@@ -81,7 +81,7 @@ namespace Excalibur.Providers.FileStorage
 
         public async Task<IEnumerable<T>> FindAll()
         {
-            var objectAsString = await _storageService.ReadAsTextAsync(DataFolder, String.Format(FileNamingFormat, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
+            var objectAsString = await _storageService.ReadAsText(DataFolder, String.Format(FileNamingFormat, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
 
             return JsonConvert.DeserializeObject<IEnumerable<T>>(objectAsString, JsonSerializerSettings()) ?? Enumerable.Empty<T>();
         }

@@ -32,7 +32,7 @@ namespace Excalibur.Providers.FileStorage
         /// <param name="fullName">The name of the file</param>
         /// <param name="contentAsString">The content that should be written to file</param>
         /// <returns></returns>
-        public override async Task<string> StoreAsync(string folder, string fullName, string contentAsString)
+        public override async Task<string> Store(string folder, string fullName, string contentAsString)
         {
             var fullPath = FileChecks(folder, fullName);
 
@@ -47,7 +47,7 @@ namespace Excalibur.Providers.FileStorage
         /// <param name="fullName">The name of the file</param>
         /// <param name="contentAsBytes">The content that should be written to file</param>
         /// <returns></returns>
-        public override async Task<string> StoreAsync(string folder, string fullName, byte[] contentAsBytes)
+        public override async Task<string> Store(string folder, string fullName, byte[] contentAsBytes)
         {
             var fullPath = FileChecks(folder, fullName);
 
@@ -61,7 +61,7 @@ namespace Excalibur.Providers.FileStorage
         /// <param name="folder">The name of the folder</param>
         /// <param name="fullName">The name of the file</param>
         /// <returns>File content as string</returns>
-        public override async Task<string> ReadAsTextAsync(string folder, string fullName)
+        public override async Task<string> ReadAsText(string folder, string fullName)
         {
             var fullPath = FileStore.PathCombine(folder, fullName);
             var result = await FileStoreAsync.TryReadTextFileAsync(fullPath).ConfigureAwait(false);
@@ -75,7 +75,7 @@ namespace Excalibur.Providers.FileStorage
         /// <param name="folder">The name of the folder</param>
         /// <param name="fullName">The name of the file</param>
         /// <returns>File content as byte[]</returns>
-        public override async Task<byte[]> ReadAsBinaryAsync(string folder, string fullName)
+        public override async Task<byte[]> ReadAsBinary(string folder, string fullName)
         {
             var fullPath = FileStore.PathCombine(folder, fullName);
             var result = await FileStoreAsync.TryReadBinaryFileAsync(fullPath).ConfigureAwait(false);

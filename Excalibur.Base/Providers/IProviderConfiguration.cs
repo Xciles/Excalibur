@@ -11,6 +11,7 @@
         /// The provider configuration
         /// </summary>
         T Configuration { get; }
+
         /// <summary>
         /// Method that should provide the actual configuring of a provider
         /// </summary>

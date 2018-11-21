@@ -19,13 +19,14 @@ namespace Excalibur.Base.Providers
         /// Insert an item
         /// </summary>
         /// <param name="item">The objects to insert</param>
-        /// <returns>An await able Task</returns>
+        /// <returns>An awaitable Task</returns>
         Task Insert(T item);
+
         /// <summary>
         /// Insert multiple items at once
         /// </summary>
         /// <param name="items">The objects to insert</param>
-        /// <returns>An await able Task</returns>
+        /// <returns>An awaitable Task</returns>
         Task InsertBulk(IEnumerable<T> items);
 
         /// <summary>
@@ -39,14 +40,14 @@ namespace Excalibur.Base.Providers
         /// Update an item
         /// </summary>
         /// <param name="item">The object to update</param>
-        /// <returns>An await able Task</returns>
+        /// <returns>An awaitable Task</returns>
         Task<bool> Update(T item);
 
         /// <summary>
         /// Delete stored items based on a predicate in the store
         /// </summary>
         /// <param name="predicate">The predicate that should be used for deleting</param>
-        /// <returns>An await able Task</returns>
+        /// <returns>An awaitable Task</returns>
         Task Delete(Expression<Func<T, bool>> predicate);
 
         /// <summary>
@@ -84,6 +85,10 @@ namespace Excalibur.Base.Providers
         /// <returns>The first item in the store</returns>
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
 
+        /// <summary>
+        /// Clear the database for a given type
+        /// </summary>
+        /// <returns>An awaitable Task</returns>
         Task Clear();
     }
 }

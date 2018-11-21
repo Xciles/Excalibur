@@ -11,11 +11,11 @@ namespace Excalibur.Base.State
         /// Initialize and load the state
         /// </summary>
         /// <returns>An await-able task</returns>
-        Task InitAndLoadAsync();
+        Task InitAndLoad();
         /// <summary>
         /// Save the state.
         /// </summary>
         /// <returns>An await-able task</returns>
-        Task SaveAsync();
+        Task Save();
     }
 }

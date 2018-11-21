@@ -14,19 +14,13 @@ namespace Excalibur.Avalon.Extensions
         /// </summary>
         /// <param name="unixLong">The milliseconds from epoch</param>
         /// <returns>A parsed DateTime</returns>
-        public static DateTime FromUnixTimeInMilliseconds(this long unixLong)
-        {
-            return Epoch.AddMilliseconds(unixLong);
-        }
+        public static DateTime FromUnixTimeInMilliseconds(this long unixLong) => Epoch.AddMilliseconds(unixLong);
 
         /// <summary>
         /// Returns a DateTime from seconds since Epoch
         /// </summary>
         /// <param name="unixLong">The seconds from epoch</param>
         /// <returns>A parsed DateTime</returns>
-        public static DateTime FromUnixTimeInSeconds(this long unixLong)
-        {
-            return Epoch.AddSeconds(unixLong);
-        }
+        public static DateTime FromUnixTimeInSeconds(this long unixLong) => Epoch.AddSeconds(unixLong);
     }
 }

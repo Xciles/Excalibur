@@ -41,19 +41,19 @@ namespace Excalibur.Shared.Tests.Configuration
                 Name = "Test"
             };
 
-            _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
+            _mockedStorageService.Setup(x => x.ReadAsText(It.IsAny<string>(), It.IsAny<string>()))
                                 .Returns(() => Task.FromResult(JsonConvert.SerializeObject(config)));
             _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
                                 .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
-            var loadedConfig = await manager.LoadAsync<ConfigTest>();
+            var loadedConfig = await manager.Load<ConfigTest>();
 
             Assert.IsNotNull(loadedConfig);
             Assert.AreEqual(config.Description, loadedConfig.Description);
             Assert.AreEqual(config.Name, loadedConfig.Name);
 
-            _mockedStorageService.Verify(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.ReadAsText(It.IsAny<string>(), It.IsAny<string>()));
             _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
         }
 
@@ -64,13 +64,13 @@ namespace Excalibur.Shared.Tests.Configuration
                 .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
-            var loadedConfig = await manager.LoadAsync<ConfigTest>();
+            var loadedConfig = await manager.Load<ConfigTest>();
 
             Assert.IsNotNull(loadedConfig);
             Assert.IsTrue(string.IsNullOrEmpty(loadedConfig.Description));
             Assert.IsTrue(string.IsNullOrEmpty(loadedConfig.Name));
 
-            _mockedStorageService.Verify(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.ReadAsText(It.IsAny<string>(), It.IsAny<string>()));
             _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
         }
 
@@ -78,31 +78,31 @@ namespace Excalibur.Shared.Tests.Configuration
         [ExpectedException((typeof(JsonReaderException)))]
         public async Task LoadIncorrectJsonConfigurationAsync()
         {
-            _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
+            _mockedStorageService.Setup(x => x.ReadAsText(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("{[[]}"));
             _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
-            var loadedConfig = await manager.LoadAsync<ConfigTest>();
+            var loadedConfig = await manager.Load<ConfigTest>();
         }
 
         [TestMethod]
         public async Task LoadEmptyJsonConfigurationAsync()
         {
-            _mockedStorageService.Setup(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()))
+            _mockedStorageService.Setup(x => x.ReadAsText(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("{}"));
             _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => true);
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
-            var loadedConfig = await manager.LoadAsync<ConfigTest>();
+            var loadedConfig = await manager.Load<ConfigTest>();
 
             Assert.IsNotNull(loadedConfig);
             Assert.IsTrue(string.IsNullOrEmpty(loadedConfig.Description));
             Assert.IsTrue(string.IsNullOrEmpty(loadedConfig.Name));
 
-            _mockedStorageService.Verify(x => x.ReadAsTextAsync(It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.ReadAsText(It.IsAny<string>(), It.IsAny<string>()));
             _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
         }
 
@@ -117,17 +117,17 @@ namespace Excalibur.Shared.Tests.Configuration
 
             _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => false);
-            _mockedStorageService.Setup(x => x.StoreAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+            _mockedStorageService.Setup(x => x.Store(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("NoPath"));
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
-            var result = await manager.SaveAsync(config);
+            var result = await manager.Save(config);
 
             Assert.AreEqual(result, true);
 
             _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
             _mockedStorageService.Verify(x => x.DeleteFile(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
-            _mockedStorageService.Verify(x => x.StoreAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.Store(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
         }
 
         [TestMethod]
@@ -142,17 +142,17 @@ namespace Excalibur.Shared.Tests.Configuration
             _mockedStorageService.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => true);
             _mockedStorageService.Setup(x => x.DeleteFile(It.IsAny<string>(), It.IsAny<string>()));
-            _mockedStorageService.Setup(x => x.StoreAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+            _mockedStorageService.Setup(x => x.Store(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => Task.FromResult("NoPath"));
 
             var manager = new ConfigurationManager(_mockedStorageService.Object);
-            var result = await manager.SaveAsync(config);
+            var result = await manager.Save(config);
 
             Assert.AreEqual(result, true);
 
             _mockedStorageService.Verify(x => x.Exists(It.IsAny<string>(), It.IsAny<string>()));
             _mockedStorageService.Verify(x => x.DeleteFile(It.IsAny<string>(), It.IsAny<string>()));
-            _mockedStorageService.Verify(x => x.StoreAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
+            _mockedStorageService.Verify(x => x.Store(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
         }
     }
 }
