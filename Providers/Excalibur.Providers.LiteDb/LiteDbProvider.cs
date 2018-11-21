@@ -27,7 +27,7 @@ namespace Excalibur.Providers.LiteDb
 
             EnsureIndexOnInsert(collection);
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
@@ -42,7 +42,7 @@ namespace Excalibur.Providers.LiteDb
 
             EnsureIndexOnInsert(collection);
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
@@ -75,7 +75,7 @@ namespace Excalibur.Providers.LiteDb
             var collection = LiteDbInstance.LiteDatabase.GetCollection<T>();
             collection.Delete(predicate);
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
@@ -86,7 +86,7 @@ namespace Excalibur.Providers.LiteDb
                 LiteDbInstance.LiteDatabase.DropCollection(nameof(T));
             }
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />

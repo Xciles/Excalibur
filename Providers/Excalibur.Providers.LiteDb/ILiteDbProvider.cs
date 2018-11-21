@@ -24,6 +24,7 @@ namespace Excalibur.Providers.LiteDb
         /// <param name="unique">Create a unique keys index?</param>
         /// <returns></returns>
         bool EnsureIndex<TK>(Expression<Func<T, TK>> property, string expression, bool unique = false);
+
         /// <summary>
         /// Create a new permanent index in all documents inside this collections if index not exists already.
         /// </summary>

@@ -12,6 +12,9 @@ namespace Excalibur.Providers.LiteDb
         /// </summary>
         LiteDatabase LiteDatabase { get; }
 
+        /// <summary>
+        /// Reinitialize the LiteDb LiteDatabase instance.
+        /// </summary>
         void ReinitializeInstance();
     }
 }

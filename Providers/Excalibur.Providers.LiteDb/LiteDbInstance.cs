@@ -8,6 +8,7 @@ namespace Excalibur.Providers.LiteDb
     public class LiteDbInstance : ILiteDbInstance, IDisposable
     {
         private readonly LiteDbConfig _providerConfig;
+
         /// <inheritdoc cref="ILiteDbInstance"/>
         public LiteDatabase LiteDatabase { get; private set; }
 
@@ -17,6 +18,7 @@ namespace Excalibur.Providers.LiteDb
             ReinitializeInstance();
         }
 
+        /// <inheritdoc />
         public void ReinitializeInstance()
         {
             LiteDatabase?.Dispose();

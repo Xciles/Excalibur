@@ -8,7 +8,14 @@ using Excalibur.Base.Storage;
 using Newtonsoft.Json;
 
 namespace Excalibur.Providers.FileStorage
-{
+{    
+    /// <summary>
+    /// A provider that uses file storage as the underlying database.
+    /// This class will use TId as a type identifier for objects
+    /// </summary>
+    /// <typeparam name="TId">  The type of Identifier to use for the database object. Ints, guids,
+    ///                         etc. </typeparam>
+    /// <typeparam name="T">The type of the object that wants to be stored</typeparam>
     public class FileStorageProvider<TId, T> : ObjectToFileSerializer, IFileStorageProvider<TId, T>
         where T : ProviderDomain<TId>
     {
@@ -24,6 +31,7 @@ namespace Excalibur.Providers.FileStorage
             _providerConfig = providerConfiguration.Configuration;
         }
 
+        /// <inheritdoc />
         public async Task Insert(T item)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -43,6 +51,7 @@ namespace Excalibur.Providers.FileStorage
             await InsertBulk(items).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
         public async Task InsertBulk(IEnumerable<T> items)
         {
             // Delete the file before writing.
@@ -53,18 +62,21 @@ namespace Excalibur.Providers.FileStorage
             await _storageService.Store(DataFolder, String.Format(FileNamingFormat, typeof(T).Name), objectAsString).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
         public async Task<bool> Upsert(T item)
         {
             await Insert(item).ConfigureAwait(false);
             return true;
         }
 
+        /// <inheritdoc />
         public async Task<bool> Update(T item)
         {
             await Insert(item).ConfigureAwait(false);
             return true;
         }
 
+        /// <inheritdoc />
         public async Task Delete(Expression<Func<T, bool>> predicate)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -79,6 +91,7 @@ namespace Excalibur.Providers.FileStorage
             }
         }
 
+        /// <inheritdoc />
         public async Task<IEnumerable<T>> FindAll()
         {
             var objectAsString = await _storageService.ReadAsText(DataFolder, String.Format(FileNamingFormat, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
@@ -86,6 +99,7 @@ namespace Excalibur.Providers.FileStorage
             return JsonConvert.DeserializeObject<IEnumerable<T>>(objectAsString, JsonSerializerSettings()) ?? Enumerable.Empty<T>();
         }
 
+        /// <inheritdoc />
         public async Task<T> FindById(TId id)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -93,18 +107,21 @@ namespace Excalibur.Providers.FileStorage
             return items.FirstOrDefault(x => x.Id.Equals(id));
         }
 
+        /// <inheritdoc />
         public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = Int32.MaxValue)
         {
             var items = await FindAll().ConfigureAwait(false);
             return items.Where(predicate.Compile()).Skip(skip).Take(take);
         }
 
+        /// <inheritdoc />
         public async Task<T> FirstOrDefault()
         {
             var items = await FindAll().ConfigureAwait(false);
             return items.FirstOrDefault();
         }
 
+        /// <inheritdoc />
         public async Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
             // todo: Seek actual id from disk instead of searching the list
@@ -112,6 +129,7 @@ namespace Excalibur.Providers.FileStorage
             return items.FirstOrDefault(predicate.Compile());
         }
 
+        /// <inheritdoc />
         public Task Clear()
         {
             _storageService.DeleteFile(DataFolder, String.Format(FileNamingFormat, typeof(T).Name));
@@ -119,9 +137,7 @@ namespace Excalibur.Providers.FileStorage
             return Task.CompletedTask;
         }
 
-        public override JsonSerializerSettings JsonSerializerSettings()
-        {
-            return new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
-        }
+        /// <inheritdoc />
+        public override JsonSerializerSettings JsonSerializerSettings() => new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
     }
 }

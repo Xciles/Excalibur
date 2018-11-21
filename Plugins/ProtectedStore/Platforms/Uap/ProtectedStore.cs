@@ -107,12 +107,29 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
             return Task.CompletedTask;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// For UWP this does not require an implementation
+        /// </summary>
         public void Initialize(string password, string fileName = "Excalibur.Store")
         {
             // For UWP this does not require an implementation
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// For UWP this does not require an implementation
+        /// </summary>
         public void Terminate()
+        {
+            // For UWP this does not require an implementation
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// For UWP this does not require an implementation
+        /// </summary>
+        public void Remove()
         {
             // For UWP this does not require an implementation
         }

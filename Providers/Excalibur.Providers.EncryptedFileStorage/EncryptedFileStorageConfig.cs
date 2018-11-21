@@ -1,28 +1,33 @@
 ﻿using System;
-using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Excalibur.MvvmCross.Plugin.ProtectedStore;
 using Excalibur.Providers.Encryption;
 using Excalibur.Providers.FileStorage;
-using MvvmCross;
 using Plugin.DeviceInfo;
 
 namespace Excalibur.Providers.EncryptedFileStorage
 {
+    /// <inheritdoc cref="IEncryptedProviderConfig"/>
     public class EncryptedFileStorageConfig : FileStorageConfig, IEncryptedProviderConfig
     {
         private readonly IExCrypto _crypto;
         private readonly IProtectedStore _protectedStore;
         private const string Test = "ExcaliburTestString";
         private const string TestIdentifier = "ex.ps.test";
+        private string _password;
 
+        /// <inheritdoc />
         public string ProtectedStoreKeyIdentifier { get; set; } = "ex.ps.key";
-        public string ProtectedStoreDeviceSaltIdentifier { get; set; } = "ex.ps.device.salt";
+
+        /// <inheritdoc />
         public string ProtectedStoreSaltIdentifier { get; set; } = "ex.ps.salt";
 
+        /// <inheritdoc />
+        public string ProtectedStoreDeviceSaltIdentifier { get; set; } = "ex.ps.device.salt";
+
+        /// <inheritdoc />
         public bool HasBeenInitialized { get; private set; }
-        private string _password;
 
         public EncryptedFileStorageConfig(IExCrypto crypto, IProtectedStore protectedStore)
         {
@@ -30,6 +35,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             _protectedStore = protectedStore;
         }
 
+        /// <inheritdoc />
         public async Task InitializeFirstTimeAndGenerate(string password)
         {
             // Store the password
@@ -70,6 +76,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return decryptedTest.Equals(Test);
         }
 
+        /// <inheritdoc />
         public async Task<bool> InitializeAndTryDecrypt(string password)
         {
             try
@@ -94,6 +101,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return false;
         }
 
+        /// <inheritdoc />
         public string DeviceKey()
         {
             // Derive key for the password and deviceId combination
@@ -103,6 +111,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
 
         private async Task<byte[]> DeviceSalt() => Convert.FromBase64String(await _protectedStore.GetStringForIdentifier(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false));
 
+        /// <inheritdoc />
         public async Task<string> Key()
         {
             var encryptedKey = await _protectedStore.GetStringForIdentifier(ProtectedStoreKeyIdentifier).ConfigureAwait(false);
@@ -110,8 +119,10 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return Convert.ToBase64String(decryptedKey);
         }
 
+        /// <inheritdoc />
         public async Task<byte[]> Salt() => Convert.FromBase64String(await _protectedStore.GetStringForIdentifier(ProtectedStoreSaltIdentifier).ConfigureAwait(false));
 
+        /// <inheritdoc />
         public void Clear()
         {
             _password = null;
@@ -119,12 +130,15 @@ namespace Excalibur.Providers.EncryptedFileStorage
             HasBeenInitialized = false;
         }
 
+        /// <inheritdoc />
         public async Task Reset()
         {
             await _protectedStore.Delete(TestIdentifier).ConfigureAwait(false);
             await _protectedStore.Delete(ProtectedStoreKeyIdentifier).ConfigureAwait(false);
-            await _protectedStore.Delete(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false);
             await _protectedStore.Delete(ProtectedStoreSaltIdentifier).ConfigureAwait(false);
+            await _protectedStore.Delete(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false);
+
+            Clear();
         }
     }
 }

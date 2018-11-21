@@ -91,12 +91,29 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
             return Task.CompletedTask;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// For iOS this does not require an implementation
+        /// </summary>
         public void Initialize(string password, string fileName = "Excalibur.Store")
         {
             // For iOS this does not require an implementation
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// For iOS this does not require an implementation
+        /// </summary>
         public void Terminate()
+        {
+            // For iOS this does not require an implementation
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// For iOS this does not require an implementation
+        /// </summary>
+        public void Remove()
         {
             // For iOS this does not require an implementation
         }

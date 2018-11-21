@@ -7,7 +7,13 @@ using MvvmCross.Plugin.File;
 
 namespace Excalibur.Providers.EncryptedFileStorage
 {
-    public class EncryptedStorageService : ExStorageService, IStorageService
+    /// <summary>
+    /// MvvmCross implementation of the <see cref="IStorageService"/>, however this one is encrypted!
+    /// The encrypted storage service makes use of the ProtectedStore via <see cref="IEncryptedProviderConfig"/> to make encryption keys and salts
+    ///     and the <see cref="IExCrypto"/> to actually encrypt and decrypt.
+    /// It will require that the <see cref="IEncryptedProviderConfig"/> to be initialized. If it hasn't, this will throw an exception to make sure.
+    /// </summary>
+    public class EncryptedStorageService : ExStorageService
     {
         private const string ErrorString = "Did you forget to initialize the IEncryptedProviderConfig?";
         private readonly IEncryptedProviderConfig _config;
@@ -19,6 +25,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             _exCrypto = exCrypto;
         }
 
+        /// <inheritdoc />
         public override async Task<string> Store(string folder, string fullName, string contentAsString)
         {
             if (!_config.HasBeenInitialized) throw new ArgumentException(ErrorString);
@@ -27,6 +34,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return await base.Store(folder, fullName, encryptedBytes).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
         public override async Task<string> Store(string folder, string fullName, byte[] contentAsBytes)
         {
             if (!_config.HasBeenInitialized) throw new ArgumentException(ErrorString);
@@ -35,6 +43,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return await base.Store(folder, fullName, encryptedBytes).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
         public override async Task<string> ReadAsText(string folder, string fullName)
         {
             if (!_config.HasBeenInitialized) throw new ArgumentException(ErrorString);
@@ -48,6 +57,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             return string.Empty;
         }
 
+        /// <inheritdoc />
         public override async Task<byte[]> ReadAsBinary(string folder, string fullName)
         {
             if (!_config.HasBeenInitialized) throw new ArgumentException(ErrorString);

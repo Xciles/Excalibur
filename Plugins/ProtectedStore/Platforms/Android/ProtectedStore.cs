@@ -55,6 +55,7 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             }
         }
 
+        /// <inheritdoc />
         public void Terminate()
         {
             _keyStore = null;
@@ -63,6 +64,15 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             {
                 _context = null;
                 _password = null;
+            }
+        }
+
+        /// <inheritdoc />
+        public void Remove()
+        {
+            lock (FileLock)
+            {
+                _context.DeleteFile(_fileName);
             }
         }
 

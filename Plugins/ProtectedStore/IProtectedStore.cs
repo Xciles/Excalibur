@@ -39,7 +39,22 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore
         /// <param name="identifier">The Identifier that was used as key</param>
         Task Delete(string identifier);
 
+        /// <summary>
+        /// Provides a way to platform specifically initialize if needed.
+        /// Currently this is only being used by Android to create a store with a certain password.
+        /// </summary>
+        /// <param name="password">The password for the KeyStore</param>
+        /// <param name="fileName">A filename for the KeyStore</param>
         void Initialize(string password, string fileName = "Excalibur.Store");
+
+        /// <summary>
+        /// Unloads the store, removes everything from memory if needed and clears the current state
+        /// </summary>
         void Terminate();
+
+        /// <summary>
+        /// Removes the store if needed.
+        /// </summary>
+        void Remove();
     }
 }
