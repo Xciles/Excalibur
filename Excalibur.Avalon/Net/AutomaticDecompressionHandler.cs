@@ -6,6 +6,7 @@ namespace System.Net.Http
     /// </summary>
     public class AutomaticDecompressionHandler : HttpClientHandler
     {
+        /// <inheritdoc />
         /// <summary>
         /// Constructs a new instance and setting AutomaticDecompression to GZip | Deflate
         /// </summary>

@@ -3,9 +3,10 @@ using Excalibur.Base.Configuration;
 
 namespace Excalibur.Base.State
 {
+    /// <inheritdoc />
     /// <summary>
     /// Base class for managing state. 
-    /// This class will initialize a <see cref="ConfigurationManager"/> and will implement certain methods from <see cref="IBaseState"/> to contain
+    /// This class will initialize a <see cref="P:Excalibur.Base.State.BaseState`1.ConfigurationManager" /> and will implement certain methods from <see cref="T:Excalibur.Base.State.IBaseState" /> to contain
     /// a default implementation.
     /// </summary>
     /// <typeparam name="TConfig">A config class that contains the configuration that contains persistable state</typeparam>
@@ -30,10 +31,7 @@ namespace Excalibur.Base.State
         /// </summary>
         protected TConfig Config { get; set; } = new TConfig();
 
-        /// <summary>
-        /// Initialize and load the state
-        /// </summary>
-        /// <returns>An await-able task</returns>
+        /// <inheritdoc />
         public virtual async Task InitAndLoad()
         {
             Config = await ConfigurationManager.Load<TConfig>().ConfigureAwait(false);
@@ -44,7 +42,6 @@ namespace Excalibur.Base.State
         /// <summary>
         /// Initialize method that will be used for loading default thing if needed.
         /// </summary>
-        /// <returns>An awaitable task</returns>
         protected virtual Task Initialize()
         {
             // Add custom things here
@@ -52,13 +49,7 @@ namespace Excalibur.Base.State
             return Task.CompletedTask;
         }
 
-        /// <summary>
-        /// Save the state.
-        /// </summary>
-        /// <returns>An await-able task</returns>
-        public virtual async Task Save()
-        {
-            await ConfigurationManager.Save(Config).ConfigureAwait(false);
-        }
+        /// <inheritdoc />
+        public virtual async Task Save() => await ConfigurationManager.Save(Config).ConfigureAwait(false);
     }
 }

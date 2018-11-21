@@ -11,7 +11,7 @@ namespace Excalibur.Base.Configuration
         /// Loads the configuration using TConfigObject as storage entity
         /// </summary>
         /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
-        /// <returns>An await able Task with the configuration as result</returns>
+        /// <returns>The stored configuration</returns>
         Task<TConfigObject> Load<TConfigObject>() where TConfigObject : new();
 
         /// <summary>
@@ -19,14 +19,14 @@ namespace Excalibur.Base.Configuration
         /// </summary>
         /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
         /// <param name="configObject">The object that contains the configuration</param>
-        /// <returns>An await able Task with the success as result</returns>
+        /// <returns>ATrue if stored successfully, false otherwise.</returns>
         Task<bool> Save<TConfigObject>(TConfigObject configObject) where TConfigObject : new();
 
         /// <summary>
         /// Returns if the configuration manager is currently managing some kind of configuration for config object
         /// </summary>
         /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
-        /// <returns>An await able Task with the success as result</returns>
+        /// <returns>True if managing a configuration or if a configuration is available, false otherwise.</returns>
         bool HasConfigurationFor<TConfigObject>() where TConfigObject : new();
     }
 }

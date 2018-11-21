@@ -11,15 +11,16 @@ namespace Excalibur.Cross.Business
     public interface ISingleBusiness<TDomain> : IBusiness
     {
         /// <summary>
-        /// Gets the represented object
+        /// Get the first available stored object that this business entity manages.
+        /// Since a single business only manages one item, this will return that item.
         /// </summary>
-        /// <returns>An await able Task with the requested object as result</returns>
+        /// <returns>The requested object as result</returns>
         Task<TDomain> FirstOrDefault();
 
         /// <summary>
         /// Deletes the represented object
         /// </summary>
-        /// <returns>An await able task</returns>
+        /// <returns>An awaitable task</returns>
         Task DeleteAsync();
     }
 }

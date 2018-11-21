@@ -35,6 +35,11 @@ namespace Excalibur.Cross.Business
         /// <returns>An await able Task</returns>
         Task DeleteItemAsync(TId id);
 
+        /// <summary>
+        /// Find the first item within the store based on a predicate
+        /// </summary>
+        /// <param name="predicate">The predicate that should be used for searching</param>
+        /// <returns>The first item in the store</returns>
         Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate);
     }
 }

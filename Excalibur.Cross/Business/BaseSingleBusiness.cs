@@ -46,15 +46,13 @@ namespace Excalibur.Cross.Business
             PublishUpdated(result);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Publish a message to subscribers that contains the object managed by this entity. 
-        /// Publish state will be <see cref="EDomainState.Updated"/>
+        /// Publish state will be <see cref="F:Excalibur.Cross.Business.EDomainState.Updated" />
         /// </summary>
         /// <returns>An await-able task</returns>
-        public override async Task PublishFromStorageAsync()
-        {
-            PublishUpdated(await FirstOrDefault().ConfigureAwait(false));
-        }
+        public override async Task PublishFromStorageAsync() => PublishUpdated(await FirstOrDefault().ConfigureAwait(false));
 
         /// <summary>
         /// Get the domain object that is managed by this entity
