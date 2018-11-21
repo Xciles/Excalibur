@@ -15,7 +15,9 @@ namespace Excalibur.Cross.ViewModels
         public override void ViewDestroy(bool viewFinishing = true)
         {
             if (viewFinishing && CloseCompletionSource != null && !CloseCompletionSource.Task.IsCompleted && !CloseCompletionSource.Task.IsFaulted)
+            {
                 CloseCompletionSource?.TrySetCanceled();
+            }
 
             base.ViewDestroy(viewFinishing);
         }

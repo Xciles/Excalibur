@@ -8,7 +8,7 @@ namespace Excalibur.Tests.Cross.Core.Services
 {
     public class TodoService : ServiceBase<IList<Todo>>
     {
-        public override async Task<IList<Todo>> SyncDataAsync()
+        public override async Task<IList<Todo>> SyncData()
         {
             using (var client = CreateDefaultHttpClient())
             {

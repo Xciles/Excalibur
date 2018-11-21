@@ -14,7 +14,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels
         {
             if (!Observables.Any())
             {
-                Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+                Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorage();
             }
         }
 
@@ -28,7 +28,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels
                     IsLoading = true;
 
                     await Task.Delay(5000);
-                    await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
+                    await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.User>>().UpdateFromService();
 
                     IsLoading = false;
                 });

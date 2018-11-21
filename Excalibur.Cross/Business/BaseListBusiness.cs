@@ -38,7 +38,7 @@ namespace Excalibur.Cross.Business
         public virtual async Task<IEnumerable<TDomain>> FindAll() => await Storage.FindAll().ConfigureAwait(false);
 
         /// <inheritdoc />
-        public virtual async Task<TDomain> GetByIdAsync(TId id) => await Storage.FindById(id).ConfigureAwait(false);
+        public virtual async Task<TDomain> FindById(TId id) => await Storage.FindById(id).ConfigureAwait(false);
 
         /// <inheritdoc />
         public virtual async Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate) => await Storage.FirstOrDefault(predicate).ConfigureAwait(false);
@@ -50,11 +50,11 @@ namespace Excalibur.Cross.Business
         }
 
         /// <inheritdoc />
-        public override async Task UpdateFromServiceAsync()
+        public override async Task UpdateFromService()
         {
-            var result = await Service.SyncDataAsync().ConfigureAwait(false) ?? new List<TDomain>();
+            var result = await Service.SyncData().ConfigureAwait(false) ?? new List<TDomain>();
 
-            await StoreItemsAsync(result).ConfigureAwait(false);
+            await StoreItems(result).ConfigureAwait(false);
 
             PublishListUpdated();
         }
@@ -63,7 +63,7 @@ namespace Excalibur.Cross.Business
         /// Publish a message to subscribers that do not contain the actual objects. They have to be retrieved separately. 
         /// Note: Might add an initial range when loading the first time
         /// </summary>
-        public override Task PublishFromStorageAsync()
+        public override Task PublishFromStorage()
         {
             // todo Add initial range when loading from storage
             PublishListUpdated();
@@ -76,10 +76,10 @@ namespace Excalibur.Cross.Business
         /// This stores all entities.
         /// </summary>
         /// <param name="objectsToStore">The objects to store</param>
-        protected async Task StoreItemsAsync(IList<TDomain> objectsToStore) => await Storage.InsertBulk(objectsToStore).ConfigureAwait(false);
+        protected async Task StoreItems(IList<TDomain> objectsToStore) => await Storage.InsertBulk(objectsToStore).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task DeleteItemAsync(TId id)
+        public async Task DeleteItem(TId id)
         {
             var itemToDelete = await FirstOrDefault(x => x.Id.Equals(id)).ConfigureAwait(false);
 

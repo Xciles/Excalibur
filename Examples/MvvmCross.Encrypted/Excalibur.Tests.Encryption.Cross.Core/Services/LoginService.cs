@@ -50,7 +50,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.Services
                 // we load the current user from storage, usually we reauth and sync current user
 
                 var loggedInUserBusiness = Mvx.IoCProvider.Resolve<ILoggedInUser>();
-                loggedInUserBusiness.PublishFromStorageAsync().ConfigureAwait(false);
+                loggedInUserBusiness.PublishFromStorage().ConfigureAwait(false);
 
                 return true;
             }

@@ -230,7 +230,7 @@ namespace Excalibur.Cross.Presentation
                     }
                     else
                     {
-                        var result = await ListBusiness.GetByIdAsync(observableId).ConfigureAwait(false);
+                        var result = await ListBusiness.FindById(observableId).ConfigureAwait(false);
                         if (result != null)
                         {
                             DomainSelectedMapper.UpdateDestination(result, SelectedObservable);
@@ -252,7 +252,7 @@ namespace Excalibur.Cross.Presentation
                 return Observables.First(x => x.Id.Equals(observableId));
             }
 
-            var result = await ListBusiness.GetByIdAsync(observableId).ConfigureAwait(false);
+            var result = await ListBusiness.FindById(observableId).ConfigureAwait(false);
             if (result != null)
             {
                 return DomainObservableMapper.Map(result);

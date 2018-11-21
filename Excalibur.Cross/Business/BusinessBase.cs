@@ -23,7 +23,7 @@ namespace Excalibur.Cross.Business
     {
         /// <summary>
         /// Instance of a given TService that will and can be used for web requests.
-        /// For example, this instance will be used in by <see cref="UpdateFromServiceAsync"/>
+        /// For example, this instance will be used in by <see cref="UpdateFromService"/>
         /// </summary>
         protected TService Service { get; set; }
 
@@ -60,7 +60,7 @@ namespace Excalibur.Cross.Business
         /// Stores and persists an object using <see cref="Storage"/>.
         /// </summary>
         /// <param name="objectToStore">The object that should be stored</param>
-        protected async Task StoreItemAsync(TDomain objectToStore)
+        protected async Task StoreItem(TDomain objectToStore)
         {
             await Storage.Insert(objectToStore).ConfigureAwait(false);
 
@@ -76,9 +76,9 @@ namespace Excalibur.Cross.Business
         }
 
         /// <inheritdoc />
-        public abstract Task UpdateFromServiceAsync();
+        public abstract Task UpdateFromService();
 
         /// <inheritdoc />
-        public abstract Task PublishFromStorageAsync();
+        public abstract Task PublishFromStorage();
     }
 }

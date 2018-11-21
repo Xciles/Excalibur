@@ -8,7 +8,7 @@ namespace Excalibur.Tests.Cross.Core.Services
 {
     public class UserService : ServiceBase<IList<User>>
     {
-        public override async Task<IList<User>> SyncDataAsync()
+        public override async Task<IList<User>> SyncData()
         {
             using (var client = CreateDefaultHttpClient())
             {

@@ -12,6 +12,6 @@ namespace Excalibur.Cross.Services
         /// Base method for syncing data.
         /// </summary>
         /// <returns>The objects that were downloaded/synced</returns>
-        Task<T> SyncDataAsync();
+        Task<T> SyncData();
     }
 }

@@ -26,13 +26,13 @@ namespace Excalibur.Cross.Business
         /// </summary>
         /// <param name="id">The Id of the object to get</param>
         /// <returns>The requested object</returns>
-        Task<TDomain> GetByIdAsync(TId id);
+        Task<TDomain> FindById(TId id);
 
         /// <summary>
         /// Deletes a domain object by a TId
         /// </summary>
         /// <param name="id">The Id of the object to delete</param>
-        Task DeleteItemAsync(TId id);
+        Task DeleteItem(TId id);
 
         /// <summary>
         /// Find the first item within the store based on a predicate

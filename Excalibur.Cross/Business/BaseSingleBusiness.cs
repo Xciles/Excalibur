@@ -34,11 +34,11 @@ namespace Excalibur.Cross.Business
         /// <summary>
         /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
         /// </summary>
-        public override async Task UpdateFromServiceAsync()
+        public override async Task UpdateFromService()
         {
-            var result = await Service.SyncDataAsync().ConfigureAwait(false) ?? new TDomain();
+            var result = await Service.SyncData().ConfigureAwait(false) ?? new TDomain();
 
-            await StoreItemAsync(result).ConfigureAwait(false);
+            await StoreItem(result).ConfigureAwait(false);
 
             PublishUpdated(result);
         }
@@ -48,13 +48,13 @@ namespace Excalibur.Cross.Business
         /// Publish a message to subscribers that contains the object managed by this entity. 
         /// Publish state will be <see cref="F:Excalibur.Cross.Business.EDomainState.Updated" />
         /// </summary>
-        public override async Task PublishFromStorageAsync() => PublishUpdated(await FirstOrDefault().ConfigureAwait(false));
+        public override async Task PublishFromStorage() => PublishUpdated(await FirstOrDefault().ConfigureAwait(false));
 
         /// <inheritdoc />
         public virtual async Task<TDomain> FirstOrDefault() => await Storage.FirstOrDefault().ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task DeleteAsync()
+        public async Task Delete()
         {
             var itemToDelete = await FirstOrDefault().ConfigureAwait(false);
 

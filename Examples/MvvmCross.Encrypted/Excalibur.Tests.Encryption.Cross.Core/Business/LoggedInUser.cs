@@ -21,7 +21,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.Business
 
         public async Task Store()
         {
-            await StoreItemAsync(_tempUser);
+            await StoreItem(_tempUser);
 
             PublishUpdated(_tempUser);
             _tempUser = null;

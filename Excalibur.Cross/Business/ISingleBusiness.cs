@@ -20,6 +20,6 @@ namespace Excalibur.Cross.Business
         /// <summary>
         /// Deletes the represented object
         /// </summary>
-        Task DeleteAsync();
+        Task Delete();
     }
 }

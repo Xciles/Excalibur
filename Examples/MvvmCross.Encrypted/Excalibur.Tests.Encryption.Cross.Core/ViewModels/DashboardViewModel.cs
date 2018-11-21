@@ -29,7 +29,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core.ViewModels
 
                 if (!CurrentUserTodoObservables.Any())
                 {
-                    await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorageAsync();
+                    await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().PublishFromStorage();
                 }
             });
         }

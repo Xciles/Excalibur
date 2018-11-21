@@ -13,12 +13,12 @@ namespace Excalibur.Cross.Business
         /// Updates the storage entities using a <see cref="IServiceBase{T}"/>. 
         /// Afterwards this should publish a message to all subscribers
         /// </summary>
-        Task UpdateFromServiceAsync();
+        Task UpdateFromService();
 
         /// <summary>
         /// Publish a message to notify subscribers. Entities should be loaded (if needed) from storage, not from services.
         /// </summary>
-        Task PublishFromStorageAsync();
+        Task PublishFromStorage();
 
         /// <summary>
         /// Clears the underlining database provider, removing all items that are currently stored.

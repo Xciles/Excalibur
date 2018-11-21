@@ -29,8 +29,8 @@ namespace Excalibur.Tests.Cross.Core.Services
 
         public async Task FullSyncAsync()
         {
-            await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.User>>().UpdateFromServiceAsync();
-            await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().UpdateFromServiceAsync();
+            await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.User>>().UpdateFromService();
+            await Mvx.IoCProvider.Resolve<IListBusiness<int, Domain.Todo>>().UpdateFromService();
         }
 
         public async Task PartialSyncAsync()

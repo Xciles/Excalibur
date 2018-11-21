@@ -29,6 +29,6 @@ namespace Excalibur.Cross.Services
     public abstract class ServiceBase<T> : ServiceBase, IServiceBase<T>
     {
         /// <inheritdoc />
-        public abstract Task<T> SyncDataAsync();
+        public abstract Task<T> SyncData();
     }
 }

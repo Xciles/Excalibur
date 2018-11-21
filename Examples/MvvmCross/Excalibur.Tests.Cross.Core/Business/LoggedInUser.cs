@@ -15,7 +15,7 @@ namespace Excalibur.Tests.Cross.Core.Business
 
         public async Task Store(Domain.LoggedInUser user)
         {
-            await StoreItemAsync(user);
+            await StoreItem(user);
 
             PublishUpdated(user);
         }
