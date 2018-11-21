@@ -12,13 +12,13 @@ namespace Excalibur.Cross.Core
         /// <inheritdoc />
         ~ExSingletonBase()
         {
-            this.Dispose(false);
+            Dispose(false);
         }
 
         /// <inheritdoc />
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -60,10 +60,7 @@ namespace Excalibur.Cross.Core
         /// Creates an instance of T via reflection since T's constructor is expected to be private.
         /// </summary>
         /// <returns></returns>
-        private static T CreateInstanceOfT()
-        {
-            return Activator.CreateInstance(typeof(T)) as T;
-        }
+        private static T CreateInstanceOfT() => Activator.CreateInstance(typeof(T)) as T;
 
         #endregion
     }

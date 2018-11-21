@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using MvvmCross.Plugin.JsonLocalization;
 
@@ -11,9 +10,9 @@ namespace Excalibur.Cross.Language
     public class ExTextProvider
     {
         internal static IList<Assembly> ProjectAssemblies = new List<Assembly>();
-        internal static string RootFolderForResources = String.Empty;
-        internal static string GeneralNamespace = String.Empty;
-        internal static string SharedNamespace = String.Empty;
+        internal static string RootFolderForResources = string.Empty;
+        internal static string GeneralNamespace = string.Empty;
+        internal static string SharedNamespace = string.Empty;
 
         /// <summary>
         /// Method for initializing and creating the <see cref="ExTextProviderBuilder"/>
@@ -31,8 +30,8 @@ namespace Excalibur.Cross.Language
 
             var builder = new ExTextProviderBuilder();
 
-            MvvmCross.Mvx.RegisterSingleton<IMvxTextProviderBuilder>(builder);
-            MvvmCross.Mvx.RegisterSingleton(builder.TextProvider);
+            MvvmCross.Mvx.IoCProvider.RegisterSingleton<IMvxTextProviderBuilder>(builder);
+            MvvmCross.Mvx.IoCProvider.RegisterSingleton(builder.TextProvider);
         }
     }
 }

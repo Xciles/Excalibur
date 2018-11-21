@@ -92,9 +92,8 @@ namespace Excalibur.Cross.ViewModels
             {
                 _goToDetailCommand = _goToDetailCommand ?? new MvxAsyncCommand<TObservable>(async (selected) =>
                 {
-                    Presentation.SetSelectedObservable(selected.Id);
-
-                    await NavigationService.Navigate<TDetailViewModel>();
+                    await Presentation.SetSelectedObservable(selected.Id).ConfigureAwait(false);
+                    await NavigationService.Navigate<TDetailViewModel>().ConfigureAwait(false);
                 });
 
                 return _goToDetailCommand;

@@ -1,7 +1,4 @@
-﻿using Excalibur.Base.Configuration;
-using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
-using Excalibur.Cross.Business;
+﻿using Excalibur.Base.Providers;
 using MvvmCross;
 using MvvmCross.ViewModels;
 

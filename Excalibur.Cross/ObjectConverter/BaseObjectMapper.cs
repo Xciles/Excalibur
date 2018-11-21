@@ -34,7 +34,7 @@ namespace Excalibur.Cross.ObjectConverter
         /// <returns>The mapped object as destination</returns>
         public virtual TDestination Map(TSource source)
         {
-            IMapper mapper = Config.CreateMapper();
+            var mapper = Config.CreateMapper();
             return mapper.Map<TSource, TDestination>(source);
         }
 
@@ -45,7 +45,7 @@ namespace Excalibur.Cross.ObjectConverter
         /// <param name="destination">The instance of a destination object</param>
         public virtual void UpdateDestination(TSource source, TDestination destination)
         {
-            IMapper mapper = Config.CreateMapper();
+            var mapper = Config.CreateMapper();
             mapper.Map(source, destination);
         }
 
@@ -56,7 +56,7 @@ namespace Excalibur.Cross.ObjectConverter
         /// <param name="source">The instance of a source object</param>
         public virtual void UpdateSource(TDestination destination, TSource source)
         {
-            IMapper mapper = Config.CreateMapper();
+            var mapper = Config.CreateMapper();
             mapper.Map(destination, source);
         }
     }

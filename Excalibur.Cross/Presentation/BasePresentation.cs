@@ -28,11 +28,13 @@ namespace Excalibur.Cross.Presentation
         where TSelectedObservable : ObservableBase<TId>, new()
     {
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
+        private bool _isLoading = true;
+
         /// <summary>
         /// Object mapper that can be used for mapping from TDomain to a TSelectedObservable or vice versa.
         /// </summary>
         protected IObjectMapper<TDomain, TSelectedObservable> DomainSelectedMapper { get; set; }
-        private bool _isLoading = true;
+
         /// <summary>
         /// A <see cref="CountdownEvent"/> can be used to wait before continuing the flow of events. 
         /// Using a CDE actual UpdateHandlers (subscribe actions) can be used to wait on when wanting to set additional information
@@ -49,18 +51,14 @@ namespace Excalibur.Cross.Presentation
             DomainSelectedMapper = domainSelectedMapper;
         }
 
-        /// <summary>
-        /// Property used for indicating that the presentation is currently busy
-        /// </summary>
+        /// <inheritdoc />
         public bool IsLoading
         {
             get => _isLoading;
             set => SetProperty(ref _isLoading, value);
         }
 
-        /// <summary>
-        /// The selected observable
-        /// </summary>
+        /// <inheritdoc />
         public TSelectedObservable SelectedObservable
         {
             get => _selectedObservable;

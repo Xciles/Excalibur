@@ -36,6 +36,7 @@ namespace Excalibur.Cross.Utils
         /// The object that is passed along with the message
         /// </summary>
         public T Object { get; set; }
+
         /// <summary>
         /// The state of the <see cref="Object"/>
         /// </summary>

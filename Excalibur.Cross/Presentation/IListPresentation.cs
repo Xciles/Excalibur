@@ -38,6 +38,7 @@ namespace Excalibur.Cross.Presentation
         /// </summary>
         /// <param name="observableId">The id of the object that should be set as <see cref="SetSelectedObservable"/></param>
         Task SetSelectedObservable(TId observableId);
+
         /// <summary>
         /// If needed, a certain TObservable can be requested.
         /// </summary>

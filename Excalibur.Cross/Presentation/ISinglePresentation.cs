@@ -25,6 +25,7 @@ namespace Excalibur.Cross.Presentation
         /// Property used for indicating that the presentation is currently busy
         /// </summary>
         bool IsLoading { get; set; }
+
         /// <summary>
         /// The selected observable
         /// </summary>

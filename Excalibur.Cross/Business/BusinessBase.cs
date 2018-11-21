@@ -54,13 +54,12 @@ namespace Excalibur.Cross.Business
         /// </summary>
         /// <param name="updatedObject">The object that was updated.</param>
         /// <param name="state">The state of the object.</param>
-        protected void PublishUpdated(TDomain updatedObject, EDomainState state = EDomainState.Updated) => this.Publish(new MessageBase<TDomain>(updatedObject));
+        protected void PublishUpdated(TDomain updatedObject, EDomainState state = EDomainState.Updated) => this.Publish(new MessageBase<TDomain>(updatedObject, state));
 
         /// <summary>
         /// Stores and persists an object using <see cref="Storage"/>.
         /// </summary>
         /// <param name="objectToStore">The object that should be stored</param>
-        /// <returns>An await-able task</returns>
         protected async Task StoreItemAsync(TDomain objectToStore)
         {
             await Storage.Insert(objectToStore).ConfigureAwait(false);

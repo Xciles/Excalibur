@@ -14,7 +14,9 @@ namespace Excalibur.Cross.Converters
             var isInt = (value is int);
 
             if (isInt)
+            {
                 return (int)value > 0 ? MvxVisibility.Collapsed : MvxVisibility.Visible;
+            }
 
             return MvxVisibility.Collapsed;
         }

@@ -24,9 +24,6 @@
         /// Current implementation checks Id == null || same as default(TId)
         /// </summary>
         /// <returns>True if the object is transient, was otherwise</returns>
-        public virtual bool IsTransient()
-        {
-            return Id == null || Id.Equals(default(TId));
-        }
+        public virtual bool IsTransient() => Id == null || Id.Equals(default(TId));
     }
 }

@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
 
 namespace Excalibur.Cross.Business
@@ -36,7 +34,6 @@ namespace Excalibur.Cross.Business
         /// <summary>
         /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
         /// </summary>
-        /// <returns>An await-able task</returns>
         public override async Task UpdateFromServiceAsync()
         {
             var result = await Service.SyncDataAsync().ConfigureAwait(false) ?? new TDomain();
@@ -51,22 +48,12 @@ namespace Excalibur.Cross.Business
         /// Publish a message to subscribers that contains the object managed by this entity. 
         /// Publish state will be <see cref="F:Excalibur.Cross.Business.EDomainState.Updated" />
         /// </summary>
-        /// <returns>An await-able task</returns>
         public override async Task PublishFromStorageAsync() => PublishUpdated(await FirstOrDefault().ConfigureAwait(false));
 
-        /// <summary>
-        /// Get the domain object that is managed by this entity
-        /// </summary>
-        /// <returns>An await able Task with the domain object as result</returns>
-        public virtual async Task<TDomain> FirstOrDefault()
-        {
-            return await Storage.FirstOrDefault().ConfigureAwait(false);
-        }
+        /// <inheritdoc />
+        public virtual async Task<TDomain> FirstOrDefault() => await Storage.FirstOrDefault().ConfigureAwait(false);
 
-        /// <summary>
-        /// Delete the domain object that is managed by this entity
-        /// </summary>
-        /// <returns>An await-able task</returns>
+        /// <inheritdoc />
         public async Task DeleteAsync()
         {
             var itemToDelete = await FirstOrDefault().ConfigureAwait(false);

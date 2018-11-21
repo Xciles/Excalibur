@@ -18,21 +18,20 @@ namespace Excalibur.Cross.Business
         /// <summary>
         /// Get all domain objects that are managed by this business entity
         /// </summary>
-        /// <returns>An await able Task with all objects as result</returns>
+        /// <returns>All available objects</returns>
         Task<IEnumerable<TDomain>> FindAll();
 
         /// <summary>
         /// Get a single domain object from storage by a TId
         /// </summary>
         /// <param name="id">The Id of the object to get</param>
-        /// <returns>An await able Task with the requested object as result</returns>
+        /// <returns>The requested object</returns>
         Task<TDomain> GetByIdAsync(TId id);
 
         /// <summary>
         /// Deletes a domain object by a TId
         /// </summary>
         /// <param name="id">The Id of the object to delete</param>
-        /// <returns>An await able Task</returns>
         Task DeleteItemAsync(TId id);
 
         /// <summary>
@@ -41,5 +40,14 @@ namespace Excalibur.Cross.Business
         /// <param name="predicate">The predicate that should be used for searching</param>
         /// <returns>The first item in the store</returns>
         Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate);
+
+        /// <summary>
+        /// Find items based on a predicate
+        /// </summary>
+        /// <param name="predicate">The predicate that should be used for searching</param>
+        /// <param name="skip">Amount of items to skip</param>
+        /// <param name="take">Amount of items to return</param>
+        /// <returns>All found items</returns>
+        Task<IEnumerable<TDomain>> Find(Expression<Func<TDomain, bool>> predicate, int skip = 0, int take = int.MaxValue);
     }
 }

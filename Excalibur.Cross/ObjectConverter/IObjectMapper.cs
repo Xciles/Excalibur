@@ -13,12 +13,14 @@
         /// <param name="source">The instance of a source object</param>
         /// <returns>The mapped object as destination</returns>
         TDestination Map(TSource source);
+
         /// <summary>
         /// Updates the destination object with content from source
         /// </summary>
         /// <param name="source">The instance of a source object</param>
         /// <param name="destination">The instance of a destination object</param>
         void UpdateDestination(TSource source, TDestination destination);
+
         /// <summary>
         /// Updates the source object with content from destination
         /// </summary>

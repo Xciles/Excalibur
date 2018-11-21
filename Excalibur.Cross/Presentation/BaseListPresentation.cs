@@ -14,7 +14,7 @@ using PubSub.Extension;
 
 namespace Excalibur.Cross.Presentation
 {
-    ///  <inheritdoc />
+    /// <inheritdoc cref="BaseListPresentation{TId,TDomain,TObservable,TObservable}"/>
     public class BaseListPresentation<TId, TDomain, TObservable> : BaseListPresentation<TId, TDomain, TObservable, TObservable>, IListPresentation<TId, TObservable>
         where TDomain : ProviderDomain<TId>
         where TObservable : ObservableBase<TId>, new()
@@ -54,15 +54,17 @@ namespace Excalibur.Cross.Presentation
         protected IListBusiness<TId, TDomain> ListBusiness { get; set; }
         protected IMvxMainThreadAsyncDispatcher Dispatcher { get; set; }
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
+        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1);
+
         /// <summary>
         /// Object mapper that can be used for mapping from TDomain to a TObservable or vice versa.
         /// </summary>
         protected IObjectMapper<TDomain, TObservable> DomainObservableMapper { get; set; }
+
         /// <summary>
         /// Object mapper that can be used for mapping from TObservable to a TSelectedObservable or vice versa.
         /// </summary>
         protected IObjectMapper<TObservable, TSelectedObservable> ObservableSelectedMapper { get; set; }
-        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1);
 
         /// <summary>
         /// Initializes a new BaseListPresentation 
@@ -87,9 +89,7 @@ namespace Excalibur.Cross.Presentation
             Dispatcher = dispatcher;
         }
 
-        /// <summary>
-        /// The observable collection that contains mapped domain objects
-        /// </summary>
+        /// <inheritdoc />
         public IObservableCollection<TObservable> Observables
         {
             get => _observables;
@@ -129,7 +129,6 @@ namespace Excalibur.Cross.Presentation
 
             var count = objects.Count + deleteIds;
             VerifyAndResetCountdown(count);
-
 
             foreach (var observable in Observables.Reverse())
             {
@@ -196,6 +195,12 @@ namespace Excalibur.Cross.Presentation
             {
                 DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
             }
+
+            // Delete the item if it is deleted
+            if (SelectedObservable.Id.Equals(messageBase.Object.Id) && messageBase.State == EDomainState.Deleted && itemInList != null)
+            {
+                Observables.Remove(itemInList);
+            }
         }
 
         /// <summary>
@@ -203,10 +208,7 @@ namespace Excalibur.Cross.Presentation
         /// </summary>
         /// <param name="id">The id to check if exists within the Observables</param>
         /// <returns>True if found, false otherwise</returns>
-        protected virtual bool ObservablesContainsId(TId id)
-        {
-            return Observables.FirstOrDefault(x => x.Id.Equals(id)) != null;
-        }
+        protected virtual bool ObservablesContainsId(TId id) => Observables.FirstOrDefault(x => x.Id.Equals(id)) != null;
 
         /// <summary>
         /// Method to be used when navigating to for example detail view models or when selecting a certain object. 
@@ -228,7 +230,7 @@ namespace Excalibur.Cross.Presentation
                     }
                     else
                     {
-                        var result = await ListBusiness.GetByIdAsync(observableId);
+                        var result = await ListBusiness.GetByIdAsync(observableId).ConfigureAwait(false);
                         if (result != null)
                         {
                             DomainSelectedMapper.UpdateDestination(result, SelectedObservable);
@@ -242,11 +244,7 @@ namespace Excalibur.Cross.Presentation
             }
         }
 
-        /// <summary>
-        /// Used for requesting a reference to a certain observable.
-        /// </summary>
-        /// <param name="observableId">The id of the observable that should be returned</param>
-        /// <returns>An observable object</returns>
+        /// <inheritdoc />
         public virtual async Task<TObservable> GetObservable(TId observableId)
         {
             if (Observables.Any() && ObservablesContainsId(observableId))
@@ -254,7 +252,7 @@ namespace Excalibur.Cross.Presentation
                 return Observables.First(x => x.Id.Equals(observableId));
             }
 
-            var result = await ListBusiness.GetByIdAsync(observableId);
+            var result = await ListBusiness.GetByIdAsync(observableId).ConfigureAwait(false);
             if (result != null)
             {
                 return DomainObservableMapper.Map(result);

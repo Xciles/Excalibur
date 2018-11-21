@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
 using Excalibur.Cross.Services;
 
 namespace Excalibur.Cross.Business
@@ -35,39 +34,22 @@ namespace Excalibur.Cross.Business
         {
         }
         
-        /// <summary>
-        /// Gets all domain objects managed by this entity
-        /// </summary>
-        /// <returns>An await able Task with all domain objects as result</returns>
-        public virtual async Task<IEnumerable<TDomain>> FindAll()
-        {
-            return await Storage.FindAll().ConfigureAwait(false);
-        }
+        /// <inheritdoc />
+        public virtual async Task<IEnumerable<TDomain>> FindAll() => await Storage.FindAll().ConfigureAwait(false);
 
-        /// <summary>
-        /// Get a single domain object by Id
-        /// </summary>
-        /// <param name="id">The id for the object to retrieve</param>
-        /// <returns>An await able Task with the domain object as result</returns>
-        public virtual async Task<TDomain> GetByIdAsync(TId id)
-        {
-            return await Storage.FindById(id).ConfigureAwait(false);
-        }
-        
-        public virtual async Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate)
-        {
-            return await Storage.FirstOrDefault(predicate).ConfigureAwait(false);
-        }
-        
+        /// <inheritdoc />
+        public virtual async Task<TDomain> GetByIdAsync(TId id) => await Storage.FindById(id).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public virtual async Task<TDomain> FirstOrDefault(Expression<Func<TDomain, bool>> predicate) => await Storage.FirstOrDefault(predicate).ConfigureAwait(false);
+
+        /// <inheritdoc />
         public virtual async Task<IEnumerable<TDomain>> Find(Expression<Func<TDomain, bool>> predicate, int skip = 0, int take = int.MaxValue)
         {
             return await Storage.Find(predicate, skip, take).ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Updates the domain object from service using <see cref="BusinessBase{TId,TDomain,TService}.Service"/>
-        /// </summary>
-        /// <returns>An await-able task</returns>
+        /// <inheritdoc />
         public override async Task UpdateFromServiceAsync()
         {
             var result = await Service.SyncDataAsync().ConfigureAwait(false) ?? new List<TDomain>();
@@ -81,7 +63,6 @@ namespace Excalibur.Cross.Business
         /// Publish a message to subscribers that do not contain the actual objects. They have to be retrieved separately. 
         /// Note: Might add an initial range when loading the first time
         /// </summary>
-        /// <returns>An await-able task</returns>
         public override Task PublishFromStorageAsync()
         {
             // todo Add initial range when loading from storage
@@ -91,26 +72,23 @@ namespace Excalibur.Cross.Business
         }
 
         /// <summary>
-        /// Stores incoming objectsToStore using <see cref="Excalibur.Shared.Storage"/>. 
+        /// Stores incoming objectsToStore using a provider (FileStorage, LiteDb etc). 
         /// This stores all entities.
         /// </summary>
         /// <param name="objectsToStore">The objects to store</param>
-        /// <returns>An await-able task</returns>
-        protected async Task StoreItemsAsync(IList<TDomain> objectsToStore)
-        {
-            await Storage.InsertBulk(objectsToStore).ConfigureAwait(false);
-        }
+        protected async Task StoreItemsAsync(IList<TDomain> objectsToStore) => await Storage.InsertBulk(objectsToStore).ConfigureAwait(false);
 
-        /// <summary>
-        /// Deletes a domain object by a certain id
-        /// </summary>
-        /// <param name="id">The id of the object that should be deleted</param>
-        /// <returns>An await-able task</returns>
+        /// <inheritdoc />
         public async Task DeleteItemAsync(TId id)
         {
-            await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
+            var itemToDelete = await FirstOrDefault(x => x.Id.Equals(id)).ConfigureAwait(false);
 
-            PublishListUpdated();
+            if (itemToDelete != null)
+            {
+                await Storage.Delete(x => x.Id.Equals(id)).ConfigureAwait(false);
+
+                PublishUpdated(itemToDelete, EDomainState.Deleted);
+            }
         }
     }
 }

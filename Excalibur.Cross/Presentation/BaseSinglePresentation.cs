@@ -44,18 +44,14 @@ namespace Excalibur.Cross.Presentation
             DomainSelectedMapper = domainSelectedMapper;
         }
 
-        /// <summary>
-        /// Property used for indicating that the presentation is currently busy
-        /// </summary>
+        /// <inheritdoc />
         public bool IsLoading
         {
             get => _isLoading;
             set => SetProperty(ref _isLoading, value);
         }
 
-        /// <summary>
-        /// The selected observable
-        /// </summary>
+        /// <inheritdoc />
         public TObservable SelectedObservable
         {
             get => _selectedObservable;
@@ -73,10 +69,7 @@ namespace Excalibur.Cross.Presentation
         /// This will update an object as the selected observable.
         /// </summary>
         /// <param name="messageBase"></param>
-        protected virtual void ItemUpdatedHandler(MessageBase<TDomain> messageBase)
-        {
-            DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
-        }
+        protected virtual void ItemUpdatedHandler(MessageBase<TDomain> messageBase) => DomainSelectedMapper.UpdateDestination(messageBase.Object, SelectedObservable);
 
         /// <inheritdoc />
         ~BaseSinglePresentation()

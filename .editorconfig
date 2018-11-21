@@ -124,7 +124,7 @@ csharp_preserve_single_line_statements = false:suggestion
 dotnet_naming_rule.public_members_must_be_capitalized.symbols = public_symbols
 dotnet_naming_symbols.public_symbols.applicable_kinds = property,method,field,event,delegate
 dotnet_naming_symbols.public_symbols.applicable_accessibilities = public
-dotnet_naming_symbols.public_symbols.required_modifiers = readonly,static
+dotnet_naming_symbols.public_symbols.required_modifiers = readonly
 
 dotnet_naming_rule.public_members_must_be_capitalized.style = first_word_upper_case_style
 dotnet_naming_style.first_word_upper_case_style.capitalization = first_word_upper
