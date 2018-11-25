@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:LoginViewModel"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      x:Class="Excalibur.Tests.FormsCross.Core.Ui.Views.LoginPage"
+                      xmlns:bindings="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:Excalibur.Tests.FormsCross.Core.ViewModels;assembly=Excalibur.Tests.FormsCross.Core"
+                      Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Welcome" />
+            <Button Text="Login"
+                    bindings:Bi.nd="Command LoginCommand" />
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

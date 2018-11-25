@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="5806c8c5-cdd4-44f8-a457-172932e8aa80"
-    Publisher="CN=xcile"
+    Name="0e361749-3b6f-4ce3-bce3-757e698e1d07"
+    Publisher="CN=2fb1deb9-c102-48e8-bb46-d0ba8a175cdd"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="5806c8c5-cdd4-44f8-a457-172932e8aa80" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Excalibur.Tests.FormsCross.UWP</DisplayName>
-    <PublisherDisplayName>xcile</PublisherDisplayName>
+    <PublisherDisplayName>2fb1deb9-c102-48e8-bb46-d0ba8a175cdd</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -26,7 +26,7 @@
   <Resources>
     <Resource Language="x-generate"/>
   </Resources>
-  
+
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
@@ -37,7 +37,13 @@
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Excalibur.Tests.FormsCross.UWP"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
