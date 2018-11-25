@@ -21,6 +21,12 @@ namespace Excalibur.Cross.Business
         Task PublishFromStorage();
 
         /// <summary>
+        /// Method that will be called right after the <see cref="IServiceBase{T}.SyncData"/> and before actually storing items.
+        /// This provides a way to do additional checks or update/delete items that were not returned.
+        /// </summary>
+        Task AfterServiceSyncData();
+
+        /// <summary>
         /// Clears the underlining database provider, removing all items that are currently stored.
         /// This will also publish a message that makes sure the presentation will update properly.
         /// </summary>

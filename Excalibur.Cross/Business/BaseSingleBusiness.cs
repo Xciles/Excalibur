@@ -38,6 +38,13 @@ namespace Excalibur.Cross.Business
         {
             var result = await Service.SyncData().ConfigureAwait(false) ?? new TDomain();
 
+            if (DeleteNotReturnedItems)
+            {
+                await Delete();
+            }
+
+            await AfterServiceSyncData();
+
             await StoreItem(result).ConfigureAwait(false);
 
             PublishUpdated(result);

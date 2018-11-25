@@ -28,6 +28,12 @@ namespace Excalibur.Cross.Business
         protected TService Service { get; set; }
 
         /// <summary>
+        /// This bool indicates to delete the locally stored items that were not returned or keep them when updating from a
+        ///     service <see cref="UpdateFromService"/>.
+        /// </summary>
+        protected bool DeleteNotReturnedItems { get; set; } = false;
+
+        /// <summary>
         /// Instance of a given <see cref="IDatabaseProvider{TId,TDomain}"/> that will be used for storing entities
         /// </summary>
         protected IDatabaseProvider<TId, TDomain> Storage { get; set; }
@@ -80,5 +86,8 @@ namespace Excalibur.Cross.Business
 
         /// <inheritdoc />
         public abstract Task PublishFromStorage();
+
+        /// <inheritdoc />
+        public virtual Task AfterServiceSyncData() => Task.CompletedTask;
     }
 }

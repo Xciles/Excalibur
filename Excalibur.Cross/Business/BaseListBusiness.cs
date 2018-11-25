@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Excalibur.Base.Providers;
@@ -53,6 +54,13 @@ namespace Excalibur.Cross.Business
         public override async Task UpdateFromService()
         {
             var result = await Service.SyncData().ConfigureAwait(false) ?? new List<TDomain>();
+
+            if (DeleteNotReturnedItems)
+            {
+                await Storage.Delete(gr => result.All(y => !gr.Id.Equals(y.Id)));
+            }
+
+            await AfterServiceSyncData();
 
             await StoreItems(result).ConfigureAwait(false);
 
