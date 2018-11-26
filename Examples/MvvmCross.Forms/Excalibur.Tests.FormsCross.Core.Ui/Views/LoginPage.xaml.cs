@@ -1,11 +1,11 @@
-﻿using Excalibur.Tests.FormsCross.Core.ViewModels;
-using MvvmCross.Forms.Presenters.Attributes;
-using MvvmCross.Forms.Views;
+﻿using MvvmCross.Forms.Presenters.Attributes;
+using Xamarin.Forms.Xaml;
 
 namespace Excalibur.Tests.FormsCross.Core.Ui.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     [MvxContentPagePresentation(WrapInNavigationPage = false)]
-    public partial class LoginPage : MvxContentPage<LoginViewModel>
+    public partial class LoginPage
     {
         public LoginPage()
         {

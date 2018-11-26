@@ -4,10 +4,10 @@ using Xamarin.Forms.Xaml;
 namespace Excalibur.Tests.FormsCross.Core.Ui.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [MvxMasterDetailPagePresentation(Position = MasterDetailPosition.Detail, WrapInNavigationPage = true, NoHistory = true)]
-    public partial class DashboardPage
+    [MvxMasterDetailPagePresentation(WrapInNavigationPage = true, NoHistory = false)]
+    public partial class CurrentUserPage
     {
-        public DashboardPage()
+        public CurrentUserPage()
         {
             InitializeComponent();
         }

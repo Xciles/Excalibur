@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:MvxContentPage x:TypeArguments="viewModels:DashboardViewModel"
+<views:MvxContentPage x:TypeArguments="viewModels:CurrentUserViewModel"
                       xmlns="http://xamarin.com/schemas/2014/forms"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns:viewModels="clr-namespace:Excalibur.Tests.FormsCross.Core.ViewModels;assembly=Excalibur.Tests.FormsCross.Core"
-                      x:Class="Excalibur.Tests.FormsCross.Core.Ui.Views.DashboardPage"
-                      Title="Dashboard">
+                      x:Class="Excalibur.Tests.FormsCross.Core.Ui.Views.CurrentUserPage"
+                      Title="Current User">
 
-    <Label Text="Dashboard"
+    <Label Text="CurrentUser"
            VerticalOptions="Center"
            HorizontalOptions="Center" />
 

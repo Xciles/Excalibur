@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Excalibur.Tests.FormsCross.Core.Ui.Styles.MainStyles"
+                    xmlns:styles="clr-namespace:Excalibur.Tests.FormsCross.Core.Ui.Styles;assembly=Excalibur.Tests.FormsCross.Core.Ui">
+    <ResourceDictionary.MergedDictionaries>
+        <styles:BaseTheme />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor"
+                Value="{StaticResource NavigationPrimary}" />
+        <Setter Property="BarTextColor"
+                Value="White" />
+    </Style>
+
+</ResourceDictionary>
