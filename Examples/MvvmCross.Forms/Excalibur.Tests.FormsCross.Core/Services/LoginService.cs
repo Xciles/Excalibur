@@ -12,11 +12,17 @@ namespace Excalibur.Tests.FormsCross.Core.Services
 {
     public class LoginService : ServiceBase, ILoginService
     {
+        private readonly IApplicationState _applicationState;
+
+        public LoginService(IApplicationState applicationState)
+        {
+            _applicationState = applicationState;
+        }
+
         public async Task<bool> LoginAsync(string email, string password)
         {
-            var state = Mvx.IoCProvider.Resolve<IApplicationState>();
-            state.Email = email;
-            await state.Save();
+            _applicationState.Email = email;
+            await _applicationState.Save();
 
             // simulate user logging in and retrieving
             // Usually we get some kind of profile returned, simulating this
@@ -40,8 +46,7 @@ namespace Excalibur.Tests.FormsCross.Core.Services
 
         public async Task<bool> ValidateAsync()
         {
-            var state = Mvx.IoCProvider.Resolve<IApplicationState>();
-            if (!string.IsNullOrWhiteSpace(state.Email))
+            if (!string.IsNullOrWhiteSpace(_applicationState.Email))
             {
                 // we load the current user from storage, usually we reauth and sync current user
 

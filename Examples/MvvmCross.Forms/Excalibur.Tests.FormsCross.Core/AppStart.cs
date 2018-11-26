@@ -24,7 +24,7 @@ namespace Excalibur.Tests.FormsCross.Core
             // https://github.com/MvvmCross/MvvmCross/blob/bdaa09299714d94cf3f2c548a465d994c20d52f0/docs/_documentation/advanced/customizing-appstart.md
 
             // login things
-            if (await _loginService.ValidateAsync().ConfigureAwait(false))
+            if (await _loginService.ValidateAsync())
                 //if (true)
             {
                 await NavigationService.Navigate<MainViewModel>();

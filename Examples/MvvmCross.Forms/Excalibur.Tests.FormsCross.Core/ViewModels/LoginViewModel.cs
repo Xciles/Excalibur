@@ -1,6 +1,5 @@
 ﻿using Excalibur.Cross.ViewModels;
 using Excalibur.Tests.FormsCross.Core.Services.Interfaces;
-using MvvmCross;
 using MvvmCross.Commands;
 
 namespace Excalibur.Tests.FormsCross.Core.ViewModels
@@ -11,6 +10,7 @@ namespace Excalibur.Tests.FormsCross.Core.ViewModels
         private string _email;
         private string _password;
         private bool _isLoading;
+        private bool _showError;
 
         public LoginViewModel(ILoginService loginService)
         {
@@ -39,6 +39,12 @@ namespace Excalibur.Tests.FormsCross.Core.ViewModels
             set { SetProperty(ref _isLoading, value); }
         }
 
+        public bool ShowError
+        {
+            get => _showError;
+            set => SetProperty(ref _showError, value);
+        }
+
         public IMvxAsyncCommand LoginCommand
         {
             get
@@ -48,16 +54,17 @@ namespace Excalibur.Tests.FormsCross.Core.ViewModels
                     IsLoading = true;
                     if (await _loginService.LoginAsync(Email, Password))
                     {
+                        ShowError = false;
                         await NavigationService.Navigate<MainViewModel>();
                     }
                     else
                     {
                         // Todo alert dialog
                         IsLoading = false;
+                        ShowError = true;
                     }
                 }, () => !IsLoading);
             }
         }
-
     }
 }
