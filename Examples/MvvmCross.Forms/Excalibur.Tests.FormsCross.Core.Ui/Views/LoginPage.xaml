@@ -6,19 +6,12 @@
                       xmlns:system="clr-namespace:System;assembly=System.Runtime"
                       xmlns:viewModels="clr-namespace:Excalibur.Tests.FormsCross.Core.ViewModels;assembly=Excalibur.Tests.FormsCross.Core"
                       x:Class="Excalibur.Tests.FormsCross.Core.Ui.Views.LoginPage"
-                      Title="Login">
-
-    <!-- Jul 22 2015 Xamarin have not yet provided Device.OnPlatform property for W81. The below syntax works by putting "5, 0, 5, 95" into the default-->
-    <ContentPage.Padding Thickness="5, 0, 5, 95">
-        <OnPlatform x:TypeArguments="Thickness"
-                    iOS="5, 20, 5, 0"
-                    Android="5, 0, 5, 0"
-                    WinPhone="5, 0, 5, 0" />
-    </ContentPage.Padding>
+                      Title="Login"
+                      Padding="{OnPlatform Default='5, 0, 5, 0', iOS='5, 20, 5, 0'}">
 
     <StackLayout Spacing="10"
                  Orientation="Vertical">
-        <views:MvxImageView HorizontalOptions="CenterAndExpand"
+        <!--<views:MvxImageView HorizontalOptions="CenterAndExpand"
                             Margin="20"
                             HeightRequest="100"
                             ImageUri="https://www.mvvmcross.com/img/MvvmCross-logo.png">
@@ -38,7 +31,7 @@
                         Value="res:Error.png" />
                 </OnPlatform>
             </views:MvxImageView.ErrorImagePath>
-        </views:MvxImageView>
+        </views:MvxImageView>-->
         <Label FontSize="24"
                Text="Enter your nickname in the box below" />
         <Entry Placeholder="Who are you?"

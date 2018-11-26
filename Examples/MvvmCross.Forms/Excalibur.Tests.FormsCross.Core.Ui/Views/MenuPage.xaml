@@ -7,7 +7,7 @@
                       x:Class="Excalibur.Tests.FormsCross.Core.Ui.Views.MenuPage"
                       Title="Menu"
                       Icon="Hamburger.png"
-                      Padding="0, 40, 0, 0">
+                      Padding="0, 00, 0, 0">
 
     <StackLayout VerticalOptions="FillAndExpand"
                  HorizontalOptions="FillAndExpand"

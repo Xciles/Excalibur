@@ -7910,10 +7910,16 @@ namespace Excalibur.Tests.FormsCross.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Icon = 2130903040;
+			public const int Hamburger = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int launcher_foreground = 2130903041;
+			public const int Icon = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int launcher_foreground = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int profile_generic = 2130903043;
 			
 			static Mipmap()
 			{
