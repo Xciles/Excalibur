@@ -22,6 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{1B1FD36B-3763-4926-83CE-48690505E909}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		CHANGELOG.md = CHANGELOG.md
 		Directory.build.props = Directory.build.props
 		Directory.build.targets = Directory.build.targets
 		global.json = global.json
