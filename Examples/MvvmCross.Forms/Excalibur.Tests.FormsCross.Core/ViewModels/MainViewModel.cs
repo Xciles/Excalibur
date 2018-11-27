@@ -19,11 +19,13 @@ namespace Excalibur.Tests.FormsCross.Core.ViewModels
 
             }).ConfigureAwait(false);
         }
+        
         public override void ViewAppeared()
         {
-            MvxNotifyTask.Create(async () => {
-                await NavigationService.Navigate<DashboardViewModel>();
+            MvxNotifyTask.Create(async () =>
+            {
                 await NavigationService.Navigate<MenuViewModel>();
+                await NavigationService.Navigate<DashboardViewModel>();
             });
         }
     }

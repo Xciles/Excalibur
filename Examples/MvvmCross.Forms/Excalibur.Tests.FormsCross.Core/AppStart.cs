@@ -32,6 +32,8 @@ namespace Excalibur.Tests.FormsCross.Core
             else
             {
                 await NavigationService.Navigate<LoginViewModel>();
+                //await NavigationService.Navigate<MenuViewModel>();
+                //await NavigationService.Navigate<DashboardViewModel>();
             }
         }
     }

@@ -39,7 +39,7 @@
                Text="{Binding YourNickname}" />
         <Label FontSize="24"
                Text="{Binding Hello}" />
-        <Button Command="{Binding LoginCommand}" />
+        <Button Command="{Binding LoginCommand}" Text="Login" />
     </StackLayout>
 
 </views:MvxContentPage>
