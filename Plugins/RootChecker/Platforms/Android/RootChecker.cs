@@ -14,10 +14,9 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Android
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="packageManager"></param>
-        public RootChecker(PackageManager packageManager)
+        public RootChecker()
         {
-            _packageManager = packageManager;
+            _packageManager = global::Android.App.Application.Context.PackageManager;
         }
 
         /// <inheritdoc cref="IRootChecker"/>

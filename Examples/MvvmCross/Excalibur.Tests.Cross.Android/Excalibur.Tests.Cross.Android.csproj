@@ -110,7 +110,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Excalibur.Common\Excalibur.Common.csproj">
+    <ProjectReference Include="..\..\..\Excalibur.Avalon\Excalibur.Avalon.csproj">
       <Project>{dcc7b30e-1d2f-4f2f-bbf8-04ce6ef9c0d7}</Project>
       <Name>Excalibur.Common</Name>
     </ProjectReference>
