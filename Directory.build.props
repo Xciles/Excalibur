@@ -1,12 +1,12 @@
 <Project>
   <PropertyGroup>
-    <Version>0.6.0-beta</Version>
+    <Version>0.6.1-beta</Version>
     <Authors>Excalibur Contributors</Authors>
     <Owners>Excalibur Contributors</Owners>
     <Copyright>Copyright (c) Excalibur Contributors</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Xciles/Excalibur</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/Xciles/Excalibur</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/Xciles/Excalibur/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>xamarin;mvvmcross;excalibur</PackageTags>
 
