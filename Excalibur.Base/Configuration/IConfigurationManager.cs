@@ -23,6 +23,12 @@ namespace Excalibur.Base.Configuration
         Task<bool> Save<TConfigObject>(TConfigObject configObject) where TConfigObject : new();
 
         /// <summary>
+        /// Resets the configuration which should delete the current configuration
+        /// </summary>
+        /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>
+        void Reset<TConfigObject>() where TConfigObject : new();
+
+        /// <summary>
         /// Returns if the configuration manager is currently managing some kind of configuration for config object
         /// </summary>
         /// <typeparam name="TConfigObject">The type used for storing the configuration</typeparam>

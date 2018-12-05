@@ -47,8 +47,15 @@ namespace Excalibur.Providers.FileStorage
             }
 
             await _storageService.Store("", $"{configName}.json", configAsString).ConfigureAwait(false);
-
+            
             return true;
+        }
+
+        /// <inheritdoc />
+        public void Reset<TConfigObject>() where TConfigObject : new()
+        {
+            var configName = typeof(TConfigObject).Name;
+            _storageService.DeleteFile("", $"{configName}.json");
         }
 
         public bool HasConfigurationFor<TConfigObject>() where TConfigObject : new()
