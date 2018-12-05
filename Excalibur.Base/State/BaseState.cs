@@ -51,5 +51,11 @@ namespace Excalibur.Base.State
 
         /// <inheritdoc />
         public virtual async Task Save() => await ConfigurationManager.Save(Config).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public virtual bool HasConfiguration() => ConfigurationManager.HasConfigurationFor<TConfig>();
+
+        /// <inheritdoc />
+        public virtual void Reset() => ConfigurationManager.Reset<TConfig>();
     }
 }

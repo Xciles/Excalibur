@@ -16,5 +16,15 @@ namespace Excalibur.Base.State
         /// Save the state.
         /// </summary>
         Task Save();
+
+        /// <summary>
+        /// Indicates if the state has a configuration via the ConfigurationManager
+        /// </summary>
+        bool HasConfiguration();
+
+        /// <summary>
+        /// Resets the configuration
+        /// </summary>
+        void Reset();
     }
 }
