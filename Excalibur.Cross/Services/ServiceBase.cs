@@ -18,7 +18,7 @@ namespace Excalibur.Cross.Services
         ///     we no longer expose a static client, but a create default method, which you have to dispose yourself.
         /// </summary>
         /// <returns>An instance of the HttpClient</returns>
-        protected HttpClient CreateDefaultHttpClient() => new HttpClient(new AutomaticDecompressionHandler());
+        protected virtual HttpClient CreateDefaultHttpClient() => new HttpClient(new AutomaticDecompressionHandler());
     }
 
     /// <summary>
