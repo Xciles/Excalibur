@@ -6,8 +6,8 @@
                       xmlns:viewModels="clr-namespace:Excalibur.Tests.FormsCross.Core.ViewModels;assembly=Excalibur.Tests.FormsCross.Core"
                       x:Class="Excalibur.Tests.FormsCross.Core.Ui.Views.MenuPage"
                       Title="Menu"
-                      Icon="Hamburger.png"
-                      Padding="0, 00, 0, 0">
+                      Icon="hamburger.png"
+                      Padding="0, 0, 0, 0">
 
     <StackLayout VerticalOptions="FillAndExpand"
                  HorizontalOptions="FillAndExpand"
