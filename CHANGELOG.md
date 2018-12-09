@@ -1,7 +1,10 @@
 # Excalibur Change log
 
 ## [0.6.2-Beta](https://github.com/xciles/excalibur) (2018-12-09)
-[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/f3f98c5...)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/f3f98c5...ba80b89)
+
+**Features:**
+* Removed the improvement logs, CHANGELOG.md supersedes this
 
 **Fixed bugs:**
 * Merged P !4 to fix the Simulator Check in iOS
