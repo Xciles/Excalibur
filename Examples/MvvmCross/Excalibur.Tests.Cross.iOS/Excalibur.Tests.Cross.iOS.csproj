@@ -249,7 +249,7 @@
       <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
       <Name>Excalibur.Cross</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.File\Excalibur.Providers.File.csproj">
+    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj">
       <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
       <Name>Excalibur.Providers.File</Name>
     </ProjectReference>

@@ -10,6 +10,7 @@ using Excalibur.Cross.Presentation;
 using Excalibur.Cross.Services;
 using Excalibur.Providers.EncryptedFileStorage;
 using Excalibur.Providers.FileStorage;
+using Excalibur.Providers.LiteDb;
 using Excalibur.Tests.Encrypted.Cross.Core.Services;
 using Excalibur.Tests.Encrypted.Cross.Core.Services.Interfaces;
 using Excalibur.Tests.Encrypted.Cross.Core.State;
@@ -46,15 +47,15 @@ namespace Excalibur.Tests.Encrypted.Cross.Core
             Mvx.IoCProvider.ConstructAndRegisterSingleton<IApplicationState, ApplicationState>();
             Mvx.IoCProvider.ConstructAndRegisterSingleton<ISyncService, SyncService>();
 
-            var config = new FileStorageConfiguration(new FileStorageConfig());
-            config.Configure();
-
-            //var config = new LiteDbConfiguration(new LiteDbConfig() { FileName = "ExcaliburTest.db" });
+            //var config = new FileStorageConfiguration(new FileStorageConfig());
             //config.Configure();
+
+            var config = new LiteDbConfiguration(new LiteDbConfig() { FileName = "ExcaliburTest.db" });
+            config.Configure();
 
             // User
             //Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.LoggedInUser>, LiteDbProvider<int, Domain.LoggedInUser>>();
-            Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.LoggedInUser>, FileStorageProvider<int, Domain.LoggedInUser>>();
+            Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.LoggedInUser>, LiteDbProvider<int, Domain.LoggedInUser>>();
 
             Mvx.IoCProvider.RegisterType<IObjectMapper<Domain.LoggedInUser, Observable.LoggedInUser>, BaseObjectMapper<Domain.LoggedInUser, Observable.LoggedInUser>>();
             Mvx.IoCProvider.RegisterType<IObjectMapper<Observable.LoggedInUser, Observable.LoggedInUser>, BaseObjectMapper<Observable.LoggedInUser, Observable.LoggedInUser>>();
@@ -67,7 +68,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core
 
             // User
             //Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.User>, LiteDbProvider<int, Domain.User>>();
-            Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.User>, FileStorageProvider<int, Domain.User>>();
+            Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.User>, LiteDbProvider<int, Domain.User>>();
 
             Mvx.IoCProvider.RegisterType<IObjectMapper<Domain.User, Observable.User>, BaseObjectMapper<Domain.User, Observable.User>>();
             Mvx.IoCProvider.RegisterType<IObjectMapper<Observable.User, Observable.User>, BaseObjectMapper<Observable.User, Observable.User>>();
@@ -80,7 +81,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Core
 
             // Todo
             //Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.Todo>, LiteDbProvider<int, Domain.Todo>>();
-            Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.Todo>, FileStorageProvider<int, Domain.Todo>>();
+            Mvx.IoCProvider.RegisterType<IDatabaseProvider<int, Domain.Todo>, LiteDbProvider<int, Domain.Todo>>();
 
             Mvx.IoCProvider.RegisterType<IObjectMapper<Domain.Todo, Observable.Todo>, BaseObjectMapper<Domain.Todo, Observable.Todo>>();
             Mvx.IoCProvider.RegisterType<IObjectMapper<Observable.Todo, Observable.Todo>, BaseObjectMapper<Observable.Todo, Observable.Todo>>();
