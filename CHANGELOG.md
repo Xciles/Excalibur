@@ -1,5 +1,33 @@
 # Excalibur Change log
 
+## [0.6.2-Beta](https://github.com/xciles/excalibur) (2018-12-09)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/f3f98c5...)
+
+**Fixed bugs:**
+* Merged P !4 to fix the Simulator Check in iOS
+* Fixed liteDb not clearing or removing the complete storage
+* Fixed liteDb not deleting the proper items from the collection
+
+## [0.6.1-Beta](https://github.com/xciles/excalibur) (2018-12-05)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/306e23e8...f3f98c5)
+
+**Features:**
+* Added posibilty to delete items that were not returned when the service syncs
+  * DeleteNotReturnedItems can be used for this in various business entities
+* Added an AfterServiceSyncData (in UpdateFromService) method you can use to do additional checks or deletions before saving
+* Added CHANGELOG.md
+* CreateDefaultHttpClient in the ServiceBase is now virtual
+* Added reset methods to the ConfigurationManager
+  * Reset deletes the current configuration without creating (saving) a new one
+* Added HasConfiguration to the BaseState
+* Added Reset to the BaseSate
+  * Reset deletes the current configuration without creating (saving) a new one
+* Added NotifyTask (from Mvvm.Async)
+* Added AsyncMvxValueConverter
+
+**Examples**
+* Started on a Full Forms example
+
 ## [0.6.0-Beta](https://github.com/xciles/excalibur) (2018-11-20)
 [Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/7a79ecf8...306e23e8)
 
