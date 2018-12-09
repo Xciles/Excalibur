@@ -57,7 +57,8 @@ namespace Excalibur.Cross.Business
 
             if (DeleteNotReturnedItems)
             {
-                await Storage.Delete(gr => result.All(y => !gr.Id.Equals(y.Id)));
+                var resultIds = result.Select(x => x.Id);
+                await Storage.Delete(x => !resultIds.Contains(x.Id));
             }
 
             await AfterServiceSyncData();

@@ -40,9 +40,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{E2E41C4B-6910-4662-83DE-41792E72FACF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3023740F-4B8B-46AC-B192-37144F23CBE4}"
-	ProjectSection(SolutionItems) = preProject
-		Docs\ImprovementNotes.md = Docs\ImprovementNotes.md
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Base", "Excalibur.Base\Excalibur.Base.csproj", "{C78329B8-8BA1-47FC-AFF8-D21793BA3B4D}"
 EndProject
