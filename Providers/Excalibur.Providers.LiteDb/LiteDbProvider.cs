@@ -81,9 +81,9 @@ namespace Excalibur.Providers.LiteDb
         /// <inheritdoc />
         public virtual Task Clear()
         {
-            if (LiteDbInstance.LiteDatabase.CollectionExists(nameof(T)))
+            if (LiteDbInstance.LiteDatabase.CollectionExists(typeof(T).Name))
             {
-                LiteDbInstance.LiteDatabase.DropCollection(nameof(T));
+                LiteDbInstance.LiteDatabase.DropCollection(typeof(T).Name);
             }
 
             return Task.CompletedTask;
