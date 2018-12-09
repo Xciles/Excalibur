@@ -11,7 +11,7 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Ios
         /// <inheritdoc cref="IRootChecker"/>
         public bool IsRooted()
         {
-            if (ObjCRuntime.Runtime.Arch == "SIMULATOR")
+            if (ObjCRuntime.Runtime.Arch == ObjCRuntime.Arch.SIMULATOR)
             {
                 return false;
             }
