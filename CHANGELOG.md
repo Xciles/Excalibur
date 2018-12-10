@@ -1,5 +1,15 @@
 # Excalibur Change log
 
+## [0.6.3-Beta](https://github.com/xciles/excalibur) (2018-12-10)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/ba80b89...3d20b65)
+
+**Features:**
+* Change to the RootChecker to allow overrides of the method. 
+  * This change might help with the simulator issues
+
+**Fixed bugs:**
+* None!
+
 ## [0.6.2-Beta](https://github.com/xciles/excalibur) (2018-12-09)
 [Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/f3f98c5...ba80b89)
 
