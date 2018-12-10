@@ -6,7 +6,7 @@
         /// What shall we check for UWP :^)?
         /// </summary>
         /// <returns>false</returns>
-        public bool IsRooted()
+        public virtual bool IsRooted()
         {
             return false;
         }

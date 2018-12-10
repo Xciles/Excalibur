@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>0.6.2-beta</Version>
+    <Version>0.6.3-beta</Version>
     <Authors>Excalibur Contributors</Authors>
     <Owners>Excalibur Contributors</Owners>
     <Copyright>Copyright (c) Excalibur Contributors</Copyright>
@@ -17,7 +17,7 @@
 
     <LangVersion>latest</LangVersion>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
-    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' and '$(IsTestProject)' == 'false'">true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' and '$(IsTestProject)' != 'true' ">true</GeneratePackageOnBuild>
 
     <Platform>AnyCPU</Platform>
     <DebugType>portable</DebugType>
@@ -28,11 +28,11 @@
     <IsLibraryProject>$(MSBuildProjectName.Contains('Excalibur'))</IsLibraryProject>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(IsTestProject)' == 'false' and '$(IsLibraryProject)' == 'true'">
+  <ItemGroup Condition=" '$(IsTestProject)' != 'true' and '$(IsLibraryProject)' == 'true' ">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(IsLibraryProject)' == 'true'">
+  <ItemGroup Condition=" '$(IsLibraryProject)' == 'true' ">
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" PrivateAssets="All" />
   </ItemGroup>
 

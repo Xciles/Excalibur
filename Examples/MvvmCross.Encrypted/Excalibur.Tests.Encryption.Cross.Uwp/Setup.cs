@@ -6,6 +6,8 @@ using System.Reflection;
 using Excalibur.Base.Storage;
 using Excalibur.MvvmCross.Plugin.ProtectedStore;
 using Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap;
+using Excalibur.MvvmCross.Plugin.RootChecker;
+using Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Uap;
 using Excalibur.Providers.FileStorage;
 using Excalibur.Tests.Encrypted.Cross.Uwp.Controls;
 using MvvmCross;
@@ -19,6 +21,19 @@ using MvvmCross.Plugin.ResourceLoader.Platforms.Uap;
 using MvvmCross.ViewModels;
 namespace Excalibur.Tests.Encrypted.Cross.Uwp
 {
+    public class ExRootChecker : RootChecker
+    {
+        public override bool IsRooted()
+        {
+#if __SIM__
+			return false;
+#endif
+#if !__SIM__
+            return false;
+#endif
+        }
+    }
+
     public class Setup : MvxWindowsSetup<Encrypted.Cross.Core.App>
     {
         public Setup() : base()
@@ -61,6 +76,13 @@ namespace Excalibur.Tests.Encrypted.Cross.Uwp
 
             Mvx.IoCProvider.ConstructAndRegisterSingleton<MvxPresentationHint, MvxPanelPopToRootPresentationHint>();
 
+        }
+
+        protected override void InitializeLastChance()
+        {
+            base.InitializeLastChance();
+
+            Mvx.IoCProvider.ConstructAndRegisterSingleton<IRootChecker, ExRootChecker>();
         }
     }
 }

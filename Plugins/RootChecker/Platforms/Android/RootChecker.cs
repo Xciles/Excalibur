@@ -20,12 +20,8 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Android
         }
 
         /// <inheritdoc cref="IRootChecker"/>
-        public bool IsRooted()
+        public virtual bool IsRooted()
         {
-#if __SIM__
-			return false;
-#endif
-#if !__SIM__
             return DetectTestKeys()
                    || CheckForDangerousProps()
                    || CheckSuExists()
@@ -35,7 +31,6 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Android
                    || DetectPotentiallyDangerousApps()
                    || CheckForSuBinary()
                    || CheckForBusyBoxBinary();
-#endif
         }
 
         /// <summary>

@@ -9,13 +9,8 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Ios
     public class RootChecker : IRootChecker
     {
         /// <inheritdoc cref="IRootChecker"/>
-        public bool IsRooted()
+        public virtual bool IsRooted()
         {
-            if (ObjCRuntime.Runtime.Arch == ObjCRuntime.Arch.SIMULATOR)
-            {
-                return false;
-            }
-
             return CheckCydia()
                    || CheckKnownPackages()
                    || TestWriteAccess();
