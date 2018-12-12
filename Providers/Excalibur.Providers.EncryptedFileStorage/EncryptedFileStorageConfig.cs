@@ -47,6 +47,7 @@ namespace Excalibur.Providers.EncryptedFileStorage
             catch (ProtectedStoreException)
             {
                 _protectedStore.Remove();
+                _protectedStore.Terminate();
                 _protectedStore.Initialize(DeviceKey());
             }
 
@@ -153,7 +154,14 @@ namespace Excalibur.Providers.EncryptedFileStorage
                 // ignore
             }
 
-            Clear();
+            try
+            {
+                Clear();
+            }
+            catch (Exception)
+            {
+                // ignore
+            }
             _protectedStore.Remove();
         }
     }

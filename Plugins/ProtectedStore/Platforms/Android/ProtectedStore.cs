@@ -56,7 +56,6 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             }
             catch (Java.IO.IOException)
             {
-                Terminate();
                 throw new ProtectedStoreException();
             }
         }
