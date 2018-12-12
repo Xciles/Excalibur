@@ -1,5 +1,17 @@
 # Excalibur Change log
 
+## [0.6.4-Beta](https://github.com/xciles/excalibur) (2018-12-10)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/3d20b65...)
+
+**Features:**
+* None
+
+**Fixed bugs:**
+* Various changes to the ProtectedStore
+  * ProtectedStore will remove the file if we are InitializeFirstTimeAndGenerate
+  * ProtecedStore sill try to reset, and ignore if we can't
+* EncryptedFileStorageConfig will try to initialize otherwise we'll reset and reinit
+
 ## [0.6.3-Beta](https://github.com/xciles/excalibur) (2018-12-10)
 [Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/ba80b89...3d20b65)
 

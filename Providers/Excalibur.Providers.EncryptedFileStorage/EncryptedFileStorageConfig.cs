@@ -40,7 +40,15 @@ namespace Excalibur.Providers.EncryptedFileStorage
         {
             // Store the password
             _password = password;
-            _protectedStore.Initialize(DeviceKey());
+            try
+            {
+                _protectedStore.Initialize(DeviceKey());
+            }
+            catch (ProtectedStoreException)
+            {
+                _protectedStore.Remove();
+                _protectedStore.Initialize(DeviceKey());
+            }
 
             // We generate an encryption key for the protected store key
             var keySalt = _crypto.GenerateRandom(32);
@@ -133,12 +141,20 @@ namespace Excalibur.Providers.EncryptedFileStorage
         /// <inheritdoc />
         public async Task Reset()
         {
-            await _protectedStore.Delete(TestIdentifier).ConfigureAwait(false);
-            await _protectedStore.Delete(ProtectedStoreKeyIdentifier).ConfigureAwait(false);
-            await _protectedStore.Delete(ProtectedStoreSaltIdentifier).ConfigureAwait(false);
-            await _protectedStore.Delete(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false);
+            try
+            {
+                await _protectedStore.Delete(TestIdentifier).ConfigureAwait(false);
+                await _protectedStore.Delete(ProtectedStoreKeyIdentifier).ConfigureAwait(false);
+                await _protectedStore.Delete(ProtectedStoreSaltIdentifier).ConfigureAwait(false);
+                await _protectedStore.Delete(ProtectedStoreDeviceSaltIdentifier).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                // ignore
+            }
 
             Clear();
+            _protectedStore.Remove();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android.Content;
@@ -52,6 +53,11 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             catch (Java.IO.FileNotFoundException)
             {
                 _keyStore.Load(null, _password);
+            }
+            catch (Java.IO.IOException)
+            {
+                Terminate();
+                throw new ProtectedStoreException();
             }
         }
 
