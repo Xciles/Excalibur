@@ -77,7 +77,14 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
         {
             lock (FileLock)
             {
-                _context.DeleteFile(_fileName);
+                if (_context != null)
+                {
+                    _context.DeleteFile(_fileName);
+                }
+                else
+                {
+                    global::Android.App.Application.Context.DeleteFile(_fileName);
+                }
             }
         }
 
