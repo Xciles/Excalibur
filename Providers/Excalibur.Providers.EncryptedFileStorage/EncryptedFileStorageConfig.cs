@@ -154,15 +154,8 @@ namespace Excalibur.Providers.EncryptedFileStorage
                 // ignore
             }
 
-            try
-            {
-                Clear();
-            }
-            catch (Exception)
-            {
-                // ignore
-            }
             _protectedStore.Remove();
+            Clear();
         }
     }
 }
