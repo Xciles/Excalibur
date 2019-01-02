@@ -84,6 +84,7 @@ namespace Excalibur.Providers.LiteDb
             if (LiteDbInstance.LiteDatabase.CollectionExists(typeof(T).Name))
             {
                 LiteDbInstance.LiteDatabase.DropCollection(typeof(T).Name);
+                LiteDbInstance.LiteDatabase.Shrink();
             }
 
             return Task.CompletedTask;
