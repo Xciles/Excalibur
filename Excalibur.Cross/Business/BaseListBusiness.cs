@@ -37,6 +37,9 @@ namespace Excalibur.Cross.Business
         
         /// <inheritdoc />
         public virtual async Task<IEnumerable<TDomain>> FindAll() => await Storage.FindAll().ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public virtual async Task<IEnumerable<TDomain>> ObjectsForListUpdatedHandler() => await Storage.FindAll().ConfigureAwait(false);
 
         /// <inheritdoc />
         public virtual async Task<TDomain> FindById(TId id) => await Storage.FindById(id).ConfigureAwait(false);

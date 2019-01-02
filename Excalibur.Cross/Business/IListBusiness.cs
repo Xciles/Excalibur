@@ -22,6 +22,13 @@ namespace Excalibur.Cross.Business
         Task<IEnumerable<TDomain>> FindAll();
 
         /// <summary>
+        /// Get all domain objects for the ListUpdatedHandler in the presentation.
+        /// This method can be overriden for a custom implementation for your needs.
+        /// </summary>
+        /// <returns>All available objects</returns>
+        Task<IEnumerable<TDomain>> ObjectsForListUpdatedHandler();
+
+        /// <summary>
         /// Get a single domain object from storage by a TId
         /// </summary>
         /// <param name="id">The Id of the object to get</param>
