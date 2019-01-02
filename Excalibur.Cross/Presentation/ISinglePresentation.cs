@@ -35,5 +35,10 @@ namespace Excalibur.Cross.Presentation
         /// Initialize method that might be needed.
         /// </summary>
         void Initialize();
+
+        /// <summary>
+        /// Clears the presentation
+        /// </summary>
+        void Clear();
     }
 }

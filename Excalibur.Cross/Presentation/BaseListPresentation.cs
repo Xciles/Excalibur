@@ -262,6 +262,14 @@ namespace Excalibur.Cross.Presentation
         }
 
         /// <inheritdoc />
+        public override void Clear()
+        {
+            base.Clear();
+            Observables.Clear();
+            RaisePropertyChanged(() => Observables);
+        }
+
+        /// <inheritdoc />
         ~BaseListPresentation()
         {
             Dispose(false);

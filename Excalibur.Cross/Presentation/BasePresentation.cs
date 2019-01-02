@@ -100,5 +100,14 @@ namespace Excalibur.Cross.Presentation
                 // todo Add trace logging
             }
         }
+
+        /// <summary>
+        /// Clears the selected observable
+        /// </summary>
+        public virtual void Clear()
+        {
+            SelectedObservable = new TSelectedObservable();
+            RaisePropertyChanged(() => SelectedObservable);
+        }
     }
 }
