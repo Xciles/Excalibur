@@ -21,7 +21,7 @@ namespace Excalibur.Cross.ViewModels
 
         /// <summary>
         /// Initializes an instance of DetailViewModel. 
-        /// This will try to bind the <see cref="SelectedObservable"/> to the presentations SelectedObervable
+        /// This will try to bind the <see cref="SelectedObservable"/> to the presentations SelectedObservable
         /// </summary>
         protected DetailViewModel(TPresentation presentation)
         {

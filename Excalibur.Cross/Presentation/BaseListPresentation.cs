@@ -46,7 +46,7 @@ namespace Excalibur.Cross.Presentation
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TObservable">The type that should be used for the collections of objects</typeparam>
     /// <typeparam name="TSelectedObservable">The type that should be used for details information</typeparam>
-    public class BaseListPresentation<TId, TDomain, TObservable, TSelectedObservable> : BasePresentation<TId, TDomain, TSelectedObservable>, IListPresentation<TId, TObservable, TSelectedObservable>
+    public class BaseListPresentation<TId, TDomain, TObservable, TSelectedObservable> : BasePresentation<TId, TDomain, TSelectedObservable>, IListPresentation<TId, TObservable, TSelectedObservable>, IDisposable
         where TDomain : ProviderDomain<TId>
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()

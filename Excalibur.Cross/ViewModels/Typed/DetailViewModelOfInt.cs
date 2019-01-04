@@ -1,8 +1,8 @@
-using Excalibur.Cross.Observable.Typed;
-using Excalibur.Cross.Presentation.Typed;
+using Excalibur.Cross.Observable;
+using Excalibur.Cross.Presentation;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.ViewModels.Typed
+namespace Excalibur.Cross.ViewModels
 {
     /// <inheritdoc />
     public abstract class DetailViewModelOfInt<TSelectedObservable, TPresentation> : DetailViewModel<int, TSelectedObservable, TPresentation>

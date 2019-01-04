@@ -1,11 +1,11 @@
 using Excalibur.Base.Providers;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ObjectConverter;
-using Excalibur.Cross.Observable.Typed;
+using Excalibur.Cross.Observable;
 using MvvmCross.Base;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.Presentation.Typed
+namespace Excalibur.Cross.Presentation
 {
     /// <inheritdoc cref="BaseListPresentationOfInt{TDomain,TObservable,TObservable}"/>
     public class BaseListPresentationOfInt<TDomain, TObservable> : BaseListPresentationOfInt<TDomain, TObservable, TObservable>, IListPresentationOfInt<TObservable>

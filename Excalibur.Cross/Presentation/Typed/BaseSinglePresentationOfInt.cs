@@ -1,9 +1,9 @@
 ﻿using Excalibur.Base.Providers;
 using Excalibur.Cross.ObjectConverter;
-using Excalibur.Cross.Observable.Typed;
+using Excalibur.Cross.Observable;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.Presentation.Typed
+namespace Excalibur.Cross.Presentation
 {
     ///  <inheritdoc />
     public class BaseSinglePresentationOfInt<TDomain, TObservable> : BaseSinglePresentation<int, TDomain, TObservable>

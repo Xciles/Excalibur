@@ -1,7 +1,7 @@
-﻿using Excalibur.Cross.Observable.Typed;
+﻿using Excalibur.Cross.Observable;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.Presentation.Typed
+namespace Excalibur.Cross.Presentation
 {
     /// <inheritdoc />
     public interface IListPresentationOfInt<TObservable> : IListPresentationOfInt<TObservable, TObservable>

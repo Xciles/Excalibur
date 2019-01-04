@@ -2,7 +2,7 @@
 using Excalibur.Cross.Services;
 
 // ReSharper disable once CheckNamespace
-namespace Excalibur.Cross.Business.Typed
+namespace Excalibur.Cross.Business
 {
     /// <inheritdoc />
     public class BaseSingleBusinessOfInt<TDomain> : BaseSingleBusinessOfInt<TDomain, IServiceBase<TDomain>>

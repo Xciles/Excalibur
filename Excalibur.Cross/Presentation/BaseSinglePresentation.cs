@@ -23,44 +23,21 @@ namespace Excalibur.Cross.Presentation
     ///                         etc. </typeparam>
     /// <typeparam name="TDomain">The type of the object that wants to be stored</typeparam>
     /// <typeparam name="TObservable">The type that should be used for details information</typeparam>
-    public class BaseSinglePresentation<TId, TDomain, TObservable> : ObservableObjectBase, ISinglePresentation<TId, TObservable>
+    public class BaseSinglePresentation<TId, TDomain, TObservable> : BasePresentation<TId, TDomain, TObservable>, IDisposable
     where TDomain : ProviderDomain<TId>
     where TObservable : ObservableBase<TId>, new()
     {
-        private bool _isLoading = true;
-        private TObservable _selectedObservable = new TObservable();
-        protected IObjectMapper<TDomain, TObservable> DomainSelectedMapper { get; set; }
-
         /// <summary>
         /// Initializes a new BaseSinglePresentation 
         /// This Resolves the Domain to Selected mapper
         /// Also subscribes to Single item publish message
         /// </summary>
-        public BaseSinglePresentation(IObjectMapper<TDomain, TObservable> domainSelectedMapper)
+        public BaseSinglePresentation(IObjectMapper<TDomain, TObservable> domainSelectedMapper) : base(domainSelectedMapper)
         {
             // retrieve mappers
             this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainSelectedMapper = domainSelectedMapper;
-        }
-
-        /// <inheritdoc />
-        public bool IsLoading
-        {
-            get => _isLoading;
-            set => SetProperty(ref _isLoading, value);
-        }
-
-        /// <inheritdoc />
-        public TObservable SelectedObservable
-        {
-            get => _selectedObservable;
-            set => SetProperty(ref _selectedObservable, value);
-        }
-
-        /// <inheritdoc />
-        public virtual void Initialize()
-        {
         }
 
         /// <summary>
@@ -77,7 +54,7 @@ namespace Excalibur.Cross.Presentation
             Dispose(false);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
