@@ -1,7 +1,7 @@
 # Excalibur Change log
 
-## [0.6.6-Beta](https://github.com/xciles/excalibur) (2018-12-10)
-[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/3d20b65...)
+## [0.6.7-Beta](https://github.com/xciles/excalibur) (2018-12-10)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/3d20b65...68bd7dd)
 
 **Features:**
 * None
