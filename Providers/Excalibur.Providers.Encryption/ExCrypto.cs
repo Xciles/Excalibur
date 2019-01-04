@@ -14,7 +14,7 @@ namespace Excalibur.Providers.Encryption
         {
             return NetFxCrypto.DeriveBytes.GetBytes(password, salt, iterations, keyLengthInBytes);
         }
- 
+
         /// <inheritdoc />
         public byte[] Encrypt(string data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7)
         {
@@ -24,7 +24,7 @@ namespace Excalibur.Providers.Encryption
         /// <inheritdoc />
         public byte[] EncryptFromBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7)
         {
-            byte[] key = CreateDerivedKey(password, salt);
+            var key = CreateDerivedKey(password, salt);
 
             var algorithmProvider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
             var symmetricKey = algorithmProvider.CreateSymmetricKey(key);
@@ -41,7 +41,7 @@ namespace Excalibur.Providers.Encryption
         /// <inheritdoc />
         public byte[] DecryptToBytes(byte[] data, string password, byte[] salt, SymmetricAlgorithm algorithm = SymmetricAlgorithm.AesCbcPkcs7)
         {
-            byte[] key = CreateDerivedKey(password, salt);
+            var key = CreateDerivedKey(password, salt);
 
             var algorithmProvider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbcPkcs7);
             var symmetricKey = algorithmProvider.CreateSymmetricKey(key);

@@ -6,7 +6,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.DataProtection;
-using Windows.Storage.Streams;
 
 namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap
 {

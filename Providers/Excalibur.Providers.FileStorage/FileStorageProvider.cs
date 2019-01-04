@@ -8,7 +8,7 @@ using Excalibur.Base.Storage;
 using Newtonsoft.Json;
 
 namespace Excalibur.Providers.FileStorage
-{    
+{
     /// <summary>
     /// A provider that uses file storage as the underlying database.
     /// This class will use TId as a type identifier for objects
@@ -56,10 +56,10 @@ namespace Excalibur.Providers.FileStorage
         {
             // Delete the file before writing.
             // Sometimes write operation will fail when trying to write to a file that already exists
-            _storageService.DeleteFile(DataFolder, String.Format(FileNamingFormat, typeof(T).Name));
+            _storageService.DeleteFile(DataFolder, string.Format(FileNamingFormat, typeof(T).Name));
 
             var objectAsString = JsonConvert.SerializeObject(items, JsonSerializerSettings());
-            await _storageService.Store(DataFolder, String.Format(FileNamingFormat, typeof(T).Name), objectAsString).ConfigureAwait(false);
+            await _storageService.Store(DataFolder, string.Format(FileNamingFormat, typeof(T).Name), objectAsString).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -94,7 +94,7 @@ namespace Excalibur.Providers.FileStorage
         /// <inheritdoc />
         public async Task<IEnumerable<T>> FindAll()
         {
-            var objectAsString = await _storageService.ReadAsText(DataFolder, String.Format(FileNamingFormat, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
+            var objectAsString = await _storageService.ReadAsText(DataFolder, string.Format(FileNamingFormat, typeof(T).Name)).ConfigureAwait(false) ?? String.Empty;
 
             return JsonConvert.DeserializeObject<IEnumerable<T>>(objectAsString, JsonSerializerSettings()) ?? Enumerable.Empty<T>();
         }
@@ -108,7 +108,7 @@ namespace Excalibur.Providers.FileStorage
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = Int32.MaxValue)
+        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate, int skip = 0, int take = int.MaxValue)
         {
             var items = await FindAll().ConfigureAwait(false);
             return items.Where(predicate.Compile()).Skip(skip).Take(take);
@@ -132,7 +132,7 @@ namespace Excalibur.Providers.FileStorage
         /// <inheritdoc />
         public Task Clear()
         {
-            _storageService.DeleteFile(DataFolder, String.Format(FileNamingFormat, typeof(T).Name));
+            _storageService.DeleteFile(DataFolder, string.Format(FileNamingFormat, typeof(T).Name));
 
             return Task.CompletedTask;
         }

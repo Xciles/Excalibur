@@ -36,7 +36,7 @@ namespace Excalibur.Tests.Cross.Droid
                 var activity = Mvx.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
                 var fragmentActivity = activity as global::Android.Support.V4.App.FragmentActivity;
 
-                for (int i = 0; i < fragmentActivity.SupportFragmentManager.BackStackEntryCount; i++)
+                for (var i = 0; i < fragmentActivity.SupportFragmentManager.BackStackEntryCount; i++)
                 {
                     fragmentActivity.SupportFragmentManager.PopBackStack();
                 }

@@ -67,7 +67,8 @@ namespace Excalibur.Providers.EncryptedFileStorage
                 var encryptedBytes = await base.ReadAsBinary(folder, fullName).ConfigureAwait(false);
                 return _exCrypto.DecryptToBytes(encryptedBytes, await _config.Key().ConfigureAwait(false), await _config.Salt().ConfigureAwait(false));
             }
-            return new byte[]{};
+
+            return new byte[] { };
         }
     }
 }

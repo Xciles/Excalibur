@@ -9,7 +9,7 @@ using LiteDB;
 namespace Excalibur.Providers.LiteDb
 {
     /// <inheritdoc />
-    public class LiteDbProvider<TId, T> : ILiteDbProvider<TId, T> 
+    public class LiteDbProvider<TId, T> : ILiteDbProvider<TId, T>
         where T : ProviderDomain<TId>
     {
         protected ILiteDbInstance LiteDbInstance { get; private set; }

@@ -13,6 +13,7 @@ namespace Excalibur.Providers.FileStorage
         /// Default is 'data'.
         /// </summary>
         public string DataFolder { get; set; } = "data";
+
         /// <summary>
         /// Used for naming files.
         /// Please use '{0}' in your string. This is required for naming the files.

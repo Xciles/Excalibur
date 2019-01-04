@@ -2,7 +2,6 @@
 using Android.Util;
 using Java.IO;
 using Java.Util;
-using Console = System.Console;
 
 namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Android
 {
@@ -15,7 +14,7 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Android
         /// <param name="filename">Filename.</param>
         public static bool CheckForBinary(string filename)
         {
-            bool result = false;
+            var result = false;
 
             foreach (var path in RootCheckerConstants.SuPaths)
             {
@@ -70,7 +69,6 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Android
             {
                 Log.Error("ReaderFor", $"Closing: {ex.Message}");
             }
-
 
             return propval.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
         }

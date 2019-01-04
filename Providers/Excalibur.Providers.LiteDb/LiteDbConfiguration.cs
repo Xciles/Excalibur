@@ -2,7 +2,6 @@
 using Excalibur.Base.Providers;
 using MvvmCross;
 using MvvmCross.IoC;
-using MvvmCross.Plugin.File;
 
 namespace Excalibur.Providers.LiteDb
 {

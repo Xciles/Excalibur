@@ -60,7 +60,7 @@ namespace Excalibur.Cross.Presentation
             GC.SuppressFinalize(this);
         }
 
-        protected void Dispose(bool isDisposing)
+        protected virtual void Dispose(bool isDisposing)
         {
             if (isDisposing)
             {

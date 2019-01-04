@@ -1,5 +1,4 @@
-﻿
-using MvvmCross;
+﻿using MvvmCross;
 using MvvmCross.IoC;
 using MvvmCross.Plugin;
 

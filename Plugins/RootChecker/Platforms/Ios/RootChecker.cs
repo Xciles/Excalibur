@@ -37,7 +37,6 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Ios
         /// <returns>True when available, false if not</returns>
         private bool CheckKnownPackages()
         {
-
             var packages = new List<string>()
             {
                 "/Applications/Cydia.app",
@@ -55,7 +54,6 @@ namespace Excalibur.MvvmCross.Plugin.RootChecker.Platforms.Ios
             }
 
             return false;
-
         }
 
         /// <summary>

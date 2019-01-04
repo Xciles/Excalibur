@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android.Content;
@@ -158,6 +157,9 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Android
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Actually save the keystore to disk.
+        /// </summary>
         private void Save()
         {
             lock (FileLock)

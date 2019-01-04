@@ -69,7 +69,7 @@ namespace Excalibur.Tests.Encrypted.Cross.Uwp.Controls
             base.OnApplyTemplate();
 
             // Remove the entrance animation on the item containers.
-            for (int i = 0; i < ItemContainerTransitions.Count; i++)
+            for (var i = 0; i < ItemContainerTransitions.Count; i++)
             {
                 if (ItemContainerTransitions[i] is EntranceThemeTransition)
                 {
@@ -87,13 +87,13 @@ namespace Excalibur.Tests.Encrypted.Cross.Uwp.Controls
         /// <param name="item"></param>
         public void SetSelectedItem(ListViewItem item)
         {
-            int index = -1;
+            var index = -1;
             if (item != null)
             {
                 index = IndexFromContainer(item);
             }
 
-            for (int i = 0; i < Items.Count; i++)
+            for (var i = 0; i < Items.Count; i++)
             {
                 var lvi = (ListViewItem)ContainerFromIndex(i);
                 if (i != index)

@@ -20,10 +20,10 @@ namespace Excalibur.Cross.Presentation
         where TObservable : ObservableBase<TId>, new()
     {
         public BaseListPresentation(
-            IObjectMapper<TDomain, TObservable> domainMapper, 
-            IObjectMapper<TObservable, TObservable> observableSelectedMapper, 
-            IListBusiness<TId, TDomain> listBusiness, 
-            IMvxMainThreadAsyncDispatcher dispatcher) 
+            IObjectMapper<TDomain, TObservable> domainMapper,
+            IObjectMapper<TObservable, TObservable> observableSelectedMapper,
+            IListBusiness<TId, TDomain> listBusiness,
+            IMvxMainThreadAsyncDispatcher dispatcher)
             : base(domainMapper, domainMapper, observableSelectedMapper, listBusiness, dispatcher)
         {
         }
@@ -76,7 +76,7 @@ namespace Excalibur.Cross.Presentation
             IObjectMapper<TDomain, TSelectedObservable> domainSelectedMapper,
             IObjectMapper<TObservable, TSelectedObservable> observableSelectedMapper,
             IListBusiness<TId, TDomain> listBusiness,
-            IMvxMainThreadAsyncDispatcher dispatcher) 
+            IMvxMainThreadAsyncDispatcher dispatcher)
             : base(domainSelectedMapper)
         {
             // retrieve mappers
@@ -134,7 +134,7 @@ namespace Excalibur.Cross.Presentation
             {
                 if (!objects.Select(x => x.Id).Contains(observable.Id))
                 {
-                    TObservable tmpObservable = observable;
+                    var tmpObservable = observable;
                     Dispatcher.ExecuteOnMainThreadAsync(() =>
                     {
                         Observables.Remove(tmpObservable);
@@ -275,13 +275,13 @@ namespace Excalibur.Cross.Presentation
             Dispose(false);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        protected void Dispose(bool isDisposing)
+        protected virtual void Dispose(bool isDisposing)
         {
             if (isDisposing)
             {

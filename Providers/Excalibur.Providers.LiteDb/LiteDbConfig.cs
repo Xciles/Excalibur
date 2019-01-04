@@ -17,10 +17,12 @@ namespace Excalibur.Providers.LiteDb
         /// The file name, including path, of a given store. You don't have to provide 'FileName='.
         /// </summary>
         public string FileName { get; set; }
+
         /// <summary>
         /// Password option for LiteDb
         /// </summary>
         public string Password { get; set; }
+
         /// <summary>
         /// Other (aside from filename and password) configurable LiteDb options should be inputted here.
         /// </summary>

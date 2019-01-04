@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Excalibur.Base.Configuration;
 using Excalibur.Base.Storage;
@@ -26,7 +25,7 @@ namespace Excalibur.Providers.FileStorage
             if (HasConfigurationFor<TConfigObject>())
             {
                 var configAsString = await _storageService.ReadAsText("", $"{typeof(TConfigObject).Name}.json").ConfigureAwait(false);
-                if (!String.IsNullOrWhiteSpace(configAsString))
+                if (!string.IsNullOrWhiteSpace(configAsString))
                 {
                     result = JsonConvert.DeserializeObject<TConfigObject>(configAsString);
                 }
@@ -47,7 +46,7 @@ namespace Excalibur.Providers.FileStorage
             }
 
             await _storageService.Store("", $"{configName}.json", configAsString).ConfigureAwait(false);
-            
+
             return true;
         }
 
@@ -58,6 +57,7 @@ namespace Excalibur.Providers.FileStorage
             _storageService.DeleteFile("", $"{configName}.json");
         }
 
+        /// <inheritdoc />
         public bool HasConfigurationFor<TConfigObject>() where TConfigObject : new()
         {
             var configName = typeof(TConfigObject).Name;

@@ -37,6 +37,9 @@ namespace Excalibur.Cross.ViewModels
         where TPresentation : class, IListPresentation<TId, TObservable, TSelectedObservable>
         where TDetailViewModel : IMvxViewModel
     {
+        /// <summary>
+        /// The presentation that should be used in this view model
+        /// </summary>
         protected TPresentation Presentation { get; set; }
         private TSelectedObservable _selectedObservable = new TSelectedObservable();
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());

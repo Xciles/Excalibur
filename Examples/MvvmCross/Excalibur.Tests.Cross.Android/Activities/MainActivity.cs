@@ -61,7 +61,7 @@ namespace Excalibur.Tests.Cross.Droid.Activities
         {
             if (CurrentFocus == null) return;
 
-            InputMethodManager inputMethodManager = (InputMethodManager)GetSystemService(InputMethodService);
+            var inputMethodManager = (InputMethodManager)GetSystemService(InputMethodService);
             inputMethodManager.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
 
             CurrentFocus.ClearFocus();

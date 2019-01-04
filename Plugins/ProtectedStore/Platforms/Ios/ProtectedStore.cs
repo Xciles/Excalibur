@@ -33,10 +33,10 @@ namespace Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Ios
 
             var records = SecKeyChain.QueryAsRecord(query, 1000, out _);
 
-            return records != null 
-                    ? 
-                    Task.FromResult<IEnumerable<string>>(records.Select(GetStringFromRecord).ToList()) 
-                    : 
+            return records != null
+                    ?
+                    Task.FromResult<IEnumerable<string>>(records.Select(GetStringFromRecord).ToList())
+                    :
                     Task.FromResult(Enumerable.Empty<string>());
         }
 
