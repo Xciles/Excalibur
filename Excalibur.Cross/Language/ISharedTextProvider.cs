@@ -12,7 +12,7 @@ namespace Excalibur.Cross.Language
         IMvxLanguageBinder GetTextResource(string resourceName);
 
         /// <summary>
-        /// Gets a string from a specified resource by its entrykey
+        /// Gets a string from a specified resource by its entry key
         /// </summary>
         /// <param name="resourceName">Name of the localized resource e.g. 'MainViewModel'</param>
         /// <param name="entryKey">Name of the localized resource entry e.g. 'MainTitle'</param>
@@ -20,7 +20,7 @@ namespace Excalibur.Cross.Language
         string GetTextFromResource(string resourceName, string entryKey);
 
         /// <summary>
-        /// Gets a string from a specified resource by its entrykey
+        /// Gets a string from a specified resource by its entry key
         /// </summary>
         /// <param name="resourceName">Name of the localized resource e.g. 'MainViewModel'</param>
         /// <param name="entryKey">Name of the localized resource entry e.g. 'MainTitle'</param>

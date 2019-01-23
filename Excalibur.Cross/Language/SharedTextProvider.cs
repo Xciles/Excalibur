@@ -13,7 +13,7 @@ namespace Excalibur.Cross.Language
         private readonly IMvxLanguageBinder _languageBinder;
 
         /// <summary>
-        /// Contructor that should be called when registering an instance of this class with the DI service.
+        /// Constructor that should be called when registering an instance of this class with the DI service.
         /// Default shared localized text resources filename is 'Shared'
         /// </summary>
         /// <param name="namespaceName">Namespace containing the shared text resource(s).</param>
@@ -24,7 +24,7 @@ namespace Excalibur.Cross.Language
         }
 
         /// <summary>
-        /// Contructor that should be called when registering an instance of this class with the DI service.
+        /// Constructor that should be called when registering an instance of this class with the DI service.
         /// </summary>
         /// <param name="namespaceName">Namespace containing the shared text resource(s).</param>
         /// <param name="sharedFilename">Name of the file containing the shared text resource(s) used to override the default filename ('Shared').</param>
@@ -38,16 +38,19 @@ namespace Excalibur.Cross.Language
 
         public string GetText(string entryKey, params object[] args) => _languageBinder.GetText(entryKey, args);
 
+        /// <inheritdoc />
         public IMvxLanguageBinder GetTextResource(string resourceName)
         {
             return new MvxLanguageBinder(_namespaceName, resourceName);
         }
 
+        /// <inheritdoc />
         public string GetTextFromResource(string resourceName, string entryKey)
         {
             return GetTextResource(resourceName).GetText(entryKey);
         }
 
+        /// <inheritdoc />
         public string GetTextFromResource(string resourceName, string entryKey, params object[] args)
         {
             return GetTextResource(resourceName).GetText(entryKey, args);
