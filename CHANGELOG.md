@@ -1,5 +1,21 @@
 # Excalibur Change log
 
+## [0.6.8-Beta](https://github.com/xciles/excalibur) (2019-02-24)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/68bd7dd...188951f)
+
+**Features:**
+* Added ObjectsForListUpdatedHandler
+  * This can be used by the presentations to override the items that will be returned by the business for the presentation to load, instead of overriding the whole ListUpdatedX method.
+* Added functionality to clear the presentation and items that are kept in memory.
+* Moved some of the Typed implementations from the .Typed namespace to the upper namespace.
+* Added IDisposable to some entities that should allow disposing
+* Some styling updates
+* Added ISharedTextProvider (PR #9)
+
+**Fixed bugs:**
+* EncryptedFileStorage plugin will now register correctly even if ProtectedStore has not yet been registered.
+* When deleting a collection and using LiteDB as storage provider, we now also shrink the database.
+
 ## [0.6.7-Beta](https://github.com/xciles/excalibur) (2018-12-10)
 [Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/3d20b65...68bd7dd)
 
