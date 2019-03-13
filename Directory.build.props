@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>0.6.8-beta</Version>
+    <Version>0.6.9-beta</Version>
     <Authors>Excalibur Contributors</Authors>
     <Owners>Excalibur Contributors</Owners>
     <Copyright>Copyright (c) Excalibur Contributors</Copyright>
@@ -29,7 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(IsTestProject)' != 'true' and '$(IsLibraryProject)' == 'true' ">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(IsLibraryProject)' == 'true' ">

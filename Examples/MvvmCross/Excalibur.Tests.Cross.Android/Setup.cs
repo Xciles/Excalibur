@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading.Tasks;
 using Excalibur.Tests.Cross.Core;
 using Excalibur.Tests.Cross.Droid.Utils;
 using MvvmCross;
@@ -40,7 +41,7 @@ namespace Excalibur.Tests.Cross.Droid
                 {
                     fragmentActivity.SupportFragmentManager.PopBackStack();
                 }
-                return true;
+                return Task.FromResult(true);
             });
             //register the presentation hint to pop to root
             //picked up in the third view model

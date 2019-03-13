@@ -41,7 +41,8 @@ namespace Excalibur.Providers.EncryptedFileStorage
         ///     to encrypt and decrypt files with.
         /// </summary>
         /// <param name="password">The password that you want to use for deriving keys from</param>
-        Task InitializeFirstTimeAndGenerate(string password);
+        /// <param name="protectedStoreFileName">The store name that will be used for storing secrets</param>
+        Task InitializeFirstTimeAndGenerate(string password, string protectedStoreFileName = "Excalibur.Store");
 
         /// <summary>
         /// This method should be called every time a user returns to the application to make sure that the dependencies are initialized properly.
@@ -49,8 +50,9 @@ namespace Excalibur.Providers.EncryptedFileStorage
         /// If it's successful it will return true, if not, it <see cref="Clear"/>s itself and will return false.
         /// </summary>
         /// <param name="password">The password that you want to use for deriving keys from</param>
+        /// <param name="protectedStoreFileName">The store name that will be used for storing secrets</param>
         /// <returns></returns>
-        Task<bool> InitializeAndTryDecrypt(string password);
+        Task<bool> InitializeAndTryDecrypt(string password, string protectedStoreFileName = "Excalibur.Store");
 
         /// <summary>
         /// A derived key fom the user his/her password and the deviceId.

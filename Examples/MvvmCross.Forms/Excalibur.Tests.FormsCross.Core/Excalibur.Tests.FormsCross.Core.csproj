@@ -14,7 +14,7 @@
     <ProjectReference Include="..\..\..\Excalibur.Base\Excalibur.Base.csproj" />
     <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.220655" />
   </ItemGroup>
 
 </Project>

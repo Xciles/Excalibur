@@ -36,19 +36,19 @@ namespace Excalibur.Providers.EncryptedFileStorage
         }
 
         /// <inheritdoc />
-        public async Task InitializeFirstTimeAndGenerate(string password)
+        public async Task InitializeFirstTimeAndGenerate(string password, string protectedStoreFileName = "Excalibur.Store")
         {
             // Store the password
             _password = password;
             try
             {
-                _protectedStore.Initialize(DeviceKey());
+                _protectedStore.Initialize(DeviceKey(), protectedStoreFileName);
             }
             catch (ProtectedStoreException)
             {
                 _protectedStore.Remove();
                 _protectedStore.Terminate();
-                _protectedStore.Initialize(DeviceKey());
+                _protectedStore.Initialize(DeviceKey(), protectedStoreFileName);
             }
 
             // We generate an encryption key for the protected store key
@@ -86,13 +86,13 @@ namespace Excalibur.Providers.EncryptedFileStorage
         }
 
         /// <inheritdoc />
-        public async Task<bool> InitializeAndTryDecrypt(string password)
+        public async Task<bool> InitializeAndTryDecrypt(string password, string protectedStoreFileName = "Excalibur.Store")
         {
             try
             {
                 // Store the password
                 _password = password;
-                _protectedStore.Initialize(DeviceKey());
+                _protectedStore.Initialize(DeviceKey(), protectedStoreFileName);
                 await Key().ConfigureAwait(false);
                 if (await DecryptAndStoreTest().ConfigureAwait(false))
                 {
