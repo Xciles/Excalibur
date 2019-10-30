@@ -16,7 +16,7 @@
     <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
     <ProjectReference Include="..\Excalibur.Tests.FormsCross.Core\Excalibur.Tests.FormsCross.Core.csproj" />
     <PackageReference Include="MvvmCross.Forms" Version="6.4.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
   </ItemGroup>
 
   <ItemGroup>
