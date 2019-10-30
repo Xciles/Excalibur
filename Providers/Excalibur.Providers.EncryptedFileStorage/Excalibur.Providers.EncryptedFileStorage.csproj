@@ -1,32 +1,28 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <AssemblyName>Excalibur.Providers.EncryptedFileStorage</AssemblyName>
-    <RootNamespace>Excalibur.Providers.EncryptedFileStorage</RootNamespace>
-    <PackageId>Excalibur.Providers.EncryptedFileStorage</PackageId>
-    <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+    <PropertyGroup>
+        <AssemblyName>Excalibur.Providers.EncryptedFileStorage</AssemblyName>
+        <RootNamespace>Excalibur.Providers.EncryptedFileStorage</RootNamespace>
+        <PackageId>Excalibur.Providers.EncryptedFileStorage</PackageId>
+        <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
 
       This is provider that uses encrypted file-storage as storage/database.
     </Description>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Acr.DeviceInfo" Version="6.5.0" />
-    <PackageReference Include="MvvmCross" Version="6.2.3" />
-    <PackageReference Include="MvvmCross.Plugin.File" Version="6.2.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="PCLCrypto" Version="2.1.32-alpha" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
-    <ProjectReference Include="..\..\Plugins\ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj" />
-    <ProjectReference Include="..\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
-    <ProjectReference Include="..\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj" />
-  </ItemGroup>
-
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Acr.DeviceInfo" Version="6.5.0" />
+        <PackageReference Include="MvvmCross" Version="6.4.1" />
+        <PackageReference Include="MvvmCross.Plugin.File" Version="6.4.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+        <PackageReference Include="PCLCrypto" Version="2.1.32-alpha" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
+        <ProjectReference Include="..\..\Plugins\ProtectedStore\Excalibur.MvvmCross.Plugin.ProtectedStore.csproj" />
+        <ProjectReference Include="..\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
+        <ProjectReference Include="..\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj" />
+    </ItemGroup>
 </Project>

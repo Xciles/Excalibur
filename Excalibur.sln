@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.RootChecker", "Plugins\RootChecker\Excalibur.MvvmCross.Plugin.RootChecker.csproj", "{3B84D020-558E-4B8C-867F-F74ACA34C25E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.EncryptedFileStorage", "Providers\Excalibur.Providers.EncryptedFileStorage\Excalibur.Providers.EncryptedFileStorage.csproj", "{7A60B781-E323-42F0-830B-D130ECDA2F72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Providers.EncryptedFileStorage", "Providers\Excalibur.Providers.EncryptedFileStorage\Excalibur.Providers.EncryptedFileStorage.csproj", "{7A60B781-E323-42F0-830B-D130ECDA2F72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.Encryption", "Providers\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj", "{D04E5F56-4B9C-4A74-94FD-35AD597A0B0F}"
 EndProject

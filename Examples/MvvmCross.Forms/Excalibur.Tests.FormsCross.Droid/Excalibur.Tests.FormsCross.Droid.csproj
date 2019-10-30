@@ -1,159 +1,158 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8640FAF5-9D3C-4711-92EE-0342670EB646}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Excalibur.Tests.FormsCross.Droid</RootNamespace>
-    <AssemblyName>Excalibur.Tests.FormsCross.Android</AssemblyName>
-    <AndroidApplication>True</AndroidApplication>
-    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
-    <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
-    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Mono.Android" />
-    <Reference Include="Mono.Android.Export" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="MvvmCross.Forms">
-      <Version>6.2.3</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.220655" />
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AndroidEntryActivity.cs" />
-    <Compile Include="LinkerPleaseInclude.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Setup.cs" />
-    <Compile Include="SplashScreen.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Tabbar.axml" />
-    <AndroidResource Include="Resources\layout\Toolbar.axml" />
-    <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Excalibur.Avalon\Excalibur.Avalon.csproj">
-      <Project>{dcc7b30e-1d2f-4f2f-bbf8-04ce6ef9c0d7}</Project>
-      <Name>Excalibur.Avalon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Excalibur.Base\Excalibur.Base.csproj">
-      <Project>{c78329b8-8ba1-47fc-aff8-d21793ba3b4d}</Project>
-      <Name>Excalibur.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj">
-      <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
-      <Name>Excalibur.Cross</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj">
-      <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
-      <Name>Excalibur.Providers.FileStorage</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Excalibur.Tests.FormsCross.Core.Ui\Excalibur.Tests.FormsCross.Core.Ui.csproj">
-      <Project>{05ae3af6-ee1d-44cb-b7e0-bfb15cd30bf6}</Project>
-      <Name>Excalibur.Tests.FormsCross.Core.Ui</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Excalibur.Tests.FormsCross.Core\Excalibur.Tests.FormsCross.Core.csproj">
-      <Project>{10f2f5c0-ce50-4401-a846-0ba7333245e9}</Project>
-      <Name>Excalibur.Tests.FormsCross.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon_round.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon_square.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\profile_generic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Hamburger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\profile_generic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Hamburger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\profile_generic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Hamburger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\profile_generic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Hamburger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\profile_generic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Hamburger.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{8640FAF5-9D3C-4711-92EE-0342670EB646}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>Excalibur.Tests.FormsCross.Droid</RootNamespace>
+        <AssemblyName>Excalibur.Tests.FormsCross.Android</AssemblyName>
+        <AndroidApplication>True</AndroidApplication>
+        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+        <AndroidResgenClass>Resource</AndroidResgenClass>
+        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+        <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+        <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+        <NuGetPackageImportStamp>
+        </NuGetPackageImportStamp>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidLinkMode>None</AndroidLinkMode>
+        <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidManagedSymbols>true</AndroidManagedSymbols>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Mono.Android" />
+        <Reference Include="Mono.Android.Export" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MvvmCross.Forms">
+            <Version>6.4.1</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+        <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
+        <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
+        <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
+        <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.3" />
+        <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AndroidEntryActivity.cs" />
+        <Compile Include="LinkerPleaseInclude.cs" />
+        <Compile Include="Resources\Resource.Designer.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Setup.cs" />
+        <Compile Include="SplashScreen.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Resources\AboutResources.txt" />
+        <None Include="Assets\AboutAssets.txt" />
+        <None Include="Properties\AndroidManifest.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\layout\Tabbar.axml" />
+        <AndroidResource Include="Resources\layout\Toolbar.axml" />
+        <AndroidResource Include="Resources\values\styles.xml" />
+        <AndroidResource Include="Resources\values\colors.xml" />
+        <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Excalibur.Avalon\Excalibur.Avalon.csproj">
+            <Project>{dcc7b30e-1d2f-4f2f-bbf8-04ce6ef9c0d7}</Project>
+            <Name>Excalibur.Avalon</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Excalibur.Base\Excalibur.Base.csproj">
+            <Project>{c78329b8-8ba1-47fc-aff8-d21793ba3b4d}</Project>
+            <Name>Excalibur.Base</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj">
+            <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
+            <Name>Excalibur.Cross</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj">
+            <Project>{55928a6c-f0ea-4d62-b5ae-72455312b264}</Project>
+            <Name>Excalibur.Providers.FileStorage</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\Excalibur.Tests.FormsCross.Core.Ui\Excalibur.Tests.FormsCross.Core.Ui.csproj">
+            <Project>{05ae3af6-ee1d-44cb-b7e0-bfb15cd30bf6}</Project>
+            <Name>Excalibur.Tests.FormsCross.Core.Ui</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\Excalibur.Tests.FormsCross.Core\Excalibur.Tests.FormsCross.Core.csproj">
+            <Project>{10f2f5c0-ce50-4401-a846-0ba7333245e9}</Project>
+            <Name>Excalibur.Tests.FormsCross.Core</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\drawable\icon_round.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\drawable\icon_square.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-hdpi\profile_generic.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-hdpi\Hamburger.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-mdpi\profile_generic.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-mdpi\Hamburger.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-xhdpi\profile_generic.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-xhdpi\Hamburger.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-xxhdpi\profile_generic.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-xxhdpi\Hamburger.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\profile_generic.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\Hamburger.png" />
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
