@@ -3,7 +3,7 @@ using Excalibur.Base.Providers;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Utils;
-using PubSub.Extension;
+using PubSub;
 
 namespace Excalibur.Cross.Presentation
 {
@@ -28,6 +28,11 @@ namespace Excalibur.Cross.Presentation
     where TObservable : ObservableBase<TId>, new()
     {
         /// <summary>
+        /// Publish and Subscribe hub for PubSub functionality.
+        /// </summary>
+        protected Hub Hub { get; set; } = Hub.Default;
+
+        /// <summary>
         /// Initializes a new BaseSinglePresentation 
         /// This Resolves the Domain to Selected mapper
         /// Also subscribes to Single item publish message
@@ -35,7 +40,7 @@ namespace Excalibur.Cross.Presentation
         public BaseSinglePresentation(IObjectMapper<TDomain, TObservable> domainSelectedMapper) : base(domainSelectedMapper)
         {
             // retrieve mappers
-            this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
+            Hub.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainSelectedMapper = domainSelectedMapper;
         }
@@ -64,7 +69,7 @@ namespace Excalibur.Cross.Presentation
         {
             if (isDisposing)
             {
-                this.Unsubscribe<TDomain>();
+                Hub.Unsubscribe<TDomain>();
             }
         }
     }

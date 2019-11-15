@@ -17,10 +17,5 @@ namespace Excalibur.Tests.Cross.Droid
         public SplashScreen() : base(Resource.Layout.SplashScreen)
         {
         }
-
-        protected override void RunAppStart(Bundle bundle)
-        {
-            base.RunAppStart(bundle);
-        }
     }
 }

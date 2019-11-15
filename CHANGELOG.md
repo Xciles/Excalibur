@@ -1,5 +1,27 @@
 # Excalibur Change log
 
+## [0.6.10-Beta](https://github.com/xciles/excalibur) (2019-11-15)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/188951f...)
+
+**Features:**
+* Bumping packages to latest versions
+  * Automapper		| 8.0.0		>	9.0.0
+  * Json.Net			| 12.0.2		>	12.0.33
+  * MvvmCross.*		| 6.2.*		>	6.4.1
+  * PubSub			| 3.0.0		>	4.0.0
+  * Removed Microsoft.CSharp
+* Updating example projects and changing build targets
+
+**Breaking**
+* PubSub has changed from static calls to a Hub class. This has been added to most locations that require publishing. If needed, please use 'Hub'.
+
+
+## [0.6.9-Beta](https://github.com/xciles/excalibur) (2019-03-13)
+[Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/188951f...)
+
+**Features:**
+* Bumping packages to latest versions
+
 ## [0.6.8-Beta](https://github.com/xciles/excalibur) (2019-02-24)
 [Raw change log by Commits](https://github.com/Xciles/Excalibur/compare/68bd7dd...188951f)
 

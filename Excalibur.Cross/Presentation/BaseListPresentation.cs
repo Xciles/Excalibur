@@ -10,7 +10,7 @@ using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Utils;
 using MvvmCross.Base;
-using PubSub.Extension;
+using PubSub;
 
 namespace Excalibur.Cross.Presentation
 {
@@ -51,6 +51,11 @@ namespace Excalibur.Cross.Presentation
         where TObservable : ObservableBase<TId>, new()
         where TSelectedObservable : ObservableBase<TId>, new()
     {
+        /// <summary>
+        /// Publish and Subscribe hub for PubSub functionality.
+        /// </summary>
+        protected Hub Hub { get; set; } = Hub.Default;
+
         protected IListBusiness<TId, TDomain> ListBusiness { get; set; }
         protected IMvxMainThreadAsyncDispatcher Dispatcher { get; set; }
         private IObservableCollection<TObservable> _observables = new ExObservableCollection<TObservable>(new List<TObservable>());
@@ -80,8 +85,8 @@ namespace Excalibur.Cross.Presentation
             : base(domainSelectedMapper)
         {
             // retrieve mappers
-            this.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message).ConfigureAwait(false); });
-            this.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
+            Hub.Subscribe<MessageBase<IList<TDomain>>>(async (message) => { await ListUpdatedHandler(message).ConfigureAwait(false); });
+            Hub.Subscribe<MessageBase<TDomain>>(ItemUpdatedHandler);
 
             DomainObservableMapper = domainObservableMapper;
             ObservableSelectedMapper = observableSelectedMapper;
@@ -285,7 +290,7 @@ namespace Excalibur.Cross.Presentation
         {
             if (isDisposing)
             {
-                this.Unsubscribe<TDomain>();
+                Hub.Unsubscribe<TDomain>();
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Excalibur.Base.Providers;
 using Excalibur.Cross.Utils;
-using PubSub.Extension;
+using PubSub;
 
 namespace Excalibur.Cross.Business
 {
@@ -26,6 +26,11 @@ namespace Excalibur.Cross.Business
         /// For example, this instance will be used in by <see cref="UpdateFromService"/>
         /// </summary>
         protected TService Service { get; set; }
+
+        /// <summary>
+        /// Publish and Subscribe hub for PubSub functionality.
+        /// </summary>
+        protected Hub Hub { get; set; } = Hub.Default;
 
         /// <summary>
         /// This bool indicates to delete the locally stored items that were not returned or keep them when updating from a
@@ -52,7 +57,7 @@ namespace Excalibur.Cross.Business
         /// Publishes a message using <see cref="MessageBase{T}"/> to notify subscribers underlying objects have changed.
         /// This is a general message. It does not contain the objects.
         /// </summary>
-        protected void PublishListUpdated() => this.Publish<MessageBase<IList<TDomain>>>();
+        protected void PublishListUpdated() => Hub.Publish<MessageBase<IList<TDomain>>>();
 
         /// <summary>
         /// Publishes a message using <see cref="MessageBase{T}"/> to notify subscribers that one object has changed. 
@@ -60,7 +65,7 @@ namespace Excalibur.Cross.Business
         /// </summary>
         /// <param name="updatedObject">The object that was updated.</param>
         /// <param name="state">The state of the object.</param>
-        protected void PublishUpdated(TDomain updatedObject, EDomainState state = EDomainState.Updated) => this.Publish(new MessageBase<TDomain>(updatedObject, state));
+        protected void PublishUpdated(TDomain updatedObject, EDomainState state = EDomainState.Updated) => Hub.Publish(new MessageBase<TDomain>(updatedObject, state));
 
         /// <summary>
         /// Stores and persists an object using <see cref="Storage"/>.
