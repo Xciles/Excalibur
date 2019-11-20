@@ -110,7 +110,7 @@ csharp_style_inlined_variable_declaration = true:suggestion
 
 csharp_prefer_simple_default_expression = true:suggestion
 
-csharp_prefer_braces = false:suggestion
+csharp_prefer_braces = true:suggestion
 
 csharp_new_line_between_query_expression_clauses = true:suggestion
 
@@ -121,13 +121,24 @@ csharp_space_around_binary_operators = before_and_after:suggestion
 
 csharp_preserve_single_line_statements = false:suggestion
 
-dotnet_naming_rule.public_members_must_be_capitalized.symbols = public_symbols
+csharp_new_line_before_finally = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_finally = true:suggestion
+csharp_new_line_before_members_in_object_initializers  = true:suggestion
+csharp_new_line_before_members_in_anonymous_types  = true:suggestion
+
+wrap_long_lines = false
+
+dotnet_naming_symbols.non_interface_types.applicable_kinds = class, struct, delegate
+dotnet_naming_symbols.enum_types.applicable_kinds = enum
+dotnet_naming_symbols.interface_types.applicable_kinds = interface
+
+dotnet_naming_symbols.static_readonly_fields.applicable_kinds = field
+dotnet_naming_symbols.static_readonly_fields.required_modifiers = static, readonly
+
 dotnet_naming_symbols.public_symbols.applicable_kinds = property,method,field,event,delegate
 dotnet_naming_symbols.public_symbols.applicable_accessibilities = public
 dotnet_naming_symbols.public_symbols.required_modifiers = readonly
-
-dotnet_naming_rule.public_members_must_be_capitalized.style = first_word_upper_case_style
-dotnet_naming_style.first_word_upper_case_style.capitalization = first_word_upper
 
 dotnet_naming_rule.public_members_must_be_capitalized.severity = suggestion
 
@@ -135,13 +146,35 @@ dotnet_naming_rule.private_members_with_underscore.symbols  = private_fields
 dotnet_naming_rule.private_members_with_underscore.style    = prefix_underscore
 dotnet_naming_rule.private_members_with_underscore.severity = suggestion
 
-dotnet_naming_symbols.private_fields.applicable_kinds           = field
-dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_rule.interface_types_must_be_prefixed_with_i.severity = warning
+dotnet_naming_rule.interface_types_must_be_prefixed_with_i.symbols = interface_types
+dotnet_naming_rule.interface_types_must_be_prefixed_with_i.style = prefix_interface_with_i
+
+dotnet_naming_rule.enum_types_must_be_prefixed_with_e.severity = warning
+dotnet_naming_rule.enum_types_must_be_prefixed_with_e.symbols = enum_types
+dotnet_naming_rule.enum_types_must_be_prefixed_with_e.style = prefix_enum_with_e
+
+dotnet_naming_rule.static_readonly_fields_must_be_pascal_case.severity = warning
+dotnet_naming_rule.static_readonly_fields_must_be_pascal_case.symbols = static_readonly_fields
+dotnet_naming_rule.static_readonly_fields_must_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.public_members_must_be_capitalized.style = first_word_upper_case_style
+dotnet_naming_rule.public_members_must_be_capitalized.symbols = public_symbols
+
+dotnet_naming_rule.non_interface_types_must_be_pascal_case.severity = warning
+dotnet_naming_rule.non_interface_types_must_be_pascal_case.symbols = non_interface_types
+dotnet_naming_rule.non_interface_types_must_be_pascal_case.style = pascal_case
 
 dotnet_naming_style.prefix_underscore.capitalization = camel_case
 dotnet_naming_style.prefix_underscore.required_prefix = _
 
-csharp_new_line_before_finally = true
-csharp_new_line_before_open_brace = all
-csharp_new_line_before_members_in_object_initializers  = true:suggestion
-csharp_new_line_before_members_in_anonymous_types  = true:suggestion
+dotnet_naming_style.prefix_interface_with_i.capitalization = pascal_case
+dotnet_naming_style.prefix_interface_with_i.required_prefix = I
+
+dotnet_naming_style.prefix_enum_with_e.capitalization = pascal_case
+dotnet_naming_style.prefix_enum_with_e.required_prefix = E
+
+dotnet_naming_symbols.private_fields.applicable_kinds           = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.first_word_upper_case_style.capitalization = first_word_upper
