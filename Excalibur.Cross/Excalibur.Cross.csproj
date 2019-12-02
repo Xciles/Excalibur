@@ -15,7 +15,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="MvvmCross" Version="6.4.1" />
     <PackageReference Include="MvvmCross.Plugin.File" Version="6.4.1" />
     <PackageReference Include="MvvmCross.Plugin.JsonLocalization" Version="6.4.1" />

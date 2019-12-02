@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Cross", "Excalibur.Cross\Excalibur.Cross.csproj", "{8CD6A3A6-B0F4-442D-B8B3-6A29EDC5BC8E}"
 EndProject
@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.MvvmCross.Plugin.RootChecker", "Plugins\RootChecker\Excalibur.MvvmCross.Plugin.RootChecker.csproj", "{3B84D020-558E-4B8C-867F-F74ACA34C25E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.Providers.EncryptedFileStorage", "Providers\Excalibur.Providers.EncryptedFileStorage\Excalibur.Providers.EncryptedFileStorage.csproj", "{7A60B781-E323-42F0-830B-D130ECDA2F72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.EncryptedFileStorage", "Providers\Excalibur.Providers.EncryptedFileStorage\Excalibur.Providers.EncryptedFileStorage.csproj", "{7A60B781-E323-42F0-830B-D130ECDA2F72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Providers.Encryption", "Providers\Excalibur.Providers.Encryption\Excalibur.Providers.Encryption.csproj", "{D04E5F56-4B9C-4A74-94FD-35AD597A0B0F}"
 EndProject
@@ -74,6 +74,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Tests.FormsCross.Core", "Examples\MvvmCross.Forms\Excalibur.Tests.FormsCross.Core\Excalibur.Tests.FormsCross.Core.csproj", "{10F2F5C0-CE50-4401-A846-0BA7333245E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excalibur.Tests.FormsCross.Core.Ui", "Examples\MvvmCross.Forms\Excalibur.Tests.FormsCross.Core.Ui\Excalibur.Tests.FormsCross.Core.Ui.csproj", "{05AE3AF6-EE1D-44CB-B7E0-BFB15CD30BF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur.AspNetCore", "Excalibur.AspNetCore\Excalibur.AspNetCore.csproj", "{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1139,6 +1141,54 @@ Global
 		{05AE3AF6-EE1D-44CB-B7E0-BFB15CD30BF6}.Release|x64.Build.0 = Release|Any CPU
 		{05AE3AF6-EE1D-44CB-B7E0-BFB15CD30BF6}.Release|x86.ActiveCfg = Release|Any CPU
 		{05AE3AF6-EE1D-44CB-B7E0-BFB15CD30BF6}.Release|x86.Build.0 = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|ARM.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|x64.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|x64.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|x86.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Ad-Hoc|x86.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|ARM.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|ARM.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|x64.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|x64.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.AppStore|x86.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|ARM.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|x64.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Debug|x86.Build.0 = Debug|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|ARM.ActiveCfg = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|ARM.Build.0 = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|iPhone.Build.0 = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|x64.Build.0 = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{2BC1ED01-0749-4AB7-A108-E9C24C2039BF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
