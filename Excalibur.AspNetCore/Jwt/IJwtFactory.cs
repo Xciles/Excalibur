@@ -18,15 +18,6 @@ namespace Excalibur.AspNetCore.Jwt
         Task<string> GenerateEncodedToken(string subject, ClaimsIdentity identity);
 
         /// <summary>
-        /// Method for generating a <see cref="ClaimsIdentity"/> used for JWT signing
-        /// </summary>
-        /// <param name="subject">The subject (user Id) which is used as sub</param>
-        /// <param name="deviceId">A deviceId that will be added to the deviceId claim</param>
-        /// <param name="id">An ID that can be used to identity the Identity</param>
-        /// <returns>A ClaimIdentity</returns>
-        ClaimsIdentity GenerateClaimsIdentity(string subject, string deviceId, string id);
-
-        /// <summary>
         /// Method for generating a <see cref="JwtResponse"/> that contains information about the user that tries to sign-in or
         /// refreshes its access_token.
         /// </summary>

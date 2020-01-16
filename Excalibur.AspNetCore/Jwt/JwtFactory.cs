@@ -1,20 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using Excalibur.Avalon.Jwt;
 using Microsoft.Extensions.Options;
 
 namespace Excalibur.AspNetCore.Jwt
 {
-    /// todo
-    /// refresh token fixen
-    /// obsolete toelie weg
-    /// claims change to list of items
-    /// refresh expiration
-    ///  
     /// <inheritdoc cref="IJwtFactory"/>
     public class JwtFactory : IJwtFactory
     {
@@ -29,17 +23,14 @@ namespace Excalibur.AspNetCore.Jwt
         /// <inheritdoc cref="IJwtFactory"/>
         public async Task<string> GenerateEncodedToken(string subject, ClaimsIdentity identity)
         {
-            // All the claims for the user
-            var claims = new[]
+            var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, subject),
                 new Claim(JwtRegisteredClaimNames.Jti, await _jwtOptions.JtiGenerator()),
                 new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(_jwtOptions.IssuedAt).ToString(), ClaimValueTypes.Integer64),
-                identity.FindFirst(JwtConstants.Strings.JwtClaimIdentifiers.Rol),
-                identity.FindFirst(JwtConstants.Strings.JwtClaimIdentifiers.Id),
-                identity.FindFirst(JwtConstants.Strings.JwtClaimIdentifiers.DeviceId),
-                identity.FindFirst(JwtConstants.Strings.JwtClaimIdentifiers.Email)
             };
+
+            claims.AddRange(identity.Claims);
 
             // Create the JWT security token and encode it.
             var jwt = new JwtSecurityToken(
@@ -53,17 +44,6 @@ namespace Excalibur.AspNetCore.Jwt
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
 
             return encodedJwt;
-        }
-
-        /// <inheritdoc cref="IJwtFactory"/>
-        public ClaimsIdentity GenerateClaimsIdentity(string subject, string deviceId, string id)
-        {
-            return new ClaimsIdentity(new GenericIdentity(subject, JwtConstants.Strings.JwtClaimIdentifiers.Token), new[]
-            {
-                new Claim(JwtConstants.Strings.JwtClaimIdentifiers.Id, id),
-                new Claim(JwtConstants.Strings.JwtClaimIdentifiers.DeviceId, deviceId),
-                new Claim(JwtConstants.Strings.JwtClaimIdentifiers.Rol, JwtConstants.Strings.JwtClaims.ApiAccess)
-            });
         }
 
         /// <inheritdoc cref="IJwtFactory"/>
