@@ -146,9 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross.Forms">
-      <Version>6.4.1</Version>
+      <Version>6.4.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991537" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
   </ItemGroup>
   <ItemGroup>
