@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Cross.Observable
+﻿namespace Excalibur.Base.Observable
 {
     /// <summary>
     /// Base observable that is used for entities that want to be used by Excalibur. 

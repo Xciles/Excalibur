@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.Observable;
+﻿using Excalibur.Base.Observable;
+using Excalibur.Cross.Observable;
 
 namespace Excalibur.Tests.FormsCross.Core.Observable
 {

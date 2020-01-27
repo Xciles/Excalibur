@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Excalibur.Base.Observable;
 using Excalibur.Base.Providers;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;

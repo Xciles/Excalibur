@@ -1,5 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using Excalibur.Base.Observable;
+using Excalibur.Cross.Observable;
 
 namespace Excalibur.Cross.Collections
 {
@@ -8,11 +13,18 @@ namespace Excalibur.Cross.Collections
     /// </summary>
     /// <typeparam name="T">The type used within the collection</typeparam>
     public class ExObservableCollection<T> : ObservableCollection<T>, IObservableCollection<T>
+        where T : ObservableObjectBase
     {
+        public EventHandler<PropertyChangedEventArgs> ItemPropertyChanged { get; set; }
+
         /// <inheritdoc />
         public ExObservableCollection(IList<T> source)
             : base(source)
         {
+            foreach (var item in Items)
+            {
+                item.PropertyChanged += ChildItemPropertyChanged;
+            }
         }
 
         /// <summary>
@@ -79,6 +91,52 @@ namespace Excalibur.Cross.Collections
                     base[index] = value;
                 }
             }
+        }
+
+        protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+        {
+            base.OnCollectionChanged(e);
+
+            if (e.OldItems != null)
+            {
+                foreach (ObservableObjectBase item in e.OldItems)
+                {
+                    if (e.NewItems == null || !e.NewItems.Contains(item))
+                    {
+                        item.PropertyChanged -= ChildItemPropertyChanged;
+                    }
+                }
+            }
+
+            if (e.NewItems != null)
+            {
+                foreach (ObservableObjectBase item in e.NewItems)
+                {
+                    if (e.OldItems == null || !e.OldItems.Contains(item))
+                    {
+                        item.PropertyChanged += ChildItemPropertyChanged;
+                    }
+                }
+            }
+        }
+
+        protected override void ClearItems()
+        {
+            foreach (var item in Items)
+            {
+                item.PropertyChanged -= ChildItemPropertyChanged;
+            }
+
+            lock (_lock)
+            {
+                base.ClearItems();
+            }
+        }
+
+        private void ChildItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var handler = ItemPropertyChanged;
+            handler?.Invoke(sender, e);
         }
     }
 }

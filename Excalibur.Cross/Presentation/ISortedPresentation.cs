@@ -1,4 +1,5 @@
-﻿using Excalibur.Cross.Collections;
+﻿using Excalibur.Base.Observable;
+using Excalibur.Cross.Collections;
 using Excalibur.Cross.Observable;
 
 namespace Excalibur.Cross.Presentation

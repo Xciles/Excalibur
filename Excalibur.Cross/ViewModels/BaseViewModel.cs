@@ -12,6 +12,8 @@ namespace Excalibur.Cross.ViewModels
     /// </summary>
     public abstract class BaseViewModel : MvxViewModel
     {
+        private string _title = string.Empty;
+
         protected BaseViewModel()
         {
             NavigationService = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
