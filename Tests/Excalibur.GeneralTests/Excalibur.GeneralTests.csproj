@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmCross" Version="6.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
+    <ProjectReference Include="..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
+    <ProjectReference Include="..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
+    <ProjectReference Include="..\..\Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj" />
+  </ItemGroup>
+
+</Project>

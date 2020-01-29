@@ -6,7 +6,7 @@ namespace Excalibur.Base.Registration
 {
     public abstract class BaseExcaliburIoCConfig
     {
-        protected IMvxIoCProvider IoCProvider;
+        public IMvxIoCProvider IoCProvider;
 
         protected BaseExcaliburIoCConfig(IMvxIoCProvider ioCProvider)
         {
@@ -18,7 +18,7 @@ namespace Excalibur.Base.Registration
         where TDomain : ProviderDomain<TKey>, new()
         where TObservable : ObservableBase<TKey>, new()
     {
-        protected IMvxIoCProvider IoCProvider;
+        public IMvxIoCProvider IoCProvider;
 
         protected BaseExcaliburIoCConfig(IMvxIoCProvider ioCProvider)
         {
@@ -26,24 +26,24 @@ namespace Excalibur.Base.Registration
         }
     }
 
-    public class ExcaliburIoCConfig : BaseExcaliburIoCConfig
-    {
-        public ExcaliburIoCConfig(IMvxIoCProvider ioCProvider) : base(ioCProvider) { }
+    //public class ExcaliburIoCConfig : BaseExcaliburIoCConfig
+    //{
+    //    public ExcaliburIoCConfig(IMvxIoCProvider ioCProvider) : base(ioCProvider) { }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> ForSingleEntity<TKey, TDomain, TObservable>()
-            where TDomain : ProviderDomain<TKey>, new()
-            where TObservable : ObservableBase<TKey>, new()
-        {
-            return new ExcaliburSingleConfig<TKey, TDomain, TObservable>(IoCProvider);
-        }
+    //    public ExcaliburSingleConfig<TKey, TDomain, TObservable> ForSingleEntity<TKey, TDomain, TObservable>()
+    //        where TDomain : ProviderDomain<TKey>, new()
+    //        where TObservable : ObservableBase<TKey>, new()
+    //    {
+    //        return new ExcaliburSingleConfig<TKey, TDomain, TObservable>(IoCProvider);
+    //    }
 
-        public ExcaliburListConfig<TKey, TDomain, TObservable> ForListEntity<TKey, TDomain, TObservable>()
-            where TDomain : ProviderDomain<TKey>, new()
-            where TObservable : ObservableBase<TKey>, new()
-        {
-            return new ExcaliburListConfig<TKey, TDomain, TObservable>(IoCProvider);
-        }
-    }
+    //    public ExcaliburListConfig<TKey, TDomain, TObservable> ForListEntity<TKey, TDomain, TObservable>()
+    //        where TDomain : ProviderDomain<TKey>, new()
+    //        where TObservable : ObservableBase<TKey>, new()
+    //    {
+    //        return new ExcaliburListConfig<TKey, TDomain, TObservable>(IoCProvider);
+    //    }
+    //}
 
     public class ExcaliburListConfig<TKey, TDomain, TObservable> : BaseExcaliburIoCConfig<TKey, TDomain, TObservable>
         where TDomain : ProviderDomain<TKey>, new()
