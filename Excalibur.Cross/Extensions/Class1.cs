@@ -1,4 +1,5 @@
-﻿using Excalibur.Base.Observable;
+﻿using System;
+using Excalibur.Base.Observable;
 using Excalibur.Base.Providers;
 using Excalibur.Base.Registration;
 using Excalibur.Cross.ObjectConverter;
@@ -41,11 +42,69 @@ namespace Excalibur.Cross.Extensions
             return config;
         }
 
-        public static ExcaliburMapperConfig<TKey, TDomain, TObservable> WithMapper<TKey, TDomain, TObservable>(this ExcaliburSingleConfig<TKey, TDomain, TObservable> config)
+        public static ExcaliburSingleConfig<TKey, TDomain, TObservable> WithMapper<TKey, TDomain, TObservable>(this ExcaliburSingleConfig<TKey, TDomain, TObservable> config, Action<MapperOptions<TKey, TDomain, TObservable>> options )
             where TDomain : ProviderDomain<TKey>, new()
             where TObservable : ObservableBase<TKey>, new()
         {
-            return new ExcaliburMapperConfig<TKey, TDomain, TObservable>(config);
+            var mapperOptions = new MapperOptions<TKey, TDomain, TObservable>(config);
+
+            options(mapperOptions);
+
+            return config;
+        }
+
+        public static ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultService<TKey, TDomain, TObservable>(this ExcaliburSingleConfig<TKey, TDomain, TObservable> config)
+            where TDomain : ProviderDomain<TKey>, new()
+            where TObservable : ObservableBase<TKey>, new()
+        {
+            config.IoCProvider.RegisterDomainMapperFor<TDomain, TObservable>();
+            config.IoCProvider.RegisterObservableMapperFor<TObservable>();
+
+            return config;
+        }
+    }
+
+    public class MapperOptions<TKey, TDomain, TObservable>
+        where TDomain : ProviderDomain<TKey>, new()
+        where TObservable : ObservableBase<TKey>, new()
+    {
+        private readonly ExcaliburSingleConfig<TKey, TDomain, TObservable> _config;
+
+        public MapperOptions(ExcaliburSingleConfig<TKey, TDomain, TObservable> config)
+        {
+            _config = config;
+        }
+
+        public void DefaultDomainMapper()
+        {
+            _config.IoCProvider.RegisterDomainMapperFor<TDomain, TObservable>();
+        }
+
+        public void DefaultObservableMapper()
+        {
+            _config.IoCProvider.RegisterObservableMapperFor<TObservable>();
+        }
+
+        public void DomainMapper<TMapper>()
+            where TMapper : BaseObjectMapper<TDomain, TObservable>, IObjectMapper<TDomain, TObservable>
+        {
+            _config.IoCProvider.RegisterType<IObjectMapper<TDomain, TObservable>, TMapper>();
+        }
+
+        public void ObservableMapper<TMapper>()
+            where TMapper : BaseObjectMapper<TObservable, TObservable>, IObjectMapper<TObservable, TObservable>
+        {
+            _config.IoCProvider.RegisterType<IObjectMapper<TObservable, TObservable>, TMapper>();
+        }
+    }
+
+    public static class MapperOptionsExtensions
+    {
+        public static void Test<TKey, TDomain, TObservable>(this MapperOptions<TKey, TDomain, TObservable> mapper)
+            where TDomain : ProviderDomain<TKey>, new()
+            where TObservable : ObservableBase<TKey>, new()
+        {
+
         }
     }
 

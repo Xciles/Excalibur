@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Excalibur.Cross.Attributes
+namespace Excalibur.Base.Attributes
 {
     public class PropertyChangedDependentOnAttribute : Attribute
     {

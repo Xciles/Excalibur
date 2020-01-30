@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Excalibur.Base.Attributes;
 using MvvmCross.ViewModels;
 
 namespace Excalibur.Base.Observable

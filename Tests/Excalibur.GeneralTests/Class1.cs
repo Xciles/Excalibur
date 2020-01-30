@@ -7,6 +7,48 @@ using MvvmCross.IoC;
 
 namespace Excalibur.GeneralTests
 {
+    public static class Program
+    {
+        public static void Main(string[] args)
+        {
+            IMvxIoCProvider ioc = new MvxIoCContainer(new MvxIoCContainer(new MvxIocOptions()));
+
+            //ioc
+            //    .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
+            //    .WithMapper()
+            //        .DefaultDomainMapper()
+            //        .DefaultObservableMapper()
+            //        .MapperCompleteAsSingle();
+
+            //ioc
+            //    .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
+            //    .WithMapper()
+            //        .DomainMapper<CustomMapper>()
+            //        .DefaultObservableMapper()
+            //        .MapperCompleteAsSingle();
+
+            ioc
+                .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
+                .WithDefaultMappers();
+
+            ioc
+                .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
+                .WithMapper(options =>
+                {
+                    options.DefaultDomainMapper();
+                    options.DefaultObservableMapper();
+                });
+
+            ioc
+                .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
+                .WithMapper(options =>
+                {
+                    options.DomainMapper<CustomMapper>();
+                    options.DefaultObservableMapper();
+                });
+        }
+    }
+
 
     public class DEntity : ProviderDomain<int> { }
     public class OEntity : ObservableBase<int> { }
@@ -35,6 +77,14 @@ namespace Excalibur.GeneralTests
                     .DomainMapper<CustomMapper>()
                     .DefaultObservableMapper()
                     .MapperCompleteAsSingle();
+
+            ioc
+                .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
+                .WithMapper2(options =>
+                {
+                    options.Test();
+                    options.Bla();
+                });
 
 
 
