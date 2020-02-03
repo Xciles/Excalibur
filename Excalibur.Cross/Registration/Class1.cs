@@ -80,6 +80,15 @@ namespace Excalibur.Cross.Registration
     {
         public ExcaliburSingleConfig(IMvxIoCProvider ioCProvider) : base(ioCProvider) { }
 
+        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefault()
+        {
+            WithDefaultBusiness();
+            WithDefaultPresentation();
+            WithDefaultMappers();
+
+            return this;
+        }
+
         public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultMappers()
         {
             RegisterMapper();
