@@ -24,6 +24,7 @@ namespace Excalibur.Base.Registration
         {
             IoCProvider = ioCProvider;
         }
+
     }
 
     //public class ExcaliburIoCConfig : BaseExcaliburIoCConfig
@@ -57,5 +58,6 @@ namespace Excalibur.Base.Registration
         where TObservable : ObservableBase<TKey>, new()
     {
         public ExcaliburSingleConfig(IMvxIoCProvider ioCProvider) : base(ioCProvider) { }
+
     }
 }

@@ -29,7 +29,8 @@ namespace Excalibur.GeneralTests
 
             ioc
                 .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
-                .WithDefaultMappers();
+                .WithDefaultMappers()
+                .WithDefaultService<DEntity>();
 
             ioc
                 .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
