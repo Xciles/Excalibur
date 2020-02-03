@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Base.Storage;
+using Excalibur.Cross.Storage;
 using Excalibur.Providers.FileStorage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

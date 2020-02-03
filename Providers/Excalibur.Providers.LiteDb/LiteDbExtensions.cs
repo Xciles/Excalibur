@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Excalibur.Base.Providers;
+﻿using Excalibur.Cross.Providers;
 using MvvmCross.IoC;
 
 namespace Excalibur.Providers.LiteDb

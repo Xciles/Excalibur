@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
+using Excalibur.Cross.Providers;
+using Excalibur.Cross.Storage;
 using Newtonsoft.Json;
 
 namespace Excalibur.Providers.FileStorage

@@ -8,7 +8,8 @@
     <AssemblyName>Excalibur.Providers.FileStorage</AssemblyName>
     <RootNamespace>Excalibur.Providers.FileStorage</RootNamespace>
     <PackageId>Excalibur.Providers.FileStorage</PackageId>
-    <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
+    <Description>
+      Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
 
       This is provider that uses file-storage as storage/database.
     </Description>
@@ -21,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
+    <ProjectReference Include="..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
   </ItemGroup>
 
 </Project>

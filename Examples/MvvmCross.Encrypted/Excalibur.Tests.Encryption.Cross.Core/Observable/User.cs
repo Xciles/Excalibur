@@ -1,5 +1,4 @@
-﻿using Excalibur.Base.Observable;
-using Excalibur.Cross.Observable;
+﻿using Excalibur.Cross.Observable;
 
 namespace Excalibur.Tests.Encrypted.Cross.Core.Observable
 {

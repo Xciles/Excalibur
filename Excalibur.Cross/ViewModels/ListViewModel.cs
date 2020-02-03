@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Excalibur.Base.Observable;
 using Excalibur.Cross.Collections;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Presentation;

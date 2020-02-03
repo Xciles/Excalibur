@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Excalibur.Base.Providers
+namespace Excalibur.Cross.Providers
 {
     /// <summary>
     /// A database provider that provides a general data storage interface. 

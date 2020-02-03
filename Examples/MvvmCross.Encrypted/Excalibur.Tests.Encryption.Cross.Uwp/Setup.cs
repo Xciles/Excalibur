@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Excalibur.Base.Storage;
 using Excalibur.MvvmCross.Plugin.ProtectedStore;
 using Excalibur.MvvmCross.Plugin.ProtectedStore.Platforms.Uap;
 using Excalibur.MvvmCross.Plugin.RootChecker;

@@ -195,10 +195,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Excalibur.Base\Excalibur.Base.csproj">
-      <Project>{c78329b8-8ba1-47fc-aff8-d21793ba3b4d}</Project>
-      <Name>Excalibur.Base</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Excalibur.Cross\Excalibur.Cross.csproj">
       <Project>{8cd6a3a6-b0f4-442d-b8b3-6a29edc5bc8e}</Project>
       <Name>Excalibur.Cross</Name>

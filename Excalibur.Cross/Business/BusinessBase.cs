@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Excalibur.Base.Providers;
+using Excalibur.Cross.Providers;
 using Excalibur.Cross.Utils;
 using PubSub;
 

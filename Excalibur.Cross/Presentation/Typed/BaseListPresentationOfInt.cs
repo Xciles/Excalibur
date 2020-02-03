@@ -1,7 +1,7 @@
-using Excalibur.Base.Providers;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
+using Excalibur.Cross.Providers;
 using MvvmCross.Base;
 
 // ReSharper disable once CheckNamespace

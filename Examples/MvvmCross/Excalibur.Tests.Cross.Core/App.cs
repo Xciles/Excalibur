@@ -1,12 +1,11 @@
 using Excalibur.Tests.Cross.Core.Services;
 using System.Collections.Generic;
 using System.Reflection;
-using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
 using Excalibur.Cross.Business;
 using Excalibur.Cross.Language;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Presentation;
+using Excalibur.Cross.Providers;
 using Excalibur.Cross.Services;
 using Excalibur.Providers.FileStorage;
 using Excalibur.Providers.LiteDb;

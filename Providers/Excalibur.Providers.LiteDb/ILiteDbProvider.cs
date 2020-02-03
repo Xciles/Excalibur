@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Excalibur.Base.Providers;
+using Excalibur.Cross.Providers;
 
 namespace Excalibur.Providers.LiteDb
 {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Excalibur.Base.Configuration
+namespace Excalibur.Cross.Configuration
 {
     /// <summary>
     /// ConfigurationManager that will manage the Configuration. 

@@ -1,5 +1,5 @@
-﻿using Excalibur.Base.Configuration;
-using Excalibur.Base.Storage;
+﻿using Excalibur.Cross.Configuration;
+using Excalibur.Cross.Storage;
 using Excalibur.MvvmCross.Plugin.ProtectedStore;
 using Excalibur.Providers.Encryption;
 using Excalibur.Providers.FileStorage;

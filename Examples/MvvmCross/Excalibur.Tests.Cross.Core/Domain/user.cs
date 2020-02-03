@@ -1,5 +1,4 @@
-﻿using Excalibur.Base.Providers;
-using Excalibur.Base.Storage;
+﻿using Excalibur.Cross.Providers;
 
 namespace Excalibur.Tests.Cross.Core.Domain
 {

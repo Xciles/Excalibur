@@ -1,8 +1,7 @@
 ﻿using System;
-using Excalibur.Base.Observable;
-using Excalibur.Base.Providers;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
+using Excalibur.Cross.Providers;
 using Excalibur.Cross.Utils;
 using PubSub;
 

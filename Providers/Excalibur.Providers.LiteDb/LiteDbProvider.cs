@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Excalibur.Base.Providers;
+using Excalibur.Cross.Providers;
 using LiteDB;
 
 namespace Excalibur.Providers.LiteDb

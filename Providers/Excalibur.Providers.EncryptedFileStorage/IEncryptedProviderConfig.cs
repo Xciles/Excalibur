@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Base.Providers;
+using Excalibur.Cross.Providers;
 
 namespace Excalibur.Providers.EncryptedFileStorage
 {

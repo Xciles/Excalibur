@@ -1,5 +1,5 @@
 ﻿using System;
-using Excalibur.Base.Providers;
+using Excalibur.Cross.Providers;
 using LiteDB;
 
 namespace Excalibur.Providers.LiteDb

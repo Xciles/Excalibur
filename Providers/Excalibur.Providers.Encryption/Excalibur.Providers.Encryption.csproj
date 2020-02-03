@@ -8,7 +8,8 @@
     <AssemblyName>Excalibur.Providers.Encryption</AssemblyName>
     <RootNamespace>Excalibur.Providers.Encryption</RootNamespace>
     <PackageId>Excalibur.Providers.Encryption</PackageId>
-    <Description>Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
+    <Description>
+      Excalibur tries to bring structure for developers that are using MvvmCross and Xamarin to develop their mobile applications.
 
       This is provider that provides Encryption!
     </Description>
@@ -22,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
+    <ProjectReference Include="..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
   </ItemGroup>
 
 </Project>

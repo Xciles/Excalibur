@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Base.Providers
+﻿namespace Excalibur.Cross.Providers
 {
     /// <summary>
     /// Interface for providing a way to configure different providers

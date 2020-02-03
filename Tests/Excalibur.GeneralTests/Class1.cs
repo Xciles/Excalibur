@@ -1,8 +1,8 @@
 ﻿using System;
-using Excalibur.Base.Observable;
-using Excalibur.Base.Providers;
 using Excalibur.Cross.Extensions;
 using Excalibur.Cross.ObjectConverter;
+using Excalibur.Cross.Observable;
+using Excalibur.Cross.Providers;
 using MvvmCross.IoC;
 
 namespace Excalibur.GeneralTests

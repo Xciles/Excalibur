@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Excalibur.Base\Excalibur.Base.csproj" />
     <ProjectReference Include="..\..\Excalibur.Cross\Excalibur.Cross.csproj" />
     <ProjectReference Include="..\..\Providers\Excalibur.Providers.FileStorage\Excalibur.Providers.FileStorage.csproj" />
     <ProjectReference Include="..\..\Providers\Excalibur.Providers.LiteDb\Excalibur.Providers.LiteDb.csproj" />

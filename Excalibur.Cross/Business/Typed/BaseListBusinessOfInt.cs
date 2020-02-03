@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Excalibur.Base.Providers;
+using Excalibur.Cross.Providers;
 using Excalibur.Cross.Services;
 
 // ReSharper disable once CheckNamespace

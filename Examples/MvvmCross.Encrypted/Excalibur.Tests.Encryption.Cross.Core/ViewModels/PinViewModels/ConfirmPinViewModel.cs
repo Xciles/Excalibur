@@ -1,4 +1,4 @@
-﻿using Excalibur.Base.Providers;
+﻿using Excalibur.Cross.Providers;
 using Excalibur.Cross.ViewModels;
 using Excalibur.Providers.EncryptedFileStorage;
 using Excalibur.Tests.Encrypted.Cross.Core.Business.Interfaces;

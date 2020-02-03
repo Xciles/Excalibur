@@ -1,8 +1,8 @@
-﻿using Excalibur.Base.Observable;
-using Excalibur.Base.Providers;
+﻿using Excalibur.Cross.Observable;
+using Excalibur.Cross.Providers;
 using MvvmCross.IoC;
 
-namespace Excalibur.Base.Registration
+namespace Excalibur.Cross.Registration
 {
     public abstract class BaseExcaliburIoCConfig
     {

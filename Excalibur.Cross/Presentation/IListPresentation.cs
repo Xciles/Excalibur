@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Base.Observable;
 using Excalibur.Cross.Collections;
 using Excalibur.Cross.Observable;
 

@@ -1,6 +1,6 @@
-﻿using Excalibur.Base.Providers;
-using Excalibur.Cross.ObjectConverter;
+﻿using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
+using Excalibur.Cross.Providers;
 
 // ReSharper disable once CheckNamespace
 namespace Excalibur.Cross.Presentation

@@ -1,4 +1,4 @@
-﻿using Excalibur.Base.State;
+﻿using Excalibur.Cross.State;
 
 namespace Excalibur.Tests.Encrypted.Cross.Core.State
 {

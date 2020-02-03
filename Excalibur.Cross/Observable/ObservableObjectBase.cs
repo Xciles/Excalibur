@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Excalibur.Base.Attributes;
+using Excalibur.Cross.Attributes;
 using MvvmCross.ViewModels;
 
-namespace Excalibur.Base.Observable
+namespace Excalibur.Cross.Observable
 {
     /// <summary>
     /// Base implementation for an object that needs to be an observable. This class implements <see cref="MvxNotifyPropertyChanged"/> and provides <see cref="SetProperty{T}"/> 

@@ -1,5 +1,5 @@
-﻿using Excalibur.Base.Configuration;
-using Excalibur.Base.Storage;
+﻿using Excalibur.Cross.Configuration;
+using Excalibur.Cross.Storage;
 using MvvmCross;
 using MvvmCross.Plugin;
 

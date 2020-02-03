@@ -1,4 +1,4 @@
-﻿namespace Excalibur.Base.Providers
+﻿namespace Excalibur.Cross.Providers
 {
     /// <summary>
     /// This class can be used for database objects used by projects. The class

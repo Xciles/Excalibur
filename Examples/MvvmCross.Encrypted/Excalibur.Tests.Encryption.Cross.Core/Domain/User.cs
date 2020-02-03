@@ -1,4 +1,4 @@
-﻿using Excalibur.Base.Providers;
+﻿using Excalibur.Cross.Providers;
 
 namespace Excalibur.Tests.Encrypted.Cross.Core.Domain
 {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Base.Providers;
 using Excalibur.Cross.Business;
+using Excalibur.Cross.Providers;
 using Excalibur.Cross.Services;
 using Excalibur.Tests.FormsCross.Core.Business.Interfaces;
 

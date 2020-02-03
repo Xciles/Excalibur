@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
-using Excalibur.Base.Configuration;
+using Excalibur.Cross.Configuration;
 
-namespace Excalibur.Base.State
+namespace Excalibur.Cross.State
 {
     /// <inheritdoc />
     /// <summary>
     /// Base class for managing state. 
-    /// This class will initialize a <see cref="P:Excalibur.Base.State.BaseState`1.ConfigurationManager" /> and will implement certain methods from <see cref="T:Excalibur.Base.State.IBaseState" /> to contain
+    /// This class will initialize a <see cref="P:Excalibur.Cross.State.BaseState`1.ConfigurationManager" /> and will implement certain methods from <see cref="T:Excalibur.Cross.State.IBaseState" /> to contain
     /// a default implementation.
     /// </summary>
     /// <typeparam name="TConfig">A config class that contains the configuration that contains persistable state</typeparam>
