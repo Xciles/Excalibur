@@ -89,6 +89,8 @@ namespace Excalibur.Cross.Registration
             return this;
         }
 
+        // todo introduce Interfaces for ordering
+
         public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultMappers()
         {
             RegisterMapper();
