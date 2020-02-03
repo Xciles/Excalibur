@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Excalibur.Cross.Extensions;
 using Excalibur.Cross.ObjectConverter;
 using Excalibur.Cross.Observable;
 using Excalibur.Cross.Providers;
+using Excalibur.Cross.Services;
 using MvvmCross.IoC;
 
 namespace Excalibur.GeneralTests
@@ -30,7 +32,8 @@ namespace Excalibur.GeneralTests
             ioc
                 .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
                 .WithDefaultMappers()
-                .WithDefaultService<DEntity>();
+                .WithDefaultService<CustomService>()
+                .WithService<ICustomService, CustomService>();
 
             ioc
                 .RegisterExcaliburSingleEntity<int, DEntity, OEntity>()
@@ -54,6 +57,11 @@ namespace Excalibur.GeneralTests
     public class DEntity : ProviderDomain<int> { }
     public class OEntity : ObservableBase<int> { }
     public class CustomMapper : BaseObjectMapper<DEntity, OEntity> { }
+    public interface ICustomService : IServiceBase<DEntity> { }
+    public class CustomService : ICustomService
+    {
+        public Task<DEntity> SyncData() => throw new NotImplementedException();
+    }
 
     public class Class1
     {

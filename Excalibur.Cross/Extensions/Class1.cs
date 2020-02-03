@@ -26,30 +26,6 @@ namespace Excalibur.Cross.Extensions
     
     public static class ExcaliburSingleConfigExtensions
     {
-        public static ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultMappers<TKey, TDomain, TObservable>(this ExcaliburSingleConfig<TKey, TDomain, TObservable> config)
-            where TDomain : ProviderDomain<TKey>, new()
-            where TObservable : ObservableBase<TKey>, new()
-        {
-            config.WithMapper(options =>
-            {
-                options.DefaultDomainMapper();
-                options.DefaultObservableMapper();
-            });
-
-            return config;
-        }
-
-        public static ExcaliburSingleConfig<TKey, TDomain, TObservable> WithMapper<TKey, TDomain, TObservable>(this ExcaliburSingleConfig<TKey, TDomain, TObservable> config, Action<MapperOptions<TKey, TDomain, TObservable>> options )
-            where TDomain : ProviderDomain<TKey>, new()
-            where TObservable : ObservableBase<TKey>, new()
-        {
-            var mapperOptions = new MapperOptions<TKey, TDomain, TObservable>(config);
-
-            options(mapperOptions);
-
-            return config;
-        }
-
         public static ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultService<TKey, TDomain, TObservable, TService>(this ExcaliburSingleConfig<TKey, TDomain, TObservable> config, TService a )
             where TDomain : ProviderDomain<TKey>, new()
             where TObservable : ObservableBase<TKey>, new()
