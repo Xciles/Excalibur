@@ -8,8 +8,6 @@ using MvvmCross.IoC;
 
 namespace Excalibur.Cross.Extensions
 {
-
-
     public static class ExcaliburListConfigExtensions
     {
         public static ExcaliburListConfig<TKey, TDomain, TObservable> WithDefaultMappers<TKey, TDomain, TObservable>(this ExcaliburListConfig<TKey, TDomain, TObservable> config)
@@ -156,7 +154,7 @@ namespace Excalibur.Cross.Extensions
         /// Register the chain of Entity, Service, Business and Presentation that Excalibur requires for a single entity
         /// </summary>
         /// <param name="ioCProvider"></param>
-        public static IFirst<TKey, TDomain, TObservable> RegisterExcaliburSingleEntity<TKey, TDomain, TObservable>(this IMvxIoCProvider ioCProvider)
+        public static IExcaliburConfig<TKey, TDomain, TObservable> RegisterExcaliburSingleEntity<TKey, TDomain, TObservable>(this IMvxIoCProvider ioCProvider)
             where TDomain : ProviderDomain<TKey>, new()
             where TObservable : ObservableBase<TKey>, new()
         {
