@@ -74,54 +74,92 @@ namespace Excalibur.Cross.Registration
         public ExcaliburListConfig(IMvxIoCProvider ioCProvider) : base(ioCProvider) { }
     }
 
-    public class ExcaliburSingleConfig<TKey, TDomain, TObservable> : BaseExcaliburIoCConfig<TKey, TDomain, TObservable>
+    public interface IFirst<TKey, TDomain, TObservable>
+        where TDomain : ProviderDomain<TKey>, new()
+        where TObservable : ObservableBase<TKey>, new()
+    {
+        IService<TKey, TDomain> WithDefault();
+        IBusiness<TKey, TDomain, TObservable> WithDefaultMappers();
+        IBusiness<TKey, TDomain, TObservable> WithMapper(Action<MapperOptions<TKey, TDomain, TObservable>> options);
+    }
+
+    public interface IService<TKey, TDomain>
+        where TDomain : ProviderDomain<TKey>, new()
+    {
+        void WithDefaultService<TService>()
+            where TService : class, IServiceBase<TDomain>;
+
+        void WithService<TInterface, TService>()
+            where TInterface : class, IServiceBase<TDomain>
+            where TService : class, IServiceBase<TDomain>, TInterface;
+    }
+
+    public interface IBusiness<TKey, TDomain, TObservable>
+        where TDomain : ProviderDomain<TKey>, new()
+        where TObservable : ObservableBase<TKey>, new()
+    {
+        IPresentation<TKey, TDomain, TObservable> WithBusiness<TInterface, TBusiness>()
+            where TInterface : class, ISingleBusiness<TDomain>
+            where TBusiness : BaseSingleBusiness<TKey, TDomain>, TInterface;
+        IPresentation<TKey, TDomain, TObservable> WithDefaultBusiness();
+    }
+
+
+    public interface IPresentation<TKey, TDomain, TObservable>
+        where TDomain : ProviderDomain<TKey>, new()
+        where TObservable : ObservableBase<TKey>, new()
+    {
+        IService<TKey, TDomain> WithPresentation<TInterface, TPresentation>()
+            where TInterface : class, ISinglePresentation<TKey, TObservable>
+            where TPresentation : BaseSinglePresentation<TKey, TDomain, TObservable>, TInterface;
+        IService<TKey, TDomain> WithDefaultPresentation();
+    }
+
+    public class ExcaliburSingleConfig<TKey, TDomain, TObservable> : BaseExcaliburIoCConfig<TKey, TDomain, TObservable>, IFirst<TKey, TDomain, TObservable>, IBusiness<TKey, TDomain, TObservable>, IPresentation<TKey, TDomain, TObservable>, IService<TKey, TDomain>
         where TDomain : ProviderDomain<TKey>, new()
         where TObservable : ObservableBase<TKey>, new()
     {
         public ExcaliburSingleConfig(IMvxIoCProvider ioCProvider) : base(ioCProvider) { }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefault()
+        public IService<TKey, TDomain> WithDefault()
         {
+            WithDefaultMappers();
             WithDefaultBusiness();
             WithDefaultPresentation();
-            WithDefaultMappers();
 
             return this;
         }
 
         // todo introduce Interfaces for ordering
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultMappers()
+        public IBusiness<TKey, TDomain, TObservable> WithDefaultMappers()
         {
             RegisterMapper();
 
             return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithMapper(Action<MapperOptions<TKey, TDomain, TObservable>> options)
+        public IBusiness<TKey, TDomain, TObservable> WithMapper(Action<MapperOptions<TKey, TDomain, TObservable>> options)
         {
             RegisterMapper(options);
 
             return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultService<TService>()
+        public void WithDefaultService<TService>()
             where TService : class, IServiceBase<TDomain>
         {
             IoCProvider.RegisterType<IServiceBase<TDomain>, TService>();
-
-            return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithService<TInterface, TService>()
+        public void WithService<TInterface, TService>()
             where TInterface : class, IServiceBase<TDomain>
             where TService : class, IServiceBase<TDomain>, TInterface
         {
             IoCProvider.RegisterType<TInterface, TService>();
-            return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithBusiness<TInterface, TBusiness>()
+        public IPresentation<TKey, TDomain, TObservable> WithBusiness<TInterface, TBusiness>()
             where TInterface : class, ISingleBusiness<TDomain>
             where TBusiness : BaseSingleBusiness<TKey, TDomain>, TInterface
         {
@@ -129,13 +167,13 @@ namespace Excalibur.Cross.Registration
             return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultBusiness()
+        public IPresentation<TKey, TDomain, TObservable> WithDefaultBusiness()
         {
             IoCProvider.RegisterType<ISingleBusiness<TDomain>, BaseSingleBusiness<TKey, TDomain>>();
             return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithPresentation<TInterface, TPresentation>()
+        public IService<TKey, TDomain> WithPresentation<TInterface, TPresentation>()
             where TInterface : class, ISinglePresentation<TKey, TObservable>
             where TPresentation : BaseSinglePresentation<TKey, TDomain, TObservable>, TInterface
         {
@@ -143,7 +181,7 @@ namespace Excalibur.Cross.Registration
             return this;
         }
 
-        public ExcaliburSingleConfig<TKey, TDomain, TObservable> WithDefaultPresentation()
+        public IService<TKey, TDomain> WithDefaultPresentation()
         {
             IoCProvider.ConstructAndRegisterSingleton<ISinglePresentation<TKey, TObservable>, BaseSinglePresentation<TKey, TDomain, TObservable>>();
             return this;
