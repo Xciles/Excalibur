@@ -43,7 +43,7 @@ namespace Excalibur.Providers.LiteDb
                     result += $"Password={Password};";
                 }
 
-                if (!string.IsNullOrWhiteSpace(Password))
+                if (!string.IsNullOrWhiteSpace(Options))
                 {
                     result += Options;
                 }
